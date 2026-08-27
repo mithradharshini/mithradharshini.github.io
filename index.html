@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mithra Dharshini R | Business, Marketing & Retail Portfolio</title>
+  <meta name="description" content="Portfolio of Mithra Dharshini R - BBA student passionate about Marketing, Retail Problem Solving, Digital Strategy, and Entrepreneurship.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              200: '#c7d2fe',
+              300: '#a5b4fc',
+              400: '#818cf8',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              800: '#3730a3',
+              900: '#312e81',
+              accent: '#8b5cf6',
+              glow: '#c084fc',
+            }
+          },
+          animation: {
+            'blob': 'blob 8s infinite',
+            'float': 'float 4s ease-in-out infinite',
+            'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+          },
+          keyframes: {
+            blob: {
+              '0%': { transform: 'translate(0px, 0px) scale(1)' },
+              '33%': { transform: 'translate(30px, -40px) scale(1.12)' },
+              '66%': { transform: 'translate(-20px, 25px) scale(0.92)' },
+              '100%': { transform: 'translate(0px, 0px) scale(1)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-8px)' },
+            },
+            pulseGlow: {
+              '0%, 100%': { opacity: '0.6', transform: 'scale(1)' },
+              '50%': { opacity: '0.9', transform: 'scale(1.05)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- AOS (Animate on Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- Typed.js -->
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+  <style>
+    /* Glassmorphism Classes */
+    .glass-card {
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(139, 92, 246, 0.18);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+    
+    .glass-card-hover {
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .glass-card-hover:hover {
+      background: rgba(30, 41, 59, 0.75);
+      border-color: rgba(168, 85, 247, 0.45);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -15px rgba(99, 102, 241, 0.3);
+    }
+
+    .glass-nav {
+      background: rgba(10, 15, 30, 0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(139, 92, 246, 0.15);
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #a5b4fc 0%, #818cf8 40%, #c084fc 80%, #f472b6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .gradient-border-btn {
+      position: relative;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      transition: all 0.3s ease;
+    }
+
+    .gradient-border-btn:hover {
+      box-shadow: 0 0 25px rgba(139, 92, 246, 0.5);
+      transform: translateY(-2px);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #090d16;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #3730a3;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #6366f1;
+    }
+  </style>
+</head>
+<body class="bg-[#070b14] text-slate-100 font-sans antialiased selection:bg-brand-500 selection:text-white min-h-screen relative overflow-x-hidden">
+
+  <!-- Ambient Glowing Gradient Blob Background -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
+    <div class="absolute -top-32 -left-20 w-96 h-96 bg-brand-600/25 rounded-full blur-[130px] animate-blob"></div>
+    <div class="absolute top-1/4 -right-20 w-[30rem] h-[30rem] bg-brand-accent/20 rounded-full blur-[150px] animate-blob" style="animation-delay: 2s;"></div>
+    <div class="absolute top-2/3 left-1/3 w-[26rem] h-[26rem] bg-indigo-500/15 rounded-full blur-[140px] animate-blob" style="animation-delay: 4s;"></div>
+    <div class="absolute -bottom-32 right-1/4 w-96 h-96 bg-pink-600/15 rounded-full blur-[130px] animate-blob" style="animation-delay: 6s;"></div>
+    <!-- Subtle Grid Overlay -->
+    <div class="absolute inset-0 bg-[radial-gradient(rgba(99,102,241,0.06)_1px,transparent_1px)] [background-size:24px_24px] opacity-70"></div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="sticky top-0 z-50 glass-nav transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-brand-accent flex items-center justify-center font-display font-bold text-white shadow-lg shadow-brand-500/30 group-hover:scale-105 transition-transform">
+          MD
+        </div>
+        <span class="font-display font-bold text-lg tracking-tight text-white group-hover:text-brand-300 transition-colors">
+          Mithra Dharshini
+        </span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 text-sm font-medium text-slate-300">
+        <a href="#about" class="px-3 py-2 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all">About</a>
+        <a href="#experience" class="px-3 py-2 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all">Experience</a>
+        <a href="#protosem" class="px-3 py-2 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all text-brand-300 font-semibold">ProtoSem</a>
+        <a href="#project" class="px-3 py-2 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all">Projects</a>
+        <a href="#leadership" class="px-3 py-2 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all">Leadership</a>
+        <a href="#skills" class="px-3 py-2 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all">Skills</a>
+        <a href="#contact" class="px-3 py-2 rounded-lg hover:text-white hover:bg-slate-800/60 transition-all">Contact</a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-3">
+        <a href="resume.html" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold rounded-xl bg-slate-800/80 hover:bg-slate-700/80 border border-brand-400/30 text-brand-200 hover:text-white transition-all shadow-sm">
+          <i data-lucide="file-text" class="w-4 h-4 text-brand-400"></i>
+          <span>ATS Resume</span>
+        </a>
+        <a href="#contact" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold rounded-xl gradient-border-btn text-white shadow-md">
+          <span>Let's Connect</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-28 py-12">
+
+    <!-- HERO SECTION (Option C: Glowing Gradient Blob Style) -->
+    <section id="hero" class="pt-8 pb-12 sm:py-16 flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
+      
+      <!-- Text Content -->
+      <div class="w-full lg:w-3/5 space-y-6 text-center lg:text-left" data-aos="fade-up" data-aos-duration="1000">
+        
+        <!-- Status Pill -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold bg-brand-950/70 border border-brand-500/30 text-brand-300 shadow-inner">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>Open to Marketing & Business Opportunities</span>
+        </div>
+
+        <!-- Name & Headline -->
+        <div class="space-y-3">
+          <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
+            Hi, I'm <br class="hidden sm:inline">
+            <span class="gradient-text">Mithra Dharshini R</span>
+          </h1>
+          <div class="text-xl sm:text-2xl font-medium text-slate-300 flex items-center justify-center lg:justify-start gap-2 h-9">
+            <span class="text-slate-400">I am an</span>
+            <span id="typed-text" class="text-brand-300 font-semibold border-b-2 border-brand-500/50 pb-0.5"></span>
+          </div>
+        </div>
+
+        <!-- Bio Paragraph -->
+        <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
+          Ambitious BBA student at <strong class="text-white">Kumaraguru College of Liberal Arts and Science</strong> with practical exposure in finance, production operations, and hands-on retail innovation. Driven to bridge business strategy with real-world impact.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+          <a href="#project" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl gradient-border-btn text-white font-semibold text-sm shadow-xl shadow-brand-500/25">
+            <i data-lucide="layout-grid" class="w-4 h-4"></i>
+            <span>View 20-Week Retail Project</span>
+          </a>
+          <a href="resume.html" target="_blank" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl glass-card hover:bg-slate-800/80 border border-slate-700 text-slate-200 hover:text-white font-semibold text-sm transition-all">
+            <i data-lucide="download" class="w-4 h-4 text-brand-400"></i>
+            <span>Print ATS Resume</span>
+          </a>
+        </div>
+
+        <!-- Quick Highlight Badges -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-6 border-t border-slate-800/70">
+          <div class="glass-card rounded-2xl p-3.5 text-center lg:text-left">
+            <div class="text-brand-400 font-display font-bold text-2xl">8.0/10</div>
+            <div class="text-xs text-slate-400 mt-0.5">BBA CGPA</div>
+          </div>
+          <div class="glass-card rounded-2xl p-3.5 text-center lg:text-left">
+            <div class="text-brand-400 font-display font-bold text-2xl">95%</div>
+            <div class="text-xs text-slate-400 mt-0.5">Higher Secondary</div>
+          </div>
+          <div class="glass-card rounded-2xl p-3.5 text-center lg:text-left col-span-2 sm:col-span-1">
+            <div class="text-brand-400 font-display font-bold text-2xl">MG Scholar</div>
+            <div class="text-xs text-slate-400 mt-0.5">Merit Awardee</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Avatar & Hero Visual Card -->
+      <div class="w-full lg:w-2/5 flex justify-center" data-aos="zoom-in" data-aos-duration="1000">
+        <div class="relative group">
+          
+          <!-- Outer Ambient Glow ring -->
+          <div class="absolute -inset-1.5 bg-gradient-to-r from-brand-600 via-purple-600 to-pink-600 rounded-3xl blur-xl opacity-60 group-hover:opacity-90 transition duration-1000 group-hover:duration-200 animate-pulse-glow"></div>
+          
+          <!-- Glass Card Container -->
+          <div class="relative glass-card rounded-3xl p-6 sm:p-8 flex flex-col items-center text-center space-y-5 max-w-sm">
+            
+            <!-- Avatar Image with Failsafe Fallback -->
+            <div class="relative">
+              <div class="w-40 h-40 rounded-2xl overflow-hidden border-2 border-brand-400/40 shadow-2xl p-1 bg-slate-950/80">
+                <img 
+                  id="user-avatar"
+                  src="profile.jpg" 
+                  alt="Mithra Dharshini R" 
+                  onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Mithra+Dharshini&background=6366f1&color=ffffff&size=256&bold=true&font-size=0.38';" 
+                  class="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105"
+                >
+              </div>
+              <div class="absolute -bottom-2 -right-2 bg-gradient-to-r from-brand-500 to-purple-600 p-2 rounded-xl text-white shadow-lg">
+                <i data-lucide="sparkles" class="w-4 h-4"></i>
+              </div>
+            </div>
+
+            <!-- Profile Info on Card -->
+            <div class="space-y-1">
+              <h3 class="font-display font-bold text-xl text-white">Mithra Dharshini R</h3>
+              <p class="text-xs text-brand-300 font-medium">BBA (2025–2028) • Coimbatore</p>
+            </div>
+
+            <!-- Quick Focus Pills -->
+            <div class="flex flex-wrap justify-center gap-1.5 text-[11px]">
+              <span class="px-2.5 py-1 rounded-lg bg-slate-800/80 border border-slate-700 text-slate-300">Retail Innovation</span>
+              <span class="px-2.5 py-1 rounded-lg bg-slate-800/80 border border-slate-700 text-slate-300">Digital Marketing</span>
+              <span class="px-2.5 py-1 rounded-lg bg-slate-800/80 border border-slate-700 text-slate-300">Operations</span>
+            </div>
+
+            <!-- Social Links -->
+            <div class="flex items-center gap-3 pt-2">
+              <a href="https://www.linkedin.com/in/mithra-dharshini-r-208159378" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-xl glass-card hover:text-brand-300 hover:border-brand-400/50 transition-all text-slate-300" title="LinkedIn Profile">
+                <i data-lucide="linkedin" class="w-4 h-4"></i>
+              </a>
+              <a href="https://github.com/mithradharshini" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-xl glass-card hover:text-brand-300 hover:border-brand-400/50 transition-all text-slate-300" title="GitHub Profile">
+                <i data-lucide="github" class="w-4 h-4"></i>
+              </a>
+              <a href="mailto:mithradharshini968.7@gmail.com" class="p-2.5 rounded-xl glass-card hover:text-brand-300 hover:border-brand-400/50 transition-all text-slate-300" title="Send Email">
+                <i data-lucide="mail" class="w-4 h-4"></i>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ABOUT & EDUCATION SECTION -->
+    <section id="about" class="space-y-10 scroll-mt-28" data-aos="fade-up">
+      <div class="text-center max-w-2xl mx-auto space-y-3">
+        <span class="text-xs font-bold uppercase tracking-widest text-brand-400">Background & Philosophy</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold">About & Academic Foundation</h2>
+        <p class="text-slate-400 text-sm sm:text-base">An ambitious mindset pairing strategic management theories with tangible business operations.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <!-- Summary Card (Spans 2 columns) -->
+        <div class="lg:col-span-2 glass-card glass-card-hover rounded-3xl p-6 sm:p-8 space-y-6">
+          <div class="flex items-center gap-3">
+            <div class="p-3 rounded-2xl bg-brand-900/50 text-brand-400 border border-brand-500/20">
+              <i data-lucide="compass" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <h3 class="font-display font-bold text-xl text-white">Professional Journey</h3>
+              <p class="text-xs text-slate-400">Entrepreneurial, adaptable & growth-focused</p>
+            </div>
+          </div>
+          <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
+            As a Bachelor of Business Administration (BBA) student at Kumaraguru College of Liberal Arts and Science, I combine classroom knowledge in marketing and business development with intensive real-world challenges. 
+          </p>
+          <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
+            My experience spans hands-on production and financial operations during an on-site printing industry internship, as well as an ongoing 20-week retail problem-solving initiative (PRICE PROTOSEM). Alongside academics, I take pride in organizing literary events, leading teams, and coordinating public-speaking platforms.
+          </p>
+
+          <!-- Core Competencies Pillars -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+            <div class="flex items-start gap-3 p-3.5 rounded-2xl bg-slate-900/60 border border-slate-800">
+              <i data-lucide="trending-up" class="w-5 h-5 text-brand-400 shrink-0 mt-0.5"></i>
+              <div>
+                <h4 class="text-sm font-semibold text-slate-200">Marketing & Retail Strategy</h4>
+                <p class="text-xs text-slate-400">Customer touchpoints & retail solutions</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3 p-3.5 rounded-2xl bg-slate-900/60 border border-slate-800">
+              <i data-lucide="pie-chart" class="w-5 h-5 text-brand-accent shrink-0 mt-0.5"></i>
+              <div>
+                <h4 class="text-sm font-semibold text-slate-200">Operations & Financial Flow</h4>
+                <p class="text-xs text-slate-400">Production lifecycle & resource budgeting</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3 p-3.5 rounded-2xl bg-slate-900/60 border border-slate-800">
+              <i data-lucide="users" class="w-5 h-5 text-pink-400 shrink-0 mt-0.5"></i>
+              <div>
+                <h4 class="text-sm font-semibold text-slate-200">Leadership & Coordination</h4>
+                <p class="text-xs text-slate-400">Event management & team collaboration</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3 p-3.5 rounded-2xl bg-slate-900/60 border border-slate-800">
+              <i data-lucide="lightbulb" class="w-5 h-5 text-amber-400 shrink-0 mt-0.5"></i>
+              <div>
+                <h4 class="text-sm font-semibold text-slate-200">Entrepreneurial Mindset</h4>
+                <p class="text-xs text-slate-400">SPJIMR Startup Sprint alumnus</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education Card (1 column) -->
+        <div class="glass-card glass-card-hover rounded-3xl p-6 sm:p-8 space-y-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-5">
+              <div class="p-3 rounded-2xl bg-purple-900/50 text-purple-400 border border-purple-500/20">
+                <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <h3 class="font-display font-bold text-lg text-white">Education</h3>
+                <p class="text-xs text-slate-400">Academic Milestones</p>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <!-- College -->
+              <div class="border-l-2 border-brand-500 pl-4 space-y-1">
+                <span class="text-xs font-semibold text-brand-300">2025 – 2028 (Expected)</span>
+                <h4 class="text-sm font-bold text-white">Bachelor of Business Administration (BBA)</h4>
+                <p class="text-xs text-slate-400">Kumaraguru College of Liberal Arts and Science, Coimbatore</p>
+                <div class="inline-block mt-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-brand-900/60 text-brand-300 border border-brand-500/30">
+                  CGPA: 8.0 / 10
+                </div>
+              </div>
+
+              <!-- Higher Secondary -->
+              <div class="border-l-2 border-slate-700 pl-4 space-y-1">
+                <span class="text-xs text-slate-400">Higher Secondary Examination</span>
+                <h4 class="text-sm font-semibold text-slate-200">State Board Certification</h4>
+                <p class="text-xs text-brand-300 font-semibold">Score: 95%</p>
+              </div>
+
+              <!-- Secondary -->
+              <div class="border-l-2 border-slate-700 pl-4 space-y-1">
+                <span class="text-xs text-slate-400">Secondary Examination</span>
+                <p class="text-xs text-brand-300 font-semibold">Score: 90%</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Award Badge -->
+          <div class="p-3.5 rounded-2xl bg-gradient-to-r from-amber-500/10 to-brand-500/10 border border-amber-500/30 flex items-center gap-3">
+            <i data-lucide="award" class="w-6 h-6 text-amber-400 shrink-0"></i>
+            <div>
+              <div class="text-xs font-bold text-amber-300">Mahatma Gandhi Scholarship</div>
+              <div class="text-[11px] text-slate-400">Awarded for Academic Excellence in Sem 1</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- EXPERIENCE SECTION -->
+    <section id="experience" class="space-y-10 scroll-mt-28" data-aos="fade-up">
+      <div class="text-center max-w-2xl mx-auto space-y-3">
+        <span class="text-xs font-bold uppercase tracking-widest text-brand-400">Real-World Exposure</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold">Practical Internship Experience</h2>
+        <p class="text-slate-400 text-sm sm:text-base">Gaining invaluable boots-on-the-ground operational insight inside commercial business.</p>
+      </div>
+
+      <div class="glass-card glass-card-hover rounded-3xl p-6 sm:p-8 space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-6">
+          <div class="flex items-center gap-4">
+            <div class="p-3.5 rounded-2xl bg-brand-900/60 text-brand-400 border border-brand-500/30 shadow-inner">
+              <i data-lucide="briefcase" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <h3 class="font-display font-bold text-xl text-white">Business & Operations Intern</h3>
+              <p class="text-sm text-brand-300 font-medium">Gupta Printers • Printing & Packaging Industry</p>
+            </div>
+          </div>
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-800 border border-slate-700 text-slate-300 self-start sm:self-auto">
+            <i data-lucide="calendar" class="w-3.5 h-3.5 text-brand-400"></i>
+            <span>21-Day Intensive Program</span>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <h4 class="text-sm font-bold uppercase tracking-wider text-slate-300">Key Contributions & Learnings:</h4>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="flex items-start gap-3 p-4 rounded-2xl bg-slate-900/50 border border-slate-800">
+              <i data-lucide="layers" class="w-5 h-5 text-brand-400 shrink-0 mt-0.5"></i>
+              <div class="text-sm text-slate-300">
+                <strong class="text-white block font-medium">End-to-End Production Process</strong>
+                Learned and analyzed critical industrial stages including printing, high-precision cutting, and structural packaging pasting.
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 p-4 rounded-2xl bg-slate-900/50 border border-slate-800">
+              <i data-lucide="bar-chart-3" class="w-5 h-5 text-brand-accent shrink-0 mt-0.5"></i>
+              <div class="text-sm text-slate-300">
+                <strong class="text-white block font-medium">Financial & Business Flow Observation</strong>
+                Observed daily cash flow, material procurement cost estimations, and invoicing cycles within the packaging business.
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 p-4 rounded-2xl bg-slate-900/50 border border-slate-800">
+              <i data-lucide="git-merge" class="w-5 h-5 text-pink-400 shrink-0 mt-0.5"></i>
+              <div class="text-sm text-slate-300">
+                <strong class="text-white block font-medium">Supply Chain & Quality Control</strong>
+                Studied how different stages of production interconnect to ensure high output quality and minimize material wastage.
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 p-4 rounded-2xl bg-slate-900/50 border border-slate-800">
+              <i data-lucide="file-check" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
+              <div class="text-sm text-slate-300">
+                <strong class="text-white block font-medium">Documentation & Analytical Reporting</strong>
+                Prepared comprehensive analytical reports detailing key operational learnings, workflow observations, and efficiency recommendations.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROTOSEM SECTION (20-Week Industry-Integrated Innovation Programme) -->
+    <section id="protosem" class="space-y-12 scroll-mt-28" data-aos="fade-up">
+      
+      <!-- Section Intro & Header -->
+      <div class="glass-card rounded-3xl p-6 sm:p-10 space-y-8 relative overflow-hidden border border-brand-500/30">
+        <!-- Ambient Decorative Glow -->
+        <div class="absolute -right-24 -top-24 w-80 h-80 bg-brand-600/25 rounded-full blur-[110px] pointer-events-none"></div>
+
+        <div class="space-y-5 relative z-10">
+          
+          <!-- Section Label & Programme Descriptor -->
+          <div class="flex flex-wrap items-center gap-3">
+            <span class="px-3.5 py-1 rounded-full text-xs font-extrabold uppercase tracking-widest bg-brand-950/80 text-brand-300 border border-brand-500/40">
+              PROTOSEM
+            </span>
+            <span class="text-xs font-semibold text-slate-400">
+              20-Week Industry-Integrated Innovation Programme
+            </span>
+          </div>
+
+          <!-- Main Heading & Role Title -->
+          <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 border-b border-slate-800/80 pb-6">
+            <div>
+              <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">
+                PRICE ProtoSem
+              </h2>
+              <p class="text-base sm:text-lg text-brand-300 font-semibold mt-1">
+                Role: <span class="text-white font-bold">Innovation Engineer Trainee</span>
+              </p>
+            </div>
+
+            <!-- Subtle Programme Progress Indicator -->
+            <div class="glass-card rounded-2xl px-4 py-2.5 border border-slate-700/80 self-start lg:self-auto">
+              <div class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-1 flex items-center justify-between">
+                <span>Programme Progression</span>
+                <span class="text-brand-300 font-mono">20 Weeks • 4 Phases</span>
+              </div>
+              <div class="flex items-center gap-1.5 font-mono text-xs text-brand-400 font-bold">
+                <span class="px-2 py-0.5 rounded bg-brand-900/60 border border-brand-500/30">01</span>
+                <span class="text-slate-600 text-xs">━━</span>
+                <span class="px-2 py-0.5 rounded bg-slate-800/80 text-slate-300 border border-slate-700">05</span>
+                <span class="text-slate-600 text-xs">━━</span>
+                <span class="px-2 py-0.5 rounded bg-slate-800/80 text-slate-300 border border-slate-700">10</span>
+                <span class="text-slate-600 text-xs">━━</span>
+                <span class="px-2 py-0.5 rounded bg-slate-800/80 text-slate-300 border border-slate-700">15</span>
+                <span class="text-slate-600 text-xs">━━</span>
+                <span class="px-2 py-0.5 rounded bg-slate-800/80 text-slate-300 border border-slate-700">20</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Description -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm sm:text-base text-slate-300 leading-relaxed pt-1">
+            <p>
+              Selected for a 20-week industry-integrated innovation programme focused on solving real-world retail and commerce challenges through AI, analytics, intelligent systems, IoT, prototyping, and entrepreneurship.
+            </p>
+            <p>
+              Working with industry problem statements to explore, develop, and validate practical technology solutions beyond conventional classroom learning.
+            </p>
+          </div>
+
+          <!-- Domain & Focus Disciplines -->
+          <div class="space-y-3 pt-4 border-t border-slate-800/80">
+            <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Programme Disciplines & Focus Areas</span>
+            <div class="flex flex-wrap gap-2.5">
+              <div class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-900/80 border border-brand-500/30 text-slate-200 text-xs sm:text-sm font-medium">
+                <i data-lucide="store" class="w-4 h-4 text-brand-400"></i>
+                <span>Phygital Retail & Intelligent Commerce</span>
+              </div>
+              <div class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-900/80 border border-purple-500/30 text-slate-200 text-xs sm:text-sm font-medium">
+                <i data-lucide="brain-circuit" class="w-4 h-4 text-purple-400"></i>
+                <span>AI & Analytics</span>
+              </div>
+              <div class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-900/80 border border-pink-500/30 text-slate-200 text-xs sm:text-sm font-medium">
+                <i data-lucide="cpu" class="w-4 h-4 text-pink-400"></i>
+                <span>Intelligent Systems & IoT</span>
+              </div>
+              <div class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-900/80 border border-amber-500/30 text-slate-200 text-xs sm:text-sm font-medium">
+                <i data-lucide="box" class="w-4 h-4 text-amber-400"></i>
+                <span>Prototyping</span>
+              </div>
+              <div class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-900/80 border border-emerald-500/30 text-slate-200 text-xs sm:text-sm font-medium">
+                <i data-lucide="rocket" class="w-4 h-4 text-emerald-400"></i>
+                <span>Entrepreneurship</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 20-Week Journey Interactive System -->
+      <div class="space-y-6">
+        
+        <!-- Header & Phase Navigation Tabs -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div class="space-y-1">
+            <h3 class="font-display font-bold text-2xl text-white flex items-center gap-2.5">
+              <i data-lucide="calendar-range" class="w-6 h-6 text-brand-400"></i>
+              <span>The 20-Week Experience Archive</span>
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-400">
+              Explore the 4 phases and individual weekly innovation logs across the 20-week trajectory.
+            </p>
+          </div>
+
+          <!-- Phase Navigation Buttons -->
+          <div class="inline-flex p-1 rounded-2xl bg-slate-900/90 border border-slate-800 text-xs font-semibold overflow-x-auto max-w-full" role="tablist" aria-label="ProtoSem Phase Filter">
+            <button onclick="filterProtoSemPhase('all', this)" class="protosem-phase-btn active px-3.5 py-2 rounded-xl text-white bg-brand-600 transition-all whitespace-nowrap" role="tab" aria-selected="true">
+              All (20 Weeks)
+            </button>
+            <button onclick="filterProtoSemPhase('1', this)" class="protosem-phase-btn px-3.5 py-2 rounded-xl text-slate-400 hover:text-white transition-all whitespace-nowrap" role="tab" aria-selected="false">
+              Phase 01 (W1–5)
+            </button>
+            <button onclick="filterProtoSemPhase('2', this)" class="protosem-phase-btn px-3.5 py-2 rounded-xl text-slate-400 hover:text-white transition-all whitespace-nowrap" role="tab" aria-selected="false">
+              Phase 02 (W6–10)
+            </button>
+            <button onclick="filterProtoSemPhase('3', this)" class="protosem-phase-btn px-3.5 py-2 rounded-xl text-slate-400 hover:text-white transition-all whitespace-nowrap" role="tab" aria-selected="false">
+              Phase 03 (W11–15)
+            </button>
+            <button onclick="filterProtoSemPhase('4', this)" class="protosem-phase-btn px-3.5 py-2 rounded-xl text-slate-400 hover:text-white transition-all whitespace-nowrap" role="tab" aria-selected="false">
+              Phase 04 (W16–20)
+            </button>
+          </div>
+        </div>
+
+        <!-- 20-Week Dynamic Card Progression Container -->
+        <div id="protosem-cards-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 sm:gap-4 gap-3.5">
+          <!-- Populated dynamically via data-driven structure for future blog readiness -->
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- Modal for Week Card Placeholder Preview -->
+    <div id="protosem-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden items-center justify-center p-4 transition-opacity" aria-hidden="true">
+      <div class="glass-card rounded-3xl p-6 sm:p-8 max-w-md w-full space-y-5 border border-brand-500/40 relative shadow-2xl animate-float">
+        <button onclick="closeProtoSemModal()" class="absolute top-4 right-4 p-2 rounded-full text-slate-400 hover:text-white bg-slate-800/60 hover:bg-slate-700 transition-colors" aria-label="Close dialog">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+        <div class="w-12 h-12 rounded-2xl bg-brand-900/60 text-brand-400 border border-brand-500/30 flex items-center justify-center">
+          <i data-lucide="book-open" class="w-6 h-6"></i>
+        </div>
+        <div class="space-y-2">
+          <span id="modal-phase-label" class="text-xs font-bold uppercase tracking-wider text-brand-300">Phase 01</span>
+          <h3 id="modal-week-title" class="font-display text-2xl font-bold text-white">WEEK 01</h3>
+          <p class="text-xs font-semibold text-brand-400 uppercase tracking-widest">Field Notes in Progress</p>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-slate-800 pt-4">
+          This chapter of the 20-week PRICE ProtoSem innovation log is being documented. Future stories, prototyping milestones, and detailed field notes will appear here once published.
+        </p>
+        <div class="flex justify-end pt-2">
+          <button onclick="closeProtoSemModal()" class="px-5 py-2.5 rounded-xl gradient-border-btn text-white text-xs font-bold shadow-md">
+            Got it
+          </button>
+        </div>
+      </div>
+    </div>
+    <section id="project" class="space-y-10 scroll-mt-28" data-aos="fade-up">
+      <div class="text-center max-w-2xl mx-auto space-y-3">
+        <span class="text-xs font-bold uppercase tracking-widest text-brand-400">Featured Innovation</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold">Retail Problem-Solving Project</h2>
+        <p class="text-slate-400 text-sm sm:text-base">An intensive project-based learning initiative tackling real challenges in the modern retail sector.</p>
+      </div>
+
+      <div class="relative glass-card glass-card-hover rounded-3xl p-6 sm:p-10 overflow-hidden">
+        
+        <!-- Decorative Glow -->
+        <div class="absolute -right-20 -top-20 w-80 h-80 bg-brand-500/20 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="space-y-8 relative z-10">
+          
+          <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+            <div class="space-y-2">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg text-xs font-bold bg-brand-900/80 text-brand-300 border border-brand-500/30">
+                <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+                <span>20-Week Ongoing Industry Project</span>
+              </div>
+              <h3 class="font-display font-bold text-2xl sm:text-3xl text-white">PRICE PROTOSEM</h3>
+              <p class="text-base text-brand-200 font-medium">Retail Sector Problem-Solving & Business Innovation</p>
+            </div>
+            
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 rounded-xl text-xs font-semibold bg-slate-800/90 text-slate-300 border border-slate-700">Retail Analytics</span>
+              <span class="px-3 py-1 rounded-xl text-xs font-semibold bg-slate-800/90 text-slate-300 border border-slate-700">Consumer Insights</span>
+              <span class="px-3 py-1 rounded-xl text-xs font-semibold bg-slate-800/90 text-slate-300 border border-slate-700">Problem Framing</span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-2">
+              <div class="w-8 h-8 rounded-lg bg-indigo-900/60 text-indigo-400 flex items-center justify-center font-bold text-sm">
+                01
+              </div>
+              <h4 class="text-sm font-bold text-white">Industry Problem Identification</h4>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                Analyzing friction points in retail customer experience, inventory dynamics, and merchant pain points through systematic field research.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-2">
+              <div class="w-8 h-8 rounded-lg bg-purple-900/60 text-purple-400 flex items-center justify-center font-bold text-sm">
+                02
+              </div>
+              <h4 class="text-sm font-bold text-white">Solution Conceptualization</h4>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                Applying fundamental business and marketing models to build scalable, customer-centric solutions for modern retail storefronts.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-2">
+              <div class="w-8 h-8 rounded-lg bg-pink-900/60 text-pink-400 flex items-center justify-center font-bold text-sm">
+                03
+              </div>
+              <h4 class="text-sm font-bold text-white">Entrepreneurial Validation</h4>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                Iterating in a fast-paced, project-based incubation ecosystem designed to test real-world viability and commercial value.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- LEADERSHIP & EXTRACURRICULAR SECTION -->
+    <section id="leadership" class="space-y-10 scroll-mt-28" data-aos="fade-up">
+      <div class="text-center max-w-2xl mx-auto space-y-3">
+        <span class="text-xs font-bold uppercase tracking-widest text-brand-400">Campus Impact & Influence</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold">Leadership & Club Activities</h2>
+        <p class="text-slate-400 text-sm sm:text-base">Cultivating leadership, event management, and team communication skills through active community initiatives.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Role 1: Joint Secretary -->
+        <div class="glass-card glass-card-hover rounded-3xl p-6 space-y-4">
+          <div class="p-3.5 rounded-2xl bg-brand-900/60 text-brand-400 border border-brand-500/30 w-fit">
+            <i data-lucide="shield-check" class="w-6 h-6"></i>
+          </div>
+          <div class="space-y-1">
+            <span class="text-xs font-semibold text-brand-300">Sahitya Literature Club</span>
+            <h3 class="font-display font-bold text-lg text-white">Joint Secretary</h3>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Contribute actively to the strategic planning, administration, and execution of college-wide literary activities and student creative initiatives.
+          </p>
+        </div>
+
+        <!-- Role 2: Event Coordinator -->
+        <div class="glass-card glass-card-hover rounded-3xl p-6 space-y-4">
+          <div class="p-3.5 rounded-2xl bg-purple-900/60 text-purple-400 border border-purple-500/30 w-fit">
+            <i data-lucide="mic" class="w-6 h-6"></i>
+          </div>
+          <div class="space-y-1">
+            <span class="text-xs font-semibold text-purple-300">PODIUM • Public Speaking Event</span>
+            <h3 class="font-display font-bold text-lg text-white">Event Coordinator</h3>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Led end-to-end logistics, schedule management, and participant communication for PODIUM, enabling seamless execution of public-speaking showcases.
+          </p>
+        </div>
+
+        <!-- Role 3: Judging Panel -->
+        <div class="glass-card glass-card-hover rounded-3xl p-6 space-y-4">
+          <div class="p-3.5 rounded-2xl bg-pink-900/60 text-pink-400 border border-pink-500/30 w-fit">
+            <i data-lucide="award" class="w-6 h-6"></i>
+          </div>
+          <div class="space-y-1">
+            <span class="text-xs font-semibold text-pink-300">INKSPIRE • Creative Contest</span>
+            <h3 class="font-display font-bold text-lg text-white">Judging Panel Member</h3>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Served on the official evaluation panel, assessing participant submissions against structured criteria, quality standards, and creative originality.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Startup Sprint Banner -->
+      <div class="glass-card rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 border border-brand-500/30">
+        <div class="flex items-center gap-4">
+          <div class="p-4 rounded-2xl bg-amber-500/20 text-amber-400 border border-amber-500/30 shrink-0">
+            <i data-lucide="rocket" class="w-7 h-7"></i>
+          </div>
+          <div class="space-y-1">
+            <div class="text-xs font-bold uppercase text-amber-400 tracking-wider">Executive Certification Program</div>
+            <h3 class="font-display font-bold text-xl text-white">Startup Sprint — SPJIMR</h3>
+            <p class="text-xs sm:text-sm text-slate-300">Completed an intensive 5-day specialized immersion on Startups and Family Business Dynamics.</p>
+          </div>
+        </div>
+        <div class="shrink-0">
+          <span class="px-4 py-2 rounded-xl text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">
+            SPJIMR Certified
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS & COMPETENCIES SECTION -->
+    <section id="skills" class="space-y-10 scroll-mt-28" data-aos="fade-up">
+      <div class="text-center max-w-2xl mx-auto space-y-3">
+        <span class="text-xs font-bold uppercase tracking-widest text-brand-400">Toolkit & Expertise</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold">Skills & Core Domains</h2>
+        <p class="text-slate-400 text-sm sm:text-base">A balanced blend of analytical business acumen, productivity tools, and marketing passion.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Business & Management Skills -->
+        <div class="glass-card glass-card-hover rounded-3xl p-6 space-y-5">
+          <div class="flex items-center gap-3">
+            <div class="p-3 rounded-2xl bg-brand-900/60 text-brand-400 border border-brand-500/30">
+              <i data-lucide="target" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-display font-bold text-base text-white">Business Competencies</h3>
+          </div>
+          <ul class="space-y-3">
+            <li class="flex items-center justify-between text-sm p-3 rounded-xl bg-slate-900/60 border border-slate-800">
+              <span class="text-slate-300">Strategic Planning</span>
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-400"></i>
+            </li>
+            <li class="flex items-center justify-between text-sm p-3 rounded-xl bg-slate-900/60 border border-slate-800">
+              <span class="text-slate-300">Organizational Management</span>
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-400"></i>
+            </li>
+            <li class="flex items-center justify-between text-sm p-3 rounded-xl bg-slate-900/60 border border-slate-800">
+              <span class="text-slate-300">Cross-Team Coordination</span>
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-400"></i>
+            </li>
+            <li class="flex items-center justify-between text-sm p-3 rounded-xl bg-slate-900/60 border border-slate-800">
+              <span class="text-slate-300">Analytical Problem Solving</span>
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-400"></i>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Technical & Productivity Tools -->
+        <div class="glass-card glass-card-hover rounded-3xl p-6 space-y-5">
+          <div class="flex items-center gap-3">
+            <div class="p-3 rounded-2xl bg-purple-900/60 text-purple-400 border border-purple-500/30">
+              <i data-lucide="cpu" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-display font-bold text-base text-white">Technical & Office Tools</h3>
+          </div>
+          <ul class="space-y-3">
+            <li class="flex items-center justify-between text-sm p-3 rounded-xl bg-slate-900/60 border border-slate-800">
+              <div class="flex items-center gap-2">
+                <i data-lucide="table" class="w-4 h-4 text-emerald-400"></i>
+                <span class="text-slate-300">Microsoft Excel</span>
+              </div>
+              <span class="text-xs text-brand-300 font-semibold">Formulas & Analysis</span>
+            </li>
+            <li class="flex items-center justify-between text-sm p-3 rounded-xl bg-slate-900/60 border border-slate-800">
+              <div class="flex items-center gap-2">
+                <i data-lucide="presentation" class="w-4 h-4 text-amber-400"></i>
+                <span class="text-slate-300">Microsoft PowerPoint</span>
+              </div>
+              <span class="text-xs text-brand-300 font-semibold">Pitch & Decks</span>
+            </li>
+            <li class="flex items-center justify-between text-sm p-3 rounded-xl bg-slate-900/60 border border-slate-800">
+              <div class="flex items-center gap-2">
+                <i data-lucide="file-edit" class="w-4 h-4 text-blue-400"></i>
+                <span class="text-slate-300">Microsoft Word</span>
+              </div>
+              <span class="text-xs text-brand-300 font-semibold">Reports & Documentation</span>
+            </li>
+            <li class="flex items-center justify-between text-sm p-3 rounded-xl bg-slate-900/60 border border-slate-800">
+              <div class="flex items-center gap-2">
+                <i data-lucide="share-2" class="w-4 h-4 text-pink-400"></i>
+                <span class="text-slate-300">Digital Collaboration</span>
+              </div>
+              <span class="text-xs text-brand-300 font-semibold">Productivity Suites</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Areas of Interest & Growth -->
+        <div class="glass-card glass-card-hover rounded-3xl p-6 space-y-5">
+          <div class="flex items-center gap-3">
+            <div class="p-3 rounded-2xl bg-pink-900/60 text-pink-400 border border-pink-500/30">
+              <i data-lucide="compass" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-display font-bold text-base text-white">Areas of Focus</h3>
+          </div>
+          <div class="flex flex-wrap gap-2 pt-1">
+            <span class="px-3 py-2 rounded-xl text-xs font-semibold bg-brand-900/50 text-brand-200 border border-brand-500/30">Marketing Management</span>
+            <span class="px-3 py-2 rounded-xl text-xs font-semibold bg-purple-900/50 text-purple-200 border border-purple-500/30">Retail Operations</span>
+            <span class="px-3 py-2 rounded-xl text-xs font-semibold bg-pink-900/50 text-pink-200 border border-pink-500/30">Digital Marketing</span>
+            <span class="px-3 py-2 rounded-xl text-xs font-semibold bg-indigo-900/50 text-indigo-200 border border-indigo-500/30">Entrepreneurship</span>
+            <span class="px-3 py-2 rounded-xl text-xs font-semibold bg-slate-800/80 text-slate-200 border border-slate-700">Business Development</span>
+            <span class="px-3 py-2 rounded-xl text-xs font-semibold bg-slate-800/80 text-slate-200 border border-slate-700">Consumer Psychology</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="space-y-10 scroll-mt-28" data-aos="fade-up">
+      <div class="relative glass-card rounded-3xl p-8 sm:p-12 overflow-hidden border border-brand-500/30">
+        
+        <!-- Ambient Background Glow -->
+        <div class="absolute -top-24 -left-24 w-96 h-96 bg-brand-600/30 rounded-full blur-[130px] pointer-events-none"></div>
+
+        <div class="max-w-3xl mx-auto text-center space-y-6 relative z-10">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold bg-brand-950/80 border border-brand-500/30 text-brand-300">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>Let's Discuss Projects & Opportunities</span>
+          </div>
+
+          <h2 class="font-display text-3xl sm:text-5xl font-bold tracking-tight">
+            Ready to Create Meaningful Value Together?
+          </h2>
+
+          <p class="text-slate-300 text-sm sm:text-base max-w-xl mx-auto">
+            Whether you have an internship opportunity, a retail collaboration, or just want to discuss business ideas, my inbox is always open.
+          </p>
+
+          <!-- Contact Channels Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
+            
+            <!-- Email -->
+            <a href="mailto:mithradharshini968.7@gmail.com" class="p-4 rounded-2xl glass-card hover:bg-slate-800/90 border border-slate-700/80 flex flex-col items-center space-y-2 group transition-all">
+              <div class="p-3 rounded-xl bg-brand-900/50 text-brand-400 group-hover:scale-110 transition-transform">
+                <i data-lucide="mail" class="w-5 h-5"></i>
+              </div>
+              <span class="text-xs font-semibold text-slate-400">Email Directly</span>
+              <span class="text-xs font-bold text-white truncate max-w-[200px]">mithradharshini968.7@gmail.com</span>
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/mithra-dharshini-r-208159378" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl glass-card hover:bg-slate-800/90 border border-slate-700/80 flex flex-col items-center space-y-2 group transition-all">
+              <div class="p-3 rounded-xl bg-purple-900/50 text-purple-400 group-hover:scale-110 transition-transform">
+                <i data-lucide="linkedin" class="w-5 h-5"></i>
+              </div>
+              <span class="text-xs font-semibold text-slate-400">Connect on LinkedIn</span>
+              <span class="text-xs font-bold text-white">Mithra Dharshini R</span>
+            </a>
+
+            <!-- Location / Phone -->
+            <div class="p-4 rounded-2xl glass-card border border-slate-700/80 flex flex-col items-center space-y-2">
+              <div class="p-3 rounded-xl bg-pink-900/50 text-pink-400">
+                <i data-lucide="map-pin" class="w-5 h-5"></i>
+              </div>
+              <span class="text-xs font-semibold text-slate-400">Location</span>
+              <span class="text-xs font-bold text-white">Coimbatore, Tamil Nadu</span>
+            </div>
+
+          </div>
+
+          <!-- Bottom Action -->
+          <div class="pt-6 flex flex-wrap justify-center gap-4">
+            <a href="mailto:mithradharshini968.7@gmail.com" class="px-8 py-3.5 rounded-xl gradient-border-btn text-white font-bold text-sm shadow-xl shadow-brand-500/30">
+              Send an Email
+            </a>
+            <a href="resume.html" target="_blank" class="px-8 py-3.5 rounded-xl glass-card hover:bg-slate-800 text-slate-200 hover:text-white font-semibold text-sm border border-slate-700 transition-all">
+              View Printable ATS Resume
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="relative z-10 border-t border-slate-800/80 py-8 text-center text-xs text-slate-500 space-y-3">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <div class="w-6 h-6 rounded-lg bg-brand-600 flex items-center justify-center font-bold text-white text-[10px]">
+          MD
+        </div>
+        <span class="font-medium text-slate-400">© 2026 Mithra Dharshini R. All rights reserved.</span>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="#hero" class="hover:text-brand-400 transition-colors">Back to top ↑</a>
+        <a href="#protosem" class="hover:text-brand-400 transition-colors">ProtoSem</a>
+        <a href="resume.html" target="_blank" class="hover:text-brand-400 transition-colors">ATS Resume</a>
+        <a href="https://github.com/mithradharshini" target="_blank" rel="noopener noreferrer" class="hover:text-brand-400 transition-colors">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize AOS (Animate on Scroll)
+    AOS.init({
+      once: true,
+      duration: 800,
+      offset: 60,
+      easing: 'ease-out-cubic',
+    });
+
+    // Initialize Typed.js for dynamic headline
+    new Typed('#typed-text', {
+      strings: [
+        'Aspiring Business Leader',
+        'Marketing & Retail Strategist',
+        'Digital Marketing Enthusiast',
+        'PRICE PROTOSEM Innovation Trainee',
+        'SPJIMR Startup Sprint Alumnus'
+      ],
+      typeSpeed: 45,
+      backSpeed: 30,
+      backDelay: 2000,
+      loop: true,
+      showCursor: true,
+      cursorChar: '|'
+    });
+
+    /* ========================================================
+       PROTOSEM 20-WEEK JOURNEY DATA ARCHITECTURE
+       Future-ready structure for individual weekly blogs/stories
+       ======================================================== */
+    const protoSemWeeks = [
+      // Phase 01: Weeks 01-05
+      { week: 1, phase: 1, slug: "week-01", status: "Coming Soon", secondary: "Field Notes in Progress" },
+      { week: 2, phase: 1, slug: "week-02", status: "Coming Soon", secondary: "Field Notes in Progress" },
+      { week: 3, phase: 1, slug: "week-03", status: "Coming Soon", secondary: "Field Notes in Progress" },
+      { week: 4, phase: 1, slug: "week-04", status: "Coming Soon", secondary: "Field Notes in Progress" },
+      { week: 5, phase: 1, slug: "week-05", status: "Coming Soon", secondary: "Field Notes in Progress" },
+      // Phase 02: Weeks 06-10
+      { week: 6, phase: 2, slug: "week-06", status: "Coming Soon", secondary: "Field Notes in Progress" },
+      { week: 7, phase: 2, slug: "week-07", status: "Coming Soon", secondary: "Field Notes in Progress" },
+      { week: 8, phase: 2, slug: "week-08", status: "Coming Soon", secondary: "Field Notes in Progress" },
+      { week: 9, phase: 2, slug: "week-09", status: "Coming Soon", secondary: "Field Notes in Progress" },
+      { week: 10, phase: 2, slug: "week-10", status: "Coming Soon", secondary: "Field Notes in Progress" },
+      // Phase 03: Weeks 11-15
+      { week: 11, phase: 3, slug: "week-11", status: "Coming Soon", secondary: "Field Notes in Progress" },
+      { week: 12, phase: 3, slug: "week-12", status: "Coming Soon", secondary: "Field Notes in Progress" },
+      { week: 13, phase: 3, slug: "week-13", status: "Coming Soon", secondary: "Field Notes in Progress" },
+      { week: 14, phase: 3, slug: "week-14", status: "Coming Soon", secondary: "Field Notes in Progress" },
+      { week: 15, phase: 3, slug: "week-15", status: "Coming Soon", secondary: "Field Notes in Progress" },
+      // Phase 04: Weeks 16-20
+      { week: 16, phase: 4, slug: "week-16", status: "Coming Soon", secondary: "Field Notes in Progress" },
+      { week: 17, phase: 4, slug: "week-17", status: "Coming Soon", secondary: "Field Notes in Progress" },
+      { week: 18, phase: 4, slug: "week-18", status: "Coming Soon", secondary: "Field Notes in Progress" },
+      { week: 19, phase: 4, slug: "week-19", status: "Coming Soon", secondary: "Field Notes in Progress" },
+      { week: 20, phase: 4, slug: "week-20", status: "Coming Soon", secondary: "Field Notes in Progress" }
+    ];
+
+    // Render ProtoSem Cards
+    function renderProtoSemCards(filterPhase = 'all') {
+      const grid = document.getElementById('protosem-cards-grid');
+      if (!grid) return;
+
+      const filtered = filterPhase === 'all' 
+        ? protoSemWeeks 
+        : protoSemWeeks.filter(w => String(w.phase) === String(filterPhase));
+
+      grid.innerHTML = filtered.map(item => {
+        const weekPadded = String(item.week).padStart(2, '0');
+        const phasePadded = String(item.phase).padStart(2, '0');
+        
+        return `
+          <div 
+            onclick="openProtoSemModal(${item.week}, ${item.phase})" 
+            onkeydown="if(event.key==='Enter'||event.key===' ') { event.preventDefault(); openProtoSemModal(${item.week}, ${item.phase}); }"
+            tabindex="0"
+            role="button"
+            aria-label="Week ${weekPadded} - Phase ${phasePadded} Field Notes"
+            class="group relative glass-card glass-card-hover rounded-2xl p-4 sm:p-5 flex flex-col justify-between cursor-pointer border border-brand-500/20 hover:border-brand-400/60 focus:outline-none focus:ring-2 focus:ring-brand-400 transition-all duration-300 min-h-[140px]"
+            data-week="${item.week}"
+            data-phase="${item.phase}"
+          >
+            <!-- Top Metadata -->
+            <div class="flex items-center justify-between gap-2">
+              <span class="px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider bg-brand-950/80 text-brand-300 border border-brand-500/30">
+                Phase ${phasePadded}
+              </span>
+              <div class="flex items-center gap-1 text-slate-500 group-hover:text-brand-300 transition-colors">
+                <i data-lucide="clock-3" class="w-3.5 h-3.5"></i>
+                <span class="text-[10px] font-mono font-medium">W.${weekPadded}</span>
+              </div>
+            </div>
+
+            <!-- Card Center: Week Number & Status -->
+            <div class="my-3 space-y-1">
+              <div class="font-display font-bold text-xl sm:text-2xl text-white group-hover:text-brand-200 transition-colors flex items-center justify-between">
+                <span>WEEK ${weekPadded}</span>
+                <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-600 group-hover:text-brand-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"></i>
+              </div>
+              <div class="text-[11px] font-semibold uppercase tracking-wider text-brand-400/90 flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-400 animate-pulse"></span>
+                <span>${item.secondary}</span>
+              </div>
+            </div>
+
+            <!-- Card Bottom: Timeline Node & Hover Note -->
+            <div class="border-t border-slate-800/80 pt-2 flex items-center justify-between text-[10px] text-slate-500 group-hover:text-slate-400 transition-colors">
+              <span>Chapter ${item.week} of 20</span>
+              <span class="group-hover:text-brand-300 font-medium transition-colors flex items-center gap-1">
+                <span>Future Story</span>
+                <span>→</span>
+              </span>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      // Re-initialize Lucide icons on newly rendered elements
+      lucide.createIcons();
+    }
+
+    // Filter by Phase
+    function filterProtoSemPhase(phase, btnElement) {
+      document.querySelectorAll('.protosem-phase-btn').forEach(btn => {
+        btn.classList.remove('bg-brand-600', 'text-white', 'active');
+        btn.classList.add('text-slate-400');
+        btn.setAttribute('aria-selected', 'false');
+      });
+
+      if (btnElement) {
+        btnElement.classList.add('bg-brand-600', 'text-white', 'active');
+        btnElement.classList.remove('text-slate-400');
+        btnElement.setAttribute('aria-selected', 'true');
+      }
+
+      renderProtoSemCards(phase);
+    }
+
+    // Modal Handlers
+    function openProtoSemModal(week, phase) {
+      const modal = document.getElementById('protosem-modal');
+      const weekPadded = String(week).padStart(2, '0');
+      const phasePadded = String(phase).padStart(2, '0');
+      
+      document.getElementById('modal-phase-label').innerText = `Phase ${phasePadded} • Programme Milestone`;
+      document.getElementById('modal-week-title').innerText = `WEEK ${weekPadded}`;
+      
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeProtoSemModal() {
+      const modal = document.getElementById('protosem-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // Close modal on click outside or Escape key
+    window.addEventListener('click', (e) => {
+      const modal = document.getElementById('protosem-modal');
+      if (e.target === modal) closeProtoSemModal();
+    });
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeProtoSemModal();
+    });
+
+    // Initial render of all 20 cards on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      renderProtoSemCards('all');
+    });
+    // Fallback immediate render
+    renderProtoSemCards('all');
+  </script>
+</body>
+</html>
