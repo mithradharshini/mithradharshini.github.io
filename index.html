@@ -3,19 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mithra Dharshini R — Portfolio & Editorial Archive</title>
-  <meta name="description" content="Portfolio & 20-Week Innovation Archive of Mithra Dharshini R — BBA Student, Marketing & Retail Strategist, and Innovation Engineer Trainee.">
+  <title>Mithra Dharshini R — Editorial Portfolio & Field Journal</title>
+  <meta name="description" content="A soft, nature-inspired editorial portfolio & 20-week innovation field journal of Mithra Dharshini R — BBA Student, Marketing & Retail Strategist, and Innovation Engineer Trainee.">
 
-  <!-- Google Fonts: Cormorant Garamond (Display Serif) + Plus Jakarta Sans (Clean Sans Body) -->
+  <!-- Google Fonts: Cormorant Garamond (Serif) & Plus Jakarta Sans (Sans-serif) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
-      darkMode: 'class',
       theme: {
         extend: {
           fontFamily: {
@@ -23,29 +22,43 @@
             sans: ['"Plus Jakarta Sans"', '-apple-system', 'sans-serif'],
           },
           colors: {
-            cream: {
-              50: '#FDFBF7',
+            ivory: {
+              50: '#FDFCF9',
               100: '#FAF7F2',
               200: '#F4EFEA',
-              300: '#EBE3DA',
-              400: '#DED3C6',
+              300: '#ECE5DC',
+              400: '#DDD4C7',
             },
-            ink: {
-              900: '#141413',
-              800: '#1C1B1A',
-              700: '#2E2C29',
-              600: '#4A4641',
-              500: '#6B655D',
-              400: '#8C857B',
-              300: '#B2ACA2',
-              200: '#DDD8D0',
-              100: '#EFECE6',
+            charcoal: {
+              900: '#1C1B1A',
+              800: '#2A2927',
+              700: '#3D3B38',
+              600: '#524F4B',
+              500: '#6E6B65',
+              400: '#8E8A83',
+              300: '#B5B1A8',
+              200: '#DAD5CC',
+              100: '#EBE7E0',
             },
-            accent: {
-              navy: '#1A2530',
-              forest: '#233329',
-              rust: '#7E3827',
-              sand: '#C2B6A6',
+            sage: {
+              50: '#F4F7F5',
+              100: '#E6ECE8',
+              200: '#D2DDD5',
+              300: '#ADC0B2',
+              400: '#7E9986',
+              500: '#5F7967',
+              600: '#48604F',
+              700: '#384A3D',
+            },
+            violet: {
+              50: '#F8F6F9',
+              100: '#EFEBF2',
+              200: '#DFD7E5',
+              300: '#C4B5CE',
+              400: '#9E88AC',
+              500: '#766184',
+              600: '#5C4A69',
+              700: '#463750',
             }
           }
         }
@@ -57,28 +70,39 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
-    /* Editorial Magazine-Style Global Accents */
+    /* Grain Texture Overlay */
+    .grain-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
     ::selection {
-      background-color: #EBE3DA;
-      color: #141413;
+      background-color: #D2DDD5;
+      color: #1C1B1A;
     }
 
     body {
       background-color: #FAF7F2;
-      color: #1C1B1A;
+      color: #2A2927;
       font-feature-settings: "cv02", "cv03", "cv04", "cv11";
       -webkit-font-smoothing: antialiased;
     }
 
-    .editorial-border {
-      border-color: #E6DFD5;
+    .hairline-border {
+      border-color: #E7E1D7;
     }
 
-    .editorial-border-dark {
-      border-color: #1C1B1A;
+    .hairline-sage {
+      border-color: #D2DDD5;
     }
 
-    /* Subtle print-magazine link hover */
     .editorial-link {
       position: relative;
       text-decoration: none;
@@ -104,34 +128,11 @@
       transform-origin: bottom left;
     }
 
-    /* Editorial Section Number Label */
-    .section-num {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.6875rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #8C857B;
-      font-weight: 600;
-    }
-
-    /* Card Elevation Hover */
-    .editorial-card {
-      background: #FFFFFF;
-      border: 1px solid #EBE3DA;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .editorial-card:hover {
-      border-color: #1C1B1A;
-      transform: translateY(-2px);
-      box-shadow: 0 12px 30px -10px rgba(28, 27, 26, 0.06);
-    }
-
     /* Scroll Reveal Initial States */
     .reveal-on-scroll {
       opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(18px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .reveal-on-scroll.is-visible {
@@ -139,131 +140,162 @@
       transform: translateY(0);
     }
 
+    /* Subtle Botanical Line Drawing Accent */
+    .botanical-mark {
+      stroke: #5F7967;
+      stroke-width: 1.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+      opacity: 0.75;
+    }
+
     /* Minimal Custom Scrollbar */
     ::-webkit-scrollbar {
-      width: 6px;
+      width: 5px;
     }
     ::-webkit-scrollbar-track {
       background: #FAF7F2;
     }
     ::-webkit-scrollbar-thumb {
-      background: #D8CFBF;
-      border-radius: 3px;
+      background: #D2DDD5;
+      border-radius: 2px;
     }
     ::-webkit-scrollbar-thumb:hover {
-      background: #8C857B;
+      background: #7E9986;
     }
   </style>
 </head>
-<body class="font-sans antialiased text-ink-800 bg-cream-100 min-h-screen flex flex-col justify-between">
+<body class="font-sans antialiased text-charcoal-800 bg-ivory-100 min-h-screen flex flex-col justify-between relative selection:bg-sage-200">
 
-  <!-- TOP MINIMAL EDITORIAL NAV (Sticky) -->
-  <header class="sticky top-0 z-40 bg-cream-100/90 backdrop-blur-md border-b editorial-border transition-all duration-300">
+  <!-- Grain Texture Overlay -->
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <!-- STICKY MINIMAL EDITORIAL NAV -->
+  <header class="sticky top-0 z-40 bg-ivory-100/90 backdrop-blur-md border-b hairline-border transition-all duration-300">
     <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 h-20 flex items-center justify-between">
       
       <!-- Masthead Monogram -->
       <a href="#hero" class="flex items-center gap-3 group">
-        <span class="font-serif italic font-medium text-2xl tracking-normal text-ink-900 group-hover:text-ink-600 transition-colors">
+        <span class="font-serif italic font-medium text-2xl tracking-normal text-charcoal-900 group-hover:text-sage-600 transition-colors">
           M.D.
         </span>
-        <span class="hidden sm:inline-block h-3.5 w-px bg-ink-300"></span>
-        <span class="hidden sm:inline-block section-num text-[10px] text-ink-500 tracking-widest">
-          Portfolio Archive
+        <span class="hidden sm:inline-block h-3.5 w-px bg-charcoal-200"></span>
+        <span class="hidden sm:inline-block text-[10px] font-mono uppercase tracking-widest text-sage-600 font-medium">
+          Field Journal & Archive
         </span>
       </a>
 
       <!-- Desktop Navigation Links -->
-      <nav class="hidden md:flex items-center space-x-6 lg:space-x-8 text-xs font-medium tracking-wide uppercase text-ink-600">
-        <a href="#about" class="editorial-link hover:text-ink-900 transition-colors">About</a>
-        <a href="#skills" class="editorial-link hover:text-ink-900 transition-colors">Skills</a>
-        <a href="#experience" class="editorial-link hover:text-ink-900 transition-colors">Experience</a>
-        <a href="#protosem" class="editorial-link hover:text-ink-900 text-ink-900 font-semibold transition-colors">ProtoSem</a>
-        <a href="#certifications" class="editorial-link hover:text-ink-900 transition-colors">Certifications</a>
-        <a href="#education" class="editorial-link hover:text-ink-900 transition-colors">Education</a>
-        <a href="#leadership" class="editorial-link hover:text-ink-900 transition-colors">Leadership</a>
-        <a href="#contact" class="editorial-link hover:text-ink-900 transition-colors">Contact</a>
+      <nav class="hidden md:flex items-center space-x-6 lg:space-x-7 text-xs font-medium tracking-wider uppercase text-charcoal-600">
+        <a href="#about" class="editorial-link hover:text-charcoal-900 transition-colors">About</a>
+        <a href="#skills" class="editorial-link hover:text-charcoal-900 transition-colors">Skills</a>
+        <a href="#experience" class="editorial-link hover:text-charcoal-900 transition-colors">Experience</a>
+        <a href="#protosem" class="editorial-link hover:text-sage-700 text-charcoal-900 font-semibold transition-colors flex items-center gap-1">
+          <span>ProtoSem</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-sage-500"></span>
+        </a>
+        <a href="#certifications" class="editorial-link hover:text-charcoal-900 transition-colors">Certifications</a>
+        <a href="#education" class="editorial-link hover:text-charcoal-900 transition-colors">Education</a>
+        <a href="#leadership" class="editorial-link hover:text-charcoal-900 transition-colors">Leadership</a>
+        <a href="#contact" class="editorial-link hover:text-charcoal-900 transition-colors">Contact</a>
       </nav>
 
-      <!-- Action Button -->
+      <!-- ATS Resume Button -->
       <div class="flex items-center gap-4">
-        <a href="resume.html" target="_blank" class="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-wider px-4 py-2 border editorial-border hover:border-ink-900 bg-white text-ink-800 hover:text-ink-900 transition-all">
-          <i data-lucide="file-text" class="w-3.5 h-3.5 text-ink-500"></i>
+        <a href="resume.html" target="_blank" class="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-wider px-3.5 py-1.5 border hairline-border hover:border-sage-500 bg-white/80 text-charcoal-800 hover:text-sage-700 transition-all rounded-sm">
+          <i data-lucide="file-text" class="w-3.5 h-3.5 text-sage-500"></i>
           <span>ATS Resume</span>
         </a>
       </div>
     </div>
   </header>
 
-  <!-- MAIN EDITORIAL CONTENT -->
-  <main class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-16 sm:py-24 space-y-32">
+  <!-- MAIN EDITORIAL CANVAS -->
+  <main class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-16 sm:py-24 space-y-36">
 
     <!-- 1. HERO / INTRO SECTION -->
-    <section id="hero" class="reveal-on-scroll pt-4 sm:pt-8 pb-12 border-b editorial-border">
+    <section id="hero" class="reveal-on-scroll pt-2 sm:pt-6 pb-12 border-b hairline-border">
       
-      <!-- Issue / Volume Header Bar -->
-      <div class="flex flex-wrap items-center justify-between gap-4 pb-8 mb-12 border-b editorial-border text-[11px] uppercase tracking-widest text-ink-400 font-medium font-sans">
-        <span>Portfolio & Innovation Journal</span>
+      <!-- Editorial Issue Strip -->
+      <div class="flex flex-wrap items-center justify-between gap-4 pb-8 mb-12 border-b hairline-border text-[11px] uppercase font-mono tracking-widest text-charcoal-400 font-medium">
+        <span class="flex items-center gap-2">
+          <!-- Botanical Line Leaf Motif -->
+          <svg class="w-4 h-4 botanical-mark inline-block" viewBox="0 0 24 24">
+            <path d="M12 2C7 5 4 10 4 16c0 3 2 6 5 6s6-3 7-8c1-5-1-10-4-12zM12 2c0 6-2 11-5 14"/>
+          </svg>
+          <span>Volume IV • Field Portfolio</span>
+        </span>
         <span>Coimbatore, Tamil Nadu</span>
-        <span>Vol. 2025–2028</span>
+        <span>2025–2028 Edition</span>
       </div>
 
-      <!-- Asymmetric Editorial Grid -->
+      <!-- Asymmetric Editorial Composition -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
         
-        <!-- Left: Typography & Intro (7 cols) -->
+        <!-- Left Column: Masthead Typography & Bio (7 cols) -->
         <div class="lg:col-span-7 space-y-8">
           
-          <div class="space-y-4">
-            <span class="section-num text-ink-500">Curriculum & Professional Practice</span>
-            <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl font-normal leading-[1.05] tracking-tight text-ink-900">
+          <div class="space-y-3">
+            <span class="text-[11px] font-mono tracking-widest uppercase text-sage-600 font-medium block">
+              Business & Retail Innovation Practice
+            </span>
+            <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl font-normal leading-[1.05] tracking-tight text-charcoal-900">
               Mithra Dharshini R
             </h1>
-            <p class="font-serif italic text-2xl sm:text-3xl text-ink-600 font-normal leading-snug">
+            <p class="font-serif italic text-2xl sm:text-3xl text-charcoal-600 font-normal leading-snug">
               BBA Student | Marketing, Retail & Digital Strategy Enthusiast
             </p>
           </div>
 
-          <div class="w-16 h-px bg-ink-300"></div>
+          <div class="w-12 h-px bg-sage-300"></div>
 
-          <p class="text-base sm:text-lg text-ink-600 font-light leading-relaxed max-w-xl">
-            Bridging analytical business operations, consumer-centric retail frameworks, and hands-on technological problem solving. Currently participating in the 20-week PRICE ProtoSem innovation fellowship.
+          <p class="text-base sm:text-lg text-charcoal-600 font-light leading-relaxed max-w-xl">
+            Bridging analytical operations, consumer-centric retail frameworks, and hands-on technological problem solving. Currently participating in the 20-week PRICE ProtoSem innovation fellowship.
           </p>
 
           <!-- CTAs -->
-          <div class="flex flex-wrap items-center gap-6 pt-4">
-            <a href="#about" class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest px-6 py-3.5 bg-ink-900 text-cream-50 hover:bg-ink-700 transition-colors">
-              <span>Read Background</span>
+          <div class="flex flex-wrap items-center gap-6 pt-2">
+            <a href="#about" class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest px-6 py-3.5 bg-charcoal-900 text-ivory-50 hover:bg-sage-700 transition-colors rounded-sm shadow-sm">
+              <span>Explore Narrative</span>
               <i data-lucide="arrow-down" class="w-3.5 h-3.5"></i>
             </a>
-            <a href="#contact" class="editorial-link text-xs font-semibold uppercase tracking-widest text-ink-800 hover:text-ink-900 py-1">
+            <a href="#contact" class="editorial-link text-xs font-semibold uppercase tracking-widest text-charcoal-700 hover:text-sage-700 py-1">
               Get in Touch →
             </a>
           </div>
 
         </div>
 
-        <!-- Right: Editorial Image Frame (5 cols) -->
+        <!-- Right Column: Editorial Photo Matting (5 cols) -->
         <div class="lg:col-span-5 flex flex-col items-center lg:items-end">
-          <div class="w-full max-w-sm bg-white p-4 border editorial-border shadow-sm space-y-4">
+          <div class="w-full max-w-sm bg-white p-4 border hairline-border shadow-sm space-y-3 relative">
             
+            <!-- Soft Organic Nature Corner Mark -->
+            <div class="absolute -top-3 -right-3 w-8 h-8 text-sage-400 pointer-events-none opacity-80">
+              <svg viewBox="0 0 32 32" class="w-full h-full botanical-mark">
+                <path d="M4 28 C 12 28, 20 20, 28 4" />
+                <path d="M14 20 C 18 14, 22 10, 26 8" />
+              </svg>
+            </div>
+
             <!-- Portrait Container -->
-            <div class="aspect-[4/5] bg-cream-200 overflow-hidden relative border editorial-border flex items-center justify-center">
+            <div class="aspect-[4/5] bg-ivory-200 overflow-hidden relative border hairline-border flex items-center justify-center">
               <img 
                 src="profile.jpg" 
                 alt="Mithra Dharshini R" 
-                onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Mithra+Dharshini&background=F4EFEA&color=1C1B1A&size=400&font-size=0.33&bold=true';" 
+                onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Mithra+Dharshini&background=E6ECE8&color=1C1B1A&size=400&font-size=0.33&bold=true';" 
                 class="w-full h-full object-cover grayscale contrast-105 hover:grayscale-0 transition-all duration-700"
               >
-              <!-- Editorial corner mark -->
-              <span class="absolute bottom-3 left-3 text-[10px] uppercase font-mono tracking-wider bg-white/90 px-2 py-1 border editorial-border text-ink-600">
-                Figure 01 / Profile
+              <span class="absolute bottom-2.5 left-2.5 text-[9px] uppercase font-mono tracking-wider bg-white/90 px-2 py-0.5 border hairline-border text-charcoal-600">
+                Figure 01 / Identity
               </span>
             </div>
 
-            <!-- Frame Caption -->
-            <div class="flex items-center justify-between text-[11px] text-ink-500 font-sans tracking-wide pt-1">
+            <!-- Plate Caption -->
+            <div class="flex items-center justify-between text-[11px] text-charcoal-500 font-sans tracking-wide">
               <span>Mithra Dharshini R</span>
-              <span class="italic font-serif">Kumaraguru College</span>
+              <span class="italic font-serif text-sage-700">Kumaraguru College</span>
             </div>
 
           </div>
@@ -277,33 +309,33 @@
     <section id="about" class="reveal-on-scroll space-y-12 scroll-mt-28">
       
       <!-- Section Header -->
-      <div class="flex items-baseline justify-between border-b editorial-border pb-4">
-        <span class="section-num">01 / ABOUT</span>
-        <span class="text-xs uppercase tracking-widest text-ink-400 font-medium">Philosophy & Profile</span>
+      <div class="flex items-baseline justify-between border-b hairline-border pb-4">
+        <span class="text-[11px] font-mono tracking-widest uppercase text-sage-600 font-semibold">01 / ABOUT</span>
+        <span class="text-xs uppercase font-mono tracking-widest text-charcoal-400">Philosophy & Direction</span>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         
         <!-- Pull Quote (5 cols) -->
         <div class="lg:col-span-5 space-y-6">
-          <p class="font-serif italic text-2xl sm:text-3xl lg:text-4xl text-ink-800 leading-snug">
+          <p class="font-serif italic text-2xl sm:text-3xl lg:text-4xl text-charcoal-900 leading-snug">
             “An ambitious mindset pairing strategic marketing rigor with tangible operational discipline.”
           </p>
-          <div class="w-12 h-px bg-ink-400"></div>
-          <div class="space-y-1 text-xs font-sans text-ink-500 uppercase tracking-widest">
-            <p class="font-semibold text-ink-800">Academic Standing</p>
+          <div class="w-12 h-px bg-sage-300"></div>
+          <div class="space-y-1 text-xs font-mono text-charcoal-500 uppercase tracking-wider">
+            <p class="font-semibold text-charcoal-800">Academic Standing</p>
             <p>BBA • Cumulative GPA 8.0 / 10.0</p>
-            <p>Mahatma Gandhi Scholar</p>
+            <p class="text-violet-600 font-medium">Mahatma Gandhi Scholar</p>
           </div>
         </div>
 
         <!-- Narrative Text (7 cols) -->
-        <div class="lg:col-span-7 space-y-6 text-ink-700 text-base sm:text-lg font-light leading-relaxed">
+        <div class="lg:col-span-7 space-y-6 text-charcoal-700 text-base sm:text-lg font-light leading-relaxed">
           <p>
-            I am a Bachelor of Business Administration (BBA) student at <strong class="font-medium text-ink-900">Kumaraguru College of Liberal Arts and Science</strong> in Coimbatore, motivated by an entrepreneurial, adaptable, and forward-looking perspective on modern commerce.
+            I am a Bachelor of Business Administration (BBA) student at <strong class="font-medium text-charcoal-900">Kumaraguru College of Liberal Arts and Science</strong> in Coimbatore, motivated by an entrepreneurial, adaptable, and forward-looking perspective on modern commerce.
           </p>
           <p>
-            My academic foundation is enriched through practical industrial immersion: observing production operations, cash flows, and precision manufacturing at Gupta Printers, and participating in the rigorous 20-week <strong class="font-medium text-ink-900">PRICE ProtoSem</strong> innovation programme addressing systemic retail challenges.
+            My academic foundation is enriched through practical industrial immersion: observing production operations, cash flows, and precision manufacturing at Gupta Printers, and participating in the rigorous 20-week <strong class="font-medium text-charcoal-900">PRICE ProtoSem</strong> innovation programme addressing systemic retail challenges.
           </p>
           <p>
             Beyond coursework, I am passionate about literary curation, team leadership, and communication excellence — having served as Joint Secretary of the Sahitya Literature Club and coordinator for public-speaking platforms like PODIUM.
@@ -318,92 +350,92 @@
     <section id="skills" class="reveal-on-scroll space-y-12 scroll-mt-28">
       
       <!-- Section Header -->
-      <div class="flex items-baseline justify-between border-b editorial-border pb-4">
-        <span class="section-num">02 / SKILLS & DISCIPLINES</span>
-        <span class="text-xs uppercase tracking-widest text-ink-400 font-medium">Core Capabilities</span>
+      <div class="flex items-baseline justify-between border-b hairline-border pb-4">
+        <span class="text-[11px] font-mono tracking-widest uppercase text-sage-600 font-semibold">02 / SKILLS & DISCIPLINES</span>
+        <span class="text-xs uppercase font-mono tracking-widest text-charcoal-400">Domain Toolkit</span>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         
-        <!-- Category 1: Business & Management -->
-        <div class="editorial-card p-8 space-y-6">
-          <div class="space-y-2">
-            <span class="text-[11px] font-mono text-ink-400 uppercase tracking-widest">Category A</span>
-            <h3 class="font-serif text-2xl text-ink-900 font-normal">Business & Management</h3>
+        <!-- Category A: Business & Management -->
+        <div class="bg-white p-8 border hairline-border space-y-6">
+          <div class="space-y-1">
+            <span class="text-[10px] font-mono text-sage-600 uppercase tracking-widest font-semibold">Track 01</span>
+            <h3 class="font-serif text-2xl text-charcoal-900 font-normal">Business & Management</h3>
           </div>
-          <div class="w-full h-px bg-cream-300"></div>
-          <ul class="space-y-3 text-sm text-ink-700 font-light">
-            <li class="flex items-center justify-between py-1 border-b border-cream-200">
+          <div class="w-full h-px bg-ivory-300"></div>
+          <ul class="space-y-3 text-sm text-charcoal-700 font-light">
+            <li class="flex items-center justify-between py-1 border-b border-ivory-200">
               <span>Strategic Planning</span>
-              <span class="text-ink-400 font-serif italic text-xs">Analysis</span>
+              <span class="text-sage-600 font-serif italic text-xs">Frameworks</span>
             </li>
-            <li class="flex items-center justify-between py-1 border-b border-cream-200">
+            <li class="flex items-center justify-between py-1 border-b border-ivory-200">
               <span>Organizational Coordination</span>
-              <span class="text-ink-400 font-serif italic text-xs">Operations</span>
+              <span class="text-sage-600 font-serif italic text-xs">Logistics</span>
             </li>
-            <li class="flex items-center justify-between py-1 border-b border-cream-200">
+            <li class="flex items-center justify-between py-1 border-b border-ivory-200">
               <span>Problem Solving</span>
-              <span class="text-ink-400 font-serif italic text-xs">Frameworks</span>
+              <span class="text-sage-600 font-serif italic text-xs">Root Cause</span>
             </li>
-            <li class="flex items-center justify-between py-1 border-b border-cream-200">
+            <li class="flex items-center justify-between py-1 border-b border-ivory-200">
               <span>Operational Analysis</span>
-              <span class="text-ink-400 font-serif italic text-xs">Process</span>
+              <span class="text-sage-600 font-serif italic text-xs">Process</span>
             </li>
-            <li class="flex items-center justify-between py-1 border-b border-cream-200">
+            <li class="flex items-center justify-between py-1 border-b border-ivory-200">
               <span>Team Leadership</span>
-              <span class="text-ink-400 font-serif italic text-xs">Facilitation</span>
+              <span class="text-sage-600 font-serif italic text-xs">Facilitation</span>
             </li>
             <li class="flex items-center justify-between py-1">
               <span>Event Management</span>
-              <span class="text-ink-400 font-serif italic text-xs">Execution</span>
+              <span class="text-sage-600 font-serif italic text-xs">Execution</span>
             </li>
           </ul>
         </div>
 
-        <!-- Category 2: Technical & Productivity -->
-        <div class="editorial-card p-8 space-y-6">
-          <div class="space-y-2">
-            <span class="text-[11px] font-mono text-ink-400 uppercase tracking-widest">Category B</span>
-            <h3 class="font-serif text-2xl text-ink-900 font-normal">Technical & Productivity</h3>
+        <!-- Category B: Technical & Productivity -->
+        <div class="bg-white p-8 border hairline-border space-y-6">
+          <div class="space-y-1">
+            <span class="text-[10px] font-mono text-sage-600 uppercase tracking-widest font-semibold">Track 02</span>
+            <h3 class="font-serif text-2xl text-charcoal-900 font-normal">Technical & Productivity</h3>
           </div>
-          <div class="w-full h-px bg-cream-300"></div>
-          <ul class="space-y-3 text-sm text-ink-700 font-light">
-            <li class="py-1 border-b border-cream-200">
-              <span class="font-medium text-ink-900 block">Microsoft Excel</span>
-              <span class="text-xs text-ink-500">Data Entry, Modeling & Financial Formulas</span>
+          <div class="w-full h-px bg-ivory-300"></div>
+          <ul class="space-y-4 text-sm text-charcoal-700 font-light">
+            <li class="py-1 border-b border-ivory-200">
+              <span class="font-medium text-charcoal-900 block">Microsoft Excel</span>
+              <span class="text-xs text-charcoal-500">Data Entry, Analysis & Financial Modeling</span>
             </li>
-            <li class="py-1 border-b border-cream-200">
-              <span class="font-medium text-ink-900 block">Microsoft PowerPoint</span>
-              <span class="text-xs text-ink-500">Executive Presentations & Pitch Decks</span>
+            <li class="py-1 border-b border-ivory-200">
+              <span class="font-medium text-charcoal-900 block">Microsoft PowerPoint</span>
+              <span class="text-xs text-charcoal-500">Executive Presentations & Pitch Decks</span>
             </li>
             <li class="py-1">
-              <span class="font-medium text-ink-900 block">Microsoft Word</span>
-              <span class="text-xs text-ink-500">Formal Reporting & Project Documentation</span>
+              <span class="font-medium text-charcoal-900 block">Microsoft Word</span>
+              <span class="text-xs text-charcoal-500">Formal Reporting & Documentation</span>
             </li>
           </ul>
         </div>
 
-        <!-- Category 3: Core Interests -->
-        <div class="editorial-card p-8 space-y-6">
-          <div class="space-y-2">
-            <span class="text-[11px] font-mono text-ink-400 uppercase tracking-widest">Category C</span>
-            <h3 class="font-serif text-2xl text-ink-900 font-normal">Core Interests</h3>
+        <!-- Category C: Core Interests -->
+        <div class="bg-white p-8 border hairline-border space-y-6">
+          <div class="space-y-1">
+            <span class="text-[10px] font-mono text-sage-600 uppercase tracking-widest font-semibold">Track 03</span>
+            <h3 class="font-serif text-2xl text-charcoal-900 font-normal">Core Interests</h3>
           </div>
-          <div class="w-full h-px bg-cream-300"></div>
+          <div class="w-full h-px bg-ivory-300"></div>
           <div class="flex flex-wrap gap-2 pt-1">
-            <span class="px-3 py-1.5 bg-cream-100 border editorial-border text-xs uppercase tracking-wider text-ink-700 font-medium">
+            <span class="px-3 py-1.5 bg-sage-50 border hairline-sage text-xs uppercase tracking-wider text-sage-700 font-medium">
               Marketing Strategy
             </span>
-            <span class="px-3 py-1.5 bg-cream-100 border editorial-border text-xs uppercase tracking-wider text-ink-700 font-medium">
+            <span class="px-3 py-1.5 bg-sage-50 border hairline-sage text-xs uppercase tracking-wider text-sage-700 font-medium">
               Retail Management
             </span>
-            <span class="px-3 py-1.5 bg-cream-100 border editorial-border text-xs uppercase tracking-wider text-ink-700 font-medium">
+            <span class="px-3 py-1.5 bg-violet-50 border border-violet-200 text-xs uppercase tracking-wider text-violet-700 font-medium">
               Digital Marketing
             </span>
-            <span class="px-3 py-1.5 bg-cream-100 border editorial-border text-xs uppercase tracking-wider text-ink-700 font-medium">
+            <span class="px-3 py-1.5 bg-ivory-200 border hairline-border text-xs uppercase tracking-wider text-charcoal-700 font-medium">
               Business Development
             </span>
-            <span class="px-3 py-1.5 bg-cream-100 border editorial-border text-xs uppercase tracking-wider text-ink-700 font-medium">
+            <span class="px-3 py-1.5 bg-sage-50 border hairline-sage text-xs uppercase tracking-wider text-sage-700 font-medium">
               Entrepreneurship
             </span>
           </div>
@@ -417,25 +449,25 @@
     <section id="experience" class="reveal-on-scroll space-y-12 scroll-mt-28">
       
       <!-- Section Header -->
-      <div class="flex items-baseline justify-between border-b editorial-border pb-4">
-        <span class="section-num">03 / EXPERIENCE</span>
-        <span class="text-xs uppercase tracking-widest text-ink-400 font-medium">Industry Case Study</span>
+      <div class="flex items-baseline justify-between border-b hairline-border pb-4">
+        <span class="text-[11px] font-mono tracking-widest uppercase text-sage-600 font-semibold">03 / EXPERIENCE</span>
+        <span class="text-xs uppercase font-mono tracking-widest text-charcoal-400">Industrial Case Study</span>
       </div>
 
-      <!-- Case Study Editorial Layout -->
-      <div class="editorial-card p-8 sm:p-12 space-y-8">
+      <!-- Case Study Card -->
+      <div class="bg-white p-8 sm:p-12 border hairline-border space-y-8">
         
-        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 border-b editorial-border pb-6">
+        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 border-b hairline-border pb-6">
           <div class="space-y-1">
-            <span class="text-xs uppercase tracking-widest font-mono text-ink-400">Internship Focus • On-Site</span>
-            <h3 class="font-serif text-3xl sm:text-4xl text-ink-900 font-normal">
+            <span class="text-xs uppercase tracking-widest font-mono text-sage-600 font-medium">Commercial Practice • On-Site</span>
+            <h3 class="font-serif text-3xl sm:text-4xl text-charcoal-900 font-normal">
               Business Operations & Finance Intern
             </h3>
-            <p class="font-serif italic text-lg text-ink-600">
+            <p class="font-serif italic text-lg text-charcoal-600">
               Gupta Printers (Commercial Printing & Packaging)
             </p>
           </div>
-          <div class="text-xs font-mono uppercase tracking-wider text-ink-500 whitespace-nowrap bg-cream-100 px-3 py-1.5 border editorial-border self-start sm:self-auto">
+          <div class="text-xs font-mono uppercase tracking-wider text-sage-700 bg-sage-50 px-3 py-1.5 border hairline-sage self-start sm:self-auto">
             21-Day Intensive Program
           </div>
         </div>
@@ -443,29 +475,29 @@
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           <div class="lg:col-span-4 space-y-3">
-            <span class="section-num">Key Context & Scope</span>
-            <p class="text-sm text-ink-600 font-light leading-relaxed">
-              An immersive on-site study evaluating how physical production workflows integrate with daily financial oversight, cash accounting, and commercial packaging dispatch.
+            <span class="text-[10px] font-mono uppercase tracking-widest text-charcoal-400 block font-semibold">Operational Context</span>
+            <p class="text-sm text-charcoal-600 font-light leading-relaxed">
+              An immersive on-site study evaluating how physical manufacturing operations integrate with daily financial oversight, cash accounting, and commercial packaging delivery.
             </p>
           </div>
 
           <div class="lg:col-span-8 space-y-4">
-            <span class="section-num">Documented Contributions</span>
-            <ul class="space-y-4 text-sm sm:text-base text-ink-700 font-light leading-relaxed">
+            <span class="text-[10px] font-mono uppercase tracking-widest text-charcoal-400 block font-semibold">Documented Contributions</span>
+            <ul class="space-y-4 text-sm sm:text-base text-charcoal-700 font-light leading-relaxed">
               <li class="flex items-start gap-3">
-                <span class="font-serif italic text-ink-400 text-lg leading-none mt-1">—</span>
+                <span class="font-serif italic text-sage-500 text-lg leading-none mt-1">—</span>
                 <span>Gained hands-on operational exposure to end-to-end production processes, including printing machinery, precision cutting, and packaging pasting.</span>
               </li>
               <li class="flex items-start gap-3">
-                <span class="font-serif italic text-ink-400 text-lg leading-none mt-1">—</span>
+                <span class="font-serif italic text-sage-500 text-lg leading-none mt-1">—</span>
                 <span>Observed core financial workflows, budget estimations, invoice tracking, and routine business operation management.</span>
               </li>
               <li class="flex items-start gap-3">
-                <span class="font-serif italic text-ink-400 text-lg leading-none mt-1">—</span>
+                <span class="font-serif italic text-sage-500 text-lg leading-none mt-1">—</span>
                 <span>Analyzed cross-functional workflow coordination across manufacturing stages to understand quality control and waste reduction.</span>
               </li>
               <li class="flex items-start gap-3">
-                <span class="font-serif italic text-ink-400 text-lg leading-none mt-1">—</span>
+                <span class="font-serif italic text-sage-500 text-lg leading-none mt-1">—</span>
                 <span>Prepared structured analytical reports detailing operational observations, process bottlenecks, and key business insights.</span>
               </li>
             </ul>
@@ -477,58 +509,72 @@
 
     </section>
 
-    <!-- 5. PROTOSEM — DEDICATED SECTION (The centerpiece) -->
-    <section id="protosem" class="reveal-on-scroll space-y-12 scroll-mt-28">
+    <!-- 5. PROTOSEM — VISUAL CENTERPIECE & UNFOLDING FIELD JOURNAL -->
+    <section id="protosem" class="reveal-on-scroll space-y-14 scroll-mt-28">
       
       <!-- Section Header -->
-      <div class="flex items-baseline justify-between border-b editorial-border pb-4">
-        <span class="section-num">04 / PROTOSEM ARCHIVE</span>
-        <span class="text-xs uppercase tracking-widest text-ink-400 font-medium">Innovation Fellowship</span>
+      <div class="flex items-baseline justify-between border-b hairline-border pb-4">
+        <span class="text-[11px] font-mono tracking-widest uppercase text-sage-600 font-semibold flex items-center gap-2">
+          <span>04 / PROTOSEM ARCHIVE</span>
+          <span class="text-violet-600">• Innovation Fellowship</span>
+        </span>
+        <span class="text-xs uppercase font-mono tracking-widest text-charcoal-400">20-Week Field Journal</span>
       </div>
 
-      <!-- Overview Editorial Banner -->
-      <div class="editorial-card p-8 sm:p-12 space-y-8 bg-cream-50">
+      <!-- Large Editorial Introduction -->
+      <div class="bg-white p-8 sm:p-12 lg:p-14 border hairline-border space-y-10 relative overflow-hidden">
         
-        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b editorial-border pb-8">
+        <!-- Subtle Organic Watermark Motif -->
+        <div class="absolute -bottom-10 -right-10 w-48 h-48 pointer-events-none opacity-20 text-sage-400">
+          <svg viewBox="0 0 100 100" class="w-full h-full botanical-mark">
+            <path d="M50 10 C 20 30, 20 70, 50 90 C 80 70, 80 30, 50 10 Z" />
+            <path d="M50 10 L 50 90" />
+            <path d="M50 30 C 35 40, 35 50, 50 60" />
+            <path d="M50 40 C 65 50, 65 60, 50 70" />
+          </svg>
+        </div>
+
+        <!-- Introduction Heading Strip -->
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b hairline-border pb-8 relative z-10">
           <div class="space-y-3 max-w-2xl">
-            <span class="inline-block px-3 py-1 bg-ink-900 text-cream-50 text-[10px] font-mono tracking-widest uppercase">
+            <span class="inline-block px-3 py-1 bg-sage-50 text-sage-700 border hairline-sage text-[10px] font-mono tracking-widest uppercase font-semibold">
               PROTOSEM
             </span>
-            <h2 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-ink-900 font-normal tracking-tight">
+            <h2 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-charcoal-900 font-normal tracking-tight">
               PRICE ProtoSem
             </h2>
             <div class="space-y-0.5">
-              <p class="font-serif italic text-xl sm:text-2xl text-ink-700">
-                Role: <span class="text-ink-900 font-normal">Innovation Engineer Trainee</span>
+              <p class="font-serif italic text-xl sm:text-2xl text-charcoal-700">
+                Role: <span class="text-charcoal-900 font-normal">Innovation Engineer Trainee</span>
               </p>
-              <p class="text-xs font-mono uppercase tracking-wider text-ink-500">
+              <p class="text-xs font-mono uppercase tracking-wider text-sage-600 font-medium">
                 20-Week Industry-Integrated Innovation Programme
               </p>
             </div>
           </div>
 
-          <!-- Subtle Programme Progress Stepper -->
-          <div class="bg-white p-5 border editorial-border space-y-2 self-start lg:self-auto">
-            <div class="flex items-center justify-between text-[10px] uppercase font-mono tracking-wider text-ink-500">
+          <!-- Chronology Pill -->
+          <div class="bg-ivory-50 p-4 border hairline-border space-y-1.5 self-start lg:self-auto min-w-[200px]">
+            <div class="flex items-center justify-between text-[10px] uppercase font-mono tracking-wider text-charcoal-400 font-semibold">
               <span>Chronology</span>
-              <span class="font-semibold text-ink-800">20-Week Trajectory</span>
+              <span class="text-sage-700">20 Weeks • 4 Phases</span>
             </div>
-            <div class="flex items-center gap-2 font-mono text-xs text-ink-700">
-              <span class="font-bold text-ink-900 border-b border-ink-900">01</span>
-              <span class="text-ink-300 font-light">────</span>
+            <div class="flex items-center gap-1.5 font-mono text-xs text-charcoal-700">
+              <span class="font-bold text-charcoal-900">00</span>
+              <span class="text-sage-300 font-light">─</span>
               <span>05</span>
-              <span class="text-ink-300 font-light">────</span>
+              <span class="text-sage-300 font-light">─</span>
               <span>10</span>
-              <span class="text-ink-300 font-light">────</span>
+              <span class="text-sage-300 font-light">─</span>
               <span>15</span>
-              <span class="text-ink-300 font-light">────</span>
+              <span class="text-sage-300 font-light">─</span>
               <span>20</span>
             </div>
           </div>
         </div>
 
         <!-- Description Paragraphs -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-base text-ink-700 font-light leading-relaxed">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-base text-charcoal-700 font-light leading-relaxed relative z-10">
           <p>
             Selected for a 20-week industry-integrated innovation programme focused on solving real-world retail and commerce challenges through AI, analytics, intelligent systems, IoT, prototyping, and entrepreneurship.
           </p>
@@ -537,23 +583,25 @@
           </p>
         </div>
 
-        <!-- Programme Disciplines Tags -->
-        <div class="space-y-3 pt-6 border-t editorial-border">
-          <span class="section-num">Programme Disciplines</span>
+        <!-- Programme Discipline Badges -->
+        <div class="space-y-3 pt-4 border-t hairline-border relative z-10">
+          <span class="text-[10px] font-mono uppercase tracking-widest text-charcoal-400 font-semibold block">
+            Programme Disciplines & Focus Areas
+          </span>
           <div class="flex flex-wrap gap-2.5">
-            <span class="px-3.5 py-1.5 bg-white border editorial-border text-xs uppercase tracking-wider text-ink-800 font-medium">
+            <span class="px-3.5 py-1.5 bg-ivory-50 border hairline-border text-xs uppercase tracking-wider text-charcoal-800 font-medium">
               Phygital Retail & Intelligent Commerce
             </span>
-            <span class="px-3.5 py-1.5 bg-white border editorial-border text-xs uppercase tracking-wider text-ink-800 font-medium">
+            <span class="px-3.5 py-1.5 bg-sage-50 border hairline-sage text-xs uppercase tracking-wider text-sage-700 font-medium">
               AI & Analytics
             </span>
-            <span class="px-3.5 py-1.5 bg-white border editorial-border text-xs uppercase tracking-wider text-ink-800 font-medium">
+            <span class="px-3.5 py-1.5 bg-violet-50 border border-violet-200 text-xs uppercase tracking-wider text-violet-700 font-medium">
               Intelligent Systems & IoT
             </span>
-            <span class="px-3.5 py-1.5 bg-white border editorial-border text-xs uppercase tracking-wider text-ink-800 font-medium">
+            <span class="px-3.5 py-1.5 bg-ivory-50 border hairline-border text-xs uppercase tracking-wider text-charcoal-800 font-medium">
               Prototyping
             </span>
-            <span class="px-3.5 py-1.5 bg-white border editorial-border text-xs uppercase tracking-wider text-ink-800 font-medium">
+            <span class="px-3.5 py-1.5 bg-sage-50 border hairline-sage text-xs uppercase tracking-wider text-sage-700 font-medium">
               Entrepreneurship
             </span>
           </div>
@@ -561,82 +609,82 @@
 
       </div>
 
-      <!-- 20-Week Interactive Timeline Progression -->
+      <!-- HORIZONTAL FOUR-PHASE TIMELINE JOURNAL -->
       <div class="space-y-8">
         
-        <!-- Phase Filter Navigation -->
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b editorial-border pb-4">
+        <!-- Timeline Controls & Phase Scrubbing Tabs -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b hairline-border pb-4">
           <div class="space-y-1">
-            <h3 class="font-serif text-2xl text-ink-900 font-normal">
-              The 20-Week Experience Archive
+            <h3 class="font-serif text-2xl text-charcoal-900 font-normal">
+              The Unfolding 20-Week Field Timeline
             </h3>
-            <p class="text-xs text-ink-500 font-light">
-              Click any weekly chapter to preview field notes and upcoming case documentation.
+            <p class="text-xs text-charcoal-500 font-light">
+              Select any weekly milestone node to open and document your field journal entry.
             </p>
           </div>
 
-          <!-- Filter Tabs -->
-          <div class="inline-flex p-1 bg-cream-200 border editorial-border text-xs font-mono uppercase tracking-wider overflow-x-auto max-w-full" role="tablist">
-            <button onclick="filterProtoSemPhase('all', this)" class="protosem-phase-btn active px-3.5 py-1.5 text-cream-50 bg-ink-900 transition-all" role="tab" aria-selected="true">
+          <!-- Filter / Phase Selector -->
+          <div class="inline-flex p-1 bg-ivory-200 border hairline-border text-xs font-mono uppercase tracking-wider overflow-x-auto max-w-full" role="tablist">
+            <button onclick="filterProtoSemPhase('all', this)" class="protosem-phase-btn active px-3 py-1.5 text-ivory-50 bg-charcoal-900 transition-all font-medium" role="tab" aria-selected="true">
               All (00–20)
             </button>
-            <button onclick="filterProtoSemPhase('1', this)" class="protosem-phase-btn px-3.5 py-1.5 text-ink-600 hover:text-ink-900 transition-all" role="tab" aria-selected="false">
+            <button onclick="filterProtoSemPhase('1', this)" class="protosem-phase-btn px-3 py-1.5 text-charcoal-600 hover:text-charcoal-900 transition-all font-medium" role="tab" aria-selected="false">
               Phase 01 (W1–5)
             </button>
-            <button onclick="filterProtoSemPhase('2', this)" class="protosem-phase-btn px-3.5 py-1.5 text-ink-600 hover:text-ink-900 transition-all" role="tab" aria-selected="false">
+            <button onclick="filterProtoSemPhase('2', this)" class="protosem-phase-btn px-3 py-1.5 text-charcoal-600 hover:text-charcoal-900 transition-all font-medium" role="tab" aria-selected="false">
               Phase 02 (W6–10)
             </button>
-            <button onclick="filterProtoSemPhase('3', this)" class="protosem-phase-btn px-3.5 py-1.5 text-ink-600 hover:text-ink-900 transition-all" role="tab" aria-selected="false">
+            <button onclick="filterProtoSemPhase('3', this)" class="protosem-phase-btn px-3 py-1.5 text-charcoal-600 hover:text-charcoal-900 transition-all font-medium" role="tab" aria-selected="false">
               Phase 03 (W11–15)
             </button>
-            <button onclick="filterProtoSemPhase('4', this)" class="protosem-phase-btn px-3.5 py-1.5 text-ink-600 hover:text-ink-900 transition-all" role="tab" aria-selected="false">
+            <button onclick="filterProtoSemPhase('4', this)" class="protosem-phase-btn px-3 py-1.5 text-charcoal-600 hover:text-charcoal-900 transition-all font-medium" role="tab" aria-selected="false">
               Phase 04 (W16–20)
             </button>
           </div>
         </div>
 
-        <!-- 20-Week Cards Grid (Dynamic JS Data Driven) -->
-        <div id="protosem-cards-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <!-- Populated dynamically from protoSemWeeks array (Weeks 00 through 20) -->
+        <!-- Horizontal Timeline Node Track Container -->
+        <div id="protosem-timeline-container" class="space-y-6">
+          <!-- Populated dynamically via renderProtoSemTimelineNodes() -->
         </div>
 
       </div>
 
     </section>
 
-    <!-- Modal for Week Card Viewer & Direct In-Browser Editor -->
-    <div id="protosem-modal" class="fixed inset-0 z-50 bg-ink-900/60 backdrop-blur-sm hidden items-center justify-center p-4 transition-opacity" aria-hidden="true">
-      <div class="bg-white border editorial-border max-w-lg w-full p-6 sm:p-8 space-y-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
-        <button onclick="closeProtoSemModal()" class="absolute top-4 right-4 p-2 text-ink-400 hover:text-ink-900 transition-colors" aria-label="Close dialog">
+    <!-- Modal for Week Milestone Viewer & Direct In-Browser Field Note Editor -->
+    <div id="protosem-modal" class="fixed inset-0 z-50 bg-charcoal-900/60 backdrop-blur-sm hidden items-center justify-center p-4 transition-opacity" aria-hidden="true">
+      <div class="bg-white border hairline-border max-w-lg w-full p-6 sm:p-8 space-y-6 shadow-xl relative max-h-[90vh] overflow-y-auto">
+        <button onclick="closeProtoSemModal()" class="absolute top-4 right-4 p-2 text-charcoal-400 hover:text-charcoal-900 transition-colors" aria-label="Close dialog">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
 
         <!-- VIEW MODE -->
         <div id="modal-view-mode" class="space-y-6">
-          <div class="space-y-2 border-b editorial-border pb-4">
+          <div class="space-y-2 border-b hairline-border pb-4">
             <div class="flex items-center justify-between">
-              <span id="modal-phase-label" class="section-num">Phase 01 • Programme Milestone</span>
-              <span id="modal-status-pill" class="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 border editorial-border text-ink-500 bg-cream-100">
+              <span id="modal-phase-label" class="text-[10px] font-mono uppercase tracking-widest text-sage-600 font-semibold">Phase 01 • Programme Milestone</span>
+              <span id="modal-status-pill" class="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 border hairline-border text-charcoal-500 bg-ivory-100">
                 Placeholder
               </span>
             </div>
-            <h3 id="modal-week-title" class="font-serif text-3xl sm:text-4xl text-ink-900 font-normal">WEEK 00</h3>
-            <p id="modal-custom-title" class="font-serif italic text-lg text-ink-700 hidden"></p>
+            <h3 id="modal-week-title" class="font-serif text-3xl sm:text-4xl text-charcoal-900 font-normal">WEEK 00</h3>
+            <p id="modal-custom-title" class="font-serif italic text-lg text-sage-700 hidden"></p>
           </div>
 
           <div class="space-y-2">
-            <span class="section-num block">Weekly Field Notes & Summary</span>
-            <div id="modal-description-text" class="text-sm text-ink-700 font-light leading-relaxed whitespace-pre-line bg-cream-50 p-4 border editorial-border">
+            <span class="text-[10px] font-mono uppercase tracking-widest text-charcoal-400 font-semibold block">Weekly Field Notes & Summary</span>
+            <div id="modal-description-text" class="text-sm text-charcoal-700 font-light leading-relaxed whitespace-pre-line bg-ivory-50 p-4 border hairline-border">
               This chapter of the 20-week PRICE ProtoSem innovation log is being documented. Future stories, prototyping milestones, and detailed field notes will appear here once published.
             </div>
           </div>
 
-          <div class="flex items-center justify-between pt-2 border-t editorial-border">
-            <button onclick="switchToEditMode()" class="inline-flex items-center gap-2 px-4 py-2 border editorial-border hover:border-ink-900 text-xs uppercase tracking-widest font-medium text-ink-800 transition-colors">
-              <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
+          <div class="flex items-center justify-between pt-2 border-t hairline-border">
+            <button onclick="switchToEditMode()" class="inline-flex items-center gap-2 px-4 py-2 border hairline-border hover:border-sage-600 text-xs uppercase font-mono tracking-wider font-medium text-charcoal-800 transition-colors">
+              <i data-lucide="edit-3" class="w-3.5 h-3.5 text-sage-600"></i>
               <span>Edit Field Notes</span>
             </button>
-            <button onclick="closeProtoSemModal()" class="px-5 py-2 bg-ink-900 text-cream-50 text-xs uppercase tracking-widest font-semibold hover:bg-ink-700 transition-colors">
+            <button onclick="closeProtoSemModal()" class="px-5 py-2 bg-charcoal-900 text-ivory-50 text-xs uppercase font-mono tracking-wider font-semibold hover:bg-sage-700 transition-colors">
               Close Note
             </button>
           </div>
@@ -644,32 +692,32 @@
 
         <!-- EDIT MODE -->
         <div id="modal-edit-mode" class="space-y-5 hidden">
-          <div class="border-b editorial-border pb-3">
-            <span class="section-num block mb-1">Inline Field Note Editor</span>
-            <h3 id="modal-edit-header" class="font-serif text-2xl text-ink-900 font-normal">Edit WEEK 00</h3>
+          <div class="border-b hairline-border pb-3">
+            <span class="text-[10px] font-mono uppercase tracking-widest text-sage-600 font-semibold block mb-1">Inline Field Note Editor</span>
+            <h3 id="modal-edit-header" class="font-serif text-2xl text-charcoal-900 font-normal">Edit WEEK 00</h3>
           </div>
 
           <div class="space-y-4">
             <div class="space-y-1">
-              <label for="edit-note-title" class="text-xs uppercase font-mono tracking-wider text-ink-600 block">Weekly Focus / Title</label>
-              <input type="text" id="edit-note-title" class="w-full bg-cream-50 border editorial-border focus:border-ink-900 px-3 py-2 text-sm text-ink-900 focus:outline-none transition-colors" placeholder="e.g. Retail Problem Identification & Problem Statement Framing">
+              <label for="edit-note-title" class="text-xs uppercase font-mono tracking-wider text-charcoal-600 block">Weekly Focus / Title</label>
+              <input type="text" id="edit-note-title" class="w-full bg-ivory-50 border hairline-border focus:border-sage-600 px-3 py-2 text-sm text-charcoal-900 focus:outline-none transition-colors" placeholder="e.g. Retail Problem Identification & Discovery">
             </div>
 
             <div class="space-y-1">
-              <label for="edit-note-desc" class="text-xs uppercase font-mono tracking-wider text-ink-600 block">Weekly Summary / Documentation</label>
-              <textarea id="edit-note-desc" rows="6" class="w-full bg-cream-50 border editorial-border focus:border-ink-900 p-3 text-sm text-ink-900 font-light leading-relaxed focus:outline-none transition-colors" placeholder="Describe key activities, research findings, prototypes created, or strategic insights..."></textarea>
+              <label for="edit-note-desc" class="text-xs uppercase font-mono tracking-wider text-charcoal-600 block">Weekly Summary / Documentation</label>
+              <textarea id="edit-note-desc" rows="6" class="w-full bg-ivory-50 border hairline-border focus:border-sage-600 p-3 text-sm text-charcoal-900 font-light leading-relaxed focus:outline-none transition-colors" placeholder="Describe key activities, research observations, experiments, or learnings..."></textarea>
             </div>
           </div>
 
-          <div class="flex items-center justify-between pt-3 border-t editorial-border">
-            <button onclick="clearCurrentWeekNotes()" class="text-xs font-mono uppercase tracking-wider text-ink-400 hover:text-red-700 transition-colors">
+          <div class="flex items-center justify-between pt-3 border-t hairline-border">
+            <button onclick="clearCurrentWeekNotes()" class="text-xs font-mono uppercase tracking-wider text-charcoal-400 hover:text-red-700 transition-colors">
               Reset to Blank
             </button>
             <div class="flex items-center gap-3">
-              <button onclick="cancelEditMode()" class="px-4 py-2 border editorial-border text-xs uppercase tracking-widest font-medium text-ink-700 hover:text-ink-900 transition-colors">
+              <button onclick="cancelEditMode()" class="px-4 py-2 border hairline-border text-xs uppercase font-mono tracking-wider font-medium text-charcoal-700 hover:text-charcoal-900 transition-colors">
                 Cancel
               </button>
-              <button onclick="saveCurrentWeekNotes()" class="px-5 py-2 bg-ink-900 text-cream-50 text-xs uppercase tracking-widest font-semibold hover:bg-ink-700 transition-colors">
+              <button onclick="saveCurrentWeekNotes()" class="px-5 py-2 bg-charcoal-900 text-ivory-50 text-xs uppercase font-mono tracking-wider font-semibold hover:bg-sage-700 transition-colors">
                 Save Changes
               </button>
             </div>
@@ -683,33 +731,33 @@
     <section id="certifications" class="reveal-on-scroll space-y-12 scroll-mt-28">
       
       <!-- Section Header -->
-      <div class="flex items-baseline justify-between border-b editorial-border pb-4">
-        <span class="section-num">05 / CERTIFICATIONS & HONORS</span>
-        <span class="text-xs uppercase tracking-widest text-ink-400 font-medium">Recognition</span>
+      <div class="flex items-baseline justify-between border-b hairline-border pb-4">
+        <span class="text-[11px] font-mono tracking-widest uppercase text-sage-600 font-semibold">05 / CERTIFICATIONS & HONORS</span>
+        <span class="text-xs uppercase font-mono tracking-widest text-charcoal-400">Merit & Immersion</span>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         
         <!-- Award 1: SPJIMR -->
-        <div class="editorial-card p-8 space-y-4">
+        <div class="bg-white p-8 border hairline-border space-y-4">
           <div class="flex items-start justify-between">
-            <span class="text-xs font-mono uppercase tracking-widest text-ink-400">Executive Program</span>
-            <span class="text-xs font-mono uppercase tracking-widest text-ink-700 bg-cream-100 px-2 py-0.5 border editorial-border">Certified</span>
+            <span class="text-xs font-mono uppercase tracking-widest text-sage-600 font-medium">Executive Program</span>
+            <span class="text-xs font-mono uppercase tracking-widest text-charcoal-700 bg-ivory-100 px-2 py-0.5 border hairline-border">Certified</span>
           </div>
-          <h3 class="font-serif text-2xl text-ink-900 font-normal">Startup Sprint — SPJIMR</h3>
-          <p class="text-sm text-ink-600 font-light leading-relaxed">
+          <h3 class="font-serif text-2xl text-charcoal-900 font-normal">Startup Sprint — SPJIMR</h3>
+          <p class="text-sm text-charcoal-600 font-light leading-relaxed">
             Completed an intensive 5-day executive immersion program focused on Startups, Entrepreneurship, and Family Business Dynamics.
           </p>
         </div>
 
         <!-- Award 2: Mahatma Gandhi Scholarship -->
-        <div class="editorial-card p-8 space-y-4">
+        <div class="bg-white p-8 border hairline-border space-y-4">
           <div class="flex items-start justify-between">
-            <span class="text-xs font-mono uppercase tracking-widest text-ink-400">Merit Award</span>
-            <span class="text-xs font-mono uppercase tracking-widest text-ink-700 bg-cream-100 px-2 py-0.5 border editorial-border">Semester 1</span>
+            <span class="text-xs font-mono uppercase tracking-widest text-violet-600 font-medium">Merit Scholarship</span>
+            <span class="text-xs font-mono uppercase tracking-widest text-charcoal-700 bg-ivory-100 px-2 py-0.5 border hairline-border">Semester 1</span>
           </div>
-          <h3 class="font-serif text-2xl text-ink-900 font-normal">Mahatma Gandhi Scholarship</h3>
-          <p class="text-sm text-ink-600 font-light leading-relaxed">
+          <h3 class="font-serif text-2xl text-charcoal-900 font-normal">Mahatma Gandhi Scholarship</h3>
+          <p class="text-sm text-charcoal-600 font-light leading-relaxed">
             Merit-based academic scholarship awarded in recognition of academic excellence in Semester 1 at Kumaraguru College of Liberal Arts and Science.
           </p>
         </div>
@@ -722,45 +770,45 @@
     <section id="education" class="reveal-on-scroll space-y-12 scroll-mt-28">
       
       <!-- Section Header -->
-      <div class="flex items-baseline justify-between border-b editorial-border pb-4">
-        <span class="section-num">06 / EDUCATION</span>
-        <span class="text-xs uppercase tracking-widest text-ink-400 font-medium">Academic Chronology</span>
+      <div class="flex items-baseline justify-between border-b hairline-border pb-4">
+        <span class="text-[11px] font-mono tracking-widest uppercase text-sage-600 font-semibold">06 / EDUCATION</span>
+        <span class="text-xs uppercase font-mono tracking-widest text-charcoal-400">Academic Background</span>
       </div>
 
       <div class="space-y-6">
         
-        <!-- Degree 1: BBA -->
-        <div class="editorial-card p-8 flex flex-col md:flex-row md:items-start justify-between gap-6">
+        <!-- College -->
+        <div class="bg-white p-8 border hairline-border flex flex-col md:flex-row md:items-start justify-between gap-6">
           <div class="space-y-2 max-w-xl">
-            <span class="text-xs font-mono uppercase tracking-widest text-ink-400">Undergraduate Degree</span>
-            <h3 class="font-serif text-2xl text-ink-900 font-normal">
+            <span class="text-xs font-mono uppercase tracking-widest text-sage-600 font-medium">Undergraduate Degree</span>
+            <h3 class="font-serif text-2xl text-charcoal-900 font-normal">
               Bachelor of Business Administration (BBA)
             </h3>
-            <p class="font-serif italic text-base text-ink-600">
+            <p class="font-serif italic text-base text-charcoal-600">
               Kumaraguru College of Liberal Arts and Science, Coimbatore, Tamil Nadu
             </p>
-            <p class="text-sm text-ink-600 font-light pt-1">
-              Current Cumulative GPA: <strong class="font-medium text-ink-900">8.0 / 10.0</strong> • Mahatma Gandhi Scholarship (Semester 1).
+            <p class="text-sm text-charcoal-600 font-light pt-1">
+              Current Cumulative GPA: <strong class="font-medium text-charcoal-900">8.0 / 10.0</strong> • Mahatma Gandhi Scholarship (Semester 1).
             </p>
           </div>
-          <div class="text-xs font-mono uppercase tracking-wider text-ink-600 bg-cream-100 px-3.5 py-1.5 border editorial-border whitespace-nowrap self-start">
+          <div class="text-xs font-mono uppercase tracking-wider text-charcoal-600 bg-ivory-100 px-3.5 py-1.5 border hairline-border whitespace-nowrap self-start">
             2025 – 2028 (Expected)
           </div>
         </div>
 
-        <!-- Schooling Records -->
+        <!-- Schooling -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
           
-          <div class="editorial-card p-6 space-y-2">
-            <span class="text-xs font-mono uppercase tracking-widest text-ink-400">Higher Secondary Education</span>
-            <h4 class="font-serif text-xl text-ink-900 font-normal">Class XII — State Board</h4>
-            <p class="font-serif italic text-lg text-ink-800">Score: 95%</p>
+          <div class="bg-white p-6 border hairline-border space-y-2">
+            <span class="text-xs font-mono uppercase tracking-widest text-charcoal-400">Higher Secondary Education</span>
+            <h4 class="font-serif text-xl text-charcoal-900 font-normal">Class XII — State Board</h4>
+            <p class="font-serif italic text-lg text-sage-700">Score: 95%</p>
           </div>
 
-          <div class="editorial-card p-6 space-y-2">
-            <span class="text-xs font-mono uppercase tracking-widest text-ink-400">Secondary Education</span>
-            <h4 class="font-serif text-xl text-ink-900 font-normal">Class X — State Board</h4>
-            <p class="font-serif italic text-lg text-ink-800">Score: 90%</p>
+          <div class="bg-white p-6 border hairline-border space-y-2">
+            <span class="text-xs font-mono uppercase tracking-widest text-charcoal-400">Secondary Education</span>
+            <h4 class="font-serif text-xl text-charcoal-900 font-normal">Class X — State Board</h4>
+            <p class="font-serif italic text-lg text-sage-700">Score: 90%</p>
           </div>
 
         </div>
@@ -773,45 +821,45 @@
     <section id="leadership" class="reveal-on-scroll space-y-12 scroll-mt-28">
       
       <!-- Section Header -->
-      <div class="flex items-baseline justify-between border-b editorial-border pb-4">
-        <span class="section-num">07 / LEADERSHIP & INITIATIVES</span>
-        <span class="text-xs uppercase tracking-widest text-ink-400 font-medium">Campus Engagement</span>
+      <div class="flex items-baseline justify-between border-b hairline-border pb-4">
+        <span class="text-[11px] font-mono tracking-widest uppercase text-sage-600 font-semibold">07 / LEADERSHIP & INITIATIVES</span>
+        <span class="text-xs uppercase font-mono tracking-widest text-charcoal-400">Campus Impact</span>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         
         <!-- Role 1 -->
-        <div class="editorial-card p-8 space-y-4">
-          <span class="text-xs font-mono uppercase tracking-widest text-ink-400">Club Governance</span>
+        <div class="bg-white p-8 border hairline-border space-y-4">
+          <span class="text-xs font-mono uppercase tracking-widest text-sage-600 font-medium">Club Leadership</span>
           <div class="space-y-1">
-            <h3 class="font-serif text-2xl text-ink-900 font-normal">Joint Secretary</h3>
-            <p class="font-serif italic text-sm text-ink-600">Sahitya Literature Club</p>
+            <h3 class="font-serif text-2xl text-charcoal-900 font-normal">Joint Secretary</h3>
+            <p class="font-serif italic text-sm text-charcoal-600">Sahitya Literature Club</p>
           </div>
-          <p class="text-sm text-ink-600 font-light leading-relaxed">
+          <p class="text-sm text-charcoal-600 font-light leading-relaxed">
             Drives planning, resource allocation, and team coordination for club initiatives and literary competitions; facilitates creative student workshops.
           </p>
         </div>
 
         <!-- Role 2 -->
-        <div class="editorial-card p-8 space-y-4">
-          <span class="text-xs font-mono uppercase tracking-widest text-ink-400">Event Direction</span>
+        <div class="bg-white p-8 border hairline-border space-y-4">
+          <span class="text-xs font-mono uppercase tracking-widest text-sage-600 font-medium">Event Coordination</span>
           <div class="space-y-1">
-            <h3 class="font-serif text-2xl text-ink-900 font-normal">Event Coordinator</h3>
-            <p class="font-serif italic text-sm text-ink-600">PODIUM • Public-Speaking Showcase</p>
+            <h3 class="font-serif text-2xl text-charcoal-900 font-normal">Event Coordinator</h3>
+            <p class="font-serif italic text-sm text-charcoal-600">PODIUM • Public-Speaking Event</p>
           </div>
-          <p class="text-sm text-ink-600 font-light leading-relaxed">
+          <p class="text-sm text-charcoal-600 font-light leading-relaxed">
             Managed event logistics, participant registration, speaker scheduling, and on-ground coordination for a premier public-speaking event.
           </p>
         </div>
 
         <!-- Role 3 -->
-        <div class="editorial-card p-8 space-y-4">
-          <span class="text-xs font-mono uppercase tracking-widest text-ink-400">Adjudication</span>
+        <div class="bg-white p-8 border hairline-border space-y-4">
+          <span class="text-xs font-mono uppercase tracking-widest text-violet-600 font-medium">Adjudication</span>
           <div class="space-y-1">
-            <h3 class="font-serif text-2xl text-ink-900 font-normal">Judging Panel Member</h3>
-            <p class="font-serif italic text-sm text-ink-600">INKSPIRE • Creative Contest</p>
+            <h3 class="font-serif text-2xl text-charcoal-900 font-normal">Judging Panel Member</h3>
+            <p class="font-serif italic text-sm text-charcoal-600">INKSPIRE • Creative Contest</p>
           </div>
-          <p class="text-sm text-ink-600 font-light leading-relaxed">
+          <p class="text-sm text-charcoal-600 font-light leading-relaxed">
             Evaluated entries across structured performance metrics, ensuring fair scoring, rubric adherence, and constructive participant feedback.
           </p>
         </div>
@@ -824,72 +872,72 @@
     <section id="contact" class="reveal-on-scroll space-y-12 scroll-mt-28">
       
       <!-- Section Header -->
-      <div class="flex items-baseline justify-between border-b editorial-border pb-4">
-        <span class="section-num">08 / CONTACT & INQUIRIES</span>
-        <span class="text-xs uppercase tracking-widest text-ink-400 font-medium">Correspondence</span>
+      <div class="flex items-baseline justify-between border-b hairline-border pb-4">
+        <span class="text-[11px] font-mono tracking-widest uppercase text-sage-600 font-semibold">08 / CONTACT & CORRESPONDENCE</span>
+        <span class="text-xs uppercase font-mono tracking-widest text-charcoal-400">Get in Touch</span>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         
         <!-- Direct Contact Details (5 cols) -->
         <div class="lg:col-span-5 space-y-6">
-          <h3 class="font-serif text-3xl sm:text-4xl text-ink-900 font-normal leading-snug">
+          <h3 class="font-serif text-3xl sm:text-4xl text-charcoal-900 font-normal leading-snug">
             Let’s start a conversation.
           </h3>
-          <p class="text-sm text-ink-600 font-light leading-relaxed">
+          <p class="text-sm text-charcoal-600 font-light leading-relaxed">
             Open to internship opportunities, retail innovation dialogues, and collaborative business ventures.
           </p>
 
           <div class="space-y-4 pt-2 text-sm font-light">
             <div class="space-y-1">
-              <span class="section-num block">Electronic Mail</span>
-              <a href="mailto:mithradharshini968.7@gmail.com" class="editorial-link text-ink-900 font-normal">
+              <span class="text-[10px] font-mono uppercase tracking-widest text-sage-600 font-semibold block">Electronic Mail</span>
+              <a href="mailto:mithradharshini968.7@gmail.com" class="editorial-link text-charcoal-900 font-normal">
                 mithradharshini968.7@gmail.com
               </a>
             </div>
 
             <div class="space-y-1">
-              <span class="section-num block">Professional Network</span>
-              <a href="https://www.linkedin.com/in/mithra-dharshini-r-208159378" target="_blank" rel="noopener noreferrer" class="editorial-link text-ink-900 font-normal">
+              <span class="text-[10px] font-mono uppercase tracking-widest text-sage-600 font-semibold block">Professional Network</span>
+              <a href="https://www.linkedin.com/in/mithra-dharshini-r-208159378" target="_blank" rel="noopener noreferrer" class="editorial-link text-charcoal-900 font-normal">
                 linkedin.com/in/mithra-dharshini-r
               </a>
             </div>
 
             <div class="space-y-1">
-              <span class="section-num block">Location</span>
-              <p class="text-ink-800">Coimbatore, Tamil Nadu, India</p>
+              <span class="text-[10px] font-mono uppercase tracking-widest text-sage-600 font-semibold block">Location</span>
+              <p class="text-charcoal-800">Coimbatore, Tamil Nadu, India</p>
             </div>
 
             <div class="pt-2">
-              <a href="https://mithradharshini.github.io/resume.html" target="_blank" class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest px-5 py-3 border editorial-border hover:border-ink-900 bg-white text-ink-900 transition-colors">
-                <i data-lucide="download" class="w-3.5 h-3.5"></i>
-                <span>View Full ATS Resume</span>
+              <a href="resume.html" target="_blank" class="inline-flex items-center gap-2 text-xs font-medium uppercase font-mono tracking-wider px-5 py-3 border hairline-border hover:border-sage-600 bg-white text-charcoal-900 transition-colors">
+                <i data-lucide="download" class="w-3.5 h-3.5 text-sage-600"></i>
+                <span>View ATS Resume (Print PDF)</span>
               </a>
             </div>
           </div>
         </div>
 
-        <!-- Minimal Editorial Contact Form (7 cols) -->
-        <div class="lg:col-span-7 bg-white p-8 sm:p-10 border editorial-border space-y-6">
-          <span class="section-num block">Leave a Message</span>
+        <!-- Minimal Nature-Inspired Contact Form (7 cols) -->
+        <div class="lg:col-span-7 bg-white p-8 sm:p-10 border hairline-border space-y-6">
+          <span class="text-[10px] font-mono uppercase tracking-widest text-sage-600 font-semibold block">Send a Note</span>
           
           <form onsubmit="event.preventDefault(); alert('Thank you for reaching out, Mithra will receive your message soon!');" class="space-y-5">
             <div class="space-y-1">
-              <label for="name" class="text-xs uppercase font-mono tracking-wider text-ink-500 block">Your Name</label>
-              <input type="text" id="name" required class="w-full bg-cream-50 border-b border-cream-300 focus:border-ink-900 px-3 py-2 text-sm text-ink-900 focus:outline-none transition-colors" placeholder="e.g. Jane Doe">
+              <label for="name" class="text-xs uppercase font-mono tracking-wider text-charcoal-500 block">Your Name</label>
+              <input type="text" id="name" required class="w-full bg-ivory-50 border-b hairline-border focus:border-sage-600 px-3 py-2 text-sm text-charcoal-900 focus:outline-none transition-colors" placeholder="e.g. Jane Doe">
             </div>
 
             <div class="space-y-1">
-              <label for="email" class="text-xs uppercase font-mono tracking-wider text-ink-500 block">Email Address</label>
-              <input type="email" id="email" required class="w-full bg-cream-50 border-b border-cream-300 focus:border-ink-900 px-3 py-2 text-sm text-ink-900 focus:outline-none transition-colors" placeholder="name@company.com">
+              <label for="email" class="text-xs uppercase font-mono tracking-wider text-charcoal-500 block">Email Address</label>
+              <input type="email" id="email" required class="w-full bg-ivory-50 border-b hairline-border focus:border-sage-600 px-3 py-2 text-sm text-charcoal-900 focus:outline-none transition-colors" placeholder="name@company.com">
             </div>
 
             <div class="space-y-1">
-              <label for="message" class="text-xs uppercase font-mono tracking-wider text-ink-500 block">Message</label>
-              <textarea id="message" rows="4" required class="w-full bg-cream-50 border-b border-cream-300 focus:border-ink-900 px-3 py-2 text-sm text-ink-900 focus:outline-none transition-colors" placeholder="Write your message here..."></textarea>
+              <label for="message" class="text-xs uppercase font-mono tracking-wider text-charcoal-500 block">Message</label>
+              <textarea id="message" rows="4" required class="w-full bg-ivory-50 border-b hairline-border focus:border-sage-600 px-3 py-2 text-sm text-charcoal-900 focus:outline-none transition-colors" placeholder="Write your message here..."></textarea>
             </div>
 
-            <button type="submit" class="w-full sm:w-auto px-8 py-3.5 bg-ink-900 text-cream-50 text-xs font-semibold uppercase tracking-widest hover:bg-ink-700 transition-colors">
+            <button type="submit" class="w-full sm:w-auto px-8 py-3.5 bg-charcoal-900 text-ivory-50 text-xs font-semibold uppercase font-mono tracking-widest hover:bg-sage-700 transition-colors">
               Send Message
             </button>
           </form>
@@ -901,53 +949,48 @@
 
   </main>
 
-  <!-- 10. FOOTER -->
-  <footer class="border-t editorial-border bg-cream-200/60 py-12 mt-24">
-    <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 flex flex-col sm:flex-row items-center justify-between gap-6 text-xs text-ink-500 font-sans">
+  <!-- FOOTER -->
+  <footer class="border-t hairline-border bg-ivory-200/50 py-12 mt-24">
+    <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 flex flex-col sm:flex-row items-center justify-between gap-6 text-xs text-charcoal-500 font-sans">
       <div class="flex items-center gap-3">
-        <span class="font-serif italic text-lg text-ink-800">Mithra Dharshini R</span>
+        <span class="font-serif italic text-lg text-charcoal-800">Mithra Dharshini R</span>
         <span>•</span>
         <span>© 2026. All rights reserved.</span>
       </div>
-      <div class="flex items-center space-x-6 uppercase tracking-wider text-[11px]">
-        <a href="#hero" class="editorial-link hover:text-ink-900">Back to top ↑</a>
-        <a href="resume.html" target="_blank" class="editorial-link hover:text-ink-900">ATS Resume</a>
-        <a href="https://github.com/mithradharshini" target="_blank" rel="noopener noreferrer" class="editorial-link hover:text-ink-900">GitHub</a>
+      <div class="flex items-center space-x-6 uppercase font-mono text-[11px] tracking-wider">
+        <a href="#hero" class="editorial-link hover:text-sage-700">Back to top ↑</a>
+        <a href="resume.html" target="_blank" class="editorial-link hover:text-sage-700">ATS Resume</a>
+        <a href="https://github.com/mithradharshini" target="_blank" rel="noopener noreferrer" class="editorial-link hover:text-sage-700">GitHub</a>
       </div>
     </div>
   </footer>
 
-  <!-- JAVASCRIPT: DATA-DRIVEN PROTOSEM ARCHITECTURE & IN-BROWSER EDITING -->
+  <!-- JAVASCRIPT: HORIZONTAL FIELD TIMELINE & IN-BROWSER PERSISTENCE -->
   <script>
     // Initialize Lucide Icons
     lucide.createIcons();
 
     /* ========================================================
-       PROTOSEM 20-WEEK JOURNEY DATA ARCHITECTURE (WITH WEEK 00)
-       Data-driven structure with browser persistence (LocalStorage)
+       PROTOSEM 20-WEEK FIELD JOURNAL DATA (WEEKS 00 THROUGH 20)
+       Horizontal four-phase timeline structure with LocalStorage
        ======================================================== */
     const baseProtoSemWeeks = [
-      // Prologue: Week 00
       { week: 0, phase: 0, slug: "week-00", title: "", description: "", status: "placeholder" },
-      // Phase 01: Weeks 01-05
       { week: 1, phase: 1, slug: "week-01", title: "", description: "", status: "placeholder" },
       { week: 2, phase: 1, slug: "week-02", title: "", description: "", status: "placeholder" },
       { week: 3, phase: 1, slug: "week-03", title: "", description: "", status: "placeholder" },
       { week: 4, phase: 1, slug: "week-04", title: "", description: "", status: "placeholder" },
       { week: 5, phase: 1, slug: "week-05", title: "", description: "", status: "placeholder" },
-      // Phase 02: Weeks 06-10
       { week: 6, phase: 2, slug: "week-06", title: "", description: "", status: "placeholder" },
       { week: 7, phase: 2, slug: "week-07", title: "", description: "", status: "placeholder" },
       { week: 8, phase: 2, slug: "week-08", title: "", description: "", status: "placeholder" },
       { week: 9, phase: 2, slug: "week-09", title: "", description: "", status: "placeholder" },
       { week: 10, phase: 2, slug: "week-10", title: "", description: "", status: "placeholder" },
-      // Phase 03: Weeks 11-15
       { week: 11, phase: 3, slug: "week-11", title: "", description: "", status: "placeholder" },
       { week: 12, phase: 3, slug: "week-12", title: "", description: "", status: "placeholder" },
       { week: 13, phase: 3, slug: "week-13", title: "", description: "", status: "placeholder" },
       { week: 14, phase: 3, slug: "week-14", title: "", description: "", status: "placeholder" },
       { week: 15, phase: 3, slug: "week-15", title: "", description: "", status: "placeholder" },
-      // Phase 04: Weeks 16-20
       { week: 16, phase: 4, slug: "week-16", title: "", description: "", status: "placeholder" },
       { week: 17, phase: 4, slug: "week-17", title: "", description: "", status: "placeholder" },
       { week: 18, phase: 4, slug: "week-18", title: "", description: "", status: "placeholder" },
@@ -955,11 +998,18 @@
       { week: 20, phase: 4, slug: "week-20", title: "", description: "", status: "placeholder" }
     ];
 
-    // Load data with LocalStorage overlays
+    const phaseMetadata = {
+      0: { name: "Prologue & Onboarding", descriptor: "Cohort Induction & Program Kickoff" },
+      1: { name: "Phase 01 — Discovery", descriptor: "Retail Problem Framing & Field Observation" },
+      2: { name: "Phase 02 — Technology & Systems", descriptor: "AI, IoT & Intelligent Systems Exploration" },
+      3: { name: "Phase 03 — Prototyping", descriptor: "Iterative Prototyping & Commerce Testing" },
+      4: { name: "Phase 04 — Synthesis & Validation", descriptor: "Commercial Viability & Venture Readiness" }
+    };
+
     let protoSemWeeks = [];
     function loadProtoSemData() {
       try {
-        const stored = localStorage.getItem('protosem_week_notes_v1');
+        const stored = localStorage.getItem('protosem_field_notes_v2');
         if (stored) {
           const parsed = JSON.parse(stored);
           protoSemWeeks = baseProtoSemWeeks.map(base => {
@@ -984,7 +1034,7 @@
 
     function saveProtoSemData() {
       try {
-        localStorage.setItem('protosem_week_notes_v1', JSON.stringify(protoSemWeeks));
+        localStorage.setItem('protosem_field_notes_v2', JSON.stringify(protoSemWeeks));
       } catch (e) {
         console.warn('Failed to save to localStorage:', e);
       }
@@ -993,88 +1043,105 @@
     let currentActiveFilter = 'all';
     let currentEditingWeekNum = 0;
 
-    // Render ProtoSem Cards
-    function renderProtoSemCards(filterPhase = 'all') {
+    // Render Horizontal Unfolding Field Journal Timeline
+    function renderProtoSemTimelineNodes(filterPhase = 'all') {
       currentActiveFilter = filterPhase;
-      const grid = document.getElementById('protosem-cards-grid');
-      if (!grid) return;
+      const container = document.getElementById('protosem-timeline-container');
+      if (!container) return;
 
-      const filtered = filterPhase === 'all' 
-        ? protoSemWeeks 
-        : filterPhase === '1'
-          ? protoSemWeeks.filter(w => w.phase === 0 || w.phase === 1) // Include Week 00 in Phase 01 view
-          : protoSemWeeks.filter(w => String(w.phase) === String(filterPhase));
+      const phasesToRender = filterPhase === 'all' 
+        ? [0, 1, 2, 3, 4] 
+        : filterPhase === '1' 
+          ? [0, 1] 
+          : [parseInt(filterPhase)];
 
-      grid.innerHTML = filtered.map(item => {
-        const weekPadded = String(item.week).padStart(2, '0');
-        const isPrologue = item.week === 0;
-        const phaseLabel = isPrologue ? 'PROLOGUE' : `PHASE ${String(item.phase).padStart(2, '0')}`;
-        const hasContent = item.title && item.title.trim().length > 0 || item.description && item.description.trim().length > 0;
-        const statusText = hasContent ? 'FIELD NOTES ARCHIVED' : 'FIELD NOTES IN PROGRESS';
-        
+      container.innerHTML = phasesToRender.map(phaseNum => {
+        const meta = phaseMetadata[phaseNum];
+        const phaseWeeks = protoSemWeeks.filter(w => w.phase === phaseNum);
+        if (!phaseWeeks.length) return '';
+
         return `
-          <div 
-            onclick="openProtoSemModal(${item.week})" 
-            ondblclick="event.stopPropagation(); startDirectEdit(${item.week});"
-            onkeydown="if(event.key==='Enter'||event.key===' ') { event.preventDefault(); openProtoSemModal(${item.week}); }"
-            tabindex="0"
-            role="button"
-            aria-label="Week ${weekPadded} - ${phaseLabel} Field Notes"
-            class="group editorial-card ${hasContent ? 'border-ink-700 bg-white' : 'bg-white'} ${isPrologue ? 'bg-cream-50' : ''} p-5 flex flex-col justify-between cursor-pointer focus:outline-none focus:ring-1 focus:ring-ink-900 transition-all duration-300 min-h-[155px] relative"
-            data-week="${item.week}"
-            data-phase="${item.phase}"
-          >
-            <!-- Top Metadata -->
-            <div class="flex items-center justify-between gap-2 border-b border-cream-200 pb-2">
-              <div class="flex items-center gap-1.5">
-                <span class="text-[10px] font-mono uppercase tracking-widest ${isPrologue ? 'text-accent-rust font-semibold' : 'text-ink-400'}">
-                  ${phaseLabel}
+          <!-- Phase Segment Container -->
+          <div class="bg-white border hairline-border p-6 sm:p-8 space-y-6 transition-all">
+            
+            <!-- Phase Segment Header -->
+            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 border-b hairline-border pb-4">
+              <div class="space-y-0.5">
+                <span class="text-[10px] font-mono uppercase tracking-widest text-sage-600 font-semibold">
+                  ${phaseNum === 0 ? 'PROLOGUE' : `PHASE 0${phaseNum}`}
                 </span>
-                ${hasContent ? `<span class="w-1.5 h-1.5 rounded-full bg-ink-900" title="Documented"></span>` : ''}
+                <h4 class="font-serif text-2xl text-charcoal-900 font-normal">
+                  ${meta.name}
+                </h4>
               </div>
-
-              <div class="flex items-center gap-2">
-                <button 
-                  type="button"
-                  onclick="event.stopPropagation(); startDirectEdit(${item.week});" 
-                  class="opacity-0 group-hover:opacity-100 p-1 text-ink-400 hover:text-ink-900 hover:bg-cream-100 rounded transition-all" 
-                  title="Edit week notes directly"
-                  aria-label="Edit Week ${weekPadded}"
-                >
-                  <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
-                </button>
-                <span class="text-[10px] font-mono text-ink-400 group-hover:text-ink-900 transition-colors">
-                  W.${weekPadded}
-                </span>
-              </div>
-            </div>
-
-            <!-- Card Center: Week Number & Status -->
-            <div class="my-3 space-y-1.5">
-              <div class="font-serif text-2xl text-ink-900 group-hover:text-ink-600 transition-colors flex items-center justify-between">
-                <span>WEEK ${weekPadded}</span>
-                <span class="text-xs text-ink-400 group-hover:text-ink-900 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
-              </div>
-
-              ${hasContent && item.title ? `
-                <p class="font-serif italic text-xs text-ink-800 line-clamp-1">
-                  "${escapeHtml(item.title)}"
-                </p>
-              ` : ''}
-
-              <div class="text-[10px] font-mono uppercase tracking-wider ${hasContent ? 'text-ink-800 font-semibold' : 'text-ink-500'} flex items-center gap-1.5">
-                <span class="text-[8px]">${hasContent ? '●' : '○'}</span>
-                <span>${statusText}</span>
-              </div>
-            </div>
-
-            <!-- Card Bottom: Subtle Signal -->
-            <div class="pt-2 border-t border-cream-200 flex items-center justify-between text-[10px] text-ink-400 group-hover:text-ink-700 transition-colors">
-              <span class="italic font-serif">${isPrologue ? 'Orientation / Induction' : `Chapter ${item.week} of 20`}</span>
-              <span class="uppercase tracking-wider font-mono text-[9px] group-hover:underline">
-                ${hasContent ? 'View Notes' : 'Future Story'}
+              <span class="text-xs font-serif italic text-charcoal-500">
+                ${meta.descriptor}
               </span>
             </div>
+
+            <!-- Horizontal Node Track / Unfolding Timeline Rail -->
+            <div class="relative py-2">
+              
+              <!-- Timeline Continuous Connecting Rail -->
+              <div class="hidden sm:block absolute top-7 left-6 right-6 h-px bg-ivory-300 pointer-events-none" aria-hidden="true"></div>
+
+              <!-- Nodes Row -->
+              <div class="grid grid-cols-1 sm:grid-cols-5 gap-4 relative z-10">
+                ${phaseWeeks.map(item => {
+                  const weekPadded = String(item.week).padStart(2, '0');
+                  const isPrologue = item.week === 0;
+                  const hasContent = (item.title && item.title.trim().length > 0) || (item.description && item.description.trim().length > 0);
+
+                  return `
+                    <div 
+                      onclick="openProtoSemModal(${item.week})"
+                      onkeydown="if(event.key==='Enter'||event.key===' ') { event.preventDefault(); openProtoSemModal(${item.week}); }"
+                      tabindex="0"
+                      role="button"
+                      aria-label="Week ${weekPadded} Field Journal Entry"
+                      class="group relative bg-ivory-50 hover:bg-white border ${hasContent ? 'border-sage-500 bg-white shadow-sm' : 'hairline-border'} p-4 flex flex-col justify-between cursor-pointer focus:outline-none focus:ring-1 focus:ring-sage-600 transition-all duration-300 min-h-[145px]"
+                    >
+                      <!-- Milestone Node Header -->
+                      <div class="flex items-center justify-between gap-2">
+                        <!-- Connecting Milestone Circle -->
+                        <div class="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-mono font-bold transition-colors ${hasContent ? 'bg-sage-600 text-white' : 'bg-white border hairline-border text-charcoal-600 group-hover:border-sage-500 group-hover:text-sage-700'}">
+                          ${isPrologue ? 'P' : weekPadded}
+                        </div>
+                        <span class="text-[9px] font-mono uppercase tracking-widest ${hasContent ? 'text-sage-700 font-semibold' : 'text-charcoal-400'}">
+                          ${hasContent ? '● Archived' : '○ Pending'}
+                        </span>
+                      </div>
+
+                      <!-- Node Center Content -->
+                      <div class="my-2 space-y-1">
+                        <div class="font-serif text-lg font-normal text-charcoal-900 group-hover:text-sage-700 transition-colors flex items-center justify-between">
+                          <span>WEEK ${weekPadded}</span>
+                          <span class="text-xs text-charcoal-400 group-hover:text-sage-600 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+                        </div>
+                        
+                        ${hasContent && item.title ? `
+                          <p class="font-serif italic text-xs text-charcoal-700 line-clamp-1">
+                            "${escapeHtml(item.title)}"
+                          </p>
+                        ` : `
+                          <p class="text-[10px] font-mono uppercase tracking-wider text-charcoal-400">
+                            ${isPrologue ? 'Orientation' : 'Field Notes in Progress'}
+                          </p>
+                        `}
+                      </div>
+
+                      <!-- Node Footer Link -->
+                      <div class="pt-2 border-t border-ivory-200 flex items-center justify-between text-[9px] font-mono text-charcoal-400 group-hover:text-sage-700 uppercase tracking-wider transition-colors">
+                        <span>${isPrologue ? 'Kickoff' : `Entry ${item.week}`}</span>
+                        <span class="group-hover:underline">${hasContent ? 'View Log' : 'Document'}</span>
+                      </div>
+                    </div>
+                  `;
+                }).join('')}
+              </div>
+
+            </div>
+
           </div>
         `;
       }).join('');
@@ -1083,7 +1150,6 @@
       lucide.createIcons();
     }
 
-    // Escape helper
     function escapeHtml(str) {
       if (!str) return '';
       return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -1092,18 +1158,18 @@
     // Filter by Phase
     function filterProtoSemPhase(phase, btnElement) {
       document.querySelectorAll('.protosem-phase-btn').forEach(btn => {
-        btn.classList.remove('bg-ink-900', 'text-cream-50', 'active');
-        btn.classList.add('text-ink-600');
+        btn.classList.remove('bg-charcoal-900', 'text-ivory-50', 'active');
+        btn.classList.add('text-charcoal-600');
         btn.setAttribute('aria-selected', 'false');
       });
 
       if (btnElement) {
-        btnElement.classList.add('bg-ink-900', 'text-cream-50', 'active');
-        btnElement.classList.remove('text-ink-600');
+        btnElement.classList.add('bg-charcoal-900', 'text-ivory-50', 'active');
+        btnElement.classList.remove('text-charcoal-600');
         btnElement.setAttribute('aria-selected', 'true');
       }
 
-      renderProtoSemCards(phase);
+      renderProtoSemTimelineNodes(phase);
     }
 
     // Modal View Handlers
@@ -1117,7 +1183,7 @@
       // Populate View Mode
       document.getElementById('modal-phase-label').innerText = isPrologue 
         ? 'Prologue • Orientation & Kickoff' 
-        : `Phase ${String(item.phase).padStart(2, '0')} • Programme Milestone`;
+        : `Phase ${String(item.phase).padStart(2, '0')} • Milestone Node`;
 
       document.getElementById('modal-week-title').innerText = `WEEK ${weekPadded}`;
 
@@ -1134,13 +1200,13 @@
       if (item.description && item.description.trim().length > 0) {
         descBox.innerText = item.description;
         statusPill.innerText = 'Documented';
-        statusPill.className = 'text-[10px] font-mono uppercase tracking-wider px-2.5 py-0.5 border border-ink-900 text-ink-900 bg-cream-200 font-semibold';
+        statusPill.className = 'text-[10px] font-mono uppercase tracking-wider px-2.5 py-0.5 border border-sage-500 text-sage-700 bg-sage-50 font-semibold';
       } else {
         descBox.innerText = isPrologue
           ? 'Orientation, programme onboarding, and cohort induction. Document initial briefings, frameworks, or problem statement allocations here.'
           : 'This chapter of the 20-week PRICE ProtoSem innovation log is being documented. Future stories, prototyping milestones, and detailed field notes will appear here once published.';
         statusPill.innerText = 'Field Notes in Progress';
-        statusPill.className = 'text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 border editorial-border text-ink-500 bg-cream-100';
+        statusPill.className = 'text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 border hairline-border text-charcoal-500 bg-ivory-100';
       }
 
       // Show View Mode
@@ -1149,12 +1215,6 @@
 
       modal.classList.remove('hidden');
       modal.classList.add('flex');
-    }
-
-    // Direct Edit Mode trigger
-    function startDirectEdit(weekNum) {
-      openProtoSemModal(weekNum);
-      switchToEditMode();
     }
 
     // Switch to Edit Mode in Modal
@@ -1188,7 +1248,7 @@
       }
 
       saveProtoSemData();
-      renderProtoSemCards(currentActiveFilter);
+      renderProtoSemTimelineNodes(currentActiveFilter);
       openProtoSemModal(currentEditingWeekNum);
     }
 
@@ -1234,9 +1294,9 @@
       scrollObserver.observe(el);
     });
 
-    // Initial load & render of all cards (Weeks 00 through 20)
+    // Initial load & render of all timeline nodes
     loadProtoSemData();
-    renderProtoSemCards('all');
+    renderProtoSemTimelineNodes('all');
   </script>
 </body>
 </html>
