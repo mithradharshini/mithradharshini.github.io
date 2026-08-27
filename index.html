@@ -654,7 +654,7 @@
 
     <!-- Modal for Week Milestone Viewer & Direct In-Browser Field Note Editor -->
     <div id="protosem-modal" class="fixed inset-0 z-50 bg-charcoal-900/60 backdrop-blur-sm hidden items-center justify-center p-4 transition-opacity" aria-hidden="true">
-      <div class="bg-white border hairline-border max-w-lg w-full p-6 sm:p-8 space-y-6 shadow-xl relative max-h-[90vh] overflow-y-auto">
+      <div class="bg-white border hairline-border max-w-2xl w-full p-6 sm:p-10 space-y-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
         <button onclick="closeProtoSemModal()" class="absolute top-4 right-4 p-2 text-charcoal-400 hover:text-charcoal-900 transition-colors" aria-label="Close dialog">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
@@ -669,23 +669,38 @@
               </span>
             </div>
             <h3 id="modal-week-title" class="font-serif text-3xl sm:text-4xl text-charcoal-900 font-normal">WEEK 00</h3>
-            <p id="modal-custom-title" class="font-serif italic text-lg text-sage-700 hidden"></p>
+            <p id="modal-custom-title" class="font-serif italic text-xl text-sage-700 hidden"></p>
           </div>
 
-          <div class="space-y-2">
-            <span class="text-[10px] font-mono uppercase tracking-widest text-charcoal-400 font-semibold block">Weekly Field Notes & Summary</span>
-            <div id="modal-description-text" class="text-sm text-charcoal-700 font-light leading-relaxed whitespace-pre-line bg-ivory-50 p-4 border hairline-border">
+          <!-- Description / Field Notes Content Box -->
+          <div class="space-y-3">
+            <span class="text-[10px] font-mono uppercase tracking-widest text-charcoal-400 font-semibold block">Field Journal Entry & Learnings</span>
+            <div id="modal-description-text" class="text-sm text-charcoal-700 font-light leading-relaxed whitespace-pre-line bg-ivory-50 p-5 border hairline-border space-y-4">
               This chapter of the 20-week PRICE ProtoSem innovation log is being documented. Future stories, prototyping milestones, and detailed field notes will appear here once published.
             </div>
           </div>
 
-          <div class="flex items-center justify-between pt-2 border-t hairline-border">
+          <!-- Image Gallery Container (For Week 00 and photo entries) -->
+          <div id="modal-gallery-section" class="space-y-3 hidden border-t hairline-border pt-4">
+            <div class="flex items-center justify-between">
+              <span class="text-[10px] font-mono uppercase tracking-widest text-sage-600 font-semibold flex items-center gap-1.5">
+                <i data-lucide="camera" class="w-3.5 h-3.5"></i>
+                <span>Field Documentation Gallery</span>
+              </span>
+              <span class="text-[10px] font-mono text-charcoal-400 italic">Click photo to enlarge</span>
+            </div>
+            <div id="modal-gallery-grid" class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between pt-3 border-t hairline-border">
             <button onclick="switchToEditMode()" class="inline-flex items-center gap-2 px-4 py-2 border hairline-border hover:border-sage-600 text-xs uppercase font-mono tracking-wider font-medium text-charcoal-800 transition-colors">
               <i data-lucide="edit-3" class="w-3.5 h-3.5 text-sage-600"></i>
               <span>Edit Field Notes</span>
             </button>
             <button onclick="closeProtoSemModal()" class="px-5 py-2 bg-charcoal-900 text-ivory-50 text-xs uppercase font-mono tracking-wider font-semibold hover:bg-sage-700 transition-colors">
-              Close Note
+              Close Journal
             </button>
           </div>
         </div>
@@ -705,7 +720,7 @@
 
             <div class="space-y-1">
               <label for="edit-note-desc" class="text-xs uppercase font-mono tracking-wider text-charcoal-600 block">Weekly Summary / Documentation</label>
-              <textarea id="edit-note-desc" rows="6" class="w-full bg-ivory-50 border hairline-border focus:border-sage-600 p-3 text-sm text-charcoal-900 font-light leading-relaxed focus:outline-none transition-colors" placeholder="Describe key activities, research observations, experiments, or learnings..."></textarea>
+              <textarea id="edit-note-desc" rows="8" class="w-full bg-ivory-50 border hairline-border focus:border-sage-600 p-3 text-sm text-charcoal-900 font-light leading-relaxed focus:outline-none transition-colors" placeholder="Describe key activities, research observations, experiments, or learnings..."></textarea>
             </div>
           </div>
 
@@ -724,6 +739,19 @@
           </div>
         </div>
 
+      </div>
+    </div>
+
+    <!-- Lightbox Modal for Photo Gallery Preview -->
+    <div id="image-lightbox-modal" class="fixed inset-0 z-[60] bg-charcoal-900/90 backdrop-blur-md hidden items-center justify-center p-4 transition-opacity" onclick="closeImageLightbox()">
+      <div class="relative max-w-4xl max-h-[90vh] flex flex-col items-center space-y-3" onclick="event.stopPropagation()">
+        <button onclick="closeImageLightbox()" class="absolute -top-10 right-0 text-ivory-100 hover:text-white p-2 text-xs font-mono uppercase tracking-widest flex items-center gap-1.5 transition-colors">
+          <span>Close</span> ✕
+        </button>
+        <div class="p-1 bg-white border hairline-border shadow-2xl rounded-sm max-h-[80vh] overflow-hidden flex items-center justify-center">
+          <img id="lightbox-image" src="" alt="Enlarged field photo" class="max-w-full max-h-[75vh] object-contain">
+        </div>
+        <p id="lightbox-caption" class="text-xs font-serif italic text-ivory-200 text-center tracking-wide max-w-xl"></p>
       </div>
     </div>
 
@@ -975,22 +1003,53 @@
        Horizontal four-phase timeline structure with LocalStorage
        ======================================================== */
     const baseProtoSemWeeks = [
-      { week: 0, phase: 0, slug: "week-00", title: "", description: "", status: "placeholder" },
+      // Prologue: Week 00 (Orientation & Foundation)
+      { 
+        week: 0, 
+        phase: 0, 
+        slug: "week-00", 
+        title: "Orientation & Foundation", 
+        description: `Week 0 served as the orientation and foundation phase of PRICE ProtoSem, introducing participants to the programme structure and to one another before the 20-week retail problem-solving journey began.
+
+Day 1: The week opened with introductions — to fellow participants, the programme itself, and what would be expected over the coming weeks. This was followed by icebreaker activities designed to help everyone get comfortable with the group.
+
+Day 2: Sessions covered building a professional presence on LinkedIn, a self-understanding exercise through the 16Personalities assessment, and short story presentations that encouraged creativity and communication.
+
+Day 3: Story presentations continued, alongside an ITEC TechTalk. The day also included team-based activities — Imposter, Challenge, and Marshmello — aimed at building interaction, collaboration, and problem-solving skills.
+
+Day 4: Featured a TechTalk on the Art of Prompting, an orientation covering the programme roadmap and what lay ahead, an introduction to the leaderboard system, and the official inauguration of ProtoSem.
+
+Beta Teams: For Week 0, participants were grouped into temporary "Beta Teams." Working with a different set of people gave everyone a chance to interact, collaborate, and experience teamwork before permanent team structures were set.
+
+Friday — Entrepreneurship Day: The morning featured a session led by an industry expert, followed by an afternoon reflection session where participants reviewed the week's activities and takeaways.
+
+Overall, Week 0 functioned as a foundation-building week — helping participants connect with each other, understand the programme, explore different skills, and prepare for the real-world retail challenges ahead.`,
+        images: [
+          { src: "assets/protosem/week-00/photo-1.jpg", caption: "Cohort Induction & Team Meet at Dr. Mahalingam Vigyan Bhavan" },
+          { src: "assets/protosem/week-00/photo-2.jpg", caption: "Story Presentation — Sylvia Plath: The Fig Tree (Bell Jar)" },
+          { src: "assets/protosem/week-00/photo-3.jpg", caption: "Self-Understanding — 16Personalities: Advocate (INFJ-A)" }
+        ],
+        status: "documented" 
+      },
+      // Phase 01: Weeks 01-05
       { week: 1, phase: 1, slug: "week-01", title: "", description: "", status: "placeholder" },
       { week: 2, phase: 1, slug: "week-02", title: "", description: "", status: "placeholder" },
       { week: 3, phase: 1, slug: "week-03", title: "", description: "", status: "placeholder" },
       { week: 4, phase: 1, slug: "week-04", title: "", description: "", status: "placeholder" },
       { week: 5, phase: 1, slug: "week-05", title: "", description: "", status: "placeholder" },
+      // Phase 02: Weeks 06-10
       { week: 6, phase: 2, slug: "week-06", title: "", description: "", status: "placeholder" },
       { week: 7, phase: 2, slug: "week-07", title: "", description: "", status: "placeholder" },
       { week: 8, phase: 2, slug: "week-08", title: "", description: "", status: "placeholder" },
       { week: 9, phase: 2, slug: "week-09", title: "", description: "", status: "placeholder" },
       { week: 10, phase: 2, slug: "week-10", title: "", description: "", status: "placeholder" },
+      // Phase 03: Weeks 11-15
       { week: 11, phase: 3, slug: "week-11", title: "", description: "", status: "placeholder" },
       { week: 12, phase: 3, slug: "week-12", title: "", description: "", status: "placeholder" },
       { week: 13, phase: 3, slug: "week-13", title: "", description: "", status: "placeholder" },
       { week: 14, phase: 3, slug: "week-14", title: "", description: "", status: "placeholder" },
       { week: 15, phase: 3, slug: "week-15", title: "", description: "", status: "placeholder" },
+      // Phase 04: Weeks 16-20
       { week: 16, phase: 4, slug: "week-16", title: "", description: "", status: "placeholder" },
       { week: 17, phase: 4, slug: "week-17", title: "", description: "", status: "placeholder" },
       { week: 18, phase: 4, slug: "week-18", title: "", description: "", status: "placeholder" },
@@ -1017,8 +1076,9 @@
             if (match && (match.title?.trim() || match.description?.trim())) {
               return { 
                 ...base, 
-                title: match.title || "", 
-                description: match.description || "",
+                title: match.title || base.title, 
+                description: match.description || base.description,
+                images: match.images || base.images,
                 status: "documented" 
               };
             }
@@ -1108,7 +1168,7 @@
                           ${isPrologue ? 'P' : weekPadded}
                         </div>
                         <span class="text-[9px] font-mono uppercase tracking-widest ${hasContent ? 'text-sage-700 font-semibold' : 'text-charcoal-400'}">
-                          ${hasContent ? '● Archived' : '○ Pending'}
+                          ${hasContent ? '● Documented' : '○ Pending'}
                         </span>
                       </div>
 
@@ -1120,7 +1180,7 @@
                         </div>
                         
                         ${hasContent && item.title ? `
-                          <p class="font-serif italic text-xs text-charcoal-700 line-clamp-1">
+                          <p class="font-serif italic text-xs text-charcoal-800 line-clamp-1">
                             "${escapeHtml(item.title)}"
                           </p>
                         ` : `
@@ -1133,7 +1193,7 @@
                       <!-- Node Footer Link -->
                       <div class="pt-2 border-t border-ivory-200 flex items-center justify-between text-[9px] font-mono text-charcoal-400 group-hover:text-sage-700 uppercase tracking-wider transition-colors">
                         <span>${isPrologue ? 'Kickoff' : `Entry ${item.week}`}</span>
-                        <span class="group-hover:underline">${hasContent ? 'View Log' : 'Document'}</span>
+                        <span class="group-hover:underline">${hasContent ? 'Read Log' : 'Document'}</span>
                       </div>
                     </div>
                   `;
@@ -1176,7 +1236,7 @@
     function openProtoSemModal(weekNum) {
       currentEditingWeekNum = weekNum;
       const modal = document.getElementById('protosem-modal');
-      const item = protoSemWeeks.find(w => w.week === weekNum) || { week: weekNum, phase: 0, title: '', description: '' };
+      const item = protoSemWeeks.find(w => w.week === weekNum) || { week: weekNum, phase: 0, title: '', description: '', images: [] };
       const weekPadded = String(weekNum).padStart(2, '0');
       const isPrologue = weekNum === 0;
 
@@ -1198,7 +1258,19 @@
       const statusPill = document.getElementById('modal-status-pill');
       const descBox = document.getElementById('modal-description-text');
       if (item.description && item.description.trim().length > 0) {
-        descBox.innerText = item.description;
+        // Render structured paragraphs with subheadings
+        const paras = item.description.split('\n\n');
+        const formatted = paras.map(p => {
+          const colonIdx = p.indexOf(':');
+          if (colonIdx > 0 && colonIdx < 35) {
+            const heading = p.substring(0, colonIdx);
+            const content = p.substring(colonIdx + 1);
+            return `<div class="space-y-0.5"><strong class="font-serif italic font-semibold text-charcoal-900 text-sm block">${heading}:</strong><span class="text-charcoal-700">${content}</span></div>`;
+          }
+          return `<p class="text-charcoal-700">${p}</p>`;
+        }).join('');
+
+        descBox.innerHTML = formatted;
         statusPill.innerText = 'Documented';
         statusPill.className = 'text-[10px] font-mono uppercase tracking-wider px-2.5 py-0.5 border border-sage-500 text-sage-700 bg-sage-50 font-semibold';
       } else {
@@ -1209,12 +1281,59 @@
         statusPill.className = 'text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 border hairline-border text-charcoal-500 bg-ivory-100';
       }
 
+      // Render Image Gallery
+      const gallerySection = document.getElementById('modal-gallery-section');
+      const galleryGrid = document.getElementById('modal-gallery-grid');
+      if (item.images && item.images.length > 0) {
+        gallerySection.classList.remove('hidden');
+        galleryGrid.innerHTML = item.images.map((img, i) => `
+          <div 
+            onclick="openImageLightbox('${img.src}', '${escapeHtml(img.caption)}')" 
+            class="group cursor-pointer bg-white border hairline-border p-2 space-y-1.5 hover:border-sage-500 transition-all rounded-sm"
+          >
+            <div class="aspect-[4/3] bg-ivory-200 overflow-hidden relative border hairline-border">
+              <img 
+                src="${img.src}" 
+                alt="${escapeHtml(img.caption)}" 
+                loading="lazy"
+                onerror="this.onerror=null; this.src='https://placehold.co/600x400/E6ECE8/2A2927?text=Week+00+Photo+${i+1}';"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              >
+              <div class="absolute inset-0 bg-charcoal-900/0 group-hover:bg-charcoal-900/10 transition-colors flex items-center justify-center">
+                <span class="opacity-0 group-hover:opacity-100 bg-white/90 px-2 py-0.5 text-[9px] font-mono uppercase tracking-wider text-charcoal-800 shadow-sm transition-opacity">Enlarge</span>
+              </div>
+            </div>
+            <p class="text-[10px] font-serif italic text-charcoal-500 line-clamp-1 group-hover:text-sage-700 transition-colors">
+              ${img.caption}
+            </p>
+          </div>
+        `).join('');
+      } else {
+        gallerySection.classList.add('hidden');
+      }
+
       // Show View Mode
       document.getElementById('modal-view-mode').classList.remove('hidden');
       document.getElementById('modal-edit-mode').classList.add('hidden');
 
       modal.classList.remove('hidden');
       modal.classList.add('flex');
+      lucide.createIcons();
+    }
+
+    // Lightbox Modal Controls
+    function openImageLightbox(src, caption) {
+      const modal = document.getElementById('image-lightbox-modal');
+      document.getElementById('lightbox-image').src = src;
+      document.getElementById('lightbox-caption').innerText = caption || '';
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeImageLightbox() {
+      const modal = document.getElementById('image-lightbox-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
     }
 
     // Switch to Edit Mode in Modal
@@ -1268,11 +1387,16 @@
 
     // Close modal on outside click or Escape key
     window.addEventListener('click', (e) => {
+      const lightbox = document.getElementById('image-lightbox-modal');
+      if (e.target === lightbox) closeImageLightbox();
       const modal = document.getElementById('protosem-modal');
       if (e.target === modal) closeProtoSemModal();
     });
     window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeProtoSemModal();
+      if (e.key === 'Escape') {
+        closeImageLightbox();
+        closeProtoSemModal();
+      }
     });
 
     // Intersection Observer for Smooth Scroll Reveals
