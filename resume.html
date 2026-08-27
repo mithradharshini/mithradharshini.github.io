@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mithra Dharshini R - ATS Resume</title>
+  <meta name="description" content="Official ATS-friendly resume of Mithra Dharshini R - BBA student specializing in Marketing, Retail Problem Solving, and Business Operations.">
+
+  <!-- Clean Web Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Base Resets */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', Arial, Helvetica, sans-serif;
+      color: #111827;
+      background-color: #f3f4f6;
+      line-height: 1.5;
+      font-size: 10pt;
+    }
+
+    /* Screen Wrapper Styling */
+    .screen-toolbar {
+      background-color: #1e1b4b;
+      color: #ffffff;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .toolbar-title {
+      font-weight: 600;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toolbar-actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn {
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      background: #6366f1;
+      color: #ffffff;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background: #4f46e5;
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Resume Document Container */
+    .resume-page {
+      background-color: #ffffff;
+      width: 210mm;
+      min-height: 297mm;
+      margin: 24px auto;
+      padding: 20mm;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Header */
+    .resume-header {
+      text-align: center;
+      border-bottom: 2px solid #312e81;
+      padding-bottom: 14px;
+      margin-bottom: 16px;
+    }
+
+    .resume-name {
+      font-size: 20pt;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #1e1b4b;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .contact-line {
+      font-size: 9.5pt;
+      color: #374151;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .contact-line a {
+      color: #4338ca;
+      text-decoration: none;
+    }
+
+    .contact-line a:hover {
+      text-decoration: underline;
+    }
+
+    /* Section Styling */
+    .resume-section {
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: 11pt;
+      font-weight: 700;
+      color: #1e1b4b;
+      text-transform: uppercase;
+      letter-spacing: 0.75px;
+      border-bottom: 1px solid #cbd5e1;
+      padding-bottom: 3px;
+      margin-bottom: 8px;
+    }
+
+    /* Experience & Education Item */
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2px;
+    }
+
+    .item-title {
+      font-weight: 700;
+      font-size: 10pt;
+      color: #0f172a;
+    }
+
+    .item-org {
+      font-weight: 600;
+      font-size: 9.5pt;
+      color: #334155;
+    }
+
+    .item-date, .item-location {
+      font-size: 9pt;
+      color: #475569;
+      font-style: italic;
+      white-space: nowrap;
+    }
+
+    .item-summary {
+      font-size: 9.5pt;
+      color: #334155;
+      margin-top: 3px;
+      margin-bottom: 4px;
+    }
+
+    /* Bullet Lists */
+    ul.resume-list {
+      list-style-type: square;
+      padding-left: 18px;
+      margin-top: 4px;
+    }
+
+    ul.resume-list li {
+      font-size: 9.5pt;
+      color: #334155;
+      margin-bottom: 3px;
+      line-height: 1.4;
+    }
+
+    .skill-group {
+      font-size: 9.5pt;
+      margin-bottom: 4px;
+      color: #334155;
+    }
+
+    .skill-label {
+      font-weight: 700;
+      color: #1e1b4b;
+    }
+
+    /* ATS Print Specific Optimization */
+    @media print {
+      @page {
+        margin: 15mm;
+        size: A4 portrait;
+      }
+      
+      header, footer, .screen-toolbar, .no-print {
+        display: none !important;
+      }
+
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        font-size: 10pt !important;
+      }
+
+      .resume-page {
+        width: 100% !important;
+        min-height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+      }
+
+      .resume-header {
+        border-bottom-color: #000000 !important;
+      }
+
+      .section-title {
+        color: #000000 !important;
+        border-bottom-color: #000000 !important;
+      }
+
+      a {
+        color: #000000 !important;
+        text-decoration: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Screen Floating Bar (Hidden when Printing) -->
+  <div class="screen-toolbar no-print">
+    <div class="toolbar-title">
+      <span>📄 ATS-Friendly Resume Preview</span>
+      <span style="font-size: 11px; background: rgba(99, 102, 241, 0.4); padding: 2px 8px; border-radius: 4px;">Optimized for Chrome Print to PDF</span>
+    </div>
+    <div class="toolbar-actions">
+      <a href="index.html" class="btn btn-secondary">
+        ← Back to Portfolio
+      </a>
+      <button onclick="window.print()" class="btn btn-primary">
+        🖨️ Print / Save as PDF
+      </button>
+    </div>
+  </div>
+
+  <!-- Document Container (ATS Semantic Structure) -->
+  <main class="resume-page">
+    
+    <!-- HEADER -->
+    <header class="resume-header">
+      <h1 class="resume-name">MITHRA DHARSHINI R</h1>
+      <div class="contact-line">
+        <span>Coimbatore, Tamil Nadu, India</span>
+        <span>•</span>
+        <span>+91 9150070799</span>
+        <span>•</span>
+        <a href="mailto:mithradharshini968.7@gmail.com">mithradharshini968.7@gmail.com</a>
+        <span>•</span>
+        <a href="https://www.linkedin.com/in/mithra-dharshini-r-208159378">linkedin.com/in/mithra-dharshini-r</a>
+      </div>
+    </header>
+
+    <!-- PROFESSIONAL SUMMARY -->
+    <section class="resume-section">
+      <h2 class="section-title">Professional Summary</h2>
+      <p class="item-summary">
+        Ambitious and adaptable Bachelor of Business Administration (BBA) student with a strong interest in Marketing, Retail Management, Digital Strategy, and Entrepreneurship. Gained practical industry exposure through an intensive finance and production operations internship, alongside an ongoing 20-week retail problem-solving project (PRICE PROTOSEM). Proven leadership and organizational capabilities demonstrated through student club administration, event coordination, and public-speaking initiatives.
+      </p>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="resume-section">
+      <h2 class="section-title">Education</h2>
+      
+      <div style="margin-bottom: 8px;">
+        <div class="item-header">
+          <div class="item-title">Bachelor of Business Administration (BBA)</div>
+          <div class="item-date">2025 – 2028 (Expected)</div>
+        </div>
+        <div class="item-header">
+          <div class="item-org">Kumaraguru College of Liberal Arts and Science</div>
+          <div class="item-location">Coimbatore, Tamil Nadu</div>
+        </div>
+        <ul class="resume-list">
+          <li><strong>Academic Performance:</strong> Current Cumulative GPA: <strong>8.0 / 10</strong>.</li>
+          <li><strong>Honors:</strong> Awarded the prestigious <strong>Mahatma Gandhi Scholarship</strong> during Semester 1 in recognition of academic excellence.</li>
+        </ul>
+      </div>
+
+      <div style="margin-bottom: 4px;">
+        <div class="item-header">
+          <div class="item-org">Higher Secondary Education (Class XII)</div>
+          <div class="item-date">Completed</div>
+        </div>
+        <div class="item-summary" style="margin-top: 1px;">
+          Score: <strong>95%</strong> • State Board Certification
+        </div>
+      </div>
+
+      <div>
+        <div class="item-header">
+          <div class="item-org">Secondary Education (Class X)</div>
+          <div class="item-date">Completed</div>
+        </div>
+        <div class="item-summary" style="margin-top: 1px;">
+          Score: <strong>90%</strong> • State Board Certification
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERNSHIP EXPERIENCE -->
+    <section class="resume-section">
+      <h2 class="section-title">Internship Experience</h2>
+      
+      <div class="item-header">
+        <div class="item-title">Business Operations & Finance Intern</div>
+        <div class="item-date">21-Day Intensive Internship</div>
+      </div>
+      <div class="item-header">
+        <div class="item-org">Gupta Printers (Commercial Printing & Packaging)</div>
+        <div class="item-location">On-Site</div>
+      </div>
+      <ul class="resume-list">
+        <li>Gained hands-on operational exposure to end-to-end production processes, including printing machinery, precision cutting, and packaging pasting.</li>
+        <li>Observed core financial workflows, budget estimations, invoice tracking, and routine business operation management.</li>
+        <li>Analyzed cross-functional workflow coordination across manufacturing stages to understand quality control and waste reduction.</li>
+        <li>Prepared structured analytical reports detailing operational observations, process bottlenecks, and key business insights.</li>
+      </ul>
+    </section>
+
+    <!-- PROJECT EXPERIENCE -->
+    <!-- PROJECT / PROGRAMME EXPERIENCE -->
+    <section class="resume-section">
+      <h2 class="section-title">Industry-Integrated Innovation Experience</h2>
+      
+      <div class="item-header">
+        <div class="item-title">Innovation Engineer Trainee — PRICE ProtoSem</div>
+        <div class="item-date">20-Week Ongoing Programme</div>
+      </div>
+      <div class="item-header">
+        <div class="item-org">20-Week Industry-Integrated Innovation Programme</div>
+        <div class="item-location">Phygital Retail & Intelligent Commerce Track</div>
+      </div>
+      <ul class="resume-list">
+        <li>Selected for an intensive 20-week innovation programme focused on solving real-world retail and commerce challenges through AI, analytics, intelligent systems, IoT, prototyping, and entrepreneurship.</li>
+        <li>Collaborating on live industry problem statements to explore, formulate, and validate practical technological solutions beyond conventional classroom learning.</li>
+        <li>Conducting systematic retail market research, consumer touchpoint analysis, and rapid solution prototyping in an incubation ecosystem.</li>
+      </ul>
+    </section>
+
+    <!-- LEADERSHIP & EXTRACURRICULAR -->
+    <section class="resume-section">
+      <h2 class="section-title">Leadership & Extracurricular Activities</h2>
+      
+      <div style="margin-bottom: 6px;">
+        <div class="item-header">
+          <div class="item-title">Joint Secretary</div>
+          <div class="item-org">Sahitya Literature Club</div>
+        </div>
+        <ul class="resume-list">
+          <li>Drive planning, resource allocation, and team coordination for club initiatives and student-focused literary competitions.</li>
+          <li>Facilitate creative workshops and coordinate with institutional committees to ensure seamless event execution.</li>
+        </ul>
+      </div>
+
+      <div style="margin-bottom: 6px;">
+        <div class="item-header">
+          <div class="item-title">Event Coordinator</div>
+          <div class="item-org">PODIUM (Public-Speaking Event)</div>
+        </div>
+        <ul class="resume-list">
+          <li>Managed event logistics, participant registration, speaker scheduling, and on-ground coordination for a premier public-speaking event.</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="item-header">
+          <div class="item-title">Judging Panel Member</div>
+          <div class="item-org">INKSPIRE (Creative & Literary Showcase)</div>
+        </div>
+        <ul class="resume-list">
+          <li>Evaluated entries across structured performance metrics, ensuring fair scoring, rubric adherence, and constructive participant feedback.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS & AWARDS -->
+    <section class="resume-section">
+      <h2 class="section-title">Certifications & Achievements</h2>
+      <ul class="resume-list">
+        <li><strong>Startup Sprint — SPJIMR:</strong> Completed an intensive 5-day executive immersion program focused on Startups, Entrepreneurship, and Family Business Dynamics.</li>
+        <li><strong>Mahatma Gandhi Scholarship:</strong> Prestigious merit-based academic scholarship awarded for Semester 1 excellence at Kumaraguru College.</li>
+      </ul>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="resume-section">
+      <h2 class="section-title">Skills & Competencies</h2>
+      <div class="skill-group">
+        <span class="skill-label">Business & Management:</span> Strategic Planning, Organizational Coordination, Problem Solving, Operational Analysis, Team Leadership, Event Management
+      </div>
+      <div class="skill-group">
+        <span class="skill-label">Technical & Productivity:</span> Microsoft Excel (Data Entry, Analysis & Formulas), Microsoft PowerPoint (Presentations & Pitch Decks), Microsoft Word (Reporting & Documentation)
+      </div>
+      <div class="skill-group">
+        <span class="skill-label">Core Interests:</span> Marketing Strategy, Retail Management, Digital Marketing, Business Development, Entrepreneurship
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>
