@@ -70,7 +70,7 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
-    /* Grain Texture Overlay */
+    /* Tactile Paper/Grain Texture Overlay (approx 3% opacity) */
     .grain-overlay {
       position: fixed;
       top: 0;
@@ -80,7 +80,7 @@
       pointer-events: none;
       z-index: 999;
       opacity: 0.035;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
     }
 
     ::selection {
@@ -89,10 +89,22 @@
     }
 
     body {
-      background-color: #FAF7F2;
+      background: linear-gradient(180deg, 
+        #FAF7F2 0%, 
+        #FAF6F0 10%, 
+        #F5EFE6 24%, 
+        #F1EAE0 38%, 
+        #EDF3EE 50%, 
+        #E8EFE9 62%, 
+        #F4EDE3 76%, 
+        #F7F2E9 88%, 
+        #FAF7F2 100%
+      );
+      background-attachment: fixed;
       color: #2A2927;
       font-feature-settings: "cv02", "cv03", "cv04", "cv11";
       -webkit-font-smoothing: antialiased;
+      position: relative;
     }
 
     .hairline-border {
@@ -166,7 +178,7 @@
     }
   </style>
 </head>
-<body class="font-sans antialiased text-charcoal-800 bg-ivory-100 min-h-screen flex flex-col justify-between relative selection:bg-sage-200">
+<body class="font-sans antialiased text-charcoal-800 min-h-screen flex flex-col justify-between relative selection:bg-sage-200">
 
   <!-- Grain Texture Overlay -->
   <div class="grain-overlay" aria-hidden="true"></div>
@@ -215,7 +227,20 @@
   <main class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-16 sm:py-24 space-y-36">
 
     <!-- 1. HERO / INTRO SECTION -->
-    <section id="hero" class="reveal-on-scroll pt-2 sm:pt-6 pb-12 border-b hairline-border">
+    <section id="hero" class="reveal-on-scroll pt-2 sm:pt-6 pb-12 border-b hairline-border relative">
+      
+      <!-- Soft Directional Ambient Glow (Hero Only) -->
+      <div class="absolute -top-12 -right-8 w-96 sm:w-[550px] h-96 sm:h-[550px] rounded-full pointer-events-none -z-10" style="background: radial-gradient(circle, rgba(255, 253, 248, 0.95) 0%, rgba(246, 239, 227, 0.5) 50%, rgba(245, 238, 225, 0) 72%); filter: blur(40px);"></div>
+      
+      <!-- Hero-Only Subtle Botanical Line-Art Motif -->
+      <div class="absolute -top-2 right-2 sm:right-6 w-36 sm:w-48 h-36 sm:h-48 pointer-events-none opacity-20 text-sage-600 -z-10">
+        <svg viewBox="0 0 200 200" class="w-full h-full botanical-mark">
+          <path d="M20 180 C 45 130, 85 90, 175 25" stroke-dasharray="2 1" />
+          <path d="M70 145 C 95 120, 120 100, 155 60" />
+          <path d="M110 105 C 130 85, 150 75, 170 55" />
+          <circle cx="175" cy="25" r="2" fill="#5F7967" />
+        </svg>
+      </div>
       
       <!-- Editorial Issue Strip -->
       <div class="flex flex-wrap items-center justify-between gap-4 pb-8 mb-12 border-b hairline-border text-[11px] uppercase font-mono tracking-widest text-charcoal-400 font-medium">
@@ -510,7 +535,7 @@
     </section>
 
     <!-- 5. PROTOSEM — VISUAL CENTERPIECE & UNFOLDING FIELD JOURNAL -->
-    <section id="protosem" class="reveal-on-scroll space-y-14 scroll-mt-28">
+    <section id="protosem" class="reveal-on-scroll space-y-14 scroll-mt-28 p-6 sm:p-10 -mx-3 sm:-mx-6 lg:-mx-8 rounded-sm relative" style="background: linear-gradient(180deg, rgba(235, 243, 237, 0.6) 0%, rgba(226, 237, 229, 0.4) 50%, rgba(235, 243, 237, 0.6) 100%); box-shadow: inset 0 0 0 1px rgba(210, 225, 215, 0.4);">
       
       <!-- Section Header -->
       <div class="flex items-baseline justify-between border-b hairline-border pb-4">
