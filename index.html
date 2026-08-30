@@ -892,8 +892,8 @@
             <path id="road-path-progress" fill="none" stroke="#48604F" stroke-width="2.2" stroke-dasharray="6 8" stroke-linecap="round" />
           </svg>
 
-          <!-- Milestone Cards & Phase Gateways Track -->
-          <div id="road-items-track" class="relative z-10 space-y-12 sm:space-y-16">
+          <!-- Milestone Cards & Phase Gateways Track (Compact 30-40% Tighter Spacing) -->
+          <div id="road-items-track" class="relative z-10 space-y-2.5 sm:space-y-3.5">
             <!-- Dynamically populated via renderProtoSemTimelineNodes() -->
           </div>
         </div>
@@ -1429,8 +1429,8 @@ Overall, Week 0 functioned as a foundation-building week — helping participant
         const p2 = points[i + 1];
         const p3 = points[i + 2 < points.length ? i + 2 : i + 1];
 
-        // Smooth tangent tension factor
-        const tension = 0.22;
+        // Smooth tangent tension factor (gentler curve for compact vertical spacing)
+        const tension = 0.15;
         const cp1x = p1.x + (p2.x - p0.x) * tension;
         const cp1y = p1.y + (p2.y - p0.y) * tension;
         const cp2x = p2.x - (p3.x - p1.x) * tension;
@@ -1441,7 +1441,7 @@ Overall, Week 0 functioned as a foundation-building week — helping participant
       return d;
     }
 
-    // Render Winding Road Highway Journey Timeline
+    // Render Winding Road Highway Journey Timeline (Compact Spacing ~35% Tighter)
     function renderProtoSemTimelineNodes(filterPhase = 'all') {
       currentActiveFilter = filterPhase;
       const track = document.getElementById('road-items-track');
@@ -1460,10 +1460,10 @@ Overall, Week 0 functioned as a foundation-building week — helping participant
         const phaseWeeks = protoSemWeeks.filter(w => w.phase === phaseNum);
         if (!phaseWeeks.length) return;
 
-        // Phase Gateway Milestone Banner along the road
+        // Phase Gateway Milestone Banner along the road (compact margin)
         html += `
-          <div class="phase-gate-marker w-full flex flex-col items-center justify-center my-6" data-phase="${phaseNum}">
-            <div class="bg-white/95 backdrop-blur-sm border hairline-border px-6 py-3.5 shadow-sm max-w-lg w-full flex items-center justify-between gap-4 rounded-2xl">
+          <div class="phase-gate-marker w-full flex flex-col items-center justify-center my-2.5 sm:my-3" data-phase="${phaseNum}">
+            <div class="bg-white/95 backdrop-blur-sm border hairline-border px-5 py-2.5 sm:px-6 sm:py-3 shadow-sm max-w-lg w-full flex items-center justify-between gap-4 rounded-2xl">
               <div class="space-y-0.5">
                 <div class="flex items-center gap-2">
                   <span class="text-[10px] font-mono uppercase tracking-widest text-sage-600 font-bold">
@@ -1473,7 +1473,7 @@ Overall, Week 0 functioned as a foundation-building week — helping participant
                     ${meta.tag}
                   </span>
                 </div>
-                <h4 class="font-serif text-xl sm:text-2xl text-charcoal-900 font-normal">
+                <h4 class="font-serif text-lg sm:text-xl text-charcoal-900 font-normal">
                   ${meta.name}
                 </h4>
               </div>
@@ -1484,7 +1484,7 @@ Overall, Week 0 functioned as a foundation-building week — helping participant
           </div>
         `;
 
-        // Milestone Week Cards along the curving path
+        // Milestone Week Cards along the curving path (tighter vertical flow)
         phaseWeeks.forEach((item, indexInPhase) => {
           const weekPadded = String(item.week).padStart(2, '0');
           const isPrologue = item.week === 0;
@@ -1492,10 +1492,10 @@ Overall, Week 0 functioned as a foundation-building week — helping participant
           const isLeft = item.week % 2 === 0;
 
           html += `
-            <div class="timeline-journey-row relative flex flex-col md:flex-row items-center w-full my-4" data-week="${item.week}">
+            <div class="timeline-journey-row relative flex flex-col md:flex-row items-center w-full my-1 sm:my-1.5" data-week="${item.week}">
               
               <!-- Desktop Left Column (Card on left when even) -->
-              <div class="w-full md:w-[45%] ${isLeft ? 'md:order-1 md:pr-8' : 'hidden md:block md:order-1'}">
+              <div class="w-full md:w-[45%] ${isLeft ? 'md:order-1 md:pr-6 lg:md:pr-8' : 'hidden md:block md:order-1'}">
                 ${isLeft ? `
                   <div 
                     onclick="openProtoSemModal(${item.week})"
@@ -1503,10 +1503,10 @@ Overall, Week 0 functioned as a foundation-building week — helping participant
                     tabindex="0"
                     role="button"
                     aria-label="Week ${weekPadded} Field Journal Entry"
-                    class="interactive-card group relative bg-white border ${hasContent ? 'border-sage-500 shadow-sm' : 'hairline-border'} p-5 flex flex-col justify-between cursor-pointer focus:outline-none focus:ring-1 focus:ring-sage-600 rounded-2xl hover:shadow-md transition-all ml-14 md:ml-0"
+                    class="interactive-card group relative bg-white border ${hasContent ? 'border-sage-500 shadow-sm' : 'hairline-border'} p-4 sm:p-4.5 flex flex-col justify-between cursor-pointer focus:outline-none focus:ring-1 focus:ring-sage-600 rounded-2xl hover:shadow-md transition-all ml-12 sm:ml-14 md:ml-0"
                   >
                     <!-- Milestone Header -->
-                    <div class="flex items-center justify-between gap-2 border-b hairline-border pb-2.5 mb-2.5">
+                    <div class="flex items-center justify-between gap-2 border-b hairline-border pb-2 mb-2">
                       <div class="flex items-center gap-2">
                         <span class="text-[10px] font-mono font-bold text-sage-700 bg-sage-50 border hairline-sage px-2 py-0.5 rounded-md">
                           WEEK ${weekPadded}
@@ -1521,18 +1521,18 @@ Overall, Week 0 functioned as a foundation-building week — helping participant
                     </div>
 
                     <!-- Center Note & Title -->
-                    <div class="space-y-1 my-1">
-                      <h5 class="font-serif text-lg text-charcoal-900 group-hover:text-sage-700 transition-colors flex items-center justify-between">
+                    <div class="space-y-0.5 my-1">
+                      <h5 class="font-serif text-base sm:text-lg text-charcoal-900 group-hover:text-sage-700 transition-colors flex items-center justify-between">
                         <span>${isPrologue ? 'Orientation & Foundation' : (item.title ? escapeHtml(item.title) : `Week ${weekPadded} Log`)}</span>
                         <span class="text-xs text-charcoal-400 group-hover:text-sage-600 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
                       </h5>
                       <p class="text-xs text-charcoal-500 font-light line-clamp-2">
-                        ${item.description ? escapeHtml(item.description.substring(0, 110) + '...') : (isPrologue ? 'Cohort induction and roadmap kickoff.' : 'Field notes and documentation in progress.')}
+                        ${item.description ? escapeHtml(item.description.substring(0, 105) + '...') : (isPrologue ? 'Cohort induction and roadmap kickoff.' : 'Field notes and documentation in progress.')}
                       </p>
                     </div>
 
                     <!-- Card Footer Link -->
-                    <div class="pt-2.5 mt-2 border-t border-ivory-200 flex items-center justify-between text-[9px] font-mono text-charcoal-400 group-hover:text-sage-700 uppercase tracking-wider transition-colors">
+                    <div class="pt-2 mt-1.5 border-t border-ivory-200 flex items-center justify-between text-[9px] font-mono text-charcoal-400 group-hover:text-sage-700 uppercase tracking-wider transition-colors">
                       <span>${isPrologue ? 'Kickoff' : `Entry #${item.week}`}</span>
                       <span class="font-medium group-hover:underline">${hasContent ? 'Read Journal →' : 'Edit Notes →'}</span>
                     </div>
@@ -1541,9 +1541,9 @@ Overall, Week 0 functioned as a foundation-building week — helping participant
               </div>
 
               <!-- Center Road Milestone Pin Marker -->
-              <div class="absolute left-3 md:relative md:left-0 md:order-2 flex flex-col items-center justify-center z-20 pointer-events-none md:w-[10%]">
+              <div class="absolute left-2 sm:left-3 md:relative md:left-0 md:order-2 flex flex-col items-center justify-center z-20 pointer-events-none md:w-[10%]">
                 <div 
-                  class="milestone-pin-marker milestone-pin-orb w-10 h-10 rounded-full flex items-center justify-center text-xs font-mono font-bold border-2 transition-all shadow-md ${hasContent ? 'bg-sage-600 border-white text-white' : 'bg-white border-sage-400 text-charcoal-700'}"
+                  class="milestone-pin-marker milestone-pin-orb w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-[11px] sm:text-xs font-mono font-bold border-2 transition-all shadow-md ${hasContent ? 'bg-sage-600 border-white text-white' : 'bg-white border-sage-400 text-charcoal-700'}"
                   data-pin-week="${item.week}"
                 >
                   ${isPrologue ? 'P' : weekPadded}
@@ -1551,7 +1551,7 @@ Overall, Week 0 functioned as a foundation-building week — helping participant
               </div>
 
               <!-- Desktop Right Column (Card on right when odd, or mobile card for all) -->
-              <div class="w-full md:w-[45%] ${!isLeft ? 'md:order-3 md:pl-8' : 'md:order-3 hidden md:block'}">
+              <div class="w-full md:w-[45%] ${!isLeft ? 'md:order-3 md:pl-6 lg:md:pl-8' : 'md:order-3 hidden md:block'}">
                 ${(!isLeft || window.innerWidth < 768) ? `
                   <div 
                     onclick="openProtoSemModal(${item.week})"
@@ -1559,10 +1559,10 @@ Overall, Week 0 functioned as a foundation-building week — helping participant
                     tabindex="0"
                     role="button"
                     aria-label="Week ${weekPadded} Field Journal Entry"
-                    class="interactive-card group relative bg-white border ${hasContent ? 'border-sage-500 shadow-sm' : 'hairline-border'} p-5 flex flex-col justify-between cursor-pointer focus:outline-none focus:ring-1 focus:ring-sage-600 rounded-2xl hover:shadow-md transition-all ml-14 md:ml-0"
+                    class="interactive-card group relative bg-white border ${hasContent ? 'border-sage-500 shadow-sm' : 'hairline-border'} p-4 sm:p-4.5 flex flex-col justify-between cursor-pointer focus:outline-none focus:ring-1 focus:ring-sage-600 rounded-2xl hover:shadow-md transition-all ml-12 sm:ml-14 md:ml-0"
                   >
                     <!-- Milestone Header -->
-                    <div class="flex items-center justify-between gap-2 border-b hairline-border pb-2.5 mb-2.5">
+                    <div class="flex items-center justify-between gap-2 border-b hairline-border pb-2 mb-2">
                       <div class="flex items-center gap-2">
                         <span class="text-[10px] font-mono font-bold text-sage-700 bg-sage-50 border hairline-sage px-2 py-0.5 rounded-md">
                           WEEK ${weekPadded}
@@ -1577,18 +1577,18 @@ Overall, Week 0 functioned as a foundation-building week — helping participant
                     </div>
 
                     <!-- Center Note & Title -->
-                    <div class="space-y-1 my-1">
-                      <h5 class="font-serif text-lg text-charcoal-900 group-hover:text-sage-700 transition-colors flex items-center justify-between">
+                    <div class="space-y-0.5 my-1">
+                      <h5 class="font-serif text-base sm:text-lg text-charcoal-900 group-hover:text-sage-700 transition-colors flex items-center justify-between">
                         <span>${isPrologue ? 'Orientation & Foundation' : (item.title ? escapeHtml(item.title) : `Week ${weekPadded} Log`)}</span>
                         <span class="text-xs text-charcoal-400 group-hover:text-sage-600 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
                       </h5>
                       <p class="text-xs text-charcoal-500 font-light line-clamp-2">
-                        ${item.description ? escapeHtml(item.description.substring(0, 110) + '...') : (isPrologue ? 'Cohort induction and roadmap kickoff.' : 'Field notes and documentation in progress.')}
+                        ${item.description ? escapeHtml(item.description.substring(0, 105) + '...') : (isPrologue ? 'Cohort induction and roadmap kickoff.' : 'Field notes and documentation in progress.')}
                       </p>
                     </div>
 
                     <!-- Card Footer Link -->
-                    <div class="pt-2.5 mt-2 border-t border-ivory-200 flex items-center justify-between text-[9px] font-mono text-charcoal-400 group-hover:text-sage-700 uppercase tracking-wider transition-colors">
+                    <div class="pt-2 mt-1.5 border-t border-ivory-200 flex items-center justify-between text-[9px] font-mono text-charcoal-400 group-hover:text-sage-700 uppercase tracking-wider transition-colors">
                       <span>${isPrologue ? 'Kickoff' : `Entry #${item.week}`}</span>
                       <span class="font-medium group-hover:underline">${hasContent ? 'Read Journal →' : 'Edit Notes →'}</span>
                     </div>
@@ -1611,7 +1611,7 @@ Overall, Week 0 functioned as a foundation-building week — helping participant
       });
     }
 
-    // Dynamic Road Curve Calculation & Drawing
+    // Dynamic Road Curve Calculation & Drawing (Controlled Amplitude)
     function updateRoadSvgPath() {
       const container = document.getElementById('protosem-timeline-container');
       const svg = document.getElementById('road-svg');
@@ -1627,20 +1627,22 @@ Overall, Week 0 functioned as a foundation-building week — helping participant
 
       // Starting point lead-in
       const firstPinRect = pins[0].getBoundingClientRect();
-      const firstX = isMobile ? 32 : (firstPinRect.left + firstPinRect.width / 2 - containerRect.left);
+      const firstX = isMobile ? 28 : (firstPinRect.left + firstPinRect.width / 2 - containerRect.left);
       const firstY = firstPinRect.top + firstPinRect.height / 2 - containerRect.top;
-      points.push({ x: firstX, y: Math.max(0, firstY - 50) });
+      points.push({ x: firstX, y: Math.max(0, firstY - 30) });
 
       pins.forEach((pin, idx) => {
         const r = pin.getBoundingClientRect();
         if (isMobile) {
-          // Gentle organic undulation on mobile
-          const undulate = (idx % 2 === 0 ? -4 : 4);
-          points.push({ x: 32 + undulate, y: r.top + r.height / 2 - containerRect.top });
+          // Subtle organic undulation on mobile (±2px)
+          const undulate = (idx % 2 === 0 ? -2 : 2);
+          points.push({ x: 28 + undulate, y: r.top + r.height / 2 - containerRect.top });
         } else {
-          // Full S-curve weave through pins
+          // Gentle S-curve weave with controlled ±10px amplitude
+          const centerX = r.left + r.width / 2 - containerRect.left;
+          const waveOffset = (idx % 2 === 0 ? -10 : 10);
           points.push({
-            x: r.left + r.width / 2 - containerRect.left,
+            x: centerX + waveOffset,
             y: r.top + r.height / 2 - containerRect.top
           });
         }
@@ -1648,9 +1650,9 @@ Overall, Week 0 functioned as a foundation-building week — helping participant
 
       // Ending lead-out
       const lastPinRect = pins[pins.length - 1].getBoundingClientRect();
-      const lastX = isMobile ? 32 : (lastPinRect.left + lastPinRect.width / 2 - containerRect.left);
+      const lastX = isMobile ? 28 : (lastPinRect.left + lastPinRect.width / 2 - containerRect.left);
       const lastY = lastPinRect.top + lastPinRect.height / 2 - containerRect.top;
-      points.push({ x: lastX, y: lastY + 50 });
+      points.push({ x: lastX, y: lastY + 30 });
 
       const d = generateSmoothPath(points);
 
