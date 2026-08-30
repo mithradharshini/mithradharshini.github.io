@@ -1029,7 +1029,7 @@
               </span>
               <span class="text-[10px] font-mono text-charcoal-400 italic">Click photo to enlarge</span>
             </div>
-            <div id="modal-gallery-grid" class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div id="modal-gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
               <!-- Dynamically populated -->
             </div>
           </div>
@@ -1437,7 +1437,36 @@ Overall, Week 0 functioned as a foundation-building week — helping participant
         status: "documented" 
       },
       // Phase 01: Weeks 01-05
-      { week: 1, phase: 1, slug: "week-01", title: "", description: "", status: "placeholder" },
+      { 
+        week: 1, 
+        phase: 1, 
+        slug: "week-01", 
+        title: "From Understanding the Industry to Understanding How to Think About It", 
+        description: `Day 1 — Looking at the industry differently:
+We explored Instagram's recommendation algorithm and a Design Thinking activity that encouraged us to approach problems from different perspectives. We also studied the evolution of a retail sector, with our team choosing the mobile sector for further exploration.
+
+Day 2 — Understanding the sector:
+We learned to create a Power BI dashboard and explored why our chosen sector matters. We then analysed the mobile retail sector through its value chain and SWOT analysis.
+
+Day 3 — A pause to process:
+A break from the structured sessions gave us time to reflect and build on what we had explored so far.
+
+Day 4 — Behaviour, technology and professional presence:
+We were introduced to Prospect Theory and explored digital portfolios using Antigravity, GitHub, and Vercel, connecting technology with our professional identity.
+
+Day 5 — Exploring AI and new industries:
+We explored Base44 as an AI app-building tool and discussed the importance of goals and vision. We also gained exposure to the agriculture and textile sectors, broadening our perspective beyond mobile retail.
+
+Week 1 Takeaway:
+Week 1 brought together industry understanding, design thinking, data, technology, and decision-making — helping us see that understanding the problem comes before building the solution.`,
+        images: [
+          { src: "assets/protosem/week-01/photo-1.jpg", caption: "Design Thinking in Action — Team Presentation" },
+          { src: "assets/protosem/week-01/photo-2.jpg", caption: "Evolution of Mobile Phones — Network Generations (1G to 5G)" },
+          { src: "assets/protosem/week-01/photo-3.jpg", caption: "Sector Exploration & Presentation — Mobile Retail" },
+          { src: "assets/protosem/week-01/photo-4.jpg", caption: "India's Mobile Sector — Value Chain & Key Players" }
+        ],
+        status: "documented" 
+      },
       { week: 2, phase: 1, slug: "week-02", title: "", description: "", status: "placeholder" },
       { week: 3, phase: 1, slug: "week-03", title: "", description: "", status: "placeholder" },
       { week: 4, phase: 1, slug: "week-04", title: "", description: "", status: "placeholder" },
@@ -1478,13 +1507,19 @@ Overall, Week 0 functioned as a foundation-building week — helping participant
           const parsed = JSON.parse(stored);
           protoSemWeeks = baseProtoSemWeeks.map(base => {
             const match = parsed.find(p => p.week === base.week);
-            if (match && (match.title?.trim() || match.description?.trim())) {
+            if (match) {
+              const hasCustomTitle = match.title && match.title.trim().length > 0;
+              const hasCustomDesc = match.description && match.description.trim().length > 0;
+              const title = hasCustomTitle ? match.title : base.title;
+              const description = hasCustomDesc ? match.description : base.description;
+              const images = (match.images && match.images.length > 0) ? match.images : base.images;
+              const isDocumented = (title && title.trim().length > 0) || (description && description.trim().length > 0);
               return { 
                 ...base, 
-                title: match.title || base.title, 
-                description: match.description || base.description,
-                images: match.images || base.images,
-                status: "documented" 
+                title, 
+                description,
+                images,
+                status: isDocumented ? "documented" : "placeholder"
               };
             }
             return base;
@@ -1864,7 +1899,7 @@ Overall, Week 0 functioned as a foundation-building week — helping participant
         const paras = item.description.split('\n\n');
         const formatted = paras.map(p => {
           const colonIdx = p.indexOf(':');
-          if (colonIdx > 0 && colonIdx < 35) {
+          if (colonIdx > 0 && colonIdx < 80) {
             const heading = p.substring(0, colonIdx);
             const content = p.substring(colonIdx + 1);
             return `<div class="space-y-0.5"><strong class="font-serif italic font-semibold text-charcoal-900 text-sm block">${heading}:</strong><span class="text-charcoal-700">${content}</span></div>`;
@@ -1898,7 +1933,7 @@ Overall, Week 0 functioned as a foundation-building week — helping participant
                 src="${img.src}" 
                 alt="${escapeHtml(img.caption)}" 
                 loading="lazy"
-                onerror="this.onerror=null; this.src='https://placehold.co/600x400/E6ECE8/2A2927?text=Week+00+Photo+${i+1}';"
+                onerror="this.onerror=null; this.src='https://placehold.co/600x400/E6ECE8/2A2927?text=Week+${weekPadded}+Photo+${i+1}';"
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               >
               <div class="absolute inset-0 bg-charcoal-900/0 group-hover:bg-charcoal-900/10 transition-colors flex items-center justify-center">
