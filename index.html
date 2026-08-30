@@ -88,19 +88,64 @@
       color: #1C1B1A;
     }
 
+    /* 5. Dynamic Living Background Layer */
+    .ambient-bg-layer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: -10;
+      overflow: hidden;
+      background: #FAF7F2;
+    }
+
+    .ambient-mesh {
+      position: absolute;
+      top: -30%;
+      left: -30%;
+      width: 160%;
+      height: 160%;
+      background: 
+        radial-gradient(ellipse at 18% 22%, rgba(235, 243, 237, 0.75) 0%, rgba(250, 247, 242, 0) 52%),
+        radial-gradient(ellipse at 82% 28%, rgba(245, 239, 230, 0.65) 0%, rgba(250, 247, 242, 0) 48%),
+        radial-gradient(ellipse at 35% 78%, rgba(230, 237, 232, 0.7) 0%, rgba(250, 247, 242, 0) 52%),
+        radial-gradient(ellipse at 80% 75%, rgba(248, 246, 249, 0.65) 0%, rgba(250, 247, 242, 0) 48%),
+        linear-gradient(180deg, 
+          #FAF7F2 0%, 
+          #FAF6F0 15%, 
+          #F5EFE6 32%, 
+          #EDF3EE 50%, 
+          #E8EFE9 68%, 
+          #F4EDE3 84%, 
+          #FAF7F2 100%
+        );
+      animation: ambientDrift 34s ease-in-out infinite alternate;
+      will-change: transform;
+      filter: blur(35px);
+    }
+
+    @keyframes ambientDrift {
+      0% {
+        transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+      }
+      50% {
+        transform: translate3d(-2.5%, -2%, 0) rotate(1.2deg) scale(1.025);
+      }
+      100% {
+        transform: translate3d(2%, 2.5%, 0) rotate(-0.8deg) scale(1.015);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .ambient-mesh {
+        animation: none;
+      }
+    }
+
     body {
-      background: linear-gradient(180deg, 
-        #FAF7F2 0%, 
-        #FAF6F0 10%, 
-        #F5EFE6 24%, 
-        #F1EAE0 38%, 
-        #EDF3EE 50%, 
-        #E8EFE9 62%, 
-        #F4EDE3 76%, 
-        #F7F2E9 88%, 
-        #FAF7F2 100%
-      );
-      background-attachment: fixed;
+      background-color: transparent;
       color: #2A2927;
       font-feature-settings: "cv02", "cv03", "cv04", "cv11";
       -webkit-font-smoothing: antialiased;
@@ -138,6 +183,100 @@
     .editorial-link:hover::after {
       transform: scaleX(1);
       transform-origin: bottom left;
+    }
+
+    /* 1. Typewriter Subtitle & Cursor Styling */
+    .typewriter-cursor {
+      display: inline-block;
+      margin-left: 2px;
+      font-weight: 300;
+      color: #5F7967;
+      animation: cursorBlink 0.75s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      transition: opacity 0.3s ease;
+    }
+
+    @keyframes cursorBlink {
+      0%, 45% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+
+    .typewriter-cursor.finished {
+      opacity: 0 !important;
+      display: none !important;
+    }
+
+    /* 2. Magnetic Navigation Item Dynamics */
+    .nav-magnetic {
+      display: inline-flex;
+      align-items: center;
+      transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), color 0.2s ease;
+      will-change: transform;
+      position: relative;
+    }
+
+    /* 4. Dynamic Movement on Click (Interactive Cards & Buttons) */
+    .interactive-card {
+      transition: transform 0.28s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.28s ease, border-color 0.25s ease, background-color 0.25s ease;
+      will-change: transform;
+    }
+
+    .interactive-card:active {
+      transform: scale(0.97) !important;
+    }
+
+    .interactive-btn {
+      transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      will-change: transform;
+    }
+
+    .interactive-btn:active {
+      transform: scale(0.96) !important;
+    }
+
+    /* Smooth Modal Transitions */
+    #protosem-modal {
+      opacity: 0;
+      transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+    }
+
+    #protosem-modal.modal-active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    #protosem-modal .modal-content-card {
+      transform: scale(0.93) translateY(14px);
+      opacity: 0;
+      transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    #protosem-modal.modal-active .modal-content-card {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+
+    /* Lightbox Modal Transitions */
+    #image-lightbox-modal {
+      opacity: 0;
+      transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+    }
+
+    #image-lightbox-modal.lightbox-active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    #image-lightbox-modal .lightbox-content-card {
+      transform: scale(0.92);
+      opacity: 0;
+      transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    #image-lightbox-modal.lightbox-active .lightbox-content-card {
+      transform: scale(1);
+      opacity: 1;
     }
 
     /* Scroll Reveal Initial States */
@@ -180,7 +319,12 @@
 </head>
 <body class="font-sans antialiased text-charcoal-800 min-h-screen flex flex-col justify-between relative selection:bg-sage-200">
 
-  <!-- Grain Texture Overlay -->
+  <!-- Dynamic Ambient Living Background Mesh -->
+  <div class="ambient-bg-layer" aria-hidden="true">
+    <div class="ambient-mesh"></div>
+  </div>
+
+  <!-- Tactile Grain Texture Overlay -->
   <div class="grain-overlay" aria-hidden="true"></div>
 
   <!-- STICKY MINIMAL EDITORIAL NAV -->
@@ -198,24 +342,24 @@
         </span>
       </a>
 
-      <!-- Desktop Navigation Links -->
+      <!-- Desktop Navigation Links (with Magnetic Follow Movement) -->
       <nav class="hidden md:flex items-center space-x-6 lg:space-x-7 text-xs font-medium tracking-wider uppercase text-charcoal-600">
-        <a href="#about" class="editorial-link hover:text-charcoal-900 transition-colors">About</a>
-        <a href="#skills" class="editorial-link hover:text-charcoal-900 transition-colors">Skills</a>
-        <a href="#experience" class="editorial-link hover:text-charcoal-900 transition-colors">Experience</a>
-        <a href="#protosem" class="editorial-link hover:text-sage-700 text-charcoal-900 font-semibold transition-colors flex items-center gap-1">
+        <a href="#about" class="nav-magnetic editorial-link hover:text-charcoal-900 transition-colors">About</a>
+        <a href="#skills" class="nav-magnetic editorial-link hover:text-charcoal-900 transition-colors">Skills</a>
+        <a href="#experience" class="nav-magnetic editorial-link hover:text-charcoal-900 transition-colors">Experience</a>
+        <a href="#protosem" class="nav-magnetic editorial-link hover:text-sage-700 text-charcoal-900 font-semibold transition-colors flex items-center gap-1">
           <span>ProtoSem</span>
           <span class="w-1.5 h-1.5 rounded-full bg-sage-500"></span>
         </a>
-        <a href="#certifications" class="editorial-link hover:text-charcoal-900 transition-colors">Certifications</a>
-        <a href="#education" class="editorial-link hover:text-charcoal-900 transition-colors">Education</a>
-        <a href="#leadership" class="editorial-link hover:text-charcoal-900 transition-colors">Leadership</a>
-        <a href="#contact" class="editorial-link hover:text-charcoal-900 transition-colors">Contact</a>
+        <a href="#certifications" class="nav-magnetic editorial-link hover:text-charcoal-900 transition-colors">Certifications</a>
+        <a href="#education" class="nav-magnetic editorial-link hover:text-charcoal-900 transition-colors">Education</a>
+        <a href="#leadership" class="nav-magnetic editorial-link hover:text-charcoal-900 transition-colors">Leadership</a>
+        <a href="#contact" class="nav-magnetic editorial-link hover:text-charcoal-900 transition-colors">Contact</a>
       </nav>
 
       <!-- ATS Resume Button -->
       <div class="flex items-center gap-4">
-        <a href="resume.html" target="_blank" class="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-wider px-3.5 py-1.5 border hairline-border hover:border-sage-500 bg-white/80 text-charcoal-800 hover:text-sage-700 transition-all rounded-sm">
+        <a href="resume.html" target="_blank" class="interactive-btn inline-flex items-center gap-2 text-xs font-medium uppercase tracking-wider px-3.5 py-1.5 border hairline-border hover:border-sage-500 bg-white/80 text-charcoal-800 hover:text-sage-700 transition-all rounded-lg">
           <i data-lucide="file-text" class="w-3.5 h-3.5 text-sage-500"></i>
           <span>ATS Resume</span>
         </a>
@@ -268,8 +412,9 @@
             <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl font-normal leading-[1.05] tracking-tight text-charcoal-900">
               Mithra Dharshini R
             </h1>
-            <p class="font-serif italic text-2xl sm:text-3xl text-charcoal-600 font-normal leading-snug">
-              BBA Student | Marketing, Retail & Digital Strategy Enthusiast
+            <!-- 1. Typewriter Subtitle -->
+            <p id="hero-tagline" class="font-serif italic text-2xl sm:text-3xl text-charcoal-600 font-normal leading-snug min-h-[2.25rem] flex items-center flex-wrap" aria-label="BBA Student | Marketing, Retail & Digital Strategy Enthusiast">
+              <span id="typewriter-text"></span><span id="typewriter-cursor" class="typewriter-cursor">|</span>
             </p>
           </div>
 
@@ -281,7 +426,7 @@
 
           <!-- CTAs -->
           <div class="flex flex-wrap items-center gap-6 pt-2">
-            <a href="#about" class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest px-6 py-3.5 bg-charcoal-900 text-ivory-50 hover:bg-sage-700 transition-colors rounded-sm shadow-sm">
+            <a href="#about" class="interactive-btn inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest px-6 py-3.5 bg-charcoal-900 text-ivory-50 hover:bg-sage-700 transition-colors rounded-xl shadow-sm">
               <span>Explore Narrative</span>
               <i data-lucide="arrow-down" class="w-3.5 h-3.5"></i>
             </a>
@@ -294,7 +439,7 @@
 
         <!-- Right Column: Editorial Photo Matting (5 cols) -->
         <div class="lg:col-span-5 flex flex-col items-center lg:items-end">
-          <div class="w-full max-w-sm bg-white p-4 border hairline-border shadow-sm space-y-3 relative">
+          <div class="w-full max-w-sm bg-white p-4 border hairline-border shadow-sm space-y-3 relative rounded-2xl">
             
             <!-- Soft Organic Nature Corner Mark -->
             <div class="absolute -top-3 -right-3 w-8 h-8 text-sage-400 pointer-events-none opacity-80">
@@ -304,15 +449,15 @@
               </svg>
             </div>
 
-            <!-- Portrait Container -->
-            <div class="aspect-[4/5] bg-ivory-200 overflow-hidden relative border hairline-border flex items-center justify-center">
+            <!-- Portrait Container (3. Rounded Edges) -->
+            <div class="aspect-[4/5] bg-ivory-200 overflow-hidden relative border hairline-border flex items-center justify-center rounded-xl">
               <img 
                 src="profile.jpg" 
                 alt="Mithra Dharshini R" 
                 onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Mithra+Dharshini&background=E6ECE8&color=1C1B1A&size=400&font-size=0.33&bold=true';" 
                 class="w-full h-full object-cover grayscale contrast-105 hover:grayscale-0 transition-all duration-700"
               >
-              <span class="absolute bottom-2.5 left-2.5 text-[9px] uppercase font-mono tracking-wider bg-white/90 px-2 py-0.5 border hairline-border text-charcoal-600">
+              <span class="absolute bottom-2.5 left-2.5 text-[9px] uppercase font-mono tracking-wider bg-white/90 px-2 py-0.5 border hairline-border text-charcoal-600 rounded-md">
                 Figure 01 / Identity
               </span>
             </div>
@@ -383,7 +528,7 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         
         <!-- Category A: Business & Management -->
-        <div class="bg-white p-8 border hairline-border space-y-6">
+        <div class="interactive-card bg-white p-8 border hairline-border space-y-6 rounded-2xl shadow-sm hover:border-sage-400">
           <div class="space-y-1">
             <span class="text-[10px] font-mono text-sage-600 uppercase tracking-widest font-semibold">Track 01</span>
             <h3 class="font-serif text-2xl text-charcoal-900 font-normal">Business & Management</h3>
@@ -418,7 +563,7 @@
         </div>
 
         <!-- Category B: Technical & Productivity -->
-        <div class="bg-white p-8 border hairline-border space-y-6">
+        <div class="interactive-card bg-white p-8 border hairline-border space-y-6 rounded-2xl shadow-sm hover:border-sage-400">
           <div class="space-y-1">
             <span class="text-[10px] font-mono text-sage-600 uppercase tracking-widest font-semibold">Track 02</span>
             <h3 class="font-serif text-2xl text-charcoal-900 font-normal">Technical & Productivity</h3>
@@ -441,26 +586,26 @@
         </div>
 
         <!-- Category C: Core Interests -->
-        <div class="bg-white p-8 border hairline-border space-y-6">
+        <div class="interactive-card bg-white p-8 border hairline-border space-y-6 rounded-2xl shadow-sm hover:border-sage-400">
           <div class="space-y-1">
             <span class="text-[10px] font-mono text-sage-600 uppercase tracking-widest font-semibold">Track 03</span>
             <h3 class="font-serif text-2xl text-charcoal-900 font-normal">Core Interests</h3>
           </div>
           <div class="w-full h-px bg-ivory-300"></div>
           <div class="flex flex-wrap gap-2 pt-1">
-            <span class="px-3 py-1.5 bg-sage-50 border hairline-sage text-xs uppercase tracking-wider text-sage-700 font-medium">
+            <span class="px-3 py-1.5 bg-sage-50 border hairline-sage text-xs uppercase tracking-wider text-sage-700 font-medium rounded-lg">
               Marketing Strategy
             </span>
-            <span class="px-3 py-1.5 bg-sage-50 border hairline-sage text-xs uppercase tracking-wider text-sage-700 font-medium">
+            <span class="px-3 py-1.5 bg-sage-50 border hairline-sage text-xs uppercase tracking-wider text-sage-700 font-medium rounded-lg">
               Retail Management
             </span>
-            <span class="px-3 py-1.5 bg-violet-50 border border-violet-200 text-xs uppercase tracking-wider text-violet-700 font-medium">
+            <span class="px-3 py-1.5 bg-violet-50 border border-violet-200 text-xs uppercase tracking-wider text-violet-700 font-medium rounded-lg">
               Digital Marketing
             </span>
-            <span class="px-3 py-1.5 bg-ivory-200 border hairline-border text-xs uppercase tracking-wider text-charcoal-700 font-medium">
+            <span class="px-3 py-1.5 bg-ivory-200 border hairline-border text-xs uppercase tracking-wider text-charcoal-700 font-medium rounded-lg">
               Business Development
             </span>
-            <span class="px-3 py-1.5 bg-sage-50 border hairline-sage text-xs uppercase tracking-wider text-sage-700 font-medium">
+            <span class="px-3 py-1.5 bg-sage-50 border hairline-sage text-xs uppercase tracking-wider text-sage-700 font-medium rounded-lg">
               Entrepreneurship
             </span>
           </div>
@@ -480,7 +625,7 @@
       </div>
 
       <!-- Case Study Card -->
-      <div class="bg-white p-8 sm:p-12 border hairline-border space-y-8">
+      <div class="interactive-card bg-white p-8 sm:p-12 border hairline-border space-y-8 rounded-2xl shadow-sm">
         
         <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 border-b hairline-border pb-6">
           <div class="space-y-1">
@@ -492,7 +637,7 @@
               Gupta Printers (Commercial Printing & Packaging)
             </p>
           </div>
-          <div class="text-xs font-mono uppercase tracking-wider text-sage-700 bg-sage-50 px-3 py-1.5 border hairline-sage self-start sm:self-auto">
+          <div class="text-xs font-mono uppercase tracking-wider text-sage-700 bg-sage-50 px-3 py-1.5 border hairline-sage self-start sm:self-auto rounded-lg">
             21-Day Intensive Program
           </div>
         </div>
@@ -535,7 +680,7 @@
     </section>
 
     <!-- 5. PROTOSEM — VISUAL CENTERPIECE & UNFOLDING FIELD JOURNAL -->
-    <section id="protosem" class="reveal-on-scroll space-y-14 scroll-mt-28 p-6 sm:p-10 -mx-3 sm:-mx-6 lg:-mx-8 rounded-sm relative" style="background: linear-gradient(180deg, rgba(235, 243, 237, 0.6) 0%, rgba(226, 237, 229, 0.4) 50%, rgba(235, 243, 237, 0.6) 100%); box-shadow: inset 0 0 0 1px rgba(210, 225, 215, 0.4);">
+    <section id="protosem" class="reveal-on-scroll space-y-14 scroll-mt-28 p-6 sm:p-10 -mx-3 sm:-mx-6 lg:-mx-8 rounded-2xl relative" style="background: linear-gradient(180deg, rgba(235, 243, 237, 0.6) 0%, rgba(226, 237, 229, 0.4) 50%, rgba(235, 243, 237, 0.6) 100%); box-shadow: inset 0 0 0 1px rgba(210, 225, 215, 0.4);">
       
       <!-- Section Header -->
       <div class="flex items-baseline justify-between border-b hairline-border pb-4">
@@ -547,7 +692,7 @@
       </div>
 
       <!-- Large Editorial Introduction -->
-      <div class="bg-white p-8 sm:p-12 lg:p-14 border hairline-border space-y-10 relative overflow-hidden">
+      <div class="bg-white p-8 sm:p-12 lg:p-14 border hairline-border space-y-10 relative overflow-hidden rounded-2xl shadow-sm">
         
         <!-- Subtle Organic Watermark Motif -->
         <div class="absolute -bottom-10 -right-10 w-48 h-48 pointer-events-none opacity-20 text-sage-400">
@@ -562,7 +707,7 @@
         <!-- Introduction Heading Strip -->
         <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b hairline-border pb-8 relative z-10">
           <div class="space-y-3 max-w-2xl">
-            <span class="inline-block px-3 py-1 bg-sage-50 text-sage-700 border hairline-sage text-[10px] font-mono tracking-widest uppercase font-semibold">
+            <span class="inline-block px-3 py-1 bg-sage-50 text-sage-700 border hairline-sage text-[10px] font-mono tracking-widest uppercase font-semibold rounded-md">
               PROTOSEM
             </span>
             <h2 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-charcoal-900 font-normal tracking-tight">
@@ -579,7 +724,7 @@
           </div>
 
           <!-- Chronology Pill -->
-          <div class="bg-ivory-50 p-4 border hairline-border space-y-1.5 self-start lg:self-auto min-w-[200px]">
+          <div class="bg-ivory-50 p-4 border hairline-border space-y-1.5 self-start lg:self-auto min-w-[200px] rounded-xl">
             <div class="flex items-center justify-between text-[10px] uppercase font-mono tracking-wider text-charcoal-400 font-semibold">
               <span>Chronology</span>
               <span class="text-sage-700">20 Weeks • 4 Phases</span>
@@ -614,19 +759,19 @@
             Programme Disciplines & Focus Areas
           </span>
           <div class="flex flex-wrap gap-2.5">
-            <span class="px-3.5 py-1.5 bg-ivory-50 border hairline-border text-xs uppercase tracking-wider text-charcoal-800 font-medium">
+            <span class="px-3.5 py-1.5 bg-ivory-50 border hairline-border text-xs uppercase tracking-wider text-charcoal-800 font-medium rounded-lg">
               Phygital Retail & Intelligent Commerce
             </span>
-            <span class="px-3.5 py-1.5 bg-sage-50 border hairline-sage text-xs uppercase tracking-wider text-sage-700 font-medium">
+            <span class="px-3.5 py-1.5 bg-sage-50 border hairline-sage text-xs uppercase tracking-wider text-sage-700 font-medium rounded-lg">
               AI & Analytics
             </span>
-            <span class="px-3.5 py-1.5 bg-violet-50 border border-violet-200 text-xs uppercase tracking-wider text-violet-700 font-medium">
+            <span class="px-3.5 py-1.5 bg-violet-50 border border-violet-200 text-xs uppercase tracking-wider text-violet-700 font-medium rounded-lg">
               Intelligent Systems & IoT
             </span>
-            <span class="px-3.5 py-1.5 bg-ivory-50 border hairline-border text-xs uppercase tracking-wider text-charcoal-800 font-medium">
+            <span class="px-3.5 py-1.5 bg-ivory-50 border hairline-border text-xs uppercase tracking-wider text-charcoal-800 font-medium rounded-lg">
               Prototyping
             </span>
-            <span class="px-3.5 py-1.5 bg-sage-50 border hairline-sage text-xs uppercase tracking-wider text-sage-700 font-medium">
+            <span class="px-3.5 py-1.5 bg-sage-50 border hairline-sage text-xs uppercase tracking-wider text-sage-700 font-medium rounded-lg">
               Entrepreneurship
             </span>
           </div>
@@ -648,21 +793,21 @@
             </p>
           </div>
 
-          <!-- Filter / Phase Selector -->
-          <div class="inline-flex p-1 bg-ivory-200 border hairline-border text-xs font-mono uppercase tracking-wider overflow-x-auto max-w-full" role="tablist">
-            <button onclick="filterProtoSemPhase('all', this)" class="protosem-phase-btn active px-3 py-1.5 text-ivory-50 bg-charcoal-900 transition-all font-medium" role="tab" aria-selected="true">
+          <!-- Filter / Phase Selector (4. Dynamic Click Animation) -->
+          <div class="inline-flex p-1 bg-ivory-200 border hairline-border text-xs font-mono uppercase tracking-wider overflow-x-auto max-w-full rounded-xl" role="tablist">
+            <button onclick="filterProtoSemPhase('all', this)" class="protosem-phase-btn interactive-btn active px-3 py-1.5 text-ivory-50 bg-charcoal-900 transition-all font-medium rounded-lg" role="tab" aria-selected="true">
               All (00–20)
             </button>
-            <button onclick="filterProtoSemPhase('1', this)" class="protosem-phase-btn px-3 py-1.5 text-charcoal-600 hover:text-charcoal-900 transition-all font-medium" role="tab" aria-selected="false">
+            <button onclick="filterProtoSemPhase('1', this)" class="protosem-phase-btn interactive-btn px-3 py-1.5 text-charcoal-600 hover:text-charcoal-900 transition-all font-medium rounded-lg" role="tab" aria-selected="false">
               Phase 01 (W1–5)
             </button>
-            <button onclick="filterProtoSemPhase('2', this)" class="protosem-phase-btn px-3 py-1.5 text-charcoal-600 hover:text-charcoal-900 transition-all font-medium" role="tab" aria-selected="false">
+            <button onclick="filterProtoSemPhase('2', this)" class="protosem-phase-btn interactive-btn px-3 py-1.5 text-charcoal-600 hover:text-charcoal-900 transition-all font-medium rounded-lg" role="tab" aria-selected="false">
               Phase 02 (W6–10)
             </button>
-            <button onclick="filterProtoSemPhase('3', this)" class="protosem-phase-btn px-3 py-1.5 text-charcoal-600 hover:text-charcoal-900 transition-all font-medium" role="tab" aria-selected="false">
+            <button onclick="filterProtoSemPhase('3', this)" class="protosem-phase-btn interactive-btn px-3 py-1.5 text-charcoal-600 hover:text-charcoal-900 transition-all font-medium rounded-lg" role="tab" aria-selected="false">
               Phase 03 (W11–15)
             </button>
-            <button onclick="filterProtoSemPhase('4', this)" class="protosem-phase-btn px-3 py-1.5 text-charcoal-600 hover:text-charcoal-900 transition-all font-medium" role="tab" aria-selected="false">
+            <button onclick="filterProtoSemPhase('4', this)" class="protosem-phase-btn interactive-btn px-3 py-1.5 text-charcoal-600 hover:text-charcoal-900 transition-all font-medium rounded-lg" role="tab" aria-selected="false">
               Phase 04 (W16–20)
             </button>
           </div>
@@ -678,9 +823,9 @@
     </section>
 
     <!-- Modal for Week Milestone Viewer & Direct In-Browser Field Note Editor -->
-    <div id="protosem-modal" class="fixed inset-0 z-50 bg-charcoal-900/60 backdrop-blur-sm hidden items-center justify-center p-4 transition-opacity" aria-hidden="true">
-      <div class="bg-white border hairline-border max-w-2xl w-full p-6 sm:p-10 space-y-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
-        <button onclick="closeProtoSemModal()" class="absolute top-4 right-4 p-2 text-charcoal-400 hover:text-charcoal-900 transition-colors" aria-label="Close dialog">
+    <div id="protosem-modal" class="fixed inset-0 z-50 bg-charcoal-900/60 backdrop-blur-sm hidden items-center justify-center p-4" aria-hidden="true">
+      <div class="modal-content-card bg-white border hairline-border max-w-2xl w-full p-6 sm:p-10 space-y-6 shadow-2xl relative max-h-[90vh] overflow-y-auto rounded-2xl">
+        <button onclick="closeProtoSemModal()" class="interactive-btn absolute top-4 right-4 p-2 text-charcoal-400 hover:text-charcoal-900 transition-colors rounded-lg" aria-label="Close dialog">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
 
@@ -689,7 +834,7 @@
           <div class="space-y-2 border-b hairline-border pb-4">
             <div class="flex items-center justify-between">
               <span id="modal-phase-label" class="text-[10px] font-mono uppercase tracking-widest text-sage-600 font-semibold">Phase 01 • Programme Milestone</span>
-              <span id="modal-status-pill" class="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 border hairline-border text-charcoal-500 bg-ivory-100">
+              <span id="modal-status-pill" class="text-[10px] font-mono uppercase tracking-wider px-2.5 py-0.5 border hairline-border text-charcoal-500 bg-ivory-100 rounded-md">
                 Placeholder
               </span>
             </div>
@@ -700,7 +845,7 @@
           <!-- Description / Field Notes Content Box -->
           <div class="space-y-3">
             <span class="text-[10px] font-mono uppercase tracking-widest text-charcoal-400 font-semibold block">Field Journal Entry & Learnings</span>
-            <div id="modal-description-text" class="text-sm text-charcoal-700 font-light leading-relaxed whitespace-pre-line bg-ivory-50 p-5 border hairline-border space-y-4">
+            <div id="modal-description-text" class="text-sm text-charcoal-700 font-light leading-relaxed whitespace-pre-line bg-ivory-50 p-5 border hairline-border space-y-4 rounded-xl">
               This chapter of the 20-week PRICE ProtoSem innovation log is being documented. Future stories, prototyping milestones, and detailed field notes will appear here once published.
             </div>
           </div>
@@ -720,11 +865,11 @@
           </div>
 
           <div class="flex items-center justify-between pt-3 border-t hairline-border">
-            <button onclick="switchToEditMode()" class="inline-flex items-center gap-2 px-4 py-2 border hairline-border hover:border-sage-600 text-xs uppercase font-mono tracking-wider font-medium text-charcoal-800 transition-colors">
+            <button onclick="switchToEditMode()" class="interactive-btn inline-flex items-center gap-2 px-4 py-2 border hairline-border hover:border-sage-600 text-xs uppercase font-mono tracking-wider font-medium text-charcoal-800 transition-colors rounded-lg">
               <i data-lucide="edit-3" class="w-3.5 h-3.5 text-sage-600"></i>
               <span>Edit Field Notes</span>
             </button>
-            <button onclick="closeProtoSemModal()" class="px-5 py-2 bg-charcoal-900 text-ivory-50 text-xs uppercase font-mono tracking-wider font-semibold hover:bg-sage-700 transition-colors">
+            <button onclick="closeProtoSemModal()" class="interactive-btn px-5 py-2 bg-charcoal-900 text-ivory-50 text-xs uppercase font-mono tracking-wider font-semibold hover:bg-sage-700 transition-colors rounded-lg">
               Close Journal
             </button>
           </div>
@@ -740,12 +885,12 @@
           <div class="space-y-4">
             <div class="space-y-1">
               <label for="edit-note-title" class="text-xs uppercase font-mono tracking-wider text-charcoal-600 block">Weekly Focus / Title</label>
-              <input type="text" id="edit-note-title" class="w-full bg-ivory-50 border hairline-border focus:border-sage-600 px-3 py-2 text-sm text-charcoal-900 focus:outline-none transition-colors" placeholder="e.g. Retail Problem Identification & Discovery">
+              <input type="text" id="edit-note-title" class="w-full bg-ivory-50 border hairline-border focus:border-sage-600 px-3 py-2 text-sm text-charcoal-900 focus:outline-none transition-colors rounded-xl" placeholder="e.g. Retail Problem Identification & Discovery">
             </div>
 
             <div class="space-y-1">
               <label for="edit-note-desc" class="text-xs uppercase font-mono tracking-wider text-charcoal-600 block">Weekly Summary / Documentation</label>
-              <textarea id="edit-note-desc" rows="8" class="w-full bg-ivory-50 border hairline-border focus:border-sage-600 p-3 text-sm text-charcoal-900 font-light leading-relaxed focus:outline-none transition-colors" placeholder="Describe key activities, research observations, experiments, or learnings..."></textarea>
+              <textarea id="edit-note-desc" rows="8" class="w-full bg-ivory-50 border hairline-border focus:border-sage-600 p-3 text-sm text-charcoal-900 font-light leading-relaxed focus:outline-none transition-colors rounded-xl" placeholder="Describe key activities, research observations, experiments, or learnings..."></textarea>
             </div>
           </div>
 
@@ -754,10 +899,10 @@
               Reset to Blank
             </button>
             <div class="flex items-center gap-3">
-              <button onclick="cancelEditMode()" class="px-4 py-2 border hairline-border text-xs uppercase font-mono tracking-wider font-medium text-charcoal-700 hover:text-charcoal-900 transition-colors">
+              <button onclick="cancelEditMode()" class="interactive-btn px-4 py-2 border hairline-border text-xs uppercase font-mono tracking-wider font-medium text-charcoal-700 hover:text-charcoal-900 transition-colors rounded-lg">
                 Cancel
               </button>
-              <button onclick="saveCurrentWeekNotes()" class="px-5 py-2 bg-charcoal-900 text-ivory-50 text-xs uppercase font-mono tracking-wider font-semibold hover:bg-sage-700 transition-colors">
+              <button onclick="saveCurrentWeekNotes()" class="interactive-btn px-5 py-2 bg-charcoal-900 text-ivory-50 text-xs uppercase font-mono tracking-wider font-semibold hover:bg-sage-700 transition-colors rounded-lg">
                 Save Changes
               </button>
             </div>
@@ -768,13 +913,13 @@
     </div>
 
     <!-- Lightbox Modal for Photo Gallery Preview -->
-    <div id="image-lightbox-modal" class="fixed inset-0 z-[60] bg-charcoal-900/90 backdrop-blur-md hidden items-center justify-center p-4 transition-opacity" onclick="closeImageLightbox()">
-      <div class="relative max-w-4xl max-h-[90vh] flex flex-col items-center space-y-3" onclick="event.stopPropagation()">
-        <button onclick="closeImageLightbox()" class="absolute -top-10 right-0 text-ivory-100 hover:text-white p-2 text-xs font-mono uppercase tracking-widest flex items-center gap-1.5 transition-colors">
+    <div id="image-lightbox-modal" class="fixed inset-0 z-[60] bg-charcoal-900/90 backdrop-blur-md hidden items-center justify-center p-4" onclick="closeImageLightbox()">
+      <div class="lightbox-content-card relative max-w-4xl max-h-[90vh] flex flex-col items-center space-y-3" onclick="event.stopPropagation()">
+        <button onclick="closeImageLightbox()" class="interactive-btn absolute -top-10 right-0 text-ivory-100 hover:text-white p-2 text-xs font-mono uppercase tracking-widest flex items-center gap-1.5 transition-colors rounded-md">
           <span>Close</span> ✕
         </button>
-        <div class="p-1 bg-white border hairline-border shadow-2xl rounded-sm max-h-[80vh] overflow-hidden flex items-center justify-center">
-          <img id="lightbox-image" src="" alt="Enlarged field photo" class="max-w-full max-h-[75vh] object-contain">
+        <div class="p-1 bg-white border hairline-border shadow-2xl rounded-2xl max-h-[80vh] overflow-hidden flex items-center justify-center">
+          <img id="lightbox-image" src="" alt="Enlarged field photo" class="max-w-full max-h-[75vh] object-contain rounded-xl">
         </div>
         <p id="lightbox-caption" class="text-xs font-serif italic text-ivory-200 text-center tracking-wide max-w-xl"></p>
       </div>
@@ -792,10 +937,10 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         
         <!-- Award 1: SPJIMR -->
-        <div class="bg-white p-8 border hairline-border space-y-4">
+        <div class="interactive-card bg-white p-8 border hairline-border space-y-4 rounded-2xl shadow-sm hover:border-sage-400">
           <div class="flex items-start justify-between">
             <span class="text-xs font-mono uppercase tracking-widest text-sage-600 font-medium">Executive Program</span>
-            <span class="text-xs font-mono uppercase tracking-widest text-charcoal-700 bg-ivory-100 px-2 py-0.5 border hairline-border">Certified</span>
+            <span class="text-xs font-mono uppercase tracking-widest text-charcoal-700 bg-ivory-100 px-2.5 py-0.5 border hairline-border rounded-lg">Certified</span>
           </div>
           <h3 class="font-serif text-2xl text-charcoal-900 font-normal">Startup Sprint — SPJIMR</h3>
           <p class="text-sm text-charcoal-600 font-light leading-relaxed">
@@ -804,10 +949,10 @@
         </div>
 
         <!-- Award 2: Mahatma Gandhi Scholarship -->
-        <div class="bg-white p-8 border hairline-border space-y-4">
+        <div class="interactive-card bg-white p-8 border hairline-border space-y-4 rounded-2xl shadow-sm hover:border-sage-400">
           <div class="flex items-start justify-between">
             <span class="text-xs font-mono uppercase tracking-widest text-violet-600 font-medium">Merit Scholarship</span>
-            <span class="text-xs font-mono uppercase tracking-widest text-charcoal-700 bg-ivory-100 px-2 py-0.5 border hairline-border">Semester 1</span>
+            <span class="text-xs font-mono uppercase tracking-widest text-charcoal-700 bg-ivory-100 px-2.5 py-0.5 border hairline-border rounded-lg">Semester 1</span>
           </div>
           <h3 class="font-serif text-2xl text-charcoal-900 font-normal">Mahatma Gandhi Scholarship</h3>
           <p class="text-sm text-charcoal-600 font-light leading-relaxed">
@@ -831,7 +976,7 @@
       <div class="space-y-6">
         
         <!-- College -->
-        <div class="bg-white p-8 border hairline-border flex flex-col md:flex-row md:items-start justify-between gap-6">
+        <div class="interactive-card bg-white p-8 border hairline-border flex flex-col md:flex-row md:items-start justify-between gap-6 rounded-2xl shadow-sm">
           <div class="space-y-2 max-w-xl">
             <span class="text-xs font-mono uppercase tracking-widest text-sage-600 font-medium">Undergraduate Degree</span>
             <h3 class="font-serif text-2xl text-charcoal-900 font-normal">
@@ -844,7 +989,7 @@
               Current Cumulative GPA: <strong class="font-medium text-charcoal-900">8.0 / 10.0</strong> • Mahatma Gandhi Scholarship (Semester 1).
             </p>
           </div>
-          <div class="text-xs font-mono uppercase tracking-wider text-charcoal-600 bg-ivory-100 px-3.5 py-1.5 border hairline-border whitespace-nowrap self-start">
+          <div class="text-xs font-mono uppercase tracking-wider text-charcoal-600 bg-ivory-100 px-3.5 py-1.5 border hairline-border whitespace-nowrap self-start rounded-lg">
             2025 – 2028 (Expected)
           </div>
         </div>
@@ -852,13 +997,13 @@
         <!-- Schooling -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
           
-          <div class="bg-white p-6 border hairline-border space-y-2">
+          <div class="interactive-card bg-white p-6 border hairline-border space-y-2 rounded-2xl shadow-sm">
             <span class="text-xs font-mono uppercase tracking-widest text-charcoal-400">Higher Secondary Education</span>
             <h4 class="font-serif text-xl text-charcoal-900 font-normal">Class XII — State Board</h4>
             <p class="font-serif italic text-lg text-sage-700">Score: 95%</p>
           </div>
 
-          <div class="bg-white p-6 border hairline-border space-y-2">
+          <div class="interactive-card bg-white p-6 border hairline-border space-y-2 rounded-2xl shadow-sm">
             <span class="text-xs font-mono uppercase tracking-widest text-charcoal-400">Secondary Education</span>
             <h4 class="font-serif text-xl text-charcoal-900 font-normal">Class X — State Board</h4>
             <p class="font-serif italic text-lg text-sage-700">Score: 90%</p>
@@ -882,7 +1027,7 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         
         <!-- Role 1 -->
-        <div class="bg-white p-8 border hairline-border space-y-4">
+        <div class="interactive-card bg-white p-8 border hairline-border space-y-4 rounded-2xl shadow-sm hover:border-sage-400">
           <span class="text-xs font-mono uppercase tracking-widest text-sage-600 font-medium">Club Leadership</span>
           <div class="space-y-1">
             <h3 class="font-serif text-2xl text-charcoal-900 font-normal">Joint Secretary</h3>
@@ -894,7 +1039,7 @@
         </div>
 
         <!-- Role 2 -->
-        <div class="bg-white p-8 border hairline-border space-y-4">
+        <div class="interactive-card bg-white p-8 border hairline-border space-y-4 rounded-2xl shadow-sm hover:border-sage-400">
           <span class="text-xs font-mono uppercase tracking-widest text-sage-600 font-medium">Event Coordination</span>
           <div class="space-y-1">
             <h3 class="font-serif text-2xl text-charcoal-900 font-normal">Event Coordinator</h3>
@@ -906,7 +1051,7 @@
         </div>
 
         <!-- Role 3 -->
-        <div class="bg-white p-8 border hairline-border space-y-4">
+        <div class="interactive-card bg-white p-8 border hairline-border space-y-4 rounded-2xl shadow-sm hover:border-sage-400">
           <span class="text-xs font-mono uppercase tracking-widest text-violet-600 font-medium">Adjudication</span>
           <div class="space-y-1">
             <h3 class="font-serif text-2xl text-charcoal-900 font-normal">Judging Panel Member</h3>
@@ -962,7 +1107,7 @@
             </div>
 
             <div class="pt-2">
-              <a href="resume.html" target="_blank" class="inline-flex items-center gap-2 text-xs font-medium uppercase font-mono tracking-wider px-5 py-3 border hairline-border hover:border-sage-600 bg-white text-charcoal-900 transition-colors">
+              <a href="resume.html" target="_blank" class="interactive-btn inline-flex items-center gap-2 text-xs font-medium uppercase font-mono tracking-wider px-5 py-3 border hairline-border hover:border-sage-600 bg-white text-charcoal-900 transition-colors rounded-xl shadow-sm">
                 <i data-lucide="download" class="w-3.5 h-3.5 text-sage-600"></i>
                 <span>View ATS Resume (Print PDF)</span>
               </a>
@@ -971,26 +1116,26 @@
         </div>
 
         <!-- Minimal Nature-Inspired Contact Form (7 cols) -->
-        <div class="lg:col-span-7 bg-white p-8 sm:p-10 border hairline-border space-y-6">
+        <div class="lg:col-span-7 bg-white p-8 sm:p-10 border hairline-border space-y-6 rounded-2xl shadow-sm">
           <span class="text-[10px] font-mono uppercase tracking-widest text-sage-600 font-semibold block">Send a Note</span>
           
           <form onsubmit="event.preventDefault(); alert('Thank you for reaching out, Mithra will receive your message soon!');" class="space-y-5">
             <div class="space-y-1">
               <label for="name" class="text-xs uppercase font-mono tracking-wider text-charcoal-500 block">Your Name</label>
-              <input type="text" id="name" required class="w-full bg-ivory-50 border-b hairline-border focus:border-sage-600 px-3 py-2 text-sm text-charcoal-900 focus:outline-none transition-colors" placeholder="e.g. Jane Doe">
+              <input type="text" id="name" required class="w-full bg-ivory-50 border-b hairline-border focus:border-sage-600 px-3 py-2 text-sm text-charcoal-900 focus:outline-none transition-colors rounded-xl" placeholder="e.g. Jane Doe">
             </div>
 
             <div class="space-y-1">
               <label for="email" class="text-xs uppercase font-mono tracking-wider text-charcoal-500 block">Email Address</label>
-              <input type="email" id="email" required class="w-full bg-ivory-50 border-b hairline-border focus:border-sage-600 px-3 py-2 text-sm text-charcoal-900 focus:outline-none transition-colors" placeholder="name@company.com">
+              <input type="email" id="email" required class="w-full bg-ivory-50 border-b hairline-border focus:border-sage-600 px-3 py-2 text-sm text-charcoal-900 focus:outline-none transition-colors rounded-xl" placeholder="name@company.com">
             </div>
 
             <div class="space-y-1">
               <label for="message" class="text-xs uppercase font-mono tracking-wider text-charcoal-500 block">Message</label>
-              <textarea id="message" rows="4" required class="w-full bg-ivory-50 border-b hairline-border focus:border-sage-600 px-3 py-2 text-sm text-charcoal-900 focus:outline-none transition-colors" placeholder="Write your message here..."></textarea>
+              <textarea id="message" rows="4" required class="w-full bg-ivory-50 border-b hairline-border focus:border-sage-600 px-3 py-2 text-sm text-charcoal-900 focus:outline-none transition-colors rounded-xl" placeholder="Write your message here..."></textarea>
             </div>
 
-            <button type="submit" class="w-full sm:w-auto px-8 py-3.5 bg-charcoal-900 text-ivory-50 text-xs font-semibold uppercase font-mono tracking-widest hover:bg-sage-700 transition-colors">
+            <button type="submit" class="interactive-btn w-full sm:w-auto px-8 py-3.5 bg-charcoal-900 text-ivory-50 text-xs font-semibold uppercase font-mono tracking-widest hover:bg-sage-700 transition-colors rounded-xl shadow-sm">
               Send Message
             </button>
           </form>
@@ -1018,10 +1163,75 @@
     </div>
   </footer>
 
-  <!-- JAVASCRIPT: HORIZONTAL FIELD TIMELINE & IN-BROWSER PERSISTENCE -->
+  <!-- JAVASCRIPT: INTERACTIONS, PROTOSEM JOURNAL & AMBIENT MOTION -->
   <script>
     // Initialize Lucide Icons
     lucide.createIcons();
+
+    /* ========================================================
+       1. TYPEWRITER / LETTER-BY-LETTER REVEAL FOR HERO TAGLINE
+       ======================================================== */
+    let hasHeroTypewriterRun = false;
+    function initHeroTypewriter() {
+      if (hasHeroTypewriterRun) return;
+      hasHeroTypewriterRun = true;
+
+      const textElem = document.getElementById('typewriter-text');
+      const cursorElem = document.getElementById('typewriter-cursor');
+      if (!textElem) return;
+
+      const fullTagline = "BBA Student | Marketing, Retail & Digital Strategy Enthusiast";
+      textElem.textContent = "";
+      let charIndex = 0;
+
+      function typeNextLetter() {
+        if (charIndex < fullTagline.length) {
+          textElem.textContent += fullTagline.charAt(charIndex);
+          charIndex++;
+          // Natural reveal speed: 32-48ms per character
+          const speed = 32 + Math.floor(Math.random() * 16);
+          setTimeout(typeNextLetter, speed);
+        } else {
+          // Finished: subtle delay then gracefully fade out cursor
+          setTimeout(() => {
+            if (cursorElem) {
+              cursorElem.classList.add('finished');
+            }
+          }, 600);
+        }
+      }
+
+      // Initial buffer for paint
+      setTimeout(typeNextLetter, 200);
+    }
+
+    /* ========================================================
+       2. DYNAMIC / MAGNETIC NAVIGATION BAR MOVEMENT
+       ======================================================== */
+    function initMagneticNav() {
+      // Only enable on pointer-fine devices (disable on mobile touch)
+      if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+      const magneticItems = document.querySelectorAll('.nav-magnetic');
+      magneticItems.forEach(item => {
+        item.addEventListener('mousemove', (e) => {
+          const rect = item.getBoundingClientRect();
+          const centerX = rect.left + rect.width / 2;
+          const centerY = rect.top + rect.height / 2;
+          
+          // Subtle magnetic shift (roughly 3-5px max)
+          const pullX = (e.clientX - centerX) * 0.28;
+          const pullY = (e.clientY - centerY) * 0.28;
+
+          item.style.transform = `translate3d(${pullX.toFixed(2)}px, ${pullY.toFixed(2)}px, 0)`;
+        });
+
+        item.addEventListener('mouseleave', () => {
+          // Smooth physics-based spring return
+          item.style.transform = 'translate3d(0px, 0px, 0px)';
+        });
+      });
+    }
 
     /* ========================================================
        PROTOSEM 20-WEEK FIELD JOURNAL DATA (WEEKS 00 THROUGH 20)
@@ -1146,8 +1356,8 @@ Overall, Week 0 functioned as a foundation-building week — helping participant
         if (!phaseWeeks.length) return '';
 
         return `
-          <!-- Phase Segment Container -->
-          <div class="bg-white border hairline-border p-6 sm:p-8 space-y-6 transition-all">
+          <!-- Phase Segment Container (3. Rounded Corners) -->
+          <div class="bg-white border hairline-border p-6 sm:p-8 space-y-6 transition-all rounded-2xl shadow-sm">
             
             <!-- Phase Segment Header -->
             <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 border-b hairline-border pb-4">
@@ -1184,7 +1394,7 @@ Overall, Week 0 functioned as a foundation-building week — helping participant
                       tabindex="0"
                       role="button"
                       aria-label="Week ${weekPadded} Field Journal Entry"
-                      class="group relative bg-ivory-50 hover:bg-white border ${hasContent ? 'border-sage-500 bg-white shadow-sm' : 'hairline-border'} p-4 flex flex-col justify-between cursor-pointer focus:outline-none focus:ring-1 focus:ring-sage-600 transition-all duration-300 min-h-[145px]"
+                      class="interactive-card group relative bg-ivory-50 hover:bg-white border ${hasContent ? 'border-sage-500 bg-white shadow-sm' : 'hairline-border'} p-4 flex flex-col justify-between cursor-pointer focus:outline-none focus:ring-1 focus:ring-sage-600 transition-all duration-300 min-h-[145px] rounded-xl hover:shadow-md"
                     >
                       <!-- Milestone Node Header -->
                       <div class="flex items-center justify-between gap-2">
@@ -1257,7 +1467,7 @@ Overall, Week 0 functioned as a foundation-building week — helping participant
       renderProtoSemTimelineNodes(phase);
     }
 
-    // Modal View Handlers
+    // 4. Modal View Handlers with Smooth Scale & Fade Animation
     function openProtoSemModal(weekNum) {
       currentEditingWeekNum = weekNum;
       const modal = document.getElementById('protosem-modal');
@@ -1297,13 +1507,13 @@ Overall, Week 0 functioned as a foundation-building week — helping participant
 
         descBox.innerHTML = formatted;
         statusPill.innerText = 'Documented';
-        statusPill.className = 'text-[10px] font-mono uppercase tracking-wider px-2.5 py-0.5 border border-sage-500 text-sage-700 bg-sage-50 font-semibold';
+        statusPill.className = 'text-[10px] font-mono uppercase tracking-wider px-2.5 py-0.5 border border-sage-500 text-sage-700 bg-sage-50 font-semibold rounded-md';
       } else {
         descBox.innerText = isPrologue
           ? 'Orientation, programme onboarding, and cohort induction. Document initial briefings, frameworks, or problem statement allocations here.'
           : 'This chapter of the 20-week PRICE ProtoSem innovation log is being documented. Future stories, prototyping milestones, and detailed field notes will appear here once published.';
         statusPill.innerText = 'Field Notes in Progress';
-        statusPill.className = 'text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 border hairline-border text-charcoal-500 bg-ivory-100';
+        statusPill.className = 'text-[10px] font-mono uppercase tracking-wider px-2.5 py-0.5 border hairline-border text-charcoal-500 bg-ivory-100 rounded-md';
       }
 
       // Render Image Gallery
@@ -1314,9 +1524,9 @@ Overall, Week 0 functioned as a foundation-building week — helping participant
         galleryGrid.innerHTML = item.images.map((img, i) => `
           <div 
             onclick="openImageLightbox('${img.src}', '${escapeHtml(img.caption)}')" 
-            class="group cursor-pointer bg-white border hairline-border p-2 space-y-1.5 hover:border-sage-500 transition-all rounded-sm"
+            class="interactive-card group cursor-pointer bg-white border hairline-border p-2 space-y-1.5 hover:border-sage-500 transition-all rounded-xl shadow-sm"
           >
-            <div class="aspect-[4/3] bg-ivory-200 overflow-hidden relative border hairline-border">
+            <div class="aspect-[4/3] bg-ivory-200 overflow-hidden relative border hairline-border rounded-lg">
               <img 
                 src="${img.src}" 
                 alt="${escapeHtml(img.caption)}" 
@@ -1325,7 +1535,7 @@ Overall, Week 0 functioned as a foundation-building week — helping participant
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               >
               <div class="absolute inset-0 bg-charcoal-900/0 group-hover:bg-charcoal-900/10 transition-colors flex items-center justify-center">
-                <span class="opacity-0 group-hover:opacity-100 bg-white/90 px-2 py-0.5 text-[9px] font-mono uppercase tracking-wider text-charcoal-800 shadow-sm transition-opacity">Enlarge</span>
+                <span class="opacity-0 group-hover:opacity-100 bg-white/90 px-2 py-0.5 text-[9px] font-mono uppercase tracking-wider text-charcoal-800 shadow-sm transition-opacity rounded-md">Enlarge</span>
               </div>
             </div>
             <p class="text-[10px] font-serif italic text-charcoal-500 line-clamp-1 group-hover:text-sage-700 transition-colors">
@@ -1343,22 +1553,44 @@ Overall, Week 0 functioned as a foundation-building week — helping participant
 
       modal.classList.remove('hidden');
       modal.classList.add('flex');
+
+      // Trigger smooth scale & fade entrance animation
+      requestAnimationFrame(() => {
+        modal.classList.add('modal-active');
+      });
+
       lucide.createIcons();
     }
 
-    // Lightbox Modal Controls
+    // Modal Close with Smooth Motion
+    function closeProtoSemModal() {
+      const modal = document.getElementById('protosem-modal');
+      modal.classList.remove('modal-active');
+      setTimeout(() => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }, 280);
+    }
+
+    // Lightbox Modal Controls with Smooth Motion
     function openImageLightbox(src, caption) {
       const modal = document.getElementById('image-lightbox-modal');
       document.getElementById('lightbox-image').src = src;
       document.getElementById('lightbox-caption').innerText = caption || '';
       modal.classList.remove('hidden');
       modal.classList.add('flex');
+      requestAnimationFrame(() => {
+        modal.classList.add('lightbox-active');
+      });
     }
 
     function closeImageLightbox() {
       const modal = document.getElementById('image-lightbox-modal');
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
+      modal.classList.remove('lightbox-active');
+      setTimeout(() => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }, 280);
     }
 
     // Switch to Edit Mode in Modal
@@ -1404,12 +1636,6 @@ Overall, Week 0 functioned as a foundation-building week — helping participant
       }
     }
 
-    function closeProtoSemModal() {
-      const modal = document.getElementById('protosem-modal');
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-    }
-
     // Close modal on outside click or Escape key
     window.addEventListener('click', (e) => {
       const lightbox = document.getElementById('image-lightbox-modal');
@@ -1424,7 +1650,7 @@ Overall, Week 0 functioned as a foundation-building week — helping participant
       }
     });
 
-    // Intersection Observer for Smooth Scroll Reveals
+    // Intersection Observer for Smooth Scroll Reveals & Hero Typewriter Trigger
     const observerOptions = {
       root: null,
       rootMargin: '0px 0px -50px 0px',
@@ -1435,6 +1661,9 @@ Overall, Week 0 functioned as a foundation-building week — helping participant
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
+          if (entry.target.id === 'hero') {
+            initHeroTypewriter();
+          }
         }
       });
     }, observerOptions);
@@ -1443,9 +1672,13 @@ Overall, Week 0 functioned as a foundation-building week — helping participant
       scrollObserver.observe(el);
     });
 
-    // Initial load & render of all timeline nodes
-    loadProtoSemData();
-    renderProtoSemTimelineNodes('all');
+    // On DOMContentLoaded: Init data, magnetic nav, and hero typewriter
+    window.addEventListener('DOMContentLoaded', () => {
+      loadProtoSemData();
+      renderProtoSemTimelineNodes('all');
+      initMagneticNav();
+      initHeroTypewriter();
+    });
   </script>
 </body>
 </html>
