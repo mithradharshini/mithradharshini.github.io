@@ -214,23 +214,113 @@
       position: relative;
     }
 
-    /* Dynamic Movement on Click (Interactive Cards & Buttons) */
-    .interactive-card {
-      transition: transform 0.28s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.28s ease, border-color 0.25s ease, background-color 0.25s ease;
-      will-change: transform;
+    /* ========================================================
+       SITE-WIDE BOX & CARD HOVER / TOUCH MICRO-INTERACTIONS
+       ======================================================== */
+    /* Base interactive box/card style */
+    .interactive-card,
+    .editorial-box {
+      transition: 
+        transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), 
+        box-shadow 0.28s cubic-bezier(0.22, 1, 0.36, 1), 
+        border-color 0.25s ease, 
+        background-color 0.25s ease;
+      will-change: transform, box-shadow;
+      position: relative;
     }
 
-    .interactive-card:active {
-      transform: scale(0.97) !important;
+    /* Desktop Hover Enhancement: Subtle 1.018x scale + soft warm diffused elevation shadow */
+    @media (hover: hover) and (pointer: fine) {
+      .interactive-card:hover,
+      .editorial-box:hover {
+        transform: translateY(-2.5px) scale(1.018);
+        box-shadow: 
+          0 14px 28px -6px rgba(42, 41, 39, 0.08), 
+          0 4px 12px -2px rgba(95, 121, 103, 0.05);
+        border-color: #B5C5B9 !important;
+        background-color: #FFFFFF;
+        z-index: 5;
+      }
     }
 
+    /* Non-Clickable / Static Information Cards: slightly more restrained lift */
+    @media (hover: hover) and (pointer: fine) {
+      .interactive-card.card-static:hover,
+      .editorial-box.card-static:hover {
+        transform: translateY(-1.5px) scale(1.01);
+        box-shadow: 
+          0 10px 22px -6px rgba(42, 41, 39, 0.06), 
+          0 3px 8px -2px rgba(95, 121, 103, 0.04);
+        border-color: #B5C5B9 !important;
+      }
+    }
+
+    /* Mobile & Touch Press Feedback (Non-sticky) */
+    .interactive-card:active,
+    .editorial-box:active {
+      transform: scale(0.98) translateY(0);
+      box-shadow: 0 4px 10px -2px rgba(42, 41, 39, 0.06);
+      transition-duration: 0.12s;
+    }
+
+    /* Interactive Buttons */
     .interactive-btn {
-      transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      transition: transform 0.24s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.24s ease;
       will-change: transform;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .interactive-btn:hover {
+        transform: translateY(-1.5px) scale(1.02);
+        box-shadow: 0 6px 16px -4px rgba(42, 41, 39, 0.1);
+      }
     }
 
     .interactive-btn:active {
       transform: scale(0.96) !important;
+      box-shadow: 0 2px 6px -2px rgba(42, 41, 39, 0.06);
+      transition-duration: 0.1s;
+    }
+
+    /* Tag Pills & Small Sub-Boxes Hover Enhancement */
+    .tag-pill {
+      transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.22s ease, border-color 0.2s ease, background-color 0.2s ease;
+      display: inline-block;
+      will-change: transform;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .tag-pill:hover {
+        transform: translateY(-1px) scale(1.035);
+        box-shadow: 0 4px 12px -2px rgba(42, 41, 39, 0.06);
+        border-color: #ADC0B2;
+      }
+    }
+
+    .tag-pill:active {
+      transform: scale(0.97);
+      transition-duration: 0.1s;
+    }
+
+    /* Form Inputs Focus & Hover Enhancement */
+    .form-input-box {
+      transition: transform 0.24s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.24s ease, border-color 0.2s ease, background-color 0.2s ease;
+      will-change: transform;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .form-input-box:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px -2px rgba(42, 41, 39, 0.05);
+        border-color: #B5C5B9;
+      }
+    }
+
+    .form-input-box:focus {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px -4px rgba(95, 121, 103, 0.12);
+      border-color: #5F7967 !important;
+      background-color: #FFFFFF !important;
     }
 
     /* ========================================================
@@ -498,7 +588,7 @@
 
         <!-- Right Column: Editorial Photo Matting (5 cols) -->
         <div class="lg:col-span-5 flex flex-col items-center lg:items-end">
-          <div class="w-full max-w-sm bg-white p-4 border hairline-border shadow-sm space-y-3 relative rounded-2xl">
+          <div class="interactive-card card-static w-full max-w-sm bg-white p-4 border hairline-border shadow-sm space-y-3 relative rounded-2xl">
             
             <!-- Soft Organic Nature Corner Mark -->
             <div class="absolute -top-3 -right-3 w-8 h-8 text-sage-400 pointer-events-none opacity-80">
@@ -652,19 +742,19 @@
           </div>
           <div class="w-full h-px bg-ivory-300"></div>
           <div class="flex flex-wrap gap-2 pt-1">
-            <span class="px-3 py-1.5 bg-sage-50 border hairline-sage text-xs uppercase tracking-wider text-sage-700 font-medium rounded-lg">
+            <span class="tag-pill px-3 py-1.5 bg-sage-50 border hairline-sage text-xs uppercase tracking-wider text-sage-700 font-medium rounded-lg">
               Marketing Strategy
             </span>
-            <span class="px-3 py-1.5 bg-sage-50 border hairline-sage text-xs uppercase tracking-wider text-sage-700 font-medium rounded-lg">
+            <span class="tag-pill px-3 py-1.5 bg-sage-50 border hairline-sage text-xs uppercase tracking-wider text-sage-700 font-medium rounded-lg">
               Retail Management
             </span>
-            <span class="px-3 py-1.5 bg-violet-50 border border-violet-200 text-xs uppercase tracking-wider text-violet-700 font-medium rounded-lg">
+            <span class="tag-pill px-3 py-1.5 bg-violet-50 border border-violet-200 text-xs uppercase tracking-wider text-violet-700 font-medium rounded-lg">
               Digital Marketing
             </span>
-            <span class="px-3 py-1.5 bg-ivory-200 border hairline-border text-xs uppercase tracking-wider text-charcoal-700 font-medium rounded-lg">
+            <span class="tag-pill px-3 py-1.5 bg-ivory-200 border hairline-border text-xs uppercase tracking-wider text-charcoal-700 font-medium rounded-lg">
               Business Development
             </span>
-            <span class="px-3 py-1.5 bg-sage-50 border hairline-sage text-xs uppercase tracking-wider text-sage-700 font-medium rounded-lg">
+            <span class="tag-pill px-3 py-1.5 bg-sage-50 border hairline-sage text-xs uppercase tracking-wider text-sage-700 font-medium rounded-lg">
               Entrepreneurship
             </span>
           </div>
@@ -696,7 +786,7 @@
               Gupta Printers (Commercial Printing & Packaging)
             </p>
           </div>
-          <div class="text-xs font-mono uppercase tracking-wider text-sage-700 bg-sage-50 px-3 py-1.5 border hairline-sage self-start sm:self-auto rounded-lg">
+          <div class="tag-pill text-xs font-mono uppercase tracking-wider text-sage-700 bg-sage-50 px-3 py-1.5 border hairline-sage self-start sm:self-auto rounded-lg">
             21-Day Intensive Program
           </div>
         </div>
@@ -751,7 +841,7 @@
       </div>
 
       <!-- Large Editorial Introduction -->
-      <div class="bg-white p-8 sm:p-12 lg:p-14 border hairline-border space-y-10 relative overflow-hidden rounded-2xl shadow-sm">
+      <div class="interactive-card card-static bg-white p-8 sm:p-12 lg:p-14 border hairline-border space-y-10 relative overflow-hidden rounded-2xl shadow-sm">
         
         <!-- Subtle Organic Watermark Motif -->
         <div class="absolute -bottom-10 -right-10 w-48 h-48 pointer-events-none opacity-20 text-sage-400">
@@ -783,7 +873,7 @@
           </div>
 
           <!-- Chronology Pill -->
-          <div class="bg-ivory-50 p-4 border hairline-border space-y-1.5 self-start lg:self-auto min-w-[200px] rounded-xl">
+          <div class="editorial-box card-static bg-ivory-50 p-4 border hairline-border space-y-1.5 self-start lg:self-auto min-w-[200px] rounded-xl">
             <div class="flex items-center justify-between text-[10px] uppercase font-mono tracking-wider text-charcoal-400 font-semibold">
               <span>Chronology</span>
               <span class="text-sage-700">20 Weeks • 4 Phases</span>
@@ -818,19 +908,19 @@
             Programme Disciplines & Focus Areas
           </span>
           <div class="flex flex-wrap gap-2.5">
-            <span class="px-3.5 py-1.5 bg-ivory-50 border hairline-border text-xs uppercase tracking-wider text-charcoal-800 font-medium rounded-lg">
+            <span class="tag-pill px-3.5 py-1.5 bg-ivory-50 border hairline-border text-xs uppercase tracking-wider text-charcoal-800 font-medium rounded-lg">
               Phygital Retail & Intelligent Commerce
             </span>
-            <span class="px-3.5 py-1.5 bg-sage-50 border hairline-sage text-xs uppercase tracking-wider text-sage-700 font-medium rounded-lg">
+            <span class="tag-pill px-3.5 py-1.5 bg-sage-50 border hairline-sage text-xs uppercase tracking-wider text-sage-700 font-medium rounded-lg">
               AI & Analytics
             </span>
-            <span class="px-3.5 py-1.5 bg-violet-50 border border-violet-200 text-xs uppercase tracking-wider text-violet-700 font-medium rounded-lg">
+            <span class="tag-pill px-3.5 py-1.5 bg-violet-50 border border-violet-200 text-xs uppercase tracking-wider text-violet-700 font-medium rounded-lg">
               Intelligent Systems & IoT
             </span>
-            <span class="px-3.5 py-1.5 bg-ivory-50 border hairline-border text-xs uppercase tracking-wider text-charcoal-800 font-medium rounded-lg">
+            <span class="tag-pill px-3.5 py-1.5 bg-ivory-50 border hairline-border text-xs uppercase tracking-wider text-charcoal-800 font-medium rounded-lg">
               Prototyping
             </span>
-            <span class="px-3.5 py-1.5 bg-sage-50 border hairline-sage text-xs uppercase tracking-wider text-sage-700 font-medium rounded-lg">
+            <span class="tag-pill px-3.5 py-1.5 bg-sage-50 border hairline-sage text-xs uppercase tracking-wider text-sage-700 font-medium rounded-lg">
               Entrepreneurship
             </span>
           </div>
@@ -1196,23 +1286,23 @@
         </div>
 
         <!-- Minimal Nature-Inspired Contact Form (7 cols) -->
-        <div class="lg:col-span-7 bg-white p-8 sm:p-10 border hairline-border space-y-6 rounded-2xl shadow-sm">
+        <div class="interactive-card card-static lg:col-span-7 bg-white p-8 sm:p-10 border hairline-border space-y-6 rounded-2xl shadow-sm">
           <span class="text-[10px] font-mono uppercase tracking-widest text-sage-600 font-semibold block">Send a Note</span>
           
           <form onsubmit="event.preventDefault(); alert('Thank you for reaching out, Mithra will receive your message soon!');" class="space-y-5">
             <div class="space-y-1">
               <label for="name" class="text-xs uppercase font-mono tracking-wider text-charcoal-500 block">Your Name</label>
-              <input type="text" id="name" required class="w-full bg-ivory-50 border-b hairline-border focus:border-sage-600 px-3 py-2 text-sm text-charcoal-900 focus:outline-none transition-colors rounded-xl" placeholder="e.g. Jane Doe">
+              <input type="text" id="name" required class="form-input-box w-full bg-ivory-50 border hairline-border focus:border-sage-600 px-3.5 py-2.5 text-sm text-charcoal-900 focus:outline-none transition-all rounded-xl" placeholder="e.g. Jane Doe">
             </div>
 
             <div class="space-y-1">
               <label for="email" class="text-xs uppercase font-mono tracking-wider text-charcoal-500 block">Email Address</label>
-              <input type="email" id="email" required class="w-full bg-ivory-50 border-b hairline-border focus:border-sage-600 px-3 py-2 text-sm text-charcoal-900 focus:outline-none transition-colors rounded-xl" placeholder="name@company.com">
+              <input type="email" id="email" required class="form-input-box w-full bg-ivory-50 border hairline-border focus:border-sage-600 px-3.5 py-2.5 text-sm text-charcoal-900 focus:outline-none transition-all rounded-xl" placeholder="name@company.com">
             </div>
 
             <div class="space-y-1">
               <label for="message" class="text-xs uppercase font-mono tracking-wider text-charcoal-500 block">Message</label>
-              <textarea id="message" rows="4" required class="w-full bg-ivory-50 border-b hairline-border focus:border-sage-600 px-3 py-2 text-sm text-charcoal-900 focus:outline-none transition-colors rounded-xl" placeholder="Write your message here..."></textarea>
+              <textarea id="message" rows="4" required class="form-input-box w-full bg-ivory-50 border hairline-border focus:border-sage-600 p-3.5 text-sm text-charcoal-900 focus:outline-none transition-all rounded-xl" placeholder="Write your message here..."></textarea>
             </div>
 
             <button type="submit" class="interactive-btn w-full sm:w-auto px-8 py-3.5 bg-charcoal-900 text-ivory-50 text-xs font-semibold uppercase font-mono tracking-widest hover:bg-sage-700 transition-colors rounded-xl shadow-sm">
