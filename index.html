@@ -88,7 +88,7 @@
       color: #1C1B1A;
     }
 
-    /* 5. Dynamic Living Background Layer */
+    /* Dynamic Living Background Layer */
     .ambient-bg-layer {
       position: fixed;
       top: 0;
@@ -185,7 +185,7 @@
       transform-origin: bottom left;
     }
 
-    /* 1. Typewriter Subtitle & Cursor Styling */
+    /* Typewriter Subtitle & Cursor Styling */
     .typewriter-cursor {
       display: inline-block;
       margin-left: 2px;
@@ -205,7 +205,7 @@
       display: none !important;
     }
 
-    /* 2. Magnetic Navigation Item Dynamics */
+    /* Magnetic Navigation Item Dynamics */
     .nav-magnetic {
       display: inline-flex;
       align-items: center;
@@ -214,7 +214,7 @@
       position: relative;
     }
 
-    /* 4. Dynamic Movement on Click (Interactive Cards & Buttons) */
+    /* Dynamic Movement on Click (Interactive Cards & Buttons) */
     .interactive-card {
       transition: transform 0.28s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.28s ease, border-color 0.25s ease, background-color 0.25s ease;
       will-change: transform;
@@ -231,6 +231,65 @@
 
     .interactive-btn:active {
       transform: scale(0.96) !important;
+    }
+
+    /* ========================================================
+       PROTOSEM WINDING HIGHWAY & MILESTONE JOURNEY TIMELINE
+       ======================================================== */
+    .road-timeline-container {
+      position: relative;
+      width: 100%;
+      min-height: 400px;
+    }
+
+    .road-svg-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      overflow: visible;
+    }
+
+    /* Progressive Scroll-Triggered Discoveries */
+    .timeline-journey-row {
+      position: relative;
+      z-index: 2;
+      opacity: 0;
+      transform: translateY(32px) scale(0.96);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .timeline-journey-row.is-revealed {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .phase-gate-marker {
+      position: relative;
+      z-index: 3;
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .phase-gate-marker.is-revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Milestone Pin Pulse & Hover */
+    .milestone-pin-orb {
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease, background-color 0.3s ease;
+    }
+
+    .timeline-journey-row:hover .milestone-pin-orb {
+      transform: scale(1.18);
+      box-shadow: 0 0 0 6px rgba(95, 121, 103, 0.18);
     }
 
     /* Smooth Modal Transitions */
@@ -412,7 +471,7 @@
             <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl font-normal leading-[1.05] tracking-tight text-charcoal-900">
               Mithra Dharshini R
             </h1>
-            <!-- 1. Typewriter Subtitle -->
+            <!-- Typewriter Subtitle -->
             <p id="hero-tagline" class="font-serif italic text-2xl sm:text-3xl text-charcoal-600 font-normal leading-snug min-h-[2.25rem] flex items-center flex-wrap" aria-label="BBA Student | Marketing, Retail & Digital Strategy Enthusiast">
               <span id="typewriter-text"></span><span id="typewriter-cursor" class="typewriter-cursor">|</span>
             </p>
@@ -449,7 +508,7 @@
               </svg>
             </div>
 
-            <!-- Portrait Container (3. Rounded Edges) -->
+            <!-- Portrait Container -->
             <div class="aspect-[4/5] bg-ivory-200 overflow-hidden relative border hairline-border flex items-center justify-center rounded-xl">
               <img 
                 src="profile.jpg" 
@@ -679,7 +738,7 @@
 
     </section>
 
-    <!-- 5. PROTOSEM — VISUAL CENTERPIECE & UNFOLDING FIELD JOURNAL -->
+    <!-- 5. PROTOSEM — VISUAL CENTERPIECE & WINDING ROAD JOURNEY -->
     <section id="protosem" class="reveal-on-scroll space-y-14 scroll-mt-28 p-6 sm:p-10 -mx-3 sm:-mx-6 lg:-mx-8 rounded-2xl relative" style="background: linear-gradient(180deg, rgba(235, 243, 237, 0.6) 0%, rgba(226, 237, 229, 0.4) 50%, rgba(235, 243, 237, 0.6) 100%); box-shadow: inset 0 0 0 1px rgba(210, 225, 215, 0.4);">
       
       <!-- Section Header -->
@@ -779,21 +838,22 @@
 
       </div>
 
-      <!-- HORIZONTAL FOUR-PHASE TIMELINE JOURNAL -->
+      <!-- WINDING ROAD FIELD TIMELINE SECTION -->
       <div class="space-y-8">
         
         <!-- Timeline Controls & Phase Scrubbing Tabs -->
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b hairline-border pb-4">
           <div class="space-y-1">
-            <h3 class="font-serif text-2xl text-charcoal-900 font-normal">
-              The Unfolding 20-Week Field Timeline
+            <h3 class="font-serif text-2xl text-charcoal-900 font-normal flex items-center gap-2.5">
+              <span>The 20-Week Innovation Highway</span>
+              <span class="inline-block w-2 h-2 rounded-full bg-sage-500 animate-pulse"></span>
             </h3>
             <p class="text-xs text-charcoal-500 font-light">
-              Select any weekly milestone node to open and document your field journal entry.
+              Follow the winding path and select any milestone node to open or edit your field journal.
             </p>
           </div>
 
-          <!-- Filter / Phase Selector (4. Dynamic Click Animation) -->
+          <!-- Filter / Phase Selector -->
           <div class="inline-flex p-1 bg-ivory-200 border hairline-border text-xs font-mono uppercase tracking-wider overflow-x-auto max-w-full rounded-xl" role="tablist">
             <button onclick="filterProtoSemPhase('all', this)" class="protosem-phase-btn interactive-btn active px-3 py-1.5 text-ivory-50 bg-charcoal-900 transition-all font-medium rounded-lg" role="tab" aria-selected="true">
               All (00–20)
@@ -813,9 +873,29 @@
           </div>
         </div>
 
-        <!-- Horizontal Timeline Node Track Container -->
-        <div id="protosem-timeline-container" class="space-y-6">
-          <!-- Populated dynamically via renderProtoSemTimelineNodes() -->
+        <!-- Winding Road Dynamic SVG Canvas & Milestone Track -->
+        <div id="protosem-timeline-container" class="road-timeline-container relative py-6">
+          <!-- Dynamic SVG Highway Layer -->
+          <svg id="road-svg" class="road-svg-canvas" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <filter id="road-shadow" x="-10%" y="-10%" width="120%" height="120%">
+                <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#384A3D" flood-opacity="0.08" />
+              </filter>
+            </defs>
+            <!-- Road base border/ribbon -->
+            <path id="road-path-base" fill="none" stroke="#E2DDD5" stroke-width="26" stroke-linecap="round" stroke-linejoin="round" filter="url(#road-shadow)" />
+            <!-- Road inner surface -->
+            <path id="road-path-surface" fill="none" stroke="#FAF7F2" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" />
+            <!-- Road static dashed centerline -->
+            <path id="road-path-center" fill="none" stroke="#ADC0B2" stroke-width="1.8" stroke-dasharray="6 8" stroke-linecap="round" />
+            <!-- Road active dynamic draw-in centerline -->
+            <path id="road-path-progress" fill="none" stroke="#48604F" stroke-width="2.2" stroke-dasharray="6 8" stroke-linecap="round" />
+          </svg>
+
+          <!-- Milestone Cards & Phase Gateways Track -->
+          <div id="road-items-track" class="relative z-10 space-y-12 sm:space-y-16">
+            <!-- Dynamically populated via renderProtoSemTimelineNodes() -->
+          </div>
         </div>
 
       </div>
@@ -1163,7 +1243,7 @@
     </div>
   </footer>
 
-  <!-- JAVASCRIPT: INTERACTIONS, PROTOSEM JOURNAL & AMBIENT MOTION -->
+  <!-- JAVASCRIPT: INTERACTIONS, PROTOSEM WINDING HIGHWAY & INLINE JOURNAL -->
   <script>
     // Initialize Lucide Icons
     lucide.createIcons();
@@ -1235,7 +1315,7 @@
 
     /* ========================================================
        PROTOSEM 20-WEEK FIELD JOURNAL DATA (WEEKS 00 THROUGH 20)
-       Horizontal four-phase timeline structure with LocalStorage
+       Winding Road Timeline Structure with LocalStorage
        ======================================================== */
     const baseProtoSemWeeks = [
       // Prologue: Week 00 (Orientation & Foundation)
@@ -1293,11 +1373,11 @@ Overall, Week 0 functioned as a foundation-building week — helping participant
     ];
 
     const phaseMetadata = {
-      0: { name: "Prologue & Onboarding", descriptor: "Cohort Induction & Program Kickoff" },
-      1: { name: "Phase 01 — Discovery", descriptor: "Retail Problem Framing & Field Observation" },
-      2: { name: "Phase 02 — Technology & Systems", descriptor: "AI, IoT & Intelligent Systems Exploration" },
-      3: { name: "Phase 03 — Prototyping", descriptor: "Iterative Prototyping & Commerce Testing" },
-      4: { name: "Phase 04 — Synthesis & Validation", descriptor: "Commercial Viability & Venture Readiness" }
+      0: { name: "Prologue & Onboarding", descriptor: "Cohort Induction & Program Kickoff", tag: "FOUNDATION" },
+      1: { name: "Phase 01 — Discovery", descriptor: "Retail Problem Framing & Field Observation", tag: "FIELD RESEARCH" },
+      2: { name: "Phase 02 — Technology & Systems", descriptor: "AI, IoT & Intelligent Systems Exploration", tag: "SYSTEMS & AI" },
+      3: { name: "Phase 03 — Prototyping", descriptor: "Iterative Prototyping & Commerce Testing", tag: "RAPID PROTOTYPING" },
+      4: { name: "Phase 04 — Synthesis & Validation", descriptor: "Commercial Viability & Venture Readiness", tag: "VENTURE READY" }
     };
 
     let protoSemWeeks = [];
@@ -1337,12 +1417,35 @@ Overall, Week 0 functioned as a foundation-building week — helping participant
 
     let currentActiveFilter = 'all';
     let currentEditingWeekNum = 0;
+    let totalRoadLength = 0;
 
-    // Render Horizontal Unfolding Field Journal Timeline
+    // Helper: generate smooth cubic curve through coordinates
+    function generateSmoothPath(points) {
+      if (!points || points.length < 2) return '';
+      let d = `M ${points[0].x.toFixed(1)} ${points[0].y.toFixed(1)}`;
+      for (let i = 0; i < points.length - 1; i++) {
+        const p0 = points[i === 0 ? 0 : i - 1];
+        const p1 = points[i];
+        const p2 = points[i + 1];
+        const p3 = points[i + 2 < points.length ? i + 2 : i + 1];
+
+        // Smooth tangent tension factor
+        const tension = 0.22;
+        const cp1x = p1.x + (p2.x - p0.x) * tension;
+        const cp1y = p1.y + (p2.y - p0.y) * tension;
+        const cp2x = p2.x - (p3.x - p1.x) * tension;
+        const cp2y = p2.y - (p3.y - p1.y) * tension;
+
+        d += ` C ${cp1x.toFixed(1)} ${cp1y.toFixed(1)}, ${cp2x.toFixed(1)} ${cp2y.toFixed(1)}, ${p2.x.toFixed(1)} ${p2.y.toFixed(1)}`;
+      }
+      return d;
+    }
+
+    // Render Winding Road Highway Journey Timeline
     function renderProtoSemTimelineNodes(filterPhase = 'all') {
       currentActiveFilter = filterPhase;
-      const container = document.getElementById('protosem-timeline-container');
-      if (!container) return;
+      const track = document.getElementById('road-items-track');
+      if (!track) return;
 
       const phasesToRender = filterPhase === 'all' 
         ? [0, 1, 2, 3, 4] 
@@ -1350,100 +1453,272 @@ Overall, Week 0 functioned as a foundation-building week — helping participant
           ? [0, 1] 
           : [parseInt(filterPhase)];
 
-      container.innerHTML = phasesToRender.map(phaseNum => {
+      let html = '';
+
+      phasesToRender.forEach(phaseNum => {
         const meta = phaseMetadata[phaseNum];
         const phaseWeeks = protoSemWeeks.filter(w => w.phase === phaseNum);
-        if (!phaseWeeks.length) return '';
+        if (!phaseWeeks.length) return;
 
-        return `
-          <!-- Phase Segment Container (3. Rounded Corners) -->
-          <div class="bg-white border hairline-border p-6 sm:p-8 space-y-6 transition-all rounded-2xl shadow-sm">
-            
-            <!-- Phase Segment Header -->
-            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 border-b hairline-border pb-4">
+        // Phase Gateway Milestone Banner along the road
+        html += `
+          <div class="phase-gate-marker w-full flex flex-col items-center justify-center my-6" data-phase="${phaseNum}">
+            <div class="bg-white/95 backdrop-blur-sm border hairline-border px-6 py-3.5 shadow-sm max-w-lg w-full flex items-center justify-between gap-4 rounded-2xl">
               <div class="space-y-0.5">
-                <span class="text-[10px] font-mono uppercase tracking-widest text-sage-600 font-semibold">
-                  ${phaseNum === 0 ? 'PROLOGUE' : `PHASE 0${phaseNum}`}
-                </span>
-                <h4 class="font-serif text-2xl text-charcoal-900 font-normal">
+                <div class="flex items-center gap-2">
+                  <span class="text-[10px] font-mono uppercase tracking-widest text-sage-600 font-bold">
+                    ${phaseNum === 0 ? 'PROLOGUE' : `PHASE 0${phaseNum}`}
+                  </span>
+                  <span class="text-[9px] font-mono uppercase tracking-wider text-charcoal-400 bg-ivory-100 px-2 py-0.5 border hairline-border rounded-md">
+                    ${meta.tag}
+                  </span>
+                </div>
+                <h4 class="font-serif text-xl sm:text-2xl text-charcoal-900 font-normal">
                   ${meta.name}
                 </h4>
               </div>
-              <span class="text-xs font-serif italic text-charcoal-500">
+              <span class="hidden sm:inline-block text-xs font-serif italic text-charcoal-500 text-right max-w-[160px] leading-tight">
                 ${meta.descriptor}
               </span>
             </div>
+          </div>
+        `;
 
-            <!-- Horizontal Node Track / Unfolding Timeline Rail -->
-            <div class="relative py-2">
+        // Milestone Week Cards along the curving path
+        phaseWeeks.forEach((item, indexInPhase) => {
+          const weekPadded = String(item.week).padStart(2, '0');
+          const isPrologue = item.week === 0;
+          const hasContent = (item.title && item.title.trim().length > 0) || (item.description && item.description.trim().length > 0);
+          const isLeft = item.week % 2 === 0;
+
+          html += `
+            <div class="timeline-journey-row relative flex flex-col md:flex-row items-center w-full my-4" data-week="${item.week}">
               
-              <!-- Timeline Continuous Connecting Rail -->
-              <div class="hidden sm:block absolute top-7 left-6 right-6 h-px bg-ivory-300 pointer-events-none" aria-hidden="true"></div>
-
-              <!-- Nodes Row -->
-              <div class="grid grid-cols-1 sm:grid-cols-5 gap-4 relative z-10">
-                ${phaseWeeks.map(item => {
-                  const weekPadded = String(item.week).padStart(2, '0');
-                  const isPrologue = item.week === 0;
-                  const hasContent = (item.title && item.title.trim().length > 0) || (item.description && item.description.trim().length > 0);
-
-                  return `
-                    <div 
-                      onclick="openProtoSemModal(${item.week})"
-                      onkeydown="if(event.key==='Enter'||event.key===' ') { event.preventDefault(); openProtoSemModal(${item.week}); }"
-                      tabindex="0"
-                      role="button"
-                      aria-label="Week ${weekPadded} Field Journal Entry"
-                      class="interactive-card group relative bg-ivory-50 hover:bg-white border ${hasContent ? 'border-sage-500 bg-white shadow-sm' : 'hairline-border'} p-4 flex flex-col justify-between cursor-pointer focus:outline-none focus:ring-1 focus:ring-sage-600 transition-all duration-300 min-h-[145px] rounded-xl hover:shadow-md"
-                    >
-                      <!-- Milestone Node Header -->
-                      <div class="flex items-center justify-between gap-2">
-                        <!-- Connecting Milestone Circle -->
-                        <div class="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-mono font-bold transition-colors ${hasContent ? 'bg-sage-600 text-white' : 'bg-white border hairline-border text-charcoal-600 group-hover:border-sage-500 group-hover:text-sage-700'}">
-                          ${isPrologue ? 'P' : weekPadded}
-                        </div>
-                        <span class="text-[9px] font-mono uppercase tracking-widest ${hasContent ? 'text-sage-700 font-semibold' : 'text-charcoal-400'}">
-                          ${hasContent ? '● Documented' : '○ Pending'}
+              <!-- Desktop Left Column (Card on left when even) -->
+              <div class="w-full md:w-[45%] ${isLeft ? 'md:order-1 md:pr-8' : 'hidden md:block md:order-1'}">
+                ${isLeft ? `
+                  <div 
+                    onclick="openProtoSemModal(${item.week})"
+                    onkeydown="if(event.key==='Enter'||event.key===' ') { event.preventDefault(); openProtoSemModal(${item.week}); }"
+                    tabindex="0"
+                    role="button"
+                    aria-label="Week ${weekPadded} Field Journal Entry"
+                    class="interactive-card group relative bg-white border ${hasContent ? 'border-sage-500 shadow-sm' : 'hairline-border'} p-5 flex flex-col justify-between cursor-pointer focus:outline-none focus:ring-1 focus:ring-sage-600 rounded-2xl hover:shadow-md transition-all ml-14 md:ml-0"
+                  >
+                    <!-- Milestone Header -->
+                    <div class="flex items-center justify-between gap-2 border-b hairline-border pb-2.5 mb-2.5">
+                      <div class="flex items-center gap-2">
+                        <span class="text-[10px] font-mono font-bold text-sage-700 bg-sage-50 border hairline-sage px-2 py-0.5 rounded-md">
+                          WEEK ${weekPadded}
+                        </span>
+                        <span class="text-[9px] font-mono uppercase tracking-wider text-charcoal-400">
+                          ${isPrologue ? 'Orientation' : `Phase 0${item.phase}`}
                         </span>
                       </div>
-
-                      <!-- Node Center Content -->
-                      <div class="my-2 space-y-1">
-                        <div class="font-serif text-lg font-normal text-charcoal-900 group-hover:text-sage-700 transition-colors flex items-center justify-between">
-                          <span>WEEK ${weekPadded}</span>
-                          <span class="text-xs text-charcoal-400 group-hover:text-sage-600 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
-                        </div>
-                        
-                        ${hasContent && item.title ? `
-                          <p class="font-serif italic text-xs text-charcoal-800 line-clamp-1">
-                            "${escapeHtml(item.title)}"
-                          </p>
-                        ` : `
-                          <p class="text-[10px] font-mono uppercase tracking-wider text-charcoal-400">
-                            ${isPrologue ? 'Orientation' : 'Field Notes in Progress'}
-                          </p>
-                        `}
-                      </div>
-
-                      <!-- Node Footer Link -->
-                      <div class="pt-2 border-t border-ivory-200 flex items-center justify-between text-[9px] font-mono text-charcoal-400 group-hover:text-sage-700 uppercase tracking-wider transition-colors">
-                        <span>${isPrologue ? 'Kickoff' : `Entry ${item.week}`}</span>
-                        <span class="group-hover:underline">${hasContent ? 'Read Log' : 'Document'}</span>
-                      </div>
+                      <span class="text-[9px] font-mono uppercase tracking-widest ${hasContent ? 'text-sage-700 font-semibold' : 'text-charcoal-400'}">
+                        ${hasContent ? '● Documented' : '○ Pending'}
+                      </span>
                     </div>
-                  `;
-                }).join('')}
+
+                    <!-- Center Note & Title -->
+                    <div class="space-y-1 my-1">
+                      <h5 class="font-serif text-lg text-charcoal-900 group-hover:text-sage-700 transition-colors flex items-center justify-between">
+                        <span>${isPrologue ? 'Orientation & Foundation' : (item.title ? escapeHtml(item.title) : `Week ${weekPadded} Log`)}</span>
+                        <span class="text-xs text-charcoal-400 group-hover:text-sage-600 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+                      </h5>
+                      <p class="text-xs text-charcoal-500 font-light line-clamp-2">
+                        ${item.description ? escapeHtml(item.description.substring(0, 110) + '...') : (isPrologue ? 'Cohort induction and roadmap kickoff.' : 'Field notes and documentation in progress.')}
+                      </p>
+                    </div>
+
+                    <!-- Card Footer Link -->
+                    <div class="pt-2.5 mt-2 border-t border-ivory-200 flex items-center justify-between text-[9px] font-mono text-charcoal-400 group-hover:text-sage-700 uppercase tracking-wider transition-colors">
+                      <span>${isPrologue ? 'Kickoff' : `Entry #${item.week}`}</span>
+                      <span class="font-medium group-hover:underline">${hasContent ? 'Read Journal →' : 'Edit Notes →'}</span>
+                    </div>
+                  </div>
+                ` : ''}
+              </div>
+
+              <!-- Center Road Milestone Pin Marker -->
+              <div class="absolute left-3 md:relative md:left-0 md:order-2 flex flex-col items-center justify-center z-20 pointer-events-none md:w-[10%]">
+                <div 
+                  class="milestone-pin-marker milestone-pin-orb w-10 h-10 rounded-full flex items-center justify-center text-xs font-mono font-bold border-2 transition-all shadow-md ${hasContent ? 'bg-sage-600 border-white text-white' : 'bg-white border-sage-400 text-charcoal-700'}"
+                  data-pin-week="${item.week}"
+                >
+                  ${isPrologue ? 'P' : weekPadded}
+                </div>
+              </div>
+
+              <!-- Desktop Right Column (Card on right when odd, or mobile card for all) -->
+              <div class="w-full md:w-[45%] ${!isLeft ? 'md:order-3 md:pl-8' : 'md:order-3 hidden md:block'}">
+                ${(!isLeft || window.innerWidth < 768) ? `
+                  <div 
+                    onclick="openProtoSemModal(${item.week})"
+                    onkeydown="if(event.key==='Enter'||event.key===' ') { event.preventDefault(); openProtoSemModal(${item.week}); }"
+                    tabindex="0"
+                    role="button"
+                    aria-label="Week ${weekPadded} Field Journal Entry"
+                    class="interactive-card group relative bg-white border ${hasContent ? 'border-sage-500 shadow-sm' : 'hairline-border'} p-5 flex flex-col justify-between cursor-pointer focus:outline-none focus:ring-1 focus:ring-sage-600 rounded-2xl hover:shadow-md transition-all ml-14 md:ml-0"
+                  >
+                    <!-- Milestone Header -->
+                    <div class="flex items-center justify-between gap-2 border-b hairline-border pb-2.5 mb-2.5">
+                      <div class="flex items-center gap-2">
+                        <span class="text-[10px] font-mono font-bold text-sage-700 bg-sage-50 border hairline-sage px-2 py-0.5 rounded-md">
+                          WEEK ${weekPadded}
+                        </span>
+                        <span class="text-[9px] font-mono uppercase tracking-wider text-charcoal-400">
+                          ${isPrologue ? 'Orientation' : `Phase 0${item.phase}`}
+                        </span>
+                      </div>
+                      <span class="text-[9px] font-mono uppercase tracking-widest ${hasContent ? 'text-sage-700 font-semibold' : 'text-charcoal-400'}">
+                        ${hasContent ? '● Documented' : '○ Pending'}
+                      </span>
+                    </div>
+
+                    <!-- Center Note & Title -->
+                    <div class="space-y-1 my-1">
+                      <h5 class="font-serif text-lg text-charcoal-900 group-hover:text-sage-700 transition-colors flex items-center justify-between">
+                        <span>${isPrologue ? 'Orientation & Foundation' : (item.title ? escapeHtml(item.title) : `Week ${weekPadded} Log`)}</span>
+                        <span class="text-xs text-charcoal-400 group-hover:text-sage-600 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+                      </h5>
+                      <p class="text-xs text-charcoal-500 font-light line-clamp-2">
+                        ${item.description ? escapeHtml(item.description.substring(0, 110) + '...') : (isPrologue ? 'Cohort induction and roadmap kickoff.' : 'Field notes and documentation in progress.')}
+                      </p>
+                    </div>
+
+                    <!-- Card Footer Link -->
+                    <div class="pt-2.5 mt-2 border-t border-ivory-200 flex items-center justify-between text-[9px] font-mono text-charcoal-400 group-hover:text-sage-700 uppercase tracking-wider transition-colors">
+                      <span>${isPrologue ? 'Kickoff' : `Entry #${item.week}`}</span>
+                      <span class="font-medium group-hover:underline">${hasContent ? 'Read Journal →' : 'Edit Notes →'}</span>
+                    </div>
+                  </div>
+                ` : ''}
               </div>
 
             </div>
+          `;
+        });
+      });
 
-          </div>
-        `;
-      }).join('');
-
-      // Re-initialize Lucide icons
+      track.innerHTML = html;
       lucide.createIcons();
+
+      // Recalculate & redraw SVG Highway Road in next frame after DOM layout
+      requestAnimationFrame(() => {
+        updateRoadSvgPath();
+        handleTimelineScroll();
+      });
     }
+
+    // Dynamic Road Curve Calculation & Drawing
+    function updateRoadSvgPath() {
+      const container = document.getElementById('protosem-timeline-container');
+      const svg = document.getElementById('road-svg');
+      if (!container || !svg) return;
+
+      const containerRect = container.getBoundingClientRect();
+      const isMobile = window.innerWidth < 768;
+
+      const pins = container.querySelectorAll('.milestone-pin-marker');
+      if (!pins.length) return;
+
+      const points = [];
+
+      // Starting point lead-in
+      const firstPinRect = pins[0].getBoundingClientRect();
+      const firstX = isMobile ? 32 : (firstPinRect.left + firstPinRect.width / 2 - containerRect.left);
+      const firstY = firstPinRect.top + firstPinRect.height / 2 - containerRect.top;
+      points.push({ x: firstX, y: Math.max(0, firstY - 50) });
+
+      pins.forEach((pin, idx) => {
+        const r = pin.getBoundingClientRect();
+        if (isMobile) {
+          // Gentle organic undulation on mobile
+          const undulate = (idx % 2 === 0 ? -4 : 4);
+          points.push({ x: 32 + undulate, y: r.top + r.height / 2 - containerRect.top });
+        } else {
+          // Full S-curve weave through pins
+          points.push({
+            x: r.left + r.width / 2 - containerRect.left,
+            y: r.top + r.height / 2 - containerRect.top
+          });
+        }
+      });
+
+      // Ending lead-out
+      const lastPinRect = pins[pins.length - 1].getBoundingClientRect();
+      const lastX = isMobile ? 32 : (lastPinRect.left + lastPinRect.width / 2 - containerRect.left);
+      const lastY = lastPinRect.top + lastPinRect.height / 2 - containerRect.top;
+      points.push({ x: lastX, y: lastY + 50 });
+
+      const d = generateSmoothPath(points);
+
+      // Apply path data to SVG layers
+      const basePath = document.getElementById('road-path-base');
+      const surfacePath = document.getElementById('road-path-surface');
+      const centerPath = document.getElementById('road-path-center');
+      const progressPath = document.getElementById('road-path-progress');
+
+      if (basePath) basePath.setAttribute('d', d);
+      if (surfacePath) surfacePath.setAttribute('d', d);
+      if (centerPath) centerPath.setAttribute('d', d);
+      if (progressPath) {
+        progressPath.setAttribute('d', d);
+        totalRoadLength = progressPath.getTotalLength() || 1000;
+        progressPath.style.strokeDasharray = `${totalRoadLength}`;
+        progressPath.style.strokeDashoffset = `${totalRoadLength}`;
+      }
+    }
+
+    // Scroll-Triggered Road Drawing & Milestone Progressive Discovery
+    let isScrollTicking = false;
+    function handleTimelineScroll() {
+      if (isScrollTicking) return;
+      isScrollTicking = true;
+
+      requestAnimationFrame(() => {
+        isScrollTicking = false;
+        const container = document.getElementById('protosem-timeline-container');
+        if (!container) return;
+
+        const rect = container.getBoundingClientRect();
+        const windowH = window.innerHeight;
+
+        // Progressive reveal of timeline milestone cards & phase markers
+        const rows = container.querySelectorAll('.timeline-journey-row, .phase-gate-marker');
+        rows.forEach(row => {
+          const r = row.getBoundingClientRect();
+          if (r.top <= windowH * 0.86) {
+            row.classList.add('is-revealed');
+          }
+        });
+
+        // Dynamic road stroke-dashoffset progression
+        const progressPath = document.getElementById('road-path-progress');
+        if (progressPath && totalRoadLength > 0) {
+          const startTrigger = windowH * 0.8;
+          const totalDistance = rect.height + windowH * 0.15;
+          const scrolledDistance = startTrigger - rect.top;
+          const progressFraction = Math.max(0, Math.min(1, scrolledDistance / totalDistance));
+
+          const newOffset = totalRoadLength * (1 - progressFraction);
+          progressPath.style.strokeDashoffset = `${newOffset}`;
+        }
+      });
+    }
+
+    // Window Resize Handler for Road Geometry
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        updateRoadSvgPath();
+        handleTimelineScroll();
+      }, 150);
+    });
+
+    window.addEventListener('scroll', handleTimelineScroll, { passive: true });
 
     function escapeHtml(str) {
       if (!str) return '';
@@ -1467,7 +1742,7 @@ Overall, Week 0 functioned as a foundation-building week — helping participant
       renderProtoSemTimelineNodes(phase);
     }
 
-    // 4. Modal View Handlers with Smooth Scale & Fade Animation
+    // Modal View Handlers with Smooth Scale & Fade Animation
     function openProtoSemModal(weekNum) {
       currentEditingWeekNum = weekNum;
       const modal = document.getElementById('protosem-modal');
@@ -1672,7 +1947,7 @@ Overall, Week 0 functioned as a foundation-building week — helping participant
       scrollObserver.observe(el);
     });
 
-    // On DOMContentLoaded: Init data, magnetic nav, and hero typewriter
+    // On DOMContentLoaded: Init data, magnetic nav, road timeline & hero typewriter
     window.addEventListener('DOMContentLoaded', () => {
       loadProtoSemData();
       renderProtoSemTimelineNodes('all');
