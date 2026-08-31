@@ -88,7 +88,10 @@
       color: #1C1B1A;
     }
 
-    /* Dynamic Living Background Layer */
+    /* ========================================================
+       DYNAMIC WARM EDITORIAL GRAPHIC GRADIENT BACKGROUND
+       Multi-field organic watercolor washes & aurora color fields
+       ======================================================== */
     .ambient-bg-layer {
       position: fixed;
       top: 0;
@@ -98,49 +101,216 @@
       pointer-events: none;
       z-index: -10;
       overflow: hidden;
-      background: #FAF7F2;
+      background-color: #FAF6EF;
     }
 
-    .ambient-mesh {
+    /* Base Living Mesh Canvas: Multi-stop tonal base */
+    .gradient-base-canvas {
       position: absolute;
-      top: -30%;
-      left: -30%;
-      width: 160%;
-      height: 160%;
+      top: -25%;
+      left: -25%;
+      width: 150%;
+      height: 150%;
       background: 
-        radial-gradient(ellipse at 18% 22%, rgba(235, 243, 237, 0.75) 0%, rgba(250, 247, 242, 0) 52%),
-        radial-gradient(ellipse at 82% 28%, rgba(245, 239, 230, 0.65) 0%, rgba(250, 247, 242, 0) 48%),
-        radial-gradient(ellipse at 35% 78%, rgba(230, 237, 232, 0.7) 0%, rgba(250, 247, 242, 0) 52%),
-        radial-gradient(ellipse at 80% 75%, rgba(248, 246, 249, 0.65) 0%, rgba(250, 247, 242, 0) 48%),
-        linear-gradient(180deg, 
-          #FAF7F2 0%, 
-          #FAF6F0 15%, 
-          #F5EFE6 32%, 
-          #EDF3EE 50%, 
-          #E8EFE9 68%, 
-          #F4EDE3 84%, 
-          #FAF7F2 100%
-        );
-      animation: ambientDrift 34s ease-in-out infinite alternate;
+        radial-gradient(ellipse at 50% 30%, rgba(255, 252, 246, 0.95) 0%, rgba(247, 241, 230, 0.8) 40%, rgba(240, 233, 220, 0.9) 75%, rgba(235, 226, 212, 0.95) 100%),
+        linear-gradient(145deg, #FBF8F2 0%, #F5EDE0 28%, #EDE2D2 55%, #F4ECE0 78%, #FAF5EE 100%);
+      animation: baseCanvasDrift 45s ease-in-out infinite alternate;
       will-change: transform;
-      filter: blur(35px);
     }
 
-    @keyframes ambientDrift {
+    /* Shared Organic Color Field Styles */
+    .gradient-field {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      will-change: transform;
+      mix-blend-mode: multiply;
+      pointer-events: none;
+    }
+
+    /* Field 1: Dusty Terracotta / Soft Warm Clay Wash */
+    .field-terracotta {
+      width: 60vw;
+      height: 60vw;
+      min-width: 480px;
+      min-height: 480px;
+      top: -15%;
+      left: -10%;
+      background: radial-gradient(circle, rgba(226, 145, 118, 0.38) 0%, rgba(214, 126, 96, 0.22) 45%, rgba(247, 237, 228, 0) 72%);
+      animation: flowTerracotta 32s ease-in-out infinite alternate;
+    }
+
+    /* Field 2: Muted Botanical Sage & Soft Olive Wash */
+    .field-sage {
+      width: 64vw;
+      height: 64vw;
+      min-width: 520px;
+      min-height: 520px;
+      top: 15%;
+      right: -14%;
+      background: radial-gradient(circle, rgba(142, 172, 149, 0.40) 0%, rgba(122, 156, 131, 0.22) 46%, rgba(238, 246, 240, 0) 74%);
+      animation: flowSage 38s ease-in-out infinite alternate;
+    }
+
+    /* Field 3: Soft Ochre, Antique Gold & Warm Amber Glow */
+    .field-ochre {
+      width: 58vw;
+      height: 58vw;
+      min-width: 460px;
+      min-height: 460px;
+      bottom: -18%;
+      left: 6%;
+      background: radial-gradient(circle, rgba(230, 180, 104, 0.35) 0%, rgba(214, 159, 74, 0.20) 46%, rgba(250, 245, 235, 0) 72%);
+      animation: flowOchre 34s ease-in-out infinite alternate;
+    }
+
+    /* Field 4: Faded Warm Rust & Vintage Taupe Drift */
+    .field-rust-taupe {
+      width: 54vw;
+      height: 54vw;
+      min-width: 440px;
+      min-height: 440px;
+      top: 45%;
+      left: 22%;
+      background: radial-gradient(circle, rgba(200, 142, 112, 0.28) 0%, rgba(186, 126, 96, 0.15) 50%, rgba(246, 239, 232, 0) 72%);
+      animation: flowRustTaupe 42s ease-in-out infinite alternate;
+    }
+
+    /* Field 5: Earthy Muted Olive Herb Wash */
+    .field-olive {
+      width: 50vw;
+      height: 50vw;
+      min-width: 420px;
+      min-height: 420px;
+      bottom: -10%;
+      right: -8%;
+      background: radial-gradient(circle, rgba(158, 178, 138, 0.30) 0%, rgba(139, 160, 118, 0.16) 48%, rgba(244, 247, 240, 0) 72%);
+      animation: flowOlive 36s ease-in-out infinite alternate;
+    }
+
+    /* Field 6: Luminous Sunlit Highlight Field (Soft Diffuser) */
+    .field-luminous {
+      width: 68vw;
+      height: 68vw;
+      min-width: 520px;
+      min-height: 520px;
+      top: 12%;
+      left: 16%;
+      mix-blend-mode: normal;
+      background: radial-gradient(circle, rgba(255, 253, 248, 0.70) 0%, rgba(253, 249, 240, 0.40) 45%, rgba(250, 246, 238, 0) 75%);
+      animation: flowLuminous 28s ease-in-out infinite alternate;
+    }
+
+    /* Ambient Flow Animations */
+    @keyframes baseCanvasDrift {
       0% {
         transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
       }
       50% {
-        transform: translate3d(-2.5%, -2%, 0) rotate(1.2deg) scale(1.025);
+        transform: translate3d(-2%, 1.5%, 0) rotate(0.8deg) scale(1.025);
       }
       100% {
-        transform: translate3d(2%, 2.5%, 0) rotate(-0.8deg) scale(1.015);
+        transform: translate3d(1.5%, -2%, 0) rotate(-0.8deg) scale(1.015);
       }
     }
 
+    @keyframes flowTerracotta {
+      0% {
+        transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+      }
+      33% {
+        transform: translate3d(7vw, 5vh, 0) scale(1.07) rotate(5deg);
+      }
+      66% {
+        transform: translate3d(3vw, 10vh, 0) scale(0.96) rotate(-3deg);
+      }
+      100% {
+        transform: translate3d(-3vw, 4vh, 0) scale(1.04) rotate(3deg);
+      }
+    }
+
+    @keyframes flowSage {
+      0% {
+        transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+      }
+      35% {
+        transform: translate3d(-6vw, 7vh, 0) scale(1.06) rotate(-4deg);
+      }
+      70% {
+        transform: translate3d(-9vw, -3vh, 0) scale(0.95) rotate(4deg);
+      }
+      100% {
+        transform: translate3d(-2vw, 4vh, 0) scale(1.02) rotate(-2deg);
+      }
+    }
+
+    @keyframes flowOchre {
+      0% {
+        transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+      }
+      40% {
+        transform: translate3d(5vw, -7vh, 0) scale(1.06) rotate(4deg);
+      }
+      75% {
+        transform: translate3d(9vw, 2vh, 0) scale(0.96) rotate(-3deg);
+      }
+      100% {
+        transform: translate3d(2vw, -4vh, 0) scale(1.03) rotate(2deg);
+      }
+    }
+
+    @keyframes flowRustTaupe {
+      0% {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+      50% {
+        transform: translate3d(-5vw, -5vh, 0) scale(1.08) rotate(-5deg);
+      }
+      100% {
+        transform: translate3d(4vw, 5vh, 0) scale(0.94) rotate(4deg);
+      }
+    }
+
+    @keyframes flowOlive {
+      0% {
+        transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+      }
+      45% {
+        transform: translate3d(-7vw, -4vh, 0) scale(1.05) rotate(4deg);
+      }
+      100% {
+        transform: translate3d(3vw, 4vh, 0) scale(0.96) rotate(-3deg);
+      }
+    }
+
+    @keyframes flowLuminous {
+      0% {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+      50% {
+        transform: translate3d(3vw, -3vh, 0) scale(1.06);
+      }
+      100% {
+        transform: translate3d(-3vw, 2vh, 0) scale(0.96);
+      }
+    }
+
+    /* Mobile Performance Optimization */
+    @media (max-width: 768px) {
+      .gradient-field {
+        filter: blur(50px);
+      }
+      .field-rust-taupe,
+      .field-olive {
+        display: none;
+      }
+    }
+
+    /* Accessibility: Respect Reduced Motion */
     @media (prefers-reduced-motion: reduce) {
-      .ambient-mesh {
-        animation: none;
+      .gradient-base-canvas,
+      .gradient-field {
+        animation: none !important;
       }
     }
 
@@ -468,9 +638,15 @@
 </head>
 <body class="font-sans antialiased text-charcoal-800 min-h-screen flex flex-col justify-between relative selection:bg-sage-200">
 
-  <!-- Dynamic Ambient Living Background Mesh -->
+  <!-- Dynamic Atmospheric Editorial Gradient Background Canvas -->
   <div class="ambient-bg-layer" aria-hidden="true">
-    <div class="ambient-mesh"></div>
+    <div class="gradient-base-canvas"></div>
+    <div class="gradient-field field-terracotta"></div>
+    <div class="gradient-field field-sage"></div>
+    <div class="gradient-field field-ochre"></div>
+    <div class="gradient-field field-rust-taupe"></div>
+    <div class="gradient-field field-olive"></div>
+    <div class="gradient-field field-luminous"></div>
   </div>
 
   <!-- Tactile Grain Texture Overlay -->
@@ -829,7 +1005,7 @@
     </section>
 
     <!-- 5. PROTOSEM — VISUAL CENTERPIECE & WINDING ROAD JOURNEY -->
-    <section id="protosem" class="reveal-on-scroll space-y-14 scroll-mt-28 p-6 sm:p-10 -mx-3 sm:-mx-6 lg:-mx-8 rounded-2xl relative" style="background: linear-gradient(180deg, rgba(235, 243, 237, 0.6) 0%, rgba(226, 237, 229, 0.4) 50%, rgba(235, 243, 237, 0.6) 100%); box-shadow: inset 0 0 0 1px rgba(210, 225, 215, 0.4);">
+    <section id="protosem" class="reveal-on-scroll space-y-14 scroll-mt-28 p-6 sm:p-10 -mx-3 sm:-mx-6 lg:-mx-8 rounded-2xl relative" style="background: linear-gradient(180deg, rgba(235, 242, 236, 0.70) 0%, rgba(246, 240, 230, 0.50) 50%, rgba(235, 242, 236, 0.70) 100%); box-shadow: inset 0 0 0 1px rgba(189, 206, 193, 0.45), 0 8px 32px -12px rgba(95, 121, 103, 0.08);">
       
       <!-- Section Header -->
       <div class="flex items-baseline justify-between border-b hairline-border pb-4">
