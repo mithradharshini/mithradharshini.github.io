@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mithra Dharshini R — Editorial Portfolio & Field Journal</title>
-  <meta name="description" content="A soft, nature-inspired editorial portfolio & 20-week innovation field journal of Mithra Dharshini R — BBA Student, Marketing & Retail Strategist, and Innovation Engineer Trainee.">
+  <meta name="description" content="A moody, luxury-editorial portfolio & 20-week innovation field journal of Mithra Dharshini R — BBA Student, Marketing & Retail Strategist, and Innovation Engineer Trainee.">
 
   <!-- Google Fonts: Cormorant Garamond (Serif) & Plus Jakarta Sans (Sans-serif) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,43 +22,60 @@
             sans: ['"Plus Jakarta Sans"', '-apple-system', 'sans-serif'],
           },
           colors: {
+            // "Deep Editorial" Design Tokens
+            base: '#1C1B1A',
+            surface: {
+              DEFAULT: '#2E2C29',
+              subtle: '#242220',
+              elevated: '#383531',
+              hover: '#34322F',
+            },
+            accent: {
+              DEFAULT: '#D9A441',
+              hover: '#E5B454',
+              dim: '#B88628',
+            },
+            supporting: '#8C7A6B',
+            offwhite: '#F2EDE4',
+            
+            // Map legacy utility scales to Deep Editorial tokens
             ivory: {
-              50: '#FDFCF9',
-              100: '#FAF7F2',
-              200: '#F4EFEA',
-              300: '#ECE5DC',
-              400: '#DDD4C7',
+              50: '#2E2C29',
+              100: '#242220',
+              200: '#1C1B1A',
+              300: '#383531',
+              400: '#8C7A6B',
             },
             charcoal: {
-              900: '#1C1B1A',
-              800: '#2A2927',
-              700: '#3D3B38',
-              600: '#524F4B',
-              500: '#6E6B65',
-              400: '#8E8A83',
-              300: '#B5B1A8',
-              200: '#DAD5CC',
-              100: '#EBE7E0',
+              900: '#F2EDE4',
+              800: '#F2EDE4',
+              700: '#D6CEC2',
+              600: '#B8AEA0',
+              500: '#8C7A6B',
+              400: '#8C7A6B',
+              300: '#66594E',
+              200: '#383531',
+              100: '#242220',
             },
             sage: {
-              50: '#F4F7F5',
-              100: '#E6ECE8',
-              200: '#D2DDD5',
-              300: '#ADC0B2',
-              400: '#7E9986',
-              500: '#5F7967',
-              600: '#48604F',
-              700: '#384A3D',
+              50: '#262320',
+              100: '#302D29',
+              200: '#8C7A6B',
+              300: '#B59B75',
+              400: '#C99E4B',
+              500: '#D9A441',
+              600: '#D9A441',
+              700: '#E5B454',
             },
             violet: {
-              50: '#F8F6F9',
-              100: '#EFEBF2',
-              200: '#DFD7E5',
-              300: '#C4B5CE',
-              400: '#9E88AC',
-              500: '#766184',
-              600: '#5C4A69',
-              700: '#463750',
+              50: '#282522',
+              100: '#332E2A',
+              200: '#8C7A6B',
+              300: '#D9A441',
+              400: '#D9A441',
+              500: '#D9A441',
+              600: '#E5B454',
+              700: '#F2EDE4',
             }
           }
         }
@@ -70,7 +87,7 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
-    /* Tactile Paper/Grain Texture Overlay (approx 3% opacity) */
+    /* Tactile Paper/Grain Texture Overlay (approx 3% opacity on dark canvas) */
     .grain-overlay {
       position: fixed;
       top: 0;
@@ -84,13 +101,13 @@
     }
 
     ::selection {
-      background-color: #D2DDD5;
+      background-color: #D9A441;
       color: #1C1B1A;
     }
 
     /* ========================================================
-       DYNAMIC WARM EDITORIAL GRAPHIC GRADIENT BACKGROUND
-       Multi-field organic watercolor washes & aurora color fields
+       DYNAMIC DEEP EDITORIAL GRAPHIC GRADIENT BACKGROUND
+       Near-black charcoal & graphite with subtle warm gold glow
        ======================================================== */
     .ambient-bg-layer {
       position: fixed;
@@ -101,10 +118,10 @@
       pointer-events: none;
       z-index: -10;
       overflow: hidden;
-      background-color: #FAF6EF;
+      background-color: #1C1B1A;
     }
 
-    /* Base Living Mesh Canvas: Multi-stop tonal base */
+    /* Base Living Canvas: Deep atmospheric dark graphite to near-black */
     .gradient-base-canvas {
       position: absolute;
       top: -25%;
@@ -112,8 +129,8 @@
       width: 150%;
       height: 150%;
       background: 
-        radial-gradient(ellipse at 50% 30%, rgba(255, 252, 246, 0.95) 0%, rgba(247, 241, 230, 0.8) 40%, rgba(240, 233, 220, 0.9) 75%, rgba(235, 226, 212, 0.95) 100%),
-        linear-gradient(145deg, #FBF8F2 0%, #F5EDE0 28%, #EDE2D2 55%, #F4ECE0 78%, #FAF5EE 100%);
+        radial-gradient(ellipse at 50% 30%, rgba(46, 44, 41, 0.75) 0%, rgba(36, 34, 32, 0.85) 45%, rgba(28, 27, 26, 0.95) 75%, #1C1B1A 100%),
+        linear-gradient(145deg, #1C1B1A 0%, #242220 30%, #2E2C29 55%, #22201E 78%, #1C1B1A 100%);
       animation: baseCanvasDrift 45s ease-in-out infinite alternate;
       will-change: transform;
     }
@@ -122,83 +139,81 @@
     .gradient-field {
       position: absolute;
       border-radius: 50%;
-      filter: blur(80px);
+      filter: blur(85px);
       will-change: transform;
-      mix-blend-mode: multiply;
       pointer-events: none;
     }
 
-    /* Field 1: Dusty Terracotta / Soft Warm Clay Wash */
-    .field-terracotta {
-      width: 60vw;
-      height: 60vw;
-      min-width: 480px;
-      min-height: 480px;
+    /* Field 1: Soft Graphite Depth Drift */
+    .field-graphite-1 {
+      width: 65vw;
+      height: 65vw;
+      min-width: 500px;
+      min-height: 500px;
       top: -15%;
       left: -10%;
-      background: radial-gradient(circle, rgba(226, 145, 118, 0.38) 0%, rgba(214, 126, 96, 0.22) 45%, rgba(247, 237, 228, 0) 72%);
-      animation: flowTerracotta 32s ease-in-out infinite alternate;
+      background: radial-gradient(circle, rgba(46, 44, 41, 0.65) 0%, rgba(36, 34, 32, 0.35) 48%, rgba(28, 27, 26, 0) 72%);
+      animation: flowGraphite1 34s ease-in-out infinite alternate;
     }
 
-    /* Field 2: Muted Botanical Sage & Soft Olive Wash */
-    .field-sage {
-      width: 64vw;
-      height: 64vw;
-      min-width: 520px;
-      min-height: 520px;
-      top: 15%;
-      right: -14%;
-      background: radial-gradient(circle, rgba(142, 172, 149, 0.40) 0%, rgba(122, 156, 131, 0.22) 46%, rgba(238, 246, 240, 0) 74%);
-      animation: flowSage 38s ease-in-out infinite alternate;
+    /* Field 2: Secondary Graphite Volume */
+    .field-graphite-2 {
+      width: 62vw;
+      height: 62vw;
+      min-width: 480px;
+      min-height: 480px;
+      bottom: -15%;
+      right: -10%;
+      background: radial-gradient(circle, rgba(46, 44, 41, 0.60) 0%, rgba(34, 32, 30, 0.30) 50%, rgba(28, 27, 26, 0) 74%);
+      animation: flowGraphite2 38s ease-in-out infinite alternate;
     }
 
-    /* Field 3: Soft Ochre, Antique Gold & Warm Amber Glow */
-    .field-ochre {
+    /* Field 3: Subtle Warm Gold Ambient Glow (Hero & Upper Canvas) */
+    .field-gold-glow-1 {
+      width: 55vw;
+      height: 55vw;
+      min-width: 440px;
+      min-height: 440px;
+      top: 5%;
+      right: 0%;
+      background: radial-gradient(circle, rgba(217, 164, 65, 0.09) 0%, rgba(217, 164, 65, 0.035) 45%, rgba(28, 27, 26, 0) 70%);
+      animation: flowGold1 32s ease-in-out infinite alternate;
+    }
+
+    /* Field 4: Subtle Warm Gold Ambient Glow (ProtoSem & Lower Canvas) */
+    .field-gold-glow-2 {
       width: 58vw;
       height: 58vw;
       min-width: 460px;
       min-height: 460px;
-      bottom: -18%;
-      left: 6%;
-      background: radial-gradient(circle, rgba(230, 180, 104, 0.35) 0%, rgba(214, 159, 74, 0.20) 46%, rgba(250, 245, 235, 0) 72%);
-      animation: flowOchre 34s ease-in-out infinite alternate;
+      top: 52%;
+      left: 10%;
+      background: radial-gradient(circle, rgba(217, 164, 65, 0.08) 0%, rgba(217, 164, 65, 0.025) 48%, rgba(28, 27, 26, 0) 72%);
+      animation: flowGold2 40s ease-in-out infinite alternate;
     }
 
-    /* Field 4: Faded Warm Rust & Vintage Taupe Drift */
-    .field-rust-taupe {
-      width: 54vw;
-      height: 54vw;
-      min-width: 440px;
-      min-height: 440px;
-      top: 45%;
-      left: 22%;
-      background: radial-gradient(circle, rgba(200, 142, 112, 0.28) 0%, rgba(186, 126, 96, 0.15) 50%, rgba(246, 239, 232, 0) 72%);
-      animation: flowRustTaupe 42s ease-in-out infinite alternate;
-    }
-
-    /* Field 5: Earthy Muted Olive Herb Wash */
-    .field-olive {
+    /* Field 5: Muted Taupe Atmospheric Veil */
+    .field-taupe {
       width: 50vw;
       height: 50vw;
-      min-width: 420px;
-      min-height: 420px;
-      bottom: -10%;
-      right: -8%;
-      background: radial-gradient(circle, rgba(158, 178, 138, 0.30) 0%, rgba(139, 160, 118, 0.16) 48%, rgba(244, 247, 240, 0) 72%);
-      animation: flowOlive 36s ease-in-out infinite alternate;
+      min-width: 400px;
+      min-height: 400px;
+      top: 30%;
+      left: 30%;
+      background: radial-gradient(circle, rgba(140, 122, 107, 0.16) 0%, rgba(140, 122, 107, 0.06) 50%, rgba(28, 27, 26, 0) 72%);
+      animation: flowTaupe 36s ease-in-out infinite alternate;
     }
 
-    /* Field 6: Luminous Sunlit Highlight Field (Soft Diffuser) */
-    .field-luminous {
-      width: 68vw;
-      height: 68vw;
-      min-width: 520px;
-      min-height: 520px;
-      top: 12%;
-      left: 16%;
-      mix-blend-mode: normal;
-      background: radial-gradient(circle, rgba(255, 253, 248, 0.70) 0%, rgba(253, 249, 240, 0.40) 45%, rgba(250, 246, 238, 0) 75%);
-      animation: flowLuminous 28s ease-in-out infinite alternate;
+    /* Field 6: Deep Charcoal Contrast Well */
+    .field-charcoal-deep {
+      width: 60vw;
+      height: 60vw;
+      min-width: 480px;
+      min-height: 480px;
+      bottom: 5%;
+      left: -8%;
+      background: radial-gradient(circle, rgba(20, 19, 18, 0.70) 0%, rgba(24, 23, 22, 0.40) 50%, rgba(28, 27, 26, 0) 75%);
+      animation: flowDeep 30s ease-in-out infinite alternate;
     }
 
     /* Ambient Flow Animations */
@@ -214,81 +229,81 @@
       }
     }
 
-    @keyframes flowTerracotta {
+    @keyframes flowGraphite1 {
       0% {
         transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
       }
       33% {
-        transform: translate3d(7vw, 5vh, 0) scale(1.07) rotate(5deg);
+        transform: translate3d(6vw, 5vh, 0) scale(1.06) rotate(4deg);
       }
       66% {
-        transform: translate3d(3vw, 10vh, 0) scale(0.96) rotate(-3deg);
+        transform: translate3d(2vw, 9vh, 0) scale(0.96) rotate(-3deg);
       }
       100% {
-        transform: translate3d(-3vw, 4vh, 0) scale(1.04) rotate(3deg);
+        transform: translate3d(-3vw, 4vh, 0) scale(1.03) rotate(2deg);
       }
     }
 
-    @keyframes flowSage {
+    @keyframes flowGraphite2 {
       0% {
         transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
       }
       35% {
-        transform: translate3d(-6vw, 7vh, 0) scale(1.06) rotate(-4deg);
+        transform: translate3d(-5vw, 6vh, 0) scale(1.05) rotate(-3deg);
       }
       70% {
-        transform: translate3d(-9vw, -3vh, 0) scale(0.95) rotate(4deg);
+        transform: translate3d(-8vw, -3vh, 0) scale(0.95) rotate(3deg);
       }
       100% {
-        transform: translate3d(-2vw, 4vh, 0) scale(1.02) rotate(-2deg);
+        transform: translate3d(-2vw, 3vh, 0) scale(1.02) rotate(-1deg);
       }
     }
 
-    @keyframes flowOchre {
+    @keyframes flowGold1 {
       0% {
         transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
       }
       40% {
-        transform: translate3d(5vw, -7vh, 0) scale(1.06) rotate(4deg);
+        transform: translate3d(-6vw, 7vh, 0) scale(1.08) rotate(5deg);
       }
       75% {
-        transform: translate3d(9vw, 2vh, 0) scale(0.96) rotate(-3deg);
+        transform: translate3d(4vw, -4vh, 0) scale(0.94) rotate(-3deg);
       }
       100% {
-        transform: translate3d(2vw, -4vh, 0) scale(1.03) rotate(2deg);
+        transform: translate3d(2vw, 3vh, 0) scale(1.03) rotate(2deg);
       }
     }
 
-    @keyframes flowRustTaupe {
-      0% {
-        transform: translate3d(0, 0, 0) scale(1);
-      }
-      50% {
-        transform: translate3d(-5vw, -5vh, 0) scale(1.08) rotate(-5deg);
-      }
-      100% {
-        transform: translate3d(4vw, 5vh, 0) scale(0.94) rotate(4deg);
-      }
-    }
-
-    @keyframes flowOlive {
+    @keyframes flowGold2 {
       0% {
         transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
       }
-      45% {
-        transform: translate3d(-7vw, -4vh, 0) scale(1.05) rotate(4deg);
+      50% {
+        transform: translate3d(5vw, -6vh, 0) scale(1.07) rotate(-4deg);
       }
       100% {
-        transform: translate3d(3vw, 4vh, 0) scale(0.96) rotate(-3deg);
+        transform: translate3d(-4vw, 4vh, 0) scale(0.95) rotate(3deg);
       }
     }
 
-    @keyframes flowLuminous {
+    @keyframes flowTaupe {
       0% {
         transform: translate3d(0, 0, 0) scale(1);
       }
       50% {
-        transform: translate3d(3vw, -3vh, 0) scale(1.06);
+        transform: translate3d(-4vw, -4vh, 0) scale(1.06) rotate(-3deg);
+      }
+      100% {
+        transform: translate3d(3vw, 4vh, 0) scale(0.95) rotate(2deg);
+      }
+    }
+
+    @keyframes flowDeep {
+      0% {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+      50% {
+        transform: translate3d(3vw, -3vh, 0) scale(1.05);
       }
       100% {
         transform: translate3d(-3vw, 2vh, 0) scale(0.96);
@@ -298,10 +313,10 @@
     /* Mobile Performance Optimization */
     @media (max-width: 768px) {
       .gradient-field {
-        filter: blur(50px);
+        filter: blur(55px);
       }
-      .field-rust-taupe,
-      .field-olive {
+      .field-taupe,
+      .field-charcoal-deep {
         display: none;
       }
     }
@@ -315,19 +330,24 @@
     }
 
     body {
-      background-color: transparent;
-      color: #2A2927;
+      background-color: #1C1B1A;
+      color: #F2EDE4;
       font-feature-settings: "cv02", "cv03", "cv04", "cv11";
       -webkit-font-smoothing: antialiased;
       position: relative;
     }
 
     .hairline-border {
-      border-color: #E7E1D7;
+      border-color: rgba(140, 122, 107, 0.28);
     }
 
-    .hairline-sage {
-      border-color: #D2DDD5;
+    .hairline-gold {
+      border-color: rgba(217, 164, 65, 0.45);
+    }
+
+    .hairline-sage,
+    .hairline-taupe {
+      border-color: rgba(140, 122, 107, 0.35);
     }
 
     .editorial-link {
@@ -344,7 +364,7 @@
       height: 1px;
       bottom: -2px;
       left: 0;
-      background-color: currentColor;
+      background-color: #D9A441;
       transform: scaleX(0);
       transform-origin: bottom right;
       transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -360,7 +380,7 @@
       display: inline-block;
       margin-left: 2px;
       font-weight: 300;
-      color: #5F7967;
+      color: #D9A441;
       animation: cursorBlink 0.75s cubic-bezier(0.4, 0, 0.6, 1) infinite;
       transition: opacity 0.3s ease;
     }
@@ -386,8 +406,8 @@
 
     /* ========================================================
        SITE-WIDE BOX & CARD HOVER / TOUCH MICRO-INTERACTIONS
+       Deep Editorial Dark Luxury Aesthetic
        ======================================================== */
-    /* Base interactive box/card style */
     .interactive-card,
     .editorial-box {
       transition: 
@@ -397,39 +417,41 @@
         background-color 0.25s ease;
       will-change: transform, box-shadow;
       position: relative;
+      background-color: #2E2C29;
+      border-color: rgba(140, 122, 107, 0.25);
     }
 
-    /* Desktop Hover Enhancement: Subtle 1.018x scale + soft warm diffused elevation shadow */
+    /* Desktop Hover Enhancement: Warm Gold-Tinted Ambient Glow */
     @media (hover: hover) and (pointer: fine) {
       .interactive-card:hover,
       .editorial-box:hover {
         transform: translateY(-2.5px) scale(1.018);
         box-shadow: 
-          0 14px 28px -6px rgba(42, 41, 39, 0.08), 
-          0 4px 12px -2px rgba(95, 121, 103, 0.05);
-        border-color: #B5C5B9 !important;
-        background-color: #FFFFFF;
+          0 16px 32px -8px rgba(0, 0, 0, 0.65), 
+          0 4px 18px -2px rgba(217, 164, 65, 0.16);
+        border-color: rgba(217, 164, 65, 0.6) !important;
+        background-color: #353330;
         z-index: 5;
       }
     }
 
-    /* Non-Clickable / Static Information Cards: slightly more restrained lift */
+    /* Non-Clickable / Static Information Cards */
     @media (hover: hover) and (pointer: fine) {
       .interactive-card.card-static:hover,
       .editorial-box.card-static:hover {
         transform: translateY(-1.5px) scale(1.01);
         box-shadow: 
-          0 10px 22px -6px rgba(42, 41, 39, 0.06), 
-          0 3px 8px -2px rgba(95, 121, 103, 0.04);
-        border-color: #B5C5B9 !important;
+          0 12px 24px -6px rgba(0, 0, 0, 0.55), 
+          0 3px 12px -2px rgba(217, 164, 65, 0.10);
+        border-color: rgba(217, 164, 65, 0.45) !important;
       }
     }
 
-    /* Mobile & Touch Press Feedback (Non-sticky) */
+    /* Mobile & Touch Press Feedback */
     .interactive-card:active,
     .editorial-box:active {
       transform: scale(0.98) translateY(0);
-      box-shadow: 0 4px 10px -2px rgba(42, 41, 39, 0.06);
+      box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.4);
       transition-duration: 0.12s;
     }
 
@@ -442,19 +464,19 @@
     @media (hover: hover) and (pointer: fine) {
       .interactive-btn:hover {
         transform: translateY(-1.5px) scale(1.02);
-        box-shadow: 0 6px 16px -4px rgba(42, 41, 39, 0.1);
+        box-shadow: 0 8px 20px -4px rgba(217, 164, 65, 0.22);
       }
     }
 
     .interactive-btn:active {
       transform: scale(0.96) !important;
-      box-shadow: 0 2px 6px -2px rgba(42, 41, 39, 0.06);
+      box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.4);
       transition-duration: 0.1s;
     }
 
     /* Tag Pills & Small Sub-Boxes Hover Enhancement */
     .tag-pill {
-      transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.22s ease, border-color 0.2s ease, background-color 0.2s ease;
+      transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.22s ease, border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
       display: inline-block;
       will-change: transform;
     }
@@ -462,8 +484,9 @@
     @media (hover: hover) and (pointer: fine) {
       .tag-pill:hover {
         transform: translateY(-1px) scale(1.035);
-        box-shadow: 0 4px 12px -2px rgba(42, 41, 39, 0.06);
-        border-color: #ADC0B2;
+        box-shadow: 0 4px 14px -2px rgba(217, 164, 65, 0.15);
+        border-color: #D9A441;
+        color: #D9A441;
       }
     }
 
@@ -476,21 +499,24 @@
     .form-input-box {
       transition: transform 0.24s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.24s ease, border-color 0.2s ease, background-color 0.2s ease;
       will-change: transform;
+      background-color: #242220;
+      border-color: rgba(140, 122, 107, 0.35);
+      color: #F2EDE4;
     }
 
     @media (hover: hover) and (pointer: fine) {
       .form-input-box:hover {
         transform: translateY(-1px);
-        box-shadow: 0 4px 12px -2px rgba(42, 41, 39, 0.05);
-        border-color: #B5C5B9;
+        box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.35);
+        border-color: #8C7A6B;
       }
     }
 
     .form-input-box:focus {
       transform: translateY(-1px);
-      box-shadow: 0 6px 16px -4px rgba(95, 121, 103, 0.12);
-      border-color: #5F7967 !important;
-      background-color: #FFFFFF !important;
+      box-shadow: 0 6px 18px -4px rgba(217, 164, 65, 0.25);
+      border-color: #D9A441 !important;
+      background-color: #282623 !important;
     }
 
     /* ========================================================
@@ -549,7 +575,7 @@
 
     .timeline-journey-row:hover .milestone-pin-orb {
       transform: scale(1.18);
-      box-shadow: 0 0 0 6px rgba(95, 121, 103, 0.18);
+      box-shadow: 0 0 0 6px rgba(217, 164, 65, 0.22);
     }
 
     /* Smooth Modal Transitions */
@@ -610,14 +636,14 @@
       transform: translateY(0);
     }
 
-    /* Subtle Botanical Line Drawing Accent */
+    /* Botanical Accent */
     .botanical-mark {
-      stroke: #5F7967;
+      stroke: #D9A441;
       stroke-width: 1.2;
       stroke-linecap: round;
       stroke-linejoin: round;
       fill: none;
-      opacity: 0.75;
+      opacity: 0.55;
     }
 
     /* Minimal Custom Scrollbar */
@@ -625,67 +651,67 @@
       width: 5px;
     }
     ::-webkit-scrollbar-track {
-      background: #FAF7F2;
+      background: #1C1B1A;
     }
     ::-webkit-scrollbar-thumb {
-      background: #D2DDD5;
+      background: #383531;
       border-radius: 2px;
     }
     ::-webkit-scrollbar-thumb:hover {
-      background: #7E9986;
+      background: #D9A441;
     }
   </style>
 </head>
-<body class="font-sans antialiased text-charcoal-800 min-h-screen flex flex-col justify-between relative selection:bg-sage-200">
+<body class="font-sans antialiased text-[#F2EDE4] bg-[#1C1B1A] min-h-screen flex flex-col justify-between relative selection:bg-[#D9A441] selection:text-[#1C1B1A]">
 
-  <!-- Dynamic Atmospheric Editorial Gradient Background Canvas -->
+  <!-- Dynamic Atmospheric Deep Editorial Gradient Background Canvas -->
   <div class="ambient-bg-layer" aria-hidden="true">
     <div class="gradient-base-canvas"></div>
-    <div class="gradient-field field-terracotta"></div>
-    <div class="gradient-field field-sage"></div>
-    <div class="gradient-field field-ochre"></div>
-    <div class="gradient-field field-rust-taupe"></div>
-    <div class="gradient-field field-olive"></div>
-    <div class="gradient-field field-luminous"></div>
+    <div class="gradient-field field-graphite-1"></div>
+    <div class="gradient-field field-graphite-2"></div>
+    <div class="gradient-field field-gold-glow-1"></div>
+    <div class="gradient-field field-gold-glow-2"></div>
+    <div class="gradient-field field-taupe"></div>
+    <div class="gradient-field field-charcoal-deep"></div>
   </div>
 
   <!-- Tactile Grain Texture Overlay -->
   <div class="grain-overlay" aria-hidden="true"></div>
 
   <!-- STICKY MINIMAL EDITORIAL NAV -->
-  <header class="sticky top-0 z-40 bg-ivory-100/90 backdrop-blur-md border-b hairline-border transition-all duration-300">
+  <header class="sticky top-0 z-40 bg-[#1C1B1A]/90 backdrop-blur-md border-b hairline-border transition-all duration-300">
     <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 h-20 flex items-center justify-between">
       
       <!-- Masthead Monogram -->
       <a href="#hero" class="flex items-center gap-3 group">
-        <span class="font-serif italic font-medium text-2xl tracking-normal text-charcoal-900 group-hover:text-sage-600 transition-colors">
+        <span class="font-serif italic font-medium text-2xl tracking-normal text-[#F2EDE4] group-hover:text-[#D9A441] transition-colors">
           M.D.
         </span>
-        <span class="hidden sm:inline-block h-3.5 w-px bg-charcoal-200"></span>
-        <span class="hidden sm:inline-block text-[10px] font-mono uppercase tracking-widest text-sage-600 font-medium">
+        <span class="hidden sm:inline-block h-3.5 w-px bg-[#383531]"></span>
+        <span class="hidden sm:inline-block text-[10px] font-mono uppercase tracking-widest text-[#8C7A6B] font-medium">
           Field Journal & Archive
         </span>
       </a>
 
       <!-- Desktop Navigation Links (with Magnetic Follow Movement) -->
-      <nav class="hidden md:flex items-center space-x-6 lg:space-x-7 text-xs font-medium tracking-wider uppercase text-charcoal-600">
-        <a href="#about" class="nav-magnetic editorial-link hover:text-charcoal-900 transition-colors">About</a>
-        <a href="#skills" class="nav-magnetic editorial-link hover:text-charcoal-900 transition-colors">Skills</a>
-        <a href="#experience" class="nav-magnetic editorial-link hover:text-charcoal-900 transition-colors">Experience</a>
-        <a href="#protosem" class="nav-magnetic editorial-link hover:text-sage-700 text-charcoal-900 font-semibold transition-colors flex items-center gap-1">
+      <nav class="hidden md:flex items-center space-x-6 lg:space-x-7 text-xs font-medium tracking-wider uppercase text-[#D6CEC2]">
+        <a href="#about" class="nav-magnetic editorial-link hover:text-[#D9A441] transition-colors">About</a>
+        <a href="#skills" class="nav-magnetic editorial-link hover:text-[#D9A441] transition-colors">Skills</a>
+        <a href="#experience" class="nav-magnetic editorial-link hover:text-[#D9A441] transition-colors">Experience</a>
+        <a href="#protosem" class="nav-magnetic editorial-link hover:text-[#E5B454] text-[#D9A441] font-semibold transition-colors flex items-center gap-1">
           <span>ProtoSem</span>
-          <span class="w-1.5 h-1.5 rounded-full bg-sage-500"></span>
+          <span class="w-1.5 h-1.5 rounded-full bg-[#D9A441]"></span>
         </a>
-        <a href="#certifications" class="nav-magnetic editorial-link hover:text-charcoal-900 transition-colors">Certifications</a>
-        <a href="#education" class="nav-magnetic editorial-link hover:text-charcoal-900 transition-colors">Education</a>
-        <a href="#leadership" class="nav-magnetic editorial-link hover:text-charcoal-900 transition-colors">Leadership</a>
-        <a href="#contact" class="nav-magnetic editorial-link hover:text-charcoal-900 transition-colors">Contact</a>
+        <a href="#certifications" class="nav-magnetic editorial-link hover:text-[#D9A441] transition-colors">Certifications</a>
+        <a href="#education" class="nav-magnetic editorial-link hover:text-[#D9A441] transition-colors">Education</a>
+        <a href="#leadership" class="nav-magnetic editorial-link hover:text-[#D9A441] transition-colors">Leadership</a>
+        <a href="#contact" class="nav-magnetic editorial-link hover:text-[#D9A441] transition-colors">Contact</a>
       </nav>
 
       <!-- ATS Resume Button -->
       <div class="flex items-center gap-4">
-        <a href="resume.html" target="_blank" class="interactive-btn inline-flex items-center gap-2 text-xs font-medium uppercase tracking-wider px-3.5 py-1.5 border hairline-border hover:border-sage-500 bg-white/80 text-charcoal-800 hover:text-sage-700 transition-all rounded-lg">
-          <i data-lucide="file-text" class="w-3.5 h-3.5 text-sage-500"></i>
+        <a href="resume.html" target="_blank" class="interactive-btn inline-flex items-center gap-2 text-xs font-medium uppercase tracking-wider px-3.5 py-1.5 border hairline-border hover:border-[#D9A441] bg-[#2E2C29] text-[#F2EDE4] hover:text-[#D9A441] transition-all rounded-lg">
+          <i data-lucide="file-text" class="w-3.5 h-3.5 text-[#D9A441]"></i>
           <span>ATS Resume</span>
         </a>
       </div>
@@ -699,20 +725,20 @@
     <section id="hero" class="reveal-on-scroll pt-2 sm:pt-6 pb-12 border-b hairline-border relative">
       
       <!-- Soft Directional Ambient Glow (Hero Only) -->
-      <div class="absolute -top-12 -right-8 w-96 sm:w-[550px] h-96 sm:h-[550px] rounded-full pointer-events-none -z-10" style="background: radial-gradient(circle, rgba(255, 253, 248, 0.95) 0%, rgba(246, 239, 227, 0.5) 50%, rgba(245, 238, 225, 0) 72%); filter: blur(40px);"></div>
+      <div class="absolute -top-12 -right-8 w-96 sm:w-[550px] h-96 sm:h-[550px] rounded-full pointer-events-none -z-10" style="background: radial-gradient(circle, rgba(217, 164, 65, 0.12) 0%, rgba(46, 44, 41, 0.35) 50%, rgba(28, 27, 26, 0) 72%); filter: blur(40px);"></div>
       
       <!-- Hero-Only Subtle Botanical Line-Art Motif -->
-      <div class="absolute -top-2 right-2 sm:right-6 w-36 sm:w-48 h-36 sm:h-48 pointer-events-none opacity-20 text-sage-600 -z-10">
+      <div class="absolute -top-2 right-2 sm:right-6 w-36 sm:w-48 h-36 sm:h-48 pointer-events-none opacity-40 text-[#D9A441] -z-10">
         <svg viewBox="0 0 200 200" class="w-full h-full botanical-mark">
           <path d="M20 180 C 45 130, 85 90, 175 25" stroke-dasharray="2 1" />
           <path d="M70 145 C 95 120, 120 100, 155 60" />
           <path d="M110 105 C 130 85, 150 75, 170 55" />
-          <circle cx="175" cy="25" r="2" fill="#5F7967" />
+          <circle cx="175" cy="25" r="2" fill="#D9A441" />
         </svg>
       </div>
       
       <!-- Editorial Issue Strip -->
-      <div class="flex flex-wrap items-center justify-between gap-4 pb-8 mb-12 border-b hairline-border text-[11px] uppercase font-mono tracking-widest text-charcoal-400 font-medium">
+      <div class="flex flex-wrap items-center justify-between gap-4 pb-8 mb-12 border-b hairline-border text-[11px] uppercase font-mono tracking-widest text-[#8C7A6B] font-medium">
         <span class="flex items-center gap-2">
           <!-- Botanical Line Leaf Motif -->
           <svg class="w-4 h-4 botanical-mark inline-block" viewBox="0 0 24 24">
@@ -731,31 +757,31 @@
         <div class="lg:col-span-7 space-y-8">
           
           <div class="space-y-3">
-            <span class="text-[11px] font-mono tracking-widest uppercase text-sage-600 font-medium block">
+            <span class="text-[11px] font-mono tracking-widest uppercase text-[#D9A441] font-medium block">
               Business & Retail Innovation Practice
             </span>
-            <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl font-normal leading-[1.05] tracking-tight text-charcoal-900">
+            <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl font-normal leading-[1.05] tracking-tight text-[#F2EDE4]">
               Mithra Dharshini R
             </h1>
             <!-- Typewriter Subtitle -->
-            <p id="hero-tagline" class="font-serif italic text-2xl sm:text-3xl text-charcoal-600 font-normal leading-snug min-h-[2.25rem] flex items-center flex-wrap" aria-label="BBA Student | Marketing, Retail & Digital Strategy Enthusiast">
+            <p id="hero-tagline" class="font-serif italic text-2xl sm:text-3xl text-[#D6CEC2] font-normal leading-snug min-h-[2.25rem] flex items-center flex-wrap" aria-label="BBA Student | Marketing, Retail & Digital Strategy Enthusiast">
               <span id="typewriter-text"></span><span id="typewriter-cursor" class="typewriter-cursor">|</span>
             </p>
           </div>
 
-          <div class="w-12 h-px bg-sage-300"></div>
+          <div class="w-12 h-px bg-[#D9A441]"></div>
 
-          <p class="text-base sm:text-lg text-charcoal-600 font-light leading-relaxed max-w-xl">
+          <p class="text-base sm:text-lg text-[#D6CEC2] font-light leading-relaxed max-w-xl">
             Bridging analytical operations, consumer-centric retail frameworks, and hands-on technological problem solving. Currently participating in the 20-week PRICE ProtoSem innovation fellowship.
           </p>
 
           <!-- CTAs -->
           <div class="flex flex-wrap items-center gap-6 pt-2">
-            <a href="#about" class="interactive-btn inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest px-6 py-3.5 bg-charcoal-900 text-ivory-50 hover:bg-sage-700 transition-colors rounded-xl shadow-sm">
+            <a href="#about" class="interactive-btn inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest px-6 py-3.5 bg-[#D9A441] text-[#1C1B1A] hover:bg-[#E5B454] transition-colors rounded-xl shadow-sm">
               <span>Explore Narrative</span>
-              <i data-lucide="arrow-down" class="w-3.5 h-3.5"></i>
+              <i data-lucide="arrow-down" class="w-3.5 h-3.5 text-[#1C1B1A]"></i>
             </a>
-            <a href="#contact" class="editorial-link text-xs font-semibold uppercase tracking-widest text-charcoal-700 hover:text-sage-700 py-1">
+            <a href="#contact" class="editorial-link text-xs font-semibold uppercase tracking-widest text-[#F2EDE4] hover:text-[#D9A441] py-1">
               Get in Touch →
             </a>
           </div>
@@ -764,10 +790,10 @@
 
         <!-- Right Column: Editorial Photo Matting (5 cols) -->
         <div class="lg:col-span-5 flex flex-col items-center lg:items-end">
-          <div class="interactive-card card-static w-full max-w-sm bg-white p-4 border hairline-border shadow-sm space-y-3 relative rounded-2xl">
+          <div class="interactive-card card-static w-full max-w-sm bg-[#2E2C29] p-4 border hairline-border shadow-sm space-y-3 relative rounded-2xl">
             
             <!-- Soft Organic Nature Corner Mark -->
-            <div class="absolute -top-3 -right-3 w-8 h-8 text-sage-400 pointer-events-none opacity-80">
+            <div class="absolute -top-3 -right-3 w-8 h-8 text-[#D9A441] pointer-events-none opacity-80">
               <svg viewBox="0 0 32 32" class="w-full h-full botanical-mark">
                 <path d="M4 28 C 12 28, 20 20, 28 4" />
                 <path d="M14 20 C 18 14, 22 10, 26 8" />
@@ -775,22 +801,22 @@
             </div>
 
             <!-- Portrait Container -->
-            <div class="aspect-[4/5] bg-ivory-200 overflow-hidden relative border hairline-border flex items-center justify-center rounded-xl">
+            <div class="aspect-[4/5] bg-[#242220] overflow-hidden relative border hairline-border flex items-center justify-center rounded-xl">
               <img 
                 src="profile.jpg" 
                 alt="Mithra Dharshini R" 
-                onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Mithra+Dharshini&background=E6ECE8&color=1C1B1A&size=400&font-size=0.33&bold=true';" 
+                onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Mithra+Dharshini&background=2E2C29&color=F2EDE4&size=400&font-size=0.33&bold=true';" 
                 class="w-full h-full object-cover grayscale contrast-105 hover:grayscale-0 transition-all duration-700"
               >
-              <span class="absolute bottom-2.5 left-2.5 text-[9px] uppercase font-mono tracking-wider bg-white/90 px-2 py-0.5 border hairline-border text-charcoal-600 rounded-md">
+              <span class="absolute bottom-2.5 left-2.5 text-[9px] uppercase font-mono tracking-wider bg-[#1C1B1A]/90 px-2 py-0.5 border hairline-border text-[#8C7A6B] rounded-md">
                 Figure 01 / Identity
               </span>
             </div>
 
             <!-- Plate Caption -->
-            <div class="flex items-center justify-between text-[11px] text-charcoal-500 font-sans tracking-wide">
+            <div class="flex items-center justify-between text-[11px] text-[#8C7A6B] font-sans tracking-wide">
               <span>Mithra Dharshini R</span>
-              <span class="italic font-serif text-sage-700">Kumaraguru College</span>
+              <span class="italic font-serif text-[#D9A441]">Kumaraguru College</span>
             </div>
 
           </div>
@@ -805,32 +831,32 @@
       
       <!-- Section Header -->
       <div class="flex items-baseline justify-between border-b hairline-border pb-4">
-        <span class="text-[11px] font-mono tracking-widest uppercase text-sage-600 font-semibold">01 / ABOUT</span>
-        <span class="text-xs uppercase font-mono tracking-widest text-charcoal-400">Philosophy & Direction</span>
+        <span class="text-[11px] font-mono tracking-widest uppercase text-[#D9A441] font-semibold">01 / ABOUT</span>
+        <span class="text-xs uppercase font-mono tracking-widest text-[#8C7A6B]">Philosophy & Direction</span>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         
         <!-- Pull Quote (5 cols) -->
         <div class="lg:col-span-5 space-y-6">
-          <p class="font-serif italic text-2xl sm:text-3xl lg:text-4xl text-charcoal-900 leading-snug">
+          <p class="font-serif italic text-2xl sm:text-3xl lg:text-4xl text-[#F2EDE4] leading-snug">
             “An ambitious mindset pairing strategic marketing rigor with tangible operational discipline.”
           </p>
-          <div class="w-12 h-px bg-sage-300"></div>
-          <div class="space-y-1 text-xs font-mono text-charcoal-500 uppercase tracking-wider">
-            <p class="font-semibold text-charcoal-800">Academic Standing</p>
+          <div class="w-12 h-px bg-[#D9A441]"></div>
+          <div class="space-y-1 text-xs font-mono text-[#8C7A6B] uppercase tracking-wider">
+            <p class="font-semibold text-[#F2EDE4]">Academic Standing</p>
             <p>BBA • Cumulative GPA 8.0 / 10.0</p>
-            <p class="text-violet-600 font-medium">Mahatma Gandhi Scholar</p>
+            <p class="text-[#D9A441] font-medium">Mahatma Gandhi Scholar</p>
           </div>
         </div>
 
         <!-- Narrative Text (7 cols) -->
-        <div class="lg:col-span-7 space-y-6 text-charcoal-700 text-base sm:text-lg font-light leading-relaxed">
+        <div class="lg:col-span-7 space-y-6 text-[#D6CEC2] text-base sm:text-lg font-light leading-relaxed">
           <p>
-            I am a Bachelor of Business Administration (BBA) student at <strong class="font-medium text-charcoal-900">Kumaraguru College of Liberal Arts and Science</strong> in Coimbatore, motivated by an entrepreneurial, adaptable, and forward-looking perspective on modern commerce.
+            I am a Bachelor of Business Administration (BBA) student at <strong class="font-medium text-[#F2EDE4]">Kumaraguru College of Liberal Arts and Science</strong> in Coimbatore, motivated by an entrepreneurial, adaptable, and forward-looking perspective on modern commerce.
           </p>
           <p>
-            My academic foundation is enriched through practical industrial immersion: observing production operations, cash flows, and precision manufacturing at Gupta Printers, and participating in the rigorous 20-week <strong class="font-medium text-charcoal-900">PRICE ProtoSem</strong> innovation programme addressing systemic retail challenges.
+            My academic foundation is enriched through practical industrial immersion: observing production operations, cash flows, and precision manufacturing at Gupta Printers, and participating in the rigorous 20-week <strong class="font-medium text-[#D9A441]">PRICE ProtoSem</strong> innovation programme addressing systemic retail challenges.
           </p>
           <p>
             Beyond coursework, I am passionate about literary curation, team leadership, and communication excellence — having served as Joint Secretary of the Sahitya Literature Club and coordinator for public-speaking platforms like PODIUM.
@@ -846,91 +872,91 @@
       
       <!-- Section Header -->
       <div class="flex items-baseline justify-between border-b hairline-border pb-4">
-        <span class="text-[11px] font-mono tracking-widest uppercase text-sage-600 font-semibold">02 / SKILLS & DISCIPLINES</span>
-        <span class="text-xs uppercase font-mono tracking-widest text-charcoal-400">Domain Toolkit</span>
+        <span class="text-[11px] font-mono tracking-widest uppercase text-[#D9A441] font-semibold">02 / SKILLS & DISCIPLINES</span>
+        <span class="text-xs uppercase font-mono tracking-widest text-[#8C7A6B]">Domain Toolkit</span>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         
         <!-- Category A: Business & Management -->
-        <div class="interactive-card bg-white p-8 border hairline-border space-y-6 rounded-2xl shadow-sm hover:border-sage-400">
+        <div class="interactive-card bg-[#2E2C29] p-8 border hairline-border space-y-6 rounded-2xl shadow-sm hover:border-[#D9A441]/50">
           <div class="space-y-1">
-            <span class="text-[10px] font-mono text-sage-600 uppercase tracking-widest font-semibold">Track 01</span>
-            <h3 class="font-serif text-2xl text-charcoal-900 font-normal">Business & Management</h3>
+            <span class="text-[10px] font-mono text-[#D9A441] uppercase tracking-widest font-semibold">Track 01</span>
+            <h3 class="font-serif text-2xl text-[#F2EDE4] font-normal">Business & Management</h3>
           </div>
-          <div class="w-full h-px bg-ivory-300"></div>
-          <ul class="space-y-3 text-sm text-charcoal-700 font-light">
-            <li class="flex items-center justify-between py-1 border-b border-ivory-200">
+          <div class="w-full h-px bg-[#383531]"></div>
+          <ul class="space-y-3 text-sm text-[#D6CEC2] font-light">
+            <li class="flex items-center justify-between py-1 border-b border-[#383531]">
               <span>Strategic Planning</span>
-              <span class="text-sage-600 font-serif italic text-xs">Frameworks</span>
+              <span class="text-[#D9A441] font-serif italic text-xs">Frameworks</span>
             </li>
-            <li class="flex items-center justify-between py-1 border-b border-ivory-200">
+            <li class="flex items-center justify-between py-1 border-b border-[#383531]">
               <span>Organizational Coordination</span>
-              <span class="text-sage-600 font-serif italic text-xs">Logistics</span>
+              <span class="text-[#D9A441] font-serif italic text-xs">Logistics</span>
             </li>
-            <li class="flex items-center justify-between py-1 border-b border-ivory-200">
+            <li class="flex items-center justify-between py-1 border-b border-[#383531]">
               <span>Problem Solving</span>
-              <span class="text-sage-600 font-serif italic text-xs">Root Cause</span>
+              <span class="text-[#D9A441] font-serif italic text-xs">Root Cause</span>
             </li>
-            <li class="flex items-center justify-between py-1 border-b border-ivory-200">
+            <li class="flex items-center justify-between py-1 border-b border-[#383531]">
               <span>Operational Analysis</span>
-              <span class="text-sage-600 font-serif italic text-xs">Process</span>
+              <span class="text-[#D9A441] font-serif italic text-xs">Process</span>
             </li>
-            <li class="flex items-center justify-between py-1 border-b border-ivory-200">
+            <li class="flex items-center justify-between py-1 border-b border-[#383531]">
               <span>Team Leadership</span>
-              <span class="text-sage-600 font-serif italic text-xs">Facilitation</span>
+              <span class="text-[#D9A441] font-serif italic text-xs">Facilitation</span>
             </li>
             <li class="flex items-center justify-between py-1">
               <span>Event Management</span>
-              <span class="text-sage-600 font-serif italic text-xs">Execution</span>
+              <span class="text-[#D9A441] font-serif italic text-xs">Execution</span>
             </li>
           </ul>
         </div>
 
         <!-- Category B: Technical & Productivity -->
-        <div class="interactive-card bg-white p-8 border hairline-border space-y-6 rounded-2xl shadow-sm hover:border-sage-400">
+        <div class="interactive-card bg-[#2E2C29] p-8 border hairline-border space-y-6 rounded-2xl shadow-sm hover:border-[#D9A441]/50">
           <div class="space-y-1">
-            <span class="text-[10px] font-mono text-sage-600 uppercase tracking-widest font-semibold">Track 02</span>
-            <h3 class="font-serif text-2xl text-charcoal-900 font-normal">Technical & Productivity</h3>
+            <span class="text-[10px] font-mono text-[#D9A441] uppercase tracking-widest font-semibold">Track 02</span>
+            <h3 class="font-serif text-2xl text-[#F2EDE4] font-normal">Technical & Productivity</h3>
           </div>
-          <div class="w-full h-px bg-ivory-300"></div>
-          <ul class="space-y-4 text-sm text-charcoal-700 font-light">
-            <li class="py-1 border-b border-ivory-200">
-              <span class="font-medium text-charcoal-900 block">Microsoft Excel</span>
-              <span class="text-xs text-charcoal-500">Data Entry, Analysis & Financial Modeling</span>
+          <div class="w-full h-px bg-[#383531]"></div>
+          <ul class="space-y-4 text-sm text-[#D6CEC2] font-light">
+            <li class="py-1 border-b border-[#383531]">
+              <span class="font-medium text-[#F2EDE4] block">Microsoft Excel</span>
+              <span class="text-xs text-[#8C7A6B]">Data Entry, Analysis & Financial Modeling</span>
             </li>
-            <li class="py-1 border-b border-ivory-200">
-              <span class="font-medium text-charcoal-900 block">Microsoft PowerPoint</span>
-              <span class="text-xs text-charcoal-500">Executive Presentations & Pitch Decks</span>
+            <li class="py-1 border-b border-[#383531]">
+              <span class="font-medium text-[#F2EDE4] block">Microsoft PowerPoint</span>
+              <span class="text-xs text-[#8C7A6B]">Executive Presentations & Pitch Decks</span>
             </li>
             <li class="py-1">
-              <span class="font-medium text-charcoal-900 block">Microsoft Word</span>
-              <span class="text-xs text-charcoal-500">Formal Reporting & Documentation</span>
+              <span class="font-medium text-[#F2EDE4] block">Microsoft Word</span>
+              <span class="text-xs text-[#8C7A6B]">Formal Reporting & Documentation</span>
             </li>
           </ul>
         </div>
 
         <!-- Category C: Core Interests -->
-        <div class="interactive-card bg-white p-8 border hairline-border space-y-6 rounded-2xl shadow-sm hover:border-sage-400">
+        <div class="interactive-card bg-[#2E2C29] p-8 border hairline-border space-y-6 rounded-2xl shadow-sm hover:border-[#D9A441]/50">
           <div class="space-y-1">
-            <span class="text-[10px] font-mono text-sage-600 uppercase tracking-widest font-semibold">Track 03</span>
-            <h3 class="font-serif text-2xl text-charcoal-900 font-normal">Core Interests</h3>
+            <span class="text-[10px] font-mono text-[#D9A441] uppercase tracking-widest font-semibold">Track 03</span>
+            <h3 class="font-serif text-2xl text-[#F2EDE4] font-normal">Core Interests</h3>
           </div>
-          <div class="w-full h-px bg-ivory-300"></div>
+          <div class="w-full h-px bg-[#383531]"></div>
           <div class="flex flex-wrap gap-2 pt-1">
-            <span class="tag-pill px-3 py-1.5 bg-sage-50 border hairline-sage text-xs uppercase tracking-wider text-sage-700 font-medium rounded-lg">
+            <span class="tag-pill px-3 py-1.5 bg-[#242220] border hairline-border text-xs uppercase tracking-wider text-[#F2EDE4] font-medium rounded-lg">
               Marketing Strategy
             </span>
-            <span class="tag-pill px-3 py-1.5 bg-sage-50 border hairline-sage text-xs uppercase tracking-wider text-sage-700 font-medium rounded-lg">
+            <span class="tag-pill px-3 py-1.5 bg-[#242220] border hairline-border text-xs uppercase tracking-wider text-[#F2EDE4] font-medium rounded-lg">
               Retail Management
             </span>
-            <span class="tag-pill px-3 py-1.5 bg-violet-50 border border-violet-200 text-xs uppercase tracking-wider text-violet-700 font-medium rounded-lg">
+            <span class="tag-pill px-3 py-1.5 bg-[#242220] border hairline-border text-xs uppercase tracking-wider text-[#D9A441] font-medium rounded-lg">
               Digital Marketing
             </span>
-            <span class="tag-pill px-3 py-1.5 bg-ivory-200 border hairline-border text-xs uppercase tracking-wider text-charcoal-700 font-medium rounded-lg">
+            <span class="tag-pill px-3 py-1.5 bg-[#242220] border hairline-border text-xs uppercase tracking-wider text-[#D6CEC2] font-medium rounded-lg">
               Business Development
             </span>
-            <span class="tag-pill px-3 py-1.5 bg-sage-50 border hairline-sage text-xs uppercase tracking-wider text-sage-700 font-medium rounded-lg">
+            <span class="tag-pill px-3 py-1.5 bg-[#242220] border hairline-border text-xs uppercase tracking-wider text-[#F2EDE4] font-medium rounded-lg">
               Entrepreneurship
             </span>
           </div>
@@ -945,24 +971,24 @@
       
       <!-- Section Header -->
       <div class="flex items-baseline justify-between border-b hairline-border pb-4">
-        <span class="text-[11px] font-mono tracking-widest uppercase text-sage-600 font-semibold">03 / EXPERIENCE</span>
-        <span class="text-xs uppercase font-mono tracking-widest text-charcoal-400">Industrial Case Study</span>
+        <span class="text-[11px] font-mono tracking-widest uppercase text-[#D9A441] font-semibold">03 / EXPERIENCE</span>
+        <span class="text-xs uppercase font-mono tracking-widest text-[#8C7A6B]">Industrial Case Study</span>
       </div>
 
       <!-- Case Study Card -->
-      <div class="interactive-card bg-white p-8 sm:p-12 border hairline-border space-y-8 rounded-2xl shadow-sm">
+      <div class="interactive-card bg-[#2E2C29] p-8 sm:p-12 border hairline-border space-y-8 rounded-2xl shadow-sm">
         
         <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 border-b hairline-border pb-6">
           <div class="space-y-1">
-            <span class="text-xs uppercase tracking-widest font-mono text-sage-600 font-medium">Commercial Practice • On-Site</span>
-            <h3 class="font-serif text-3xl sm:text-4xl text-charcoal-900 font-normal">
+            <span class="text-xs uppercase tracking-widest font-mono text-[#D9A441] font-medium">Commercial Practice • On-Site</span>
+            <h3 class="font-serif text-3xl sm:text-4xl text-[#F2EDE4] font-normal">
               Business Operations & Finance Intern
             </h3>
-            <p class="font-serif italic text-lg text-charcoal-600">
+            <p class="font-serif italic text-lg text-[#D6CEC2]">
               Gupta Printers (Commercial Printing & Packaging)
             </p>
           </div>
-          <div class="tag-pill text-xs font-mono uppercase tracking-wider text-sage-700 bg-sage-50 px-3 py-1.5 border hairline-sage self-start sm:self-auto rounded-lg">
+          <div class="tag-pill text-xs font-mono uppercase tracking-wider text-[#D9A441] bg-[#242220] px-3 py-1.5 border border-[#D9A441]/40 self-start sm:self-auto rounded-lg">
             21-Day Intensive Program
           </div>
         </div>
@@ -970,29 +996,29 @@
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           <div class="lg:col-span-4 space-y-3">
-            <span class="text-[10px] font-mono uppercase tracking-widest text-charcoal-400 block font-semibold">Operational Context</span>
-            <p class="text-sm text-charcoal-600 font-light leading-relaxed">
+            <span class="text-[10px] font-mono uppercase tracking-widest text-[#8C7A6B] block font-semibold">Operational Context</span>
+            <p class="text-sm text-[#D6CEC2] font-light leading-relaxed">
               An immersive on-site study evaluating how physical manufacturing operations integrate with daily financial oversight, cash accounting, and commercial packaging delivery.
             </p>
           </div>
 
           <div class="lg:col-span-8 space-y-4">
-            <span class="text-[10px] font-mono uppercase tracking-widest text-charcoal-400 block font-semibold">Documented Contributions</span>
-            <ul class="space-y-4 text-sm sm:text-base text-charcoal-700 font-light leading-relaxed">
+            <span class="text-[10px] font-mono uppercase tracking-widest text-[#8C7A6B] block font-semibold">Documented Contributions</span>
+            <ul class="space-y-4 text-sm sm:text-base text-[#D6CEC2] font-light leading-relaxed">
               <li class="flex items-start gap-3">
-                <span class="font-serif italic text-sage-500 text-lg leading-none mt-1">—</span>
+                <span class="font-serif italic text-[#D9A441] text-lg leading-none mt-1">—</span>
                 <span>Gained hands-on operational exposure to end-to-end production processes, including printing machinery, precision cutting, and packaging pasting.</span>
               </li>
               <li class="flex items-start gap-3">
-                <span class="font-serif italic text-sage-500 text-lg leading-none mt-1">—</span>
+                <span class="font-serif italic text-[#D9A441] text-lg leading-none mt-1">—</span>
                 <span>Observed core financial workflows, budget estimations, invoice tracking, and routine business operation management.</span>
               </li>
               <li class="flex items-start gap-3">
-                <span class="font-serif italic text-sage-500 text-lg leading-none mt-1">—</span>
+                <span class="font-serif italic text-[#D9A441] text-lg leading-none mt-1">—</span>
                 <span>Analyzed cross-functional workflow coordination across manufacturing stages to understand quality control and waste reduction.</span>
               </li>
               <li class="flex items-start gap-3">
-                <span class="font-serif italic text-sage-500 text-lg leading-none mt-1">—</span>
+                <span class="font-serif italic text-[#D9A441] text-lg leading-none mt-1">—</span>
                 <span>Prepared structured analytical reports detailing operational observations, process bottlenecks, and key business insights.</span>
               </li>
             </ul>
@@ -1005,22 +1031,22 @@
     </section>
 
     <!-- 5. PROTOSEM — VISUAL CENTERPIECE & WINDING ROAD JOURNEY -->
-    <section id="protosem" class="reveal-on-scroll space-y-14 scroll-mt-28 p-6 sm:p-10 -mx-3 sm:-mx-6 lg:-mx-8 rounded-2xl relative" style="background: linear-gradient(180deg, rgba(235, 242, 236, 0.70) 0%, rgba(246, 240, 230, 0.50) 50%, rgba(235, 242, 236, 0.70) 100%); box-shadow: inset 0 0 0 1px rgba(189, 206, 193, 0.45), 0 8px 32px -12px rgba(95, 121, 103, 0.08);">
+    <section id="protosem" class="reveal-on-scroll space-y-14 scroll-mt-28 p-6 sm:p-10 -mx-3 sm:-mx-6 lg:-mx-8 rounded-2xl relative" style="background: linear-gradient(180deg, rgba(46, 44, 41, 0.70) 0%, rgba(34, 32, 30, 0.55) 50%, rgba(46, 44, 41, 0.70) 100%); box-shadow: inset 0 0 0 1px rgba(217, 164, 65, 0.22), 0 12px 36px -12px rgba(0, 0, 0, 0.6);">
       
       <!-- Section Header -->
       <div class="flex items-baseline justify-between border-b hairline-border pb-4">
-        <span class="text-[11px] font-mono tracking-widest uppercase text-sage-600 font-semibold flex items-center gap-2">
+        <span class="text-[11px] font-mono tracking-widest uppercase text-[#D9A441] font-semibold flex items-center gap-2">
           <span>04 / PROTOSEM ARCHIVE</span>
-          <span class="text-violet-600">• Innovation Fellowship</span>
+          <span class="text-[#8C7A6B]">• Innovation Fellowship</span>
         </span>
-        <span class="text-xs uppercase font-mono tracking-widest text-charcoal-400">20-Week Field Journal</span>
+        <span class="text-xs uppercase font-mono tracking-widest text-[#8C7A6B]">20-Week Field Journal</span>
       </div>
 
       <!-- Large Editorial Introduction -->
-      <div class="interactive-card card-static bg-white p-8 sm:p-12 lg:p-14 border hairline-border space-y-10 relative overflow-hidden rounded-2xl shadow-sm">
+      <div class="interactive-card card-static bg-[#2E2C29] p-8 sm:p-12 lg:p-14 border border-[#8C7A6B]/35 space-y-10 relative overflow-hidden rounded-2xl shadow-sm">
         
         <!-- Subtle Organic Watermark Motif -->
-        <div class="absolute -bottom-10 -right-10 w-48 h-48 pointer-events-none opacity-20 text-sage-400">
+        <div class="absolute -bottom-10 -right-10 w-48 h-48 pointer-events-none opacity-20 text-[#D9A441]">
           <svg viewBox="0 0 100 100" class="w-full h-full botanical-mark">
             <path d="M50 10 C 20 30, 20 70, 50 90 C 80 70, 80 30, 50 10 Z" />
             <path d="M50 10 L 50 90" />
@@ -1032,44 +1058,44 @@
         <!-- Introduction Heading Strip -->
         <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b hairline-border pb-8 relative z-10">
           <div class="space-y-3 max-w-2xl">
-            <span class="inline-block px-3 py-1 bg-sage-50 text-sage-700 border hairline-sage text-[10px] font-mono tracking-widest uppercase font-semibold rounded-md">
+            <span class="inline-block px-3 py-1 bg-[#242220] text-[#D9A441] border border-[#D9A441]/40 text-[10px] font-mono tracking-widest uppercase font-semibold rounded-md">
               PROTOSEM
             </span>
-            <h2 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-charcoal-900 font-normal tracking-tight">
+            <h2 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-[#F2EDE4] font-normal tracking-tight">
               PRICE ProtoSem
             </h2>
             <div class="space-y-0.5">
-              <p class="font-serif italic text-xl sm:text-2xl text-charcoal-700">
-                Role: <span class="text-charcoal-900 font-normal">Innovation Engineer Trainee</span>
+              <p class="font-serif italic text-xl sm:text-2xl text-[#D6CEC2]">
+                Role: <span class="text-[#F2EDE4] font-normal">Innovation Engineer Trainee</span>
               </p>
-              <p class="text-xs font-mono uppercase tracking-wider text-sage-600 font-medium">
+              <p class="text-xs font-mono uppercase tracking-wider text-[#D9A441] font-medium">
                 20-Week Industry-Integrated Innovation Programme
               </p>
             </div>
           </div>
 
           <!-- Chronology Pill -->
-          <div class="editorial-box card-static bg-ivory-50 p-4 border hairline-border space-y-1.5 self-start lg:self-auto min-w-[200px] rounded-xl">
-            <div class="flex items-center justify-between text-[10px] uppercase font-mono tracking-wider text-charcoal-400 font-semibold">
+          <div class="editorial-box card-static bg-[#242220] p-4 border hairline-border space-y-1.5 self-start lg:self-auto min-w-[200px] rounded-xl">
+            <div class="flex items-center justify-between text-[10px] uppercase font-mono tracking-wider text-[#8C7A6B] font-semibold">
               <span>Chronology</span>
-              <span class="text-sage-700">20 Weeks • 4 Phases</span>
+              <span class="text-[#D9A441]">20 Weeks • 4 Phases</span>
             </div>
-            <div class="flex items-center gap-1.5 font-mono text-xs text-charcoal-700">
-              <span class="font-bold text-charcoal-900">00</span>
-              <span class="text-sage-300 font-light">─</span>
+            <div class="flex items-center gap-1.5 font-mono text-xs text-[#D6CEC2]">
+              <span class="font-bold text-[#D9A441]">00</span>
+              <span class="text-[#8C7A6B] font-light">─</span>
               <span>05</span>
-              <span class="text-sage-300 font-light">─</span>
+              <span class="text-[#8C7A6B] font-light">─</span>
               <span>10</span>
-              <span class="text-sage-300 font-light">─</span>
+              <span class="text-[#8C7A6B] font-light">─</span>
               <span>15</span>
-              <span class="text-sage-300 font-light">─</span>
+              <span class="text-[#8C7A6B] font-light">─</span>
               <span>20</span>
             </div>
           </div>
         </div>
 
         <!-- Description Paragraphs -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-base text-charcoal-700 font-light leading-relaxed relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-base text-[#D6CEC2] font-light leading-relaxed relative z-10">
           <p>
             Selected for a 20-week industry-integrated innovation programme focused on solving real-world retail and commerce challenges through AI, analytics, intelligent systems, IoT, prototyping, and entrepreneurship.
           </p>
@@ -1080,23 +1106,23 @@
 
         <!-- Programme Discipline Badges -->
         <div class="space-y-3 pt-4 border-t hairline-border relative z-10">
-          <span class="text-[10px] font-mono uppercase tracking-widest text-charcoal-400 font-semibold block">
+          <span class="text-[10px] font-mono uppercase tracking-widest text-[#8C7A6B] font-semibold block">
             Programme Disciplines & Focus Areas
           </span>
           <div class="flex flex-wrap gap-2.5">
-            <span class="tag-pill px-3.5 py-1.5 bg-ivory-50 border hairline-border text-xs uppercase tracking-wider text-charcoal-800 font-medium rounded-lg">
+            <span class="tag-pill px-3.5 py-1.5 bg-[#242220] border hairline-border text-xs uppercase tracking-wider text-[#F2EDE4] font-medium rounded-lg">
               Phygital Retail & Intelligent Commerce
             </span>
-            <span class="tag-pill px-3.5 py-1.5 bg-sage-50 border hairline-sage text-xs uppercase tracking-wider text-sage-700 font-medium rounded-lg">
+            <span class="tag-pill px-3.5 py-1.5 bg-[#242220] border border-[#D9A441]/30 text-xs uppercase tracking-wider text-[#D9A441] font-medium rounded-lg">
               AI & Analytics
             </span>
-            <span class="tag-pill px-3.5 py-1.5 bg-violet-50 border border-violet-200 text-xs uppercase tracking-wider text-violet-700 font-medium rounded-lg">
+            <span class="tag-pill px-3.5 py-1.5 bg-[#242220] border hairline-border text-xs uppercase tracking-wider text-[#F2EDE4] font-medium rounded-lg">
               Intelligent Systems & IoT
             </span>
-            <span class="tag-pill px-3.5 py-1.5 bg-ivory-50 border hairline-border text-xs uppercase tracking-wider text-charcoal-800 font-medium rounded-lg">
+            <span class="tag-pill px-3.5 py-1.5 bg-[#242220] border hairline-border text-xs uppercase tracking-wider text-[#F2EDE4] font-medium rounded-lg">
               Prototyping
             </span>
-            <span class="tag-pill px-3.5 py-1.5 bg-sage-50 border hairline-sage text-xs uppercase tracking-wider text-sage-700 font-medium rounded-lg">
+            <span class="tag-pill px-3.5 py-1.5 bg-[#242220] border border-[#D9A441]/30 text-xs uppercase tracking-wider text-[#D9A441] font-medium rounded-lg">
               Entrepreneurship
             </span>
           </div>
@@ -1110,30 +1136,30 @@
         <!-- Timeline Controls & Phase Scrubbing Tabs -->
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b hairline-border pb-4">
           <div class="space-y-1">
-            <h3 class="font-serif text-2xl text-charcoal-900 font-normal flex items-center gap-2.5">
+            <h3 class="font-serif text-2xl text-[#F2EDE4] font-normal flex items-center gap-2.5">
               <span>The 20-Week Innovation Highway</span>
-              <span class="inline-block w-2 h-2 rounded-full bg-sage-500 animate-pulse"></span>
+              <span class="inline-block w-2 h-2 rounded-full bg-[#D9A441] animate-pulse"></span>
             </h3>
-            <p class="text-xs text-charcoal-500 font-light">
+            <p class="text-xs text-[#8C7A6B] font-light">
               Follow the winding path and select any milestone node to open or edit your field journal.
             </p>
           </div>
 
           <!-- Filter / Phase Selector -->
-          <div class="inline-flex p-1 bg-ivory-200 border hairline-border text-xs font-mono uppercase tracking-wider overflow-x-auto max-w-full rounded-xl" role="tablist">
-            <button onclick="filterProtoSemPhase('all', this)" class="protosem-phase-btn interactive-btn active px-3 py-1.5 text-ivory-50 bg-charcoal-900 transition-all font-medium rounded-lg" role="tab" aria-selected="true">
+          <div class="inline-flex p-1 bg-[#242220] border hairline-border text-xs font-mono uppercase tracking-wider overflow-x-auto max-w-full rounded-xl" role="tablist">
+            <button onclick="filterProtoSemPhase('all', this)" class="protosem-phase-btn interactive-btn active px-3 py-1.5 text-[#1C1B1A] bg-[#D9A441] transition-all font-semibold rounded-lg" role="tab" aria-selected="true">
               All (00–20)
             </button>
-            <button onclick="filterProtoSemPhase('1', this)" class="protosem-phase-btn interactive-btn px-3 py-1.5 text-charcoal-600 hover:text-charcoal-900 transition-all font-medium rounded-lg" role="tab" aria-selected="false">
+            <button onclick="filterProtoSemPhase('1', this)" class="protosem-phase-btn interactive-btn px-3 py-1.5 text-[#8C7A6B] hover:text-[#F2EDE4] transition-all font-medium rounded-lg" role="tab" aria-selected="false">
               Phase 01 (W1–5)
             </button>
-            <button onclick="filterProtoSemPhase('2', this)" class="protosem-phase-btn interactive-btn px-3 py-1.5 text-charcoal-600 hover:text-charcoal-900 transition-all font-medium rounded-lg" role="tab" aria-selected="false">
+            <button onclick="filterProtoSemPhase('2', this)" class="protosem-phase-btn interactive-btn px-3 py-1.5 text-[#8C7A6B] hover:text-[#F2EDE4] transition-all font-medium rounded-lg" role="tab" aria-selected="false">
               Phase 02 (W6–10)
             </button>
-            <button onclick="filterProtoSemPhase('3', this)" class="protosem-phase-btn interactive-btn px-3 py-1.5 text-charcoal-600 hover:text-charcoal-900 transition-all font-medium rounded-lg" role="tab" aria-selected="false">
+            <button onclick="filterProtoSemPhase('3', this)" class="protosem-phase-btn interactive-btn px-3 py-1.5 text-[#8C7A6B] hover:text-[#F2EDE4] transition-all font-medium rounded-lg" role="tab" aria-selected="false">
               Phase 03 (W11–15)
             </button>
-            <button onclick="filterProtoSemPhase('4', this)" class="protosem-phase-btn interactive-btn px-3 py-1.5 text-charcoal-600 hover:text-charcoal-900 transition-all font-medium rounded-lg" role="tab" aria-selected="false">
+            <button onclick="filterProtoSemPhase('4', this)" class="protosem-phase-btn interactive-btn px-3 py-1.5 text-[#8C7A6B] hover:text-[#F2EDE4] transition-all font-medium rounded-lg" role="tab" aria-selected="false">
               Phase 04 (W16–20)
             </button>
           </div>
@@ -1145,20 +1171,20 @@
           <svg id="road-svg" class="road-svg-canvas" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <filter id="road-shadow" x="-10%" y="-10%" width="120%" height="120%">
-                <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#384A3D" flood-opacity="0.08" />
+                <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000000" flood-opacity="0.4" />
               </filter>
             </defs>
             <!-- Road base border/ribbon -->
-            <path id="road-path-base" fill="none" stroke="#E2DDD5" stroke-width="26" stroke-linecap="round" stroke-linejoin="round" filter="url(#road-shadow)" />
+            <path id="road-path-base" fill="none" stroke="#282624" stroke-width="26" stroke-linecap="round" stroke-linejoin="round" filter="url(#road-shadow)" />
             <!-- Road inner surface -->
-            <path id="road-path-surface" fill="none" stroke="#FAF7F2" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" />
+            <path id="road-path-surface" fill="none" stroke="#1E1C1B" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" />
             <!-- Road static dashed centerline -->
-            <path id="road-path-center" fill="none" stroke="#ADC0B2" stroke-width="1.8" stroke-dasharray="6 8" stroke-linecap="round" />
+            <path id="road-path-center" fill="none" stroke="#8C7A6B" stroke-width="1.8" stroke-dasharray="6 8" stroke-linecap="round" />
             <!-- Road active dynamic draw-in centerline -->
-            <path id="road-path-progress" fill="none" stroke="#48604F" stroke-width="2.2" stroke-dasharray="6 8" stroke-linecap="round" />
+            <path id="road-path-progress" fill="none" stroke="#D9A441" stroke-width="2.2" stroke-dasharray="6 8" stroke-linecap="round" />
           </svg>
 
-          <!-- Milestone Cards & Phase Gateways Track (Compact 30-40% Tighter Spacing) -->
+          <!-- Milestone Cards & Phase Gateways Track -->
           <div id="road-items-track" class="relative z-10 space-y-2.5 sm:space-y-3.5">
             <!-- Dynamically populated via renderProtoSemTimelineNodes() -->
           </div>
@@ -1169,9 +1195,9 @@
     </section>
 
     <!-- Modal for Week Milestone Viewer & Direct In-Browser Field Note Editor -->
-    <div id="protosem-modal" class="fixed inset-0 z-50 bg-charcoal-900/60 backdrop-blur-sm hidden items-center justify-center p-4" aria-hidden="true">
-      <div class="modal-content-card bg-white border hairline-border max-w-2xl w-full p-6 sm:p-10 space-y-6 shadow-2xl relative max-h-[90vh] overflow-y-auto rounded-2xl">
-        <button onclick="closeProtoSemModal()" class="interactive-btn absolute top-4 right-4 p-2 text-charcoal-400 hover:text-charcoal-900 transition-colors rounded-lg" aria-label="Close dialog">
+    <div id="protosem-modal" class="fixed inset-0 z-50 bg-[#1C1B1A]/85 backdrop-blur-md hidden items-center justify-center p-4" aria-hidden="true">
+      <div class="modal-content-card bg-[#2E2C29] border border-[#8C7A6B]/35 max-w-2xl w-full p-6 sm:p-10 space-y-6 shadow-2xl relative max-h-[90vh] overflow-y-auto rounded-2xl">
+        <button onclick="closeProtoSemModal()" class="interactive-btn absolute top-4 right-4 p-2 text-[#8C7A6B] hover:text-[#D9A441] transition-colors rounded-lg" aria-label="Close dialog">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
 
@@ -1179,19 +1205,19 @@
         <div id="modal-view-mode" class="space-y-6">
           <div class="space-y-2 border-b hairline-border pb-4">
             <div class="flex items-center justify-between">
-              <span id="modal-phase-label" class="text-[10px] font-mono uppercase tracking-widest text-sage-600 font-semibold">Phase 01 • Programme Milestone</span>
-              <span id="modal-status-pill" class="text-[10px] font-mono uppercase tracking-wider px-2.5 py-0.5 border hairline-border text-charcoal-500 bg-ivory-100 rounded-md">
+              <span id="modal-phase-label" class="text-[10px] font-mono uppercase tracking-widest text-[#D9A441] font-semibold">Phase 01 • Programme Milestone</span>
+              <span id="modal-status-pill" class="text-[10px] font-mono uppercase tracking-wider px-2.5 py-0.5 border hairline-border text-[#8C7A6B] bg-[#242220] rounded-md">
                 Placeholder
               </span>
             </div>
-            <h3 id="modal-week-title" class="font-serif text-3xl sm:text-4xl text-charcoal-900 font-normal">WEEK 00</h3>
-            <p id="modal-custom-title" class="font-serif italic text-xl text-sage-700 hidden"></p>
+            <h3 id="modal-week-title" class="font-serif text-3xl sm:text-4xl text-[#F2EDE4] font-normal">WEEK 00</h3>
+            <p id="modal-custom-title" class="font-serif italic text-xl text-[#D9A441] hidden"></p>
           </div>
 
           <!-- Description / Field Notes Content Box -->
           <div class="space-y-3">
-            <span class="text-[10px] font-mono uppercase tracking-widest text-charcoal-400 font-semibold block">Field Journal Entry & Learnings</span>
-            <div id="modal-description-text" class="text-sm text-charcoal-700 font-light leading-relaxed whitespace-pre-line bg-ivory-50 p-5 border hairline-border space-y-4 rounded-xl">
+            <span class="text-[10px] font-mono uppercase tracking-widest text-[#8C7A6B] font-semibold block">Field Journal Entry & Learnings</span>
+            <div id="modal-description-text" class="text-sm text-[#D6CEC2] font-light leading-relaxed whitespace-pre-line bg-[#242220] p-5 border hairline-border space-y-4 rounded-xl">
               This chapter of the 20-week PRICE ProtoSem innovation log is being documented. Future stories, prototyping milestones, and detailed field notes will appear here once published.
             </div>
           </div>
@@ -1199,11 +1225,11 @@
           <!-- Image Gallery Container (For Week 00 and photo entries) -->
           <div id="modal-gallery-section" class="space-y-3 hidden border-t hairline-border pt-4">
             <div class="flex items-center justify-between">
-              <span class="text-[10px] font-mono uppercase tracking-widest text-sage-600 font-semibold flex items-center gap-1.5">
+              <span class="text-[10px] font-mono uppercase tracking-widest text-[#D9A441] font-semibold flex items-center gap-1.5">
                 <i data-lucide="camera" class="w-3.5 h-3.5"></i>
                 <span>Field Documentation Gallery</span>
               </span>
-              <span class="text-[10px] font-mono text-charcoal-400 italic">Click photo to enlarge</span>
+              <span class="text-[10px] font-mono text-[#8C7A6B] italic">Click photo to enlarge</span>
             </div>
             <div id="modal-gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
               <!-- Dynamically populated -->
@@ -1211,11 +1237,11 @@
           </div>
 
           <div class="flex items-center justify-between pt-3 border-t hairline-border">
-            <button onclick="switchToEditMode()" class="interactive-btn inline-flex items-center gap-2 px-4 py-2 border hairline-border hover:border-sage-600 text-xs uppercase font-mono tracking-wider font-medium text-charcoal-800 transition-colors rounded-lg">
-              <i data-lucide="edit-3" class="w-3.5 h-3.5 text-sage-600"></i>
+            <button onclick="switchToEditMode()" class="interactive-btn inline-flex items-center gap-2 px-4 py-2 border hairline-border hover:border-[#D9A441] text-xs uppercase font-mono tracking-wider font-medium text-[#F2EDE4] hover:text-[#D9A441] transition-colors rounded-lg bg-[#242220]">
+              <i data-lucide="edit-3" class="w-3.5 h-3.5 text-[#D9A441]"></i>
               <span>Edit Field Notes</span>
             </button>
-            <button onclick="closeProtoSemModal()" class="interactive-btn px-5 py-2 bg-charcoal-900 text-ivory-50 text-xs uppercase font-mono tracking-wider font-semibold hover:bg-sage-700 transition-colors rounded-lg">
+            <button onclick="closeProtoSemModal()" class="interactive-btn px-5 py-2 bg-[#D9A441] text-[#1C1B1A] text-xs uppercase font-mono tracking-wider font-semibold hover:bg-[#E5B454] transition-colors rounded-lg">
               Close Journal
             </button>
           </div>
@@ -1224,31 +1250,31 @@
         <!-- EDIT MODE -->
         <div id="modal-edit-mode" class="space-y-5 hidden">
           <div class="border-b hairline-border pb-3">
-            <span class="text-[10px] font-mono uppercase tracking-widest text-sage-600 font-semibold block mb-1">Inline Field Note Editor</span>
-            <h3 id="modal-edit-header" class="font-serif text-2xl text-charcoal-900 font-normal">Edit WEEK 00</h3>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-[#D9A441] font-semibold block mb-1">Inline Field Note Editor</span>
+            <h3 id="modal-edit-header" class="font-serif text-2xl text-[#F2EDE4] font-normal">Edit WEEK 00</h3>
           </div>
 
           <div class="space-y-4">
             <div class="space-y-1">
-              <label for="edit-note-title" class="text-xs uppercase font-mono tracking-wider text-charcoal-600 block">Weekly Focus / Title</label>
-              <input type="text" id="edit-note-title" class="w-full bg-ivory-50 border hairline-border focus:border-sage-600 px-3 py-2 text-sm text-charcoal-900 focus:outline-none transition-colors rounded-xl" placeholder="e.g. Retail Problem Identification & Discovery">
+              <label for="edit-note-title" class="text-xs uppercase font-mono tracking-wider text-[#8C7A6B] block">Weekly Focus / Title</label>
+              <input type="text" id="edit-note-title" class="w-full bg-[#242220] border hairline-border focus:border-[#D9A441] px-3 py-2 text-sm text-[#F2EDE4] focus:outline-none transition-colors rounded-xl" placeholder="e.g. Retail Problem Identification & Discovery">
             </div>
 
             <div class="space-y-1">
-              <label for="edit-note-desc" class="text-xs uppercase font-mono tracking-wider text-charcoal-600 block">Weekly Summary / Documentation</label>
-              <textarea id="edit-note-desc" rows="8" class="w-full bg-ivory-50 border hairline-border focus:border-sage-600 p-3 text-sm text-charcoal-900 font-light leading-relaxed focus:outline-none transition-colors rounded-xl" placeholder="Describe key activities, research observations, experiments, or learnings..."></textarea>
+              <label for="edit-note-desc" class="text-xs uppercase font-mono tracking-wider text-[#8C7A6B] block">Weekly Summary / Documentation</label>
+              <textarea id="edit-note-desc" rows="8" class="w-full bg-[#242220] border hairline-border focus:border-[#D9A441] p-3 text-sm text-[#F2EDE4] font-light leading-relaxed focus:outline-none transition-colors rounded-xl" placeholder="Describe key activities, research observations, experiments, or learnings..."></textarea>
             </div>
           </div>
 
           <div class="flex items-center justify-between pt-3 border-t hairline-border">
-            <button onclick="clearCurrentWeekNotes()" class="text-xs font-mono uppercase tracking-wider text-charcoal-400 hover:text-red-700 transition-colors">
+            <button onclick="clearCurrentWeekNotes()" class="text-xs font-mono uppercase tracking-wider text-[#8C7A6B] hover:text-red-400 transition-colors">
               Reset to Blank
             </button>
             <div class="flex items-center gap-3">
-              <button onclick="cancelEditMode()" class="interactive-btn px-4 py-2 border hairline-border text-xs uppercase font-mono tracking-wider font-medium text-charcoal-700 hover:text-charcoal-900 transition-colors rounded-lg">
+              <button onclick="cancelEditMode()" class="interactive-btn px-4 py-2 border hairline-border text-xs uppercase font-mono tracking-wider font-medium text-[#D6CEC2] hover:text-[#F2EDE4] transition-colors rounded-lg bg-[#242220]">
                 Cancel
               </button>
-              <button onclick="saveCurrentWeekNotes()" class="interactive-btn px-5 py-2 bg-charcoal-900 text-ivory-50 text-xs uppercase font-mono tracking-wider font-semibold hover:bg-sage-700 transition-colors rounded-lg">
+              <button onclick="saveCurrentWeekNotes()" class="interactive-btn px-5 py-2 bg-[#D9A441] text-[#1C1B1A] text-xs uppercase font-mono tracking-wider font-semibold hover:bg-[#E5B454] transition-colors rounded-lg">
                 Save Changes
               </button>
             </div>
@@ -1259,15 +1285,15 @@
     </div>
 
     <!-- Lightbox Modal for Photo Gallery Preview -->
-    <div id="image-lightbox-modal" class="fixed inset-0 z-[60] bg-charcoal-900/90 backdrop-blur-md hidden items-center justify-center p-4" onclick="closeImageLightbox()">
+    <div id="image-lightbox-modal" class="fixed inset-0 z-[60] bg-[#1C1B1A]/92 backdrop-blur-md hidden items-center justify-center p-4" onclick="closeImageLightbox()">
       <div class="lightbox-content-card relative max-w-4xl max-h-[90vh] flex flex-col items-center space-y-3" onclick="event.stopPropagation()">
-        <button onclick="closeImageLightbox()" class="interactive-btn absolute -top-10 right-0 text-ivory-100 hover:text-white p-2 text-xs font-mono uppercase tracking-widest flex items-center gap-1.5 transition-colors rounded-md">
+        <button onclick="closeImageLightbox()" class="interactive-btn absolute -top-10 right-0 text-[#8C7A6B] hover:text-[#D9A441] p-2 text-xs font-mono uppercase tracking-widest flex items-center gap-1.5 transition-colors rounded-md">
           <span>Close</span> ✕
         </button>
-        <div class="p-1 bg-white border hairline-border shadow-2xl rounded-2xl max-h-[80vh] overflow-hidden flex items-center justify-center">
+        <div class="p-1 bg-[#2E2C29] border hairline-border shadow-2xl rounded-2xl max-h-[80vh] overflow-hidden flex items-center justify-center">
           <img id="lightbox-image" src="" alt="Enlarged field photo" class="max-w-full max-h-[75vh] object-contain rounded-xl">
         </div>
-        <p id="lightbox-caption" class="text-xs font-serif italic text-ivory-200 text-center tracking-wide max-w-xl"></p>
+        <p id="lightbox-caption" class="text-xs font-serif italic text-[#D6CEC2] text-center tracking-wide max-w-xl"></p>
       </div>
     </div>
 
@@ -1276,32 +1302,32 @@
       
       <!-- Section Header -->
       <div class="flex items-baseline justify-between border-b hairline-border pb-4">
-        <span class="text-[11px] font-mono tracking-widest uppercase text-sage-600 font-semibold">05 / CERTIFICATIONS & HONORS</span>
-        <span class="text-xs uppercase font-mono tracking-widest text-charcoal-400">Merit & Immersion</span>
+        <span class="text-[11px] font-mono tracking-widest uppercase text-[#D9A441] font-semibold">05 / CERTIFICATIONS & HONORS</span>
+        <span class="text-xs uppercase font-mono tracking-widest text-[#8C7A6B]">Merit & Immersion</span>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         
         <!-- Award 1: SPJIMR -->
-        <div class="interactive-card bg-white p-8 border hairline-border space-y-4 rounded-2xl shadow-sm hover:border-sage-400">
+        <div class="interactive-card bg-[#2E2C29] p-8 border hairline-border space-y-4 rounded-2xl shadow-sm hover:border-[#D9A441]/50">
           <div class="flex items-start justify-between">
-            <span class="text-xs font-mono uppercase tracking-widest text-sage-600 font-medium">Executive Program</span>
-            <span class="text-xs font-mono uppercase tracking-widest text-charcoal-700 bg-ivory-100 px-2.5 py-0.5 border hairline-border rounded-lg">Certified</span>
+            <span class="text-xs font-mono uppercase tracking-widest text-[#D9A441] font-medium">Executive Program</span>
+            <span class="text-xs font-mono uppercase tracking-widest text-[#F2EDE4] bg-[#242220] px-2.5 py-0.5 border hairline-border rounded-lg">Certified</span>
           </div>
-          <h3 class="font-serif text-2xl text-charcoal-900 font-normal">Startup Sprint — SPJIMR</h3>
-          <p class="text-sm text-charcoal-600 font-light leading-relaxed">
+          <h3 class="font-serif text-2xl text-[#F2EDE4] font-normal">Startup Sprint — SPJIMR</h3>
+          <p class="text-sm text-[#D6CEC2] font-light leading-relaxed">
             Completed an intensive 5-day executive immersion program focused on Startups, Entrepreneurship, and Family Business Dynamics.
           </p>
         </div>
 
         <!-- Award 2: Mahatma Gandhi Scholarship -->
-        <div class="interactive-card bg-white p-8 border hairline-border space-y-4 rounded-2xl shadow-sm hover:border-sage-400">
+        <div class="interactive-card bg-[#2E2C29] p-8 border hairline-border space-y-4 rounded-2xl shadow-sm hover:border-[#D9A441]/50">
           <div class="flex items-start justify-between">
-            <span class="text-xs font-mono uppercase tracking-widest text-violet-600 font-medium">Merit Scholarship</span>
-            <span class="text-xs font-mono uppercase tracking-widest text-charcoal-700 bg-ivory-100 px-2.5 py-0.5 border hairline-border rounded-lg">Semester 1</span>
+            <span class="text-xs font-mono uppercase tracking-widest text-[#D9A441] font-medium">Merit Scholarship</span>
+            <span class="text-xs font-mono uppercase tracking-widest text-[#F2EDE4] bg-[#242220] px-2.5 py-0.5 border hairline-border rounded-lg">Semester 1</span>
           </div>
-          <h3 class="font-serif text-2xl text-charcoal-900 font-normal">Mahatma Gandhi Scholarship</h3>
-          <p class="text-sm text-charcoal-600 font-light leading-relaxed">
+          <h3 class="font-serif text-2xl text-[#F2EDE4] font-normal">Mahatma Gandhi Scholarship</h3>
+          <p class="text-sm text-[#D6CEC2] font-light leading-relaxed">
             Merit-based academic scholarship awarded in recognition of academic excellence in Semester 1 at Kumaraguru College of Liberal Arts and Science.
           </p>
         </div>
@@ -1315,27 +1341,27 @@
       
       <!-- Section Header -->
       <div class="flex items-baseline justify-between border-b hairline-border pb-4">
-        <span class="text-[11px] font-mono tracking-widest uppercase text-sage-600 font-semibold">06 / EDUCATION</span>
-        <span class="text-xs uppercase font-mono tracking-widest text-charcoal-400">Academic Background</span>
+        <span class="text-[11px] font-mono tracking-widest uppercase text-[#D9A441] font-semibold">06 / EDUCATION</span>
+        <span class="text-xs uppercase font-mono tracking-widest text-[#8C7A6B]">Academic Background</span>
       </div>
 
       <div class="space-y-6">
         
         <!-- College -->
-        <div class="interactive-card bg-white p-8 border hairline-border flex flex-col md:flex-row md:items-start justify-between gap-6 rounded-2xl shadow-sm">
+        <div class="interactive-card bg-[#2E2C29] p-8 border hairline-border flex flex-col md:flex-row md:items-start justify-between gap-6 rounded-2xl shadow-sm hover:border-[#D9A441]/50">
           <div class="space-y-2 max-w-xl">
-            <span class="text-xs font-mono uppercase tracking-widest text-sage-600 font-medium">Undergraduate Degree</span>
-            <h3 class="font-serif text-2xl text-charcoal-900 font-normal">
+            <span class="text-xs font-mono uppercase tracking-widest text-[#D9A441] font-medium">Undergraduate Degree</span>
+            <h3 class="font-serif text-2xl text-[#F2EDE4] font-normal">
               Bachelor of Business Administration (BBA)
             </h3>
-            <p class="font-serif italic text-base text-charcoal-600">
+            <p class="font-serif italic text-base text-[#D6CEC2]">
               Kumaraguru College of Liberal Arts and Science, Coimbatore, Tamil Nadu
             </p>
-            <p class="text-sm text-charcoal-600 font-light pt-1">
-              Current Cumulative GPA: <strong class="font-medium text-charcoal-900">8.0 / 10.0</strong> • Mahatma Gandhi Scholarship (Semester 1).
+            <p class="text-sm text-[#D6CEC2] font-light pt-1">
+              Current Cumulative GPA: <strong class="font-medium text-[#F2EDE4]">8.0 / 10.0</strong> • Mahatma Gandhi Scholarship (Semester 1).
             </p>
           </div>
-          <div class="text-xs font-mono uppercase tracking-wider text-charcoal-600 bg-ivory-100 px-3.5 py-1.5 border hairline-border whitespace-nowrap self-start rounded-lg">
+          <div class="text-xs font-mono uppercase tracking-wider text-[#D6CEC2] bg-[#242220] px-3.5 py-1.5 border hairline-border whitespace-nowrap self-start rounded-lg">
             2025 – 2028 (Expected)
           </div>
         </div>
@@ -1343,16 +1369,16 @@
         <!-- Schooling -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
           
-          <div class="interactive-card bg-white p-6 border hairline-border space-y-2 rounded-2xl shadow-sm">
-            <span class="text-xs font-mono uppercase tracking-widest text-charcoal-400">Higher Secondary Education</span>
-            <h4 class="font-serif text-xl text-charcoal-900 font-normal">Class XII — State Board</h4>
-            <p class="font-serif italic text-lg text-sage-700">Score: 95%</p>
+          <div class="interactive-card bg-[#2E2C29] p-6 border hairline-border space-y-2 rounded-2xl shadow-sm hover:border-[#D9A441]/50">
+            <span class="text-xs font-mono uppercase tracking-widest text-[#8C7A6B]">Higher Secondary Education</span>
+            <h4 class="font-serif text-xl text-[#F2EDE4] font-normal">Class XII — State Board</h4>
+            <p class="font-serif italic text-lg text-[#D9A441]">Score: 95%</p>
           </div>
 
-          <div class="interactive-card bg-white p-6 border hairline-border space-y-2 rounded-2xl shadow-sm">
-            <span class="text-xs font-mono uppercase tracking-widest text-charcoal-400">Secondary Education</span>
-            <h4 class="font-serif text-xl text-charcoal-900 font-normal">Class X — State Board</h4>
-            <p class="font-serif italic text-lg text-sage-700">Score: 90%</p>
+          <div class="interactive-card bg-[#2E2C29] p-6 border hairline-border space-y-2 rounded-2xl shadow-sm hover:border-[#D9A441]/50">
+            <span class="text-xs font-mono uppercase tracking-widest text-[#8C7A6B]">Secondary Education</span>
+            <h4 class="font-serif text-xl text-[#F2EDE4] font-normal">Class X — State Board</h4>
+            <p class="font-serif italic text-lg text-[#D9A441]">Score: 90%</p>
           </div>
 
         </div>
@@ -1366,44 +1392,44 @@
       
       <!-- Section Header -->
       <div class="flex items-baseline justify-between border-b hairline-border pb-4">
-        <span class="text-[11px] font-mono tracking-widest uppercase text-sage-600 font-semibold">07 / LEADERSHIP & INITIATIVES</span>
-        <span class="text-xs uppercase font-mono tracking-widest text-charcoal-400">Campus Impact</span>
+        <span class="text-[11px] font-mono tracking-widest uppercase text-[#D9A441] font-semibold">07 / LEADERSHIP & INITIATIVES</span>
+        <span class="text-xs uppercase font-mono tracking-widest text-[#8C7A6B]">Campus Impact</span>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         
         <!-- Role 1 -->
-        <div class="interactive-card bg-white p-8 border hairline-border space-y-4 rounded-2xl shadow-sm hover:border-sage-400">
-          <span class="text-xs font-mono uppercase tracking-widest text-sage-600 font-medium">Club Leadership</span>
+        <div class="interactive-card bg-[#2E2C29] p-8 border hairline-border space-y-4 rounded-2xl shadow-sm hover:border-[#D9A441]/50">
+          <span class="text-xs font-mono uppercase tracking-widest text-[#D9A441] font-medium">Club Leadership</span>
           <div class="space-y-1">
-            <h3 class="font-serif text-2xl text-charcoal-900 font-normal">Joint Secretary</h3>
-            <p class="font-serif italic text-sm text-charcoal-600">Sahitya Literature Club</p>
+            <h3 class="font-serif text-2xl text-[#F2EDE4] font-normal">Joint Secretary</h3>
+            <p class="font-serif italic text-sm text-[#D6CEC2]">Sahitya Literature Club</p>
           </div>
-          <p class="text-sm text-charcoal-600 font-light leading-relaxed">
+          <p class="text-sm text-[#D6CEC2] font-light leading-relaxed">
             Drives planning, resource allocation, and team coordination for club initiatives and literary competitions; facilitates creative student workshops.
           </p>
         </div>
 
         <!-- Role 2 -->
-        <div class="interactive-card bg-white p-8 border hairline-border space-y-4 rounded-2xl shadow-sm hover:border-sage-400">
-          <span class="text-xs font-mono uppercase tracking-widest text-sage-600 font-medium">Event Coordination</span>
+        <div class="interactive-card bg-[#2E2C29] p-8 border hairline-border space-y-4 rounded-2xl shadow-sm hover:border-[#D9A441]/50">
+          <span class="text-xs font-mono uppercase tracking-widest text-[#D9A441] font-medium">Event Coordination</span>
           <div class="space-y-1">
-            <h3 class="font-serif text-2xl text-charcoal-900 font-normal">Event Coordinator</h3>
-            <p class="font-serif italic text-sm text-charcoal-600">PODIUM • Public-Speaking Event</p>
+            <h3 class="font-serif text-2xl text-[#F2EDE4] font-normal">Event Coordinator</h3>
+            <p class="font-serif italic text-sm text-[#D6CEC2]">PODIUM • Public-Speaking Event</p>
           </div>
-          <p class="text-sm text-charcoal-600 font-light leading-relaxed">
+          <p class="text-sm text-[#D6CEC2] font-light leading-relaxed">
             Managed event logistics, participant registration, speaker scheduling, and on-ground coordination for a premier public-speaking event.
           </p>
         </div>
 
         <!-- Role 3 -->
-        <div class="interactive-card bg-white p-8 border hairline-border space-y-4 rounded-2xl shadow-sm hover:border-sage-400">
-          <span class="text-xs font-mono uppercase tracking-widest text-violet-600 font-medium">Adjudication</span>
+        <div class="interactive-card bg-[#2E2C29] p-8 border hairline-border space-y-4 rounded-2xl shadow-sm hover:border-[#D9A441]/50">
+          <span class="text-xs font-mono uppercase tracking-widest text-[#D9A441] font-medium">Adjudication</span>
           <div class="space-y-1">
-            <h3 class="font-serif text-2xl text-charcoal-900 font-normal">Judging Panel Member</h3>
-            <p class="font-serif italic text-sm text-charcoal-600">INKSPIRE • Creative Contest</p>
+            <h3 class="font-serif text-2xl text-[#F2EDE4] font-normal">Judging Panel Member</h3>
+            <p class="font-serif italic text-sm text-[#D6CEC2]">INKSPIRE • Creative Contest</p>
           </div>
-          <p class="text-sm text-charcoal-600 font-light leading-relaxed">
+          <p class="text-sm text-[#D6CEC2] font-light leading-relaxed">
             Evaluated entries across structured performance metrics, ensuring fair scoring, rubric adherence, and constructive participant feedback.
           </p>
         </div>
@@ -1417,44 +1443,44 @@
       
       <!-- Section Header -->
       <div class="flex items-baseline justify-between border-b hairline-border pb-4">
-        <span class="text-[11px] font-mono tracking-widest uppercase text-sage-600 font-semibold">08 / CONTACT & CORRESPONDENCE</span>
-        <span class="text-xs uppercase font-mono tracking-widest text-charcoal-400">Get in Touch</span>
+        <span class="text-[11px] font-mono tracking-widest uppercase text-[#D9A441] font-semibold">08 / CONTACT & CORRESPONDENCE</span>
+        <span class="text-xs uppercase font-mono tracking-widest text-[#8C7A6B]">Get in Touch</span>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         
         <!-- Direct Contact Details (5 cols) -->
         <div class="lg:col-span-5 space-y-6">
-          <h3 class="font-serif text-3xl sm:text-4xl text-charcoal-900 font-normal leading-snug">
+          <h3 class="font-serif text-3xl sm:text-4xl text-[#F2EDE4] font-normal leading-snug">
             Let’s start a conversation.
           </h3>
-          <p class="text-sm text-charcoal-600 font-light leading-relaxed">
+          <p class="text-sm text-[#D6CEC2] font-light leading-relaxed">
             Open to internship opportunities, retail innovation dialogues, and collaborative business ventures.
           </p>
 
           <div class="space-y-4 pt-2 text-sm font-light">
             <div class="space-y-1">
-              <span class="text-[10px] font-mono uppercase tracking-widest text-sage-600 font-semibold block">Electronic Mail</span>
-              <a href="mailto:mithradharshini968.7@gmail.com" class="editorial-link text-charcoal-900 font-normal">
+              <span class="text-[10px] font-mono uppercase tracking-widest text-[#D9A441] font-semibold block">Electronic Mail</span>
+              <a href="mailto:mithradharshini968.7@gmail.com" class="editorial-link text-[#F2EDE4] font-normal hover:text-[#D9A441]">
                 mithradharshini968.7@gmail.com
               </a>
             </div>
 
             <div class="space-y-1">
-              <span class="text-[10px] font-mono uppercase tracking-widest text-sage-600 font-semibold block">Professional Network</span>
-              <a href="https://www.linkedin.com/in/mithra-dharshini-r-208159378" target="_blank" rel="noopener noreferrer" class="editorial-link text-charcoal-900 font-normal">
+              <span class="text-[10px] font-mono uppercase tracking-widest text-[#D9A441] font-semibold block">Professional Network</span>
+              <a href="https://www.linkedin.com/in/mithra-dharshini-r-208159378" target="_blank" rel="noopener noreferrer" class="editorial-link text-[#F2EDE4] font-normal hover:text-[#D9A441]">
                 linkedin.com/in/mithra-dharshini-r
               </a>
             </div>
 
             <div class="space-y-1">
-              <span class="text-[10px] font-mono uppercase tracking-widest text-sage-600 font-semibold block">Location</span>
-              <p class="text-charcoal-800">Coimbatore, Tamil Nadu, India</p>
+              <span class="text-[10px] font-mono uppercase tracking-widest text-[#D9A441] font-semibold block">Location</span>
+              <p class="text-[#D6CEC2]">Coimbatore, Tamil Nadu, India</p>
             </div>
 
             <div class="pt-2">
-              <a href="resume.html" target="_blank" class="interactive-btn inline-flex items-center gap-2 text-xs font-medium uppercase font-mono tracking-wider px-5 py-3 border hairline-border hover:border-sage-600 bg-white text-charcoal-900 transition-colors rounded-xl shadow-sm">
-                <i data-lucide="download" class="w-3.5 h-3.5 text-sage-600"></i>
+              <a href="resume.html" target="_blank" class="interactive-btn inline-flex items-center gap-2 text-xs font-medium uppercase font-mono tracking-wider px-5 py-3 border hairline-border hover:border-[#D9A441] bg-[#2E2C29] text-[#F2EDE4] hover:text-[#D9A441] transition-colors rounded-xl shadow-sm">
+                <i data-lucide="download" class="w-3.5 h-3.5 text-[#D9A441]"></i>
                 <span>View ATS Resume (Print PDF)</span>
               </a>
             </div>
@@ -1462,26 +1488,26 @@
         </div>
 
         <!-- Minimal Nature-Inspired Contact Form (7 cols) -->
-        <div class="interactive-card card-static lg:col-span-7 bg-white p-8 sm:p-10 border hairline-border space-y-6 rounded-2xl shadow-sm">
-          <span class="text-[10px] font-mono uppercase tracking-widest text-sage-600 font-semibold block">Send a Note</span>
+        <div class="interactive-card card-static lg:col-span-7 bg-[#2E2C29] p-8 sm:p-10 border hairline-border space-y-6 rounded-2xl shadow-sm">
+          <span class="text-[10px] font-mono uppercase tracking-widest text-[#D9A441] font-semibold block">Send a Note</span>
           
           <form onsubmit="event.preventDefault(); alert('Thank you for reaching out, Mithra will receive your message soon!');" class="space-y-5">
             <div class="space-y-1">
-              <label for="name" class="text-xs uppercase font-mono tracking-wider text-charcoal-500 block">Your Name</label>
-              <input type="text" id="name" required class="form-input-box w-full bg-ivory-50 border hairline-border focus:border-sage-600 px-3.5 py-2.5 text-sm text-charcoal-900 focus:outline-none transition-all rounded-xl" placeholder="e.g. Jane Doe">
+              <label for="name" class="text-xs uppercase font-mono tracking-wider text-[#8C7A6B] block">Your Name</label>
+              <input type="text" id="name" required class="form-input-box w-full bg-[#242220] border hairline-border focus:border-[#D9A441] px-3.5 py-2.5 text-sm text-[#F2EDE4] placeholder-[#8C7A6B]/60 focus:outline-none transition-all rounded-xl" placeholder="e.g. Jane Doe">
             </div>
 
             <div class="space-y-1">
-              <label for="email" class="text-xs uppercase font-mono tracking-wider text-charcoal-500 block">Email Address</label>
-              <input type="email" id="email" required class="form-input-box w-full bg-ivory-50 border hairline-border focus:border-sage-600 px-3.5 py-2.5 text-sm text-charcoal-900 focus:outline-none transition-all rounded-xl" placeholder="name@company.com">
+              <label for="email" class="text-xs uppercase font-mono tracking-wider text-[#8C7A6B] block">Email Address</label>
+              <input type="email" id="email" required class="form-input-box w-full bg-[#242220] border hairline-border focus:border-[#D9A441] px-3.5 py-2.5 text-sm text-[#F2EDE4] placeholder-[#8C7A6B]/60 focus:outline-none transition-all rounded-xl" placeholder="name@company.com">
             </div>
 
             <div class="space-y-1">
-              <label for="message" class="text-xs uppercase font-mono tracking-wider text-charcoal-500 block">Message</label>
-              <textarea id="message" rows="4" required class="form-input-box w-full bg-ivory-50 border hairline-border focus:border-sage-600 p-3.5 text-sm text-charcoal-900 focus:outline-none transition-all rounded-xl" placeholder="Write your message here..."></textarea>
+              <label for="message" class="text-xs uppercase font-mono tracking-wider text-[#8C7A6B] block">Message</label>
+              <textarea id="message" rows="4" required class="form-input-box w-full bg-[#242220] border hairline-border focus:border-[#D9A441] p-3.5 text-sm text-[#F2EDE4] placeholder-[#8C7A6B]/60 focus:outline-none transition-all rounded-xl" placeholder="Write your message here..."></textarea>
             </div>
 
-            <button type="submit" class="interactive-btn w-full sm:w-auto px-8 py-3.5 bg-charcoal-900 text-ivory-50 text-xs font-semibold uppercase font-mono tracking-widest hover:bg-sage-700 transition-colors rounded-xl shadow-sm">
+            <button type="submit" class="interactive-btn w-full sm:w-auto px-8 py-3.5 bg-[#D9A441] text-[#1C1B1A] text-xs font-semibold uppercase font-mono tracking-widest hover:bg-[#E5B454] transition-colors rounded-xl shadow-sm">
               Send Message
             </button>
           </form>
@@ -1494,17 +1520,17 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="border-t hairline-border bg-ivory-200/50 py-12 mt-24">
-    <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 flex flex-col sm:flex-row items-center justify-between gap-6 text-xs text-charcoal-500 font-sans">
+  <footer class="border-t hairline-border bg-[#181716] py-12 mt-24">
+    <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 flex flex-col sm:flex-row items-center justify-between gap-6 text-xs text-[#8C7A6B] font-sans">
       <div class="flex items-center gap-3">
-        <span class="font-serif italic text-lg text-charcoal-800">Mithra Dharshini R</span>
+        <span class="font-serif italic text-lg text-[#F2EDE4]">Mithra Dharshini R</span>
         <span>•</span>
         <span>© 2026. All rights reserved.</span>
       </div>
       <div class="flex items-center space-x-6 uppercase font-mono text-[11px] tracking-wider">
-        <a href="#hero" class="editorial-link hover:text-sage-700">Back to top ↑</a>
-        <a href="resume.html" target="_blank" class="editorial-link hover:text-sage-700">ATS Resume</a>
-        <a href="https://github.com/mithradharshini" target="_blank" rel="noopener noreferrer" class="editorial-link hover:text-sage-700">GitHub</a>
+        <a href="#hero" class="editorial-link hover:text-[#D9A441]">Back to top ↑</a>
+        <a href="resume.html" target="_blank" class="editorial-link hover:text-[#D9A441]">ATS Resume</a>
+        <a href="https://github.com/mithradharshini" target="_blank" rel="noopener noreferrer" class="editorial-link hover:text-[#D9A441]">GitHub</a>
       </div>
     </div>
   </footer>
@@ -1742,7 +1768,7 @@ Week 1 brought together industry understanding, design thinking, data, technolog
       return d;
     }
 
-    // Render Winding Road Highway Journey Timeline (Compact Spacing ~35% Tighter)
+    // Render Winding Road Highway Journey Timeline (Deep Editorial Dark Aesthetic)
     function renderProtoSemTimelineNodes(filterPhase = 'all') {
       currentActiveFilter = filterPhase;
       const track = document.getElementById('road-items-track');
@@ -1761,31 +1787,31 @@ Week 1 brought together industry understanding, design thinking, data, technolog
         const phaseWeeks = protoSemWeeks.filter(w => w.phase === phaseNum);
         if (!phaseWeeks.length) return;
 
-        // Phase Gateway Milestone Banner along the road (compact margin)
+        // Phase Gateway Milestone Banner along the road (Deep Editorial Dark Card)
         html += `
           <div class="phase-gate-marker w-full flex flex-col items-center justify-center my-2.5 sm:my-3" data-phase="${phaseNum}">
-            <div class="bg-white/95 backdrop-blur-sm border hairline-border px-5 py-2.5 sm:px-6 sm:py-3 shadow-sm max-w-lg w-full flex items-center justify-between gap-4 rounded-2xl">
+            <div class="bg-[#2E2C29]/95 backdrop-blur-sm border hairline-border px-5 py-2.5 sm:px-6 sm:py-3 shadow-md max-w-lg w-full flex items-center justify-between gap-4 rounded-2xl">
               <div class="space-y-0.5">
                 <div class="flex items-center gap-2">
-                  <span class="text-[10px] font-mono uppercase tracking-widest text-sage-600 font-bold">
+                  <span class="text-[10px] font-mono uppercase tracking-widest text-[#D9A441] font-bold">
                     ${phaseNum === 0 ? 'PROLOGUE' : `PHASE 0${phaseNum}`}
                   </span>
-                  <span class="text-[9px] font-mono uppercase tracking-wider text-charcoal-400 bg-ivory-100 px-2 py-0.5 border hairline-border rounded-md">
+                  <span class="text-[9px] font-mono uppercase tracking-wider text-[#8C7A6B] bg-[#242220] px-2 py-0.5 border hairline-border rounded-md">
                     ${meta.tag}
                   </span>
                 </div>
-                <h4 class="font-serif text-lg sm:text-xl text-charcoal-900 font-normal">
+                <h4 class="font-serif text-lg sm:text-xl text-[#F2EDE4] font-normal">
                   ${meta.name}
                 </h4>
               </div>
-              <span class="hidden sm:inline-block text-xs font-serif italic text-charcoal-500 text-right max-w-[160px] leading-tight">
+              <span class="hidden sm:inline-block text-xs font-serif italic text-[#8C7A6B] text-right max-w-[160px] leading-tight">
                 ${meta.descriptor}
               </span>
             </div>
           </div>
         `;
 
-        // Milestone Week Cards along the curving path (tighter vertical flow)
+        // Milestone Week Cards along the curving path
         phaseWeeks.forEach((item, indexInPhase) => {
           const weekPadded = String(item.week).padStart(2, '0');
           const isPrologue = item.week === 0;
@@ -1804,36 +1830,36 @@ Week 1 brought together industry understanding, design thinking, data, technolog
                     tabindex="0"
                     role="button"
                     aria-label="Week ${weekPadded} Field Journal Entry"
-                    class="interactive-card group relative bg-white border ${hasContent ? 'border-sage-500 shadow-sm' : 'hairline-border'} p-4 sm:p-4.5 flex flex-col justify-between cursor-pointer focus:outline-none focus:ring-1 focus:ring-sage-600 rounded-2xl hover:shadow-md transition-all ml-12 sm:ml-14 md:ml-0"
+                    class="interactive-card group relative bg-[#2E2C29] border ${hasContent ? 'border-[#D9A441]/40 shadow-sm' : 'hairline-border'} p-4 sm:p-4.5 flex flex-col justify-between cursor-pointer focus:outline-none focus:ring-1 focus:ring-[#D9A441] rounded-2xl hover:shadow-lg transition-all ml-12 sm:ml-14 md:ml-0"
                   >
                     <!-- Milestone Header -->
                     <div class="flex items-center justify-between gap-2 border-b hairline-border pb-2 mb-2">
                       <div class="flex items-center gap-2">
-                        <span class="text-[10px] font-mono font-bold text-sage-700 bg-sage-50 border hairline-sage px-2 py-0.5 rounded-md">
+                        <span class="text-[10px] font-mono font-bold text-[#D9A441] bg-[#242220] border border-[#D9A441]/35 px-2 py-0.5 rounded-md">
                           WEEK ${weekPadded}
                         </span>
-                        <span class="text-[9px] font-mono uppercase tracking-wider text-charcoal-400">
+                        <span class="text-[9px] font-mono uppercase tracking-wider text-[#8C7A6B]">
                           ${isPrologue ? 'Orientation' : `Phase 0${item.phase}`}
                         </span>
                       </div>
-                      <span class="text-[9px] font-mono uppercase tracking-widest ${hasContent ? 'text-sage-700 font-semibold' : 'text-charcoal-400'}">
+                      <span class="text-[9px] font-mono uppercase tracking-widest ${hasContent ? 'text-[#D9A441] font-semibold' : 'text-[#8C7A6B]'}">
                         ${hasContent ? '● Documented' : '○ Pending'}
                       </span>
                     </div>
 
                     <!-- Center Note & Title -->
                     <div class="space-y-0.5 my-1">
-                      <h5 class="font-serif text-base sm:text-lg text-charcoal-900 group-hover:text-sage-700 transition-colors flex items-center justify-between">
+                      <h5 class="font-serif text-base sm:text-lg text-[#F2EDE4] group-hover:text-[#D9A441] transition-colors flex items-center justify-between">
                         <span>${isPrologue ? 'Orientation & Foundation' : (item.title ? escapeHtml(item.title) : `Week ${weekPadded} Log`)}</span>
-                        <span class="text-xs text-charcoal-400 group-hover:text-sage-600 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+                        <span class="text-xs text-[#8C7A6B] group-hover:text-[#D9A441] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
                       </h5>
-                      <p class="text-xs text-charcoal-500 font-light line-clamp-2">
+                      <p class="text-xs text-[#8C7A6B] font-light line-clamp-2">
                         ${item.description ? escapeHtml(item.description.substring(0, 105) + '...') : (isPrologue ? 'Cohort induction and roadmap kickoff.' : 'Field notes and documentation in progress.')}
                       </p>
                     </div>
 
                     <!-- Card Footer Link -->
-                    <div class="pt-2 mt-1.5 border-t border-ivory-200 flex items-center justify-between text-[9px] font-mono text-charcoal-400 group-hover:text-sage-700 uppercase tracking-wider transition-colors">
+                    <div class="pt-2 mt-1.5 border-t border-[#383531] flex items-center justify-between text-[9px] font-mono text-[#8C7A6B] group-hover:text-[#D9A441] uppercase tracking-wider transition-colors">
                       <span>${isPrologue ? 'Kickoff' : `Entry #${item.week}`}</span>
                       <span class="font-medium group-hover:underline">${hasContent ? 'Read Journal →' : 'Edit Notes →'}</span>
                     </div>
@@ -1844,7 +1870,7 @@ Week 1 brought together industry understanding, design thinking, data, technolog
               <!-- Center Road Milestone Pin Marker -->
               <div class="absolute left-2 sm:left-3 md:relative md:left-0 md:order-2 flex flex-col items-center justify-center z-20 pointer-events-none md:w-[10%]">
                 <div 
-                  class="milestone-pin-marker milestone-pin-orb w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-[11px] sm:text-xs font-mono font-bold border-2 transition-all shadow-md ${hasContent ? 'bg-sage-600 border-white text-white' : 'bg-white border-sage-400 text-charcoal-700'}"
+                  class="milestone-pin-marker milestone-pin-orb w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-[11px] sm:text-xs font-mono font-bold border-2 transition-all shadow-md ${hasContent ? 'bg-[#D9A441] border-[#F2EDE4] text-[#1C1B1A]' : 'bg-[#242220] border-[#8C7A6B] text-[#F2EDE4]'}"
                   data-pin-week="${item.week}"
                 >
                   ${isPrologue ? 'P' : weekPadded}
@@ -1860,36 +1886,36 @@ Week 1 brought together industry understanding, design thinking, data, technolog
                     tabindex="0"
                     role="button"
                     aria-label="Week ${weekPadded} Field Journal Entry"
-                    class="interactive-card group relative bg-white border ${hasContent ? 'border-sage-500 shadow-sm' : 'hairline-border'} p-4 sm:p-4.5 flex flex-col justify-between cursor-pointer focus:outline-none focus:ring-1 focus:ring-sage-600 rounded-2xl hover:shadow-md transition-all ml-12 sm:ml-14 md:ml-0"
+                    class="interactive-card group relative bg-[#2E2C29] border ${hasContent ? 'border-[#D9A441]/40 shadow-sm' : 'hairline-border'} p-4 sm:p-4.5 flex flex-col justify-between cursor-pointer focus:outline-none focus:ring-1 focus:ring-[#D9A441] rounded-2xl hover:shadow-lg transition-all ml-12 sm:ml-14 md:ml-0"
                   >
                     <!-- Milestone Header -->
                     <div class="flex items-center justify-between gap-2 border-b hairline-border pb-2 mb-2">
                       <div class="flex items-center gap-2">
-                        <span class="text-[10px] font-mono font-bold text-sage-700 bg-sage-50 border hairline-sage px-2 py-0.5 rounded-md">
+                        <span class="text-[10px] font-mono font-bold text-[#D9A441] bg-[#242220] border border-[#D9A441]/35 px-2 py-0.5 rounded-md">
                           WEEK ${weekPadded}
                         </span>
-                        <span class="text-[9px] font-mono uppercase tracking-wider text-charcoal-400">
+                        <span class="text-[9px] font-mono uppercase tracking-wider text-[#8C7A6B]">
                           ${isPrologue ? 'Orientation' : `Phase 0${item.phase}`}
                         </span>
                       </div>
-                      <span class="text-[9px] font-mono uppercase tracking-widest ${hasContent ? 'text-sage-700 font-semibold' : 'text-charcoal-400'}">
+                      <span class="text-[9px] font-mono uppercase tracking-widest ${hasContent ? 'text-[#D9A441] font-semibold' : 'text-[#8C7A6B]'}">
                         ${hasContent ? '● Documented' : '○ Pending'}
                       </span>
                     </div>
 
                     <!-- Center Note & Title -->
                     <div class="space-y-0.5 my-1">
-                      <h5 class="font-serif text-base sm:text-lg text-charcoal-900 group-hover:text-sage-700 transition-colors flex items-center justify-between">
+                      <h5 class="font-serif text-base sm:text-lg text-[#F2EDE4] group-hover:text-[#D9A441] transition-colors flex items-center justify-between">
                         <span>${isPrologue ? 'Orientation & Foundation' : (item.title ? escapeHtml(item.title) : `Week ${weekPadded} Log`)}</span>
-                        <span class="text-xs text-charcoal-400 group-hover:text-sage-600 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+                        <span class="text-xs text-[#8C7A6B] group-hover:text-[#D9A441] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
                       </h5>
-                      <p class="text-xs text-charcoal-500 font-light line-clamp-2">
+                      <p class="text-xs text-[#8C7A6B] font-light line-clamp-2">
                         ${item.description ? escapeHtml(item.description.substring(0, 105) + '...') : (isPrologue ? 'Cohort induction and roadmap kickoff.' : 'Field notes and documentation in progress.')}
                       </p>
                     </div>
 
                     <!-- Card Footer Link -->
-                    <div class="pt-2 mt-1.5 border-t border-ivory-200 flex items-center justify-between text-[9px] font-mono text-charcoal-400 group-hover:text-sage-700 uppercase tracking-wider transition-colors">
+                    <div class="pt-2 mt-1.5 border-t border-[#383531] flex items-center justify-between text-[9px] font-mono text-[#8C7A6B] group-hover:text-[#D9A441] uppercase tracking-wider transition-colors">
                       <span>${isPrologue ? 'Kickoff' : `Entry #${item.week}`}</span>
                       <span class="font-medium group-hover:underline">${hasContent ? 'Read Journal →' : 'Edit Notes →'}</span>
                     </div>
@@ -2031,14 +2057,14 @@ Week 1 brought together industry understanding, design thinking, data, technolog
     // Filter by Phase
     function filterProtoSemPhase(phase, btnElement) {
       document.querySelectorAll('.protosem-phase-btn').forEach(btn => {
-        btn.classList.remove('bg-charcoal-900', 'text-ivory-50', 'active');
-        btn.classList.add('text-charcoal-600');
+        btn.classList.remove('bg-[#D9A441]', 'text-[#1C1B1A]', 'active', 'font-semibold');
+        btn.classList.add('text-[#8C7A6B]', 'font-medium');
         btn.setAttribute('aria-selected', 'false');
       });
 
       if (btnElement) {
-        btnElement.classList.add('bg-charcoal-900', 'text-ivory-50', 'active');
-        btnElement.classList.remove('text-charcoal-600');
+        btnElement.classList.add('bg-[#D9A441]', 'text-[#1C1B1A]', 'active', 'font-semibold');
+        btnElement.classList.remove('text-[#8C7A6B]', 'font-medium');
         btnElement.setAttribute('aria-selected', 'true');
       }
 
@@ -2078,20 +2104,20 @@ Week 1 brought together industry understanding, design thinking, data, technolog
           if (colonIdx > 0 && colonIdx < 80) {
             const heading = p.substring(0, colonIdx);
             const content = p.substring(colonIdx + 1);
-            return `<div class="space-y-0.5"><strong class="font-serif italic font-semibold text-charcoal-900 text-sm block">${heading}:</strong><span class="text-charcoal-700">${content}</span></div>`;
+            return `<div class="space-y-0.5"><strong class="font-serif italic font-semibold text-[#D9A441] text-sm block">${heading}:</strong><span class="text-[#D6CEC2]">${content}</span></div>`;
           }
-          return `<p class="text-charcoal-700">${p}</p>`;
+          return `<p class="text-[#D6CEC2]">${p}</p>`;
         }).join('');
 
         descBox.innerHTML = formatted;
         statusPill.innerText = 'Documented';
-        statusPill.className = 'text-[10px] font-mono uppercase tracking-wider px-2.5 py-0.5 border border-sage-500 text-sage-700 bg-sage-50 font-semibold rounded-md';
+        statusPill.className = 'text-[10px] font-mono uppercase tracking-wider px-2.5 py-0.5 border border-[#D9A441]/50 text-[#D9A441] bg-[#242220] font-semibold rounded-md';
       } else {
         descBox.innerText = isPrologue
           ? 'Orientation, programme onboarding, and cohort induction. Document initial briefings, frameworks, or problem statement allocations here.'
           : 'This chapter of the 20-week PRICE ProtoSem innovation log is being documented. Future stories, prototyping milestones, and detailed field notes will appear here once published.';
         statusPill.innerText = 'Field Notes in Progress';
-        statusPill.className = 'text-[10px] font-mono uppercase tracking-wider px-2.5 py-0.5 border hairline-border text-charcoal-500 bg-ivory-100 rounded-md';
+        statusPill.className = 'text-[10px] font-mono uppercase tracking-wider px-2.5 py-0.5 border hairline-border text-[#8C7A6B] bg-[#242220] rounded-md';
       }
 
       // Render Image Gallery
@@ -2102,21 +2128,21 @@ Week 1 brought together industry understanding, design thinking, data, technolog
         galleryGrid.innerHTML = item.images.map((img, i) => `
           <div 
             onclick="openImageLightbox('${img.src}', '${escapeHtml(img.caption)}')" 
-            class="interactive-card group cursor-pointer bg-white border hairline-border p-2 space-y-1.5 hover:border-sage-500 transition-all rounded-xl shadow-sm"
+            class="interactive-card group cursor-pointer bg-[#242220] border hairline-border p-2 space-y-1.5 hover:border-[#D9A441] transition-all rounded-xl shadow-sm"
           >
-            <div class="aspect-[4/3] bg-ivory-200 overflow-hidden relative border hairline-border rounded-lg">
+            <div class="aspect-[4/3] bg-[#1C1B1A] overflow-hidden relative border hairline-border rounded-lg">
               <img 
                 src="${img.src}" 
                 alt="${escapeHtml(img.caption)}" 
                 loading="lazy"
-                onerror="this.onerror=null; this.src='https://placehold.co/600x400/E6ECE8/2A2927?text=Week+${weekPadded}+Photo+${i+1}';"
+                onerror="this.onerror=null; this.src='https://placehold.co/600x400/2E2C29/F2EDE4?text=Week+${weekPadded}+Photo+${i+1}';"
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               >
-              <div class="absolute inset-0 bg-charcoal-900/0 group-hover:bg-charcoal-900/10 transition-colors flex items-center justify-center">
-                <span class="opacity-0 group-hover:opacity-100 bg-white/90 px-2 py-0.5 text-[9px] font-mono uppercase tracking-wider text-charcoal-800 shadow-sm transition-opacity rounded-md">Enlarge</span>
+              <div class="absolute inset-0 bg-[#1C1B1A]/0 group-hover:bg-[#1C1B1A]/30 transition-colors flex items-center justify-center">
+                <span class="opacity-0 group-hover:opacity-100 bg-[#1C1B1A]/90 px-2 py-0.5 text-[9px] font-mono uppercase tracking-wider text-[#D9A441] shadow-sm transition-opacity rounded-md">Enlarge</span>
               </div>
             </div>
-            <p class="text-[10px] font-serif italic text-charcoal-500 line-clamp-1 group-hover:text-sage-700 transition-colors">
+            <p class="text-[10px] font-serif italic text-[#8C7A6B] line-clamp-1 group-hover:text-[#D9A441] transition-colors">
               ${img.caption}
             </p>
           </div>
@@ -2171,7 +2197,6 @@ Week 1 brought together industry understanding, design thinking, data, technolog
       }, 280);
     }
 
-    // Switch to Edit Mode in Modal
     function switchToEditMode() {
       const item = protoSemWeeks.find(w => w.week === currentEditingWeekNum) || { week: currentEditingWeekNum, title: '', description: '' };
       const weekPadded = String(currentEditingWeekNum).padStart(2, '0');
