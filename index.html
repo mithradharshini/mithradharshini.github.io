@@ -544,29 +544,29 @@
     .timeline-journey-row {
       position: relative;
       z-index: 2;
-      opacity: 0;
-      transform: translateY(32px) scale(0.96);
-      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      opacity: 1;
+      transform: none;
+      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: opacity, transform;
     }
 
     .timeline-journey-row.is-revealed {
       opacity: 1;
-      transform: translateY(0) scale(1);
+      transform: none;
     }
 
     .phase-gate-marker {
       position: relative;
       z-index: 3;
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+      opacity: 1;
+      transform: none;
+      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: opacity, transform;
     }
 
     .phase-gate-marker.is-revealed {
       opacity: 1;
-      transform: translateY(0);
+      transform: none;
     }
 
     /* Milestone Pin Pulse & Hover */
@@ -627,14 +627,14 @@
 
     /* Scroll Reveal Initial States */
     .reveal-on-scroll {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      opacity: 1;
+      transform: none;
+      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .reveal-on-scroll.is-visible {
       opacity: 1;
-      transform: translateY(0);
+      transform: none;
     }
 
     /* Botanical Accent */
@@ -689,7 +689,7 @@
           M.D.
         </span>
         <span class="hidden sm:inline-block h-3.5 w-px bg-[#C9A876]/40"></span>
-        <span class="hidden sm:inline-block text-[10px] font-mono uppercase tracking-widest text-[#C9A876] font-medium">
+        <span class="hidden sm:inline-block text-[10px] font-mono uppercase tracking-widest text-[#4A2C40] font-semibold">
           Field Journal & Archive
         </span>
       </a>
@@ -739,7 +739,7 @@
       </div>
       
       <!-- Editorial Issue Strip -->
-      <div class="flex flex-wrap items-center justify-between gap-4 pb-8 mb-12 border-b hairline-border text-[11px] uppercase font-mono tracking-widest text-[#C9A876] font-medium">
+      <div class="flex flex-wrap items-center justify-between gap-4 pb-8 mb-12 border-b hairline-border text-[11px] uppercase font-mono tracking-widest text-[#4A2C40] font-semibold">
         <span class="flex items-center gap-2">
           <!-- Botanical Line Leaf Motif -->
           <svg class="w-4 h-4 botanical-mark inline-block" viewBox="0 0 24 24">
@@ -765,7 +765,7 @@
               Mithra Dharshini R
             </h1>
             <!-- Typewriter Subtitle -->
-            <p id="hero-tagline" class="font-serif italic text-2xl sm:text-3xl text-[#5C4E58] font-normal leading-snug min-h-[2.25rem] flex items-center flex-wrap" aria-label="BBA Student | Marketing, Retail & Digital Strategy Enthusiast">
+            <p id="hero-tagline" class="font-serif italic text-2xl sm:text-3xl text-[#4A2C40] font-normal leading-snug min-h-[2.25rem] flex items-center flex-wrap" aria-label="BBA Student | Marketing, Retail & Digital Strategy Enthusiast">
               <span id="typewriter-text"></span><span id="typewriter-cursor" class="typewriter-cursor">|</span>
             </p>
           </div>
@@ -833,7 +833,7 @@
       <!-- Section Header -->
       <div class="flex items-baseline justify-between border-b hairline-border pb-4">
         <span class="text-[11px] font-mono tracking-widest uppercase text-[#4A2C40] font-semibold">01 / ABOUT</span>
-        <span class="text-xs uppercase font-mono tracking-widest text-[#C9A876]">Philosophy & Direction</span>
+        <span class="text-xs uppercase font-mono tracking-widest text-[#4A2C40] font-semibold">Philosophy & Direction</span>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
@@ -874,7 +874,7 @@
       <!-- Section Header -->
       <div class="flex items-baseline justify-between border-b hairline-border pb-4">
         <span class="text-[11px] font-mono tracking-widest uppercase text-[#4A2C40] font-semibold">02 / SKILLS & DISCIPLINES</span>
-        <span class="text-xs uppercase font-mono tracking-widest text-[#C9A876]">Domain Toolkit</span>
+        <span class="text-xs uppercase font-mono tracking-widest text-[#4A2C40] font-semibold">Domain Toolkit</span>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -973,7 +973,7 @@
       <!-- Section Header -->
       <div class="flex items-baseline justify-between border-b hairline-border pb-4">
         <span class="text-[11px] font-mono tracking-widest uppercase text-[#4A2C40] font-semibold">03 / EXPERIENCE</span>
-        <span class="text-xs uppercase font-mono tracking-widest text-[#C9A876]">Industrial Case Study</span>
+        <span class="text-xs uppercase font-mono tracking-widest text-[#4A2C40] font-semibold">Industrial Case Study</span>
       </div>
 
       <!-- Case Study Card -->
@@ -997,14 +997,14 @@
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           <div class="lg:col-span-4 space-y-3">
-            <span class="text-[10px] font-mono uppercase tracking-widest text-[#C9A876] block font-semibold">Operational Context</span>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-[#4A2C40] block font-semibold">Operational Context</span>
             <p class="text-sm text-[#241D22] font-light leading-relaxed">
               An immersive on-site study evaluating how physical manufacturing operations integrate with daily financial oversight, cash accounting, and commercial packaging delivery.
             </p>
           </div>
 
           <div class="lg:col-span-8 space-y-4">
-            <span class="text-[10px] font-mono uppercase tracking-widest text-[#C9A876] block font-semibold">Documented Contributions</span>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-[#4A2C40] block font-semibold">Documented Contributions</span>
             <ul class="space-y-4 text-sm sm:text-base text-[#241D22] font-light leading-relaxed">
               <li class="flex items-start gap-3">
                 <span class="font-serif italic text-[#4A2C40] text-lg leading-none mt-1">—</span>
@@ -1038,9 +1038,9 @@
       <div class="flex items-baseline justify-between border-b hairline-border pb-4">
         <span class="text-[11px] font-mono tracking-widest uppercase text-[#4A2C40] font-semibold flex items-center gap-2">
           <span>04 / PROTOSEM ARCHIVE</span>
-          <span class="text-[#C9A876]">• Innovation Fellowship</span>
+          <span class="text-[#4A2C40] font-semibold">• Innovation Fellowship</span>
         </span>
-        <span class="text-xs uppercase font-mono tracking-widest text-[#C9A876]">20-Week Field Journal</span>
+        <span class="text-xs uppercase font-mono tracking-widest text-[#4A2C40] font-semibold">20-Week Field Journal</span>
       </div>
 
       <!-- Large Editorial Introduction -->
@@ -1077,19 +1077,19 @@
 
           <!-- Chronology Pill -->
           <div class="editorial-box card-static bg-[#FAF6F5] p-4 border hairline-border space-y-1.5 self-start lg:self-auto min-w-[200px] rounded-xl">
-            <div class="flex items-center justify-between text-[10px] uppercase font-mono tracking-wider text-[#C9A876] font-semibold">
+            <div class="flex items-center justify-between text-[10px] uppercase font-mono tracking-wider text-[#4A2C40] font-semibold">
               <span>Chronology</span>
               <span class="text-[#4A2C40]">20 Weeks • 4 Phases</span>
             </div>
             <div class="flex items-center gap-1.5 font-mono text-xs text-[#241D22]">
               <span class="font-bold text-[#4A2C40]">00</span>
-              <span class="text-[#C9A876] font-light">─</span>
+              <span class="text-[#4A2C40] font-medium">─</span>
               <span>05</span>
-              <span class="text-[#C9A876] font-light">─</span>
+              <span class="text-[#4A2C40] font-medium">─</span>
               <span>10</span>
-              <span class="text-[#C9A876] font-light">─</span>
+              <span class="text-[#4A2C40] font-medium">─</span>
               <span>15</span>
-              <span class="text-[#C9A876] font-light">─</span>
+              <span class="text-[#4A2C40] font-medium">─</span>
               <span>20</span>
             </div>
           </div>
@@ -1107,7 +1107,7 @@
 
         <!-- Programme Discipline Badges -->
         <div class="space-y-3 pt-4 border-t hairline-border relative z-10">
-          <span class="text-[10px] font-mono uppercase tracking-widest text-[#C9A876] font-semibold block">
+          <span class="text-[10px] font-mono uppercase tracking-widest text-[#4A2C40] font-semibold block">
             Programme Disciplines & Focus Areas
           </span>
           <div class="flex flex-wrap gap-2.5">
@@ -1217,7 +1217,7 @@
 
           <!-- Description / Field Notes Content Box -->
           <div class="space-y-3">
-            <span class="text-[10px] font-mono uppercase tracking-widest text-[#C9A876] font-semibold block">Field Journal Entry & Learnings</span>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-[#4A2C40] font-semibold block">Field Journal Entry & Learnings</span>
             <div id="modal-description-text" class="text-sm text-[#241D22] font-light leading-relaxed whitespace-pre-line bg-white p-5 border hairline-border space-y-4 rounded-xl">
               This chapter of the 20-week PRICE ProtoSem innovation log is being documented. Future stories, prototyping milestones, and detailed field notes will appear here once published.
             </div>
@@ -1230,7 +1230,7 @@
                 <i data-lucide="camera" class="w-3.5 h-3.5"></i>
                 <span>Field Documentation Gallery</span>
               </span>
-              <span class="text-[10px] font-mono text-[#C9A876] italic">Click photo to enlarge</span>
+              <span class="text-[10px] font-mono text-[#5C4E58] italic font-medium">Click photo to enlarge</span>
             </div>
             <div id="modal-gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
               <!-- Dynamically populated -->
@@ -1304,7 +1304,7 @@
       <!-- Section Header -->
       <div class="flex items-baseline justify-between border-b hairline-border pb-4">
         <span class="text-[11px] font-mono tracking-widest uppercase text-[#4A2C40] font-semibold">05 / CERTIFICATIONS & HONORS</span>
-        <span class="text-xs uppercase font-mono tracking-widest text-[#C9A876]">Merit & Immersion</span>
+        <span class="text-xs uppercase font-mono tracking-widest text-[#4A2C40] font-semibold">Merit & Immersion</span>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -1343,7 +1343,7 @@
       <!-- Section Header -->
       <div class="flex items-baseline justify-between border-b hairline-border pb-4">
         <span class="text-[11px] font-mono tracking-widest uppercase text-[#4A2C40] font-semibold">06 / EDUCATION</span>
-        <span class="text-xs uppercase font-mono tracking-widest text-[#C9A876]">Academic Background</span>
+        <span class="text-xs uppercase font-mono tracking-widest text-[#4A2C40] font-semibold">Academic Background</span>
       </div>
 
       <div class="space-y-6">
@@ -1371,13 +1371,13 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
           
           <div class="interactive-card bg-white p-6 border hairline-border space-y-2 rounded-2xl shadow-sm hover:border-[#4A2C40]/50">
-            <span class="text-xs font-mono uppercase tracking-widest text-[#C9A876]">Higher Secondary Education</span>
+            <span class="text-xs font-mono uppercase tracking-widest text-[#4A2C40] font-semibold">Higher Secondary Education</span>
             <h4 class="font-serif text-xl text-[#241D22] font-normal">Class XII — State Board</h4>
             <p class="font-serif italic text-lg text-[#4A2C40] font-medium">Score: 95%</p>
           </div>
 
           <div class="interactive-card bg-white p-6 border hairline-border space-y-2 rounded-2xl shadow-sm hover:border-[#4A2C40]/50">
-            <span class="text-xs font-mono uppercase tracking-widest text-[#C9A876]">Secondary Education</span>
+            <span class="text-xs font-mono uppercase tracking-widest text-[#4A2C40] font-semibold">Secondary Education</span>
             <h4 class="font-serif text-xl text-[#241D22] font-normal">Class X — State Board</h4>
             <p class="font-serif italic text-lg text-[#4A2C40] font-medium">Score: 90%</p>
           </div>
@@ -1394,7 +1394,7 @@
       <!-- Section Header -->
       <div class="flex items-baseline justify-between border-b hairline-border pb-4">
         <span class="text-[11px] font-mono tracking-widest uppercase text-[#4A2C40] font-semibold">07 / LEADERSHIP & INITIATIVES</span>
-        <span class="text-xs uppercase font-mono tracking-widest text-[#C9A876]">Campus Impact</span>
+        <span class="text-xs uppercase font-mono tracking-widest text-[#4A2C40] font-semibold">Campus Impact</span>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -1445,7 +1445,7 @@
       <!-- Section Header -->
       <div class="flex items-baseline justify-between border-b hairline-border pb-4">
         <span class="text-[11px] font-mono tracking-widest uppercase text-[#4A2C40] font-semibold">08 / CONTACT & CORRESPONDENCE</span>
-        <span class="text-xs uppercase font-mono tracking-widest text-[#C9A876]">Get in Touch</span>
+        <span class="text-xs uppercase font-mono tracking-widest text-[#4A2C40] font-semibold">Get in Touch</span>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
@@ -1495,17 +1495,17 @@
           <form onsubmit="event.preventDefault(); alert('Thank you for reaching out, Mithra will receive your message soon!');" class="space-y-5">
             <div class="space-y-1">
               <label for="name" class="text-xs uppercase font-mono tracking-wider text-[#5C4E58] block">Your Name</label>
-              <input type="text" id="name" required class="form-input-box w-full bg-[#FAF6F5] border hairline-border focus:border-[#4A2C40] px-3.5 py-2.5 text-sm text-[#241D22] placeholder-[#C9A876]/70 focus:outline-none transition-all rounded-xl" placeholder="e.g. Jane Doe">
+              <input type="text" id="name" required class="form-input-box w-full bg-[#FAF6F5] border hairline-border focus:border-[#4A2C40] px-3.5 py-2.5 text-sm text-[#241D22] placeholder-[#4A2C40]/60 focus:outline-none transition-all rounded-xl" placeholder="e.g. Jane Doe">
             </div>
 
             <div class="space-y-1">
               <label for="email" class="text-xs uppercase font-mono tracking-wider text-[#5C4E58] block">Email Address</label>
-              <input type="email" id="email" required class="form-input-box w-full bg-[#FAF6F5] border hairline-border focus:border-[#4A2C40] px-3.5 py-2.5 text-sm text-[#241D22] placeholder-[#C9A876]/70 focus:outline-none transition-all rounded-xl" placeholder="name@company.com">
+              <input type="email" id="email" required class="form-input-box w-full bg-[#FAF6F5] border hairline-border focus:border-[#4A2C40] px-3.5 py-2.5 text-sm text-[#241D22] placeholder-[#4A2C40]/60 focus:outline-none transition-all rounded-xl" placeholder="name@company.com">
             </div>
 
             <div class="space-y-1">
               <label for="message" class="text-xs uppercase font-mono tracking-wider text-[#5C4E58] block">Message</label>
-              <textarea id="message" rows="4" required class="form-input-box w-full bg-[#FAF6F5] border hairline-border focus:border-[#4A2C40] p-3.5 text-sm text-[#241D22] placeholder-[#C9A876]/70 focus:outline-none transition-all rounded-xl" placeholder="Write your message here..."></textarea>
+              <textarea id="message" rows="4" required class="form-input-box w-full bg-[#FAF6F5] border hairline-border focus:border-[#4A2C40] p-3.5 text-sm text-[#241D22] placeholder-[#4A2C40]/60 focus:outline-none transition-all rounded-xl" placeholder="Write your message here..."></textarea>
             </div>
 
             <button type="submit" class="interactive-btn w-full sm:w-auto px-8 py-3.5 bg-[#4A2C40] text-[#F7F2F0] text-xs font-semibold uppercase font-mono tracking-widest hover:bg-[#5D3851] transition-colors rounded-xl shadow-sm">
@@ -1797,7 +1797,7 @@ Week 1 brought together industry understanding, design thinking, data, technolog
                   <span class="text-[10px] font-mono uppercase tracking-widest text-[#4A2C40] font-bold">
                     ${phaseNum === 0 ? 'PROLOGUE' : `PHASE 0${phaseNum}`}
                   </span>
-                  <span class="text-[9px] font-mono uppercase tracking-wider text-[#C9A876] bg-[#FAF6F5] px-2 py-0.5 border hairline-border rounded-md font-semibold">
+                  <span class="text-[9px] font-mono uppercase tracking-wider text-[#4A2C40] bg-[#FAF6F5] px-2 py-0.5 border hairline-border rounded-md font-semibold">
                     ${meta.tag}
                   </span>
                 </div>
@@ -1839,11 +1839,11 @@ Week 1 brought together industry understanding, design thinking, data, technolog
                         <span class="text-[10px] font-mono font-bold text-[#4A2C40] bg-[#FAF6F5] border border-[#C9A876]/60 px-2 py-0.5 rounded-md">
                           WEEK ${weekPadded}
                         </span>
-                        <span class="text-[9px] font-mono uppercase tracking-wider text-[#5C4E58]">
+                        <span class="text-[9px] font-mono uppercase tracking-wider text-[#4A2C40] font-semibold">
                           ${isPrologue ? 'Orientation' : `Phase 0${item.phase}`}
                         </span>
                       </div>
-                      <span class="text-[9px] font-mono uppercase tracking-widest ${hasContent ? 'text-[#4A2C40] font-semibold' : 'text-[#C9A876]'}">
+                      <span class="text-[9px] font-mono uppercase tracking-widest text-[#4A2C40] font-semibold">
                         ${hasContent ? '● Documented' : '○ Pending'}
                       </span>
                     </div>
@@ -1852,15 +1852,15 @@ Week 1 brought together industry understanding, design thinking, data, technolog
                     <div class="space-y-0.5 my-1">
                       <h5 class="font-serif text-base sm:text-lg text-[#241D22] group-hover:text-[#4A2C40] transition-colors flex items-center justify-between">
                         <span>${isPrologue ? 'Orientation & Foundation' : (item.title ? escapeHtml(item.title) : `Week ${weekPadded} Log`)}</span>
-                        <span class="text-xs text-[#C9A876] group-hover:text-[#4A2C40] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+                        <span class="text-xs text-[#4A2C40] group-hover:text-[#4A2C40] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
                       </h5>
-                      <p class="text-xs text-[#5C4E58] font-light line-clamp-2">
+                      <p class="text-xs text-[#241D22] font-light line-clamp-2">
                         ${item.description ? escapeHtml(item.description.substring(0, 105) + '...') : (isPrologue ? 'Cohort induction and roadmap kickoff.' : 'Field notes and documentation in progress.')}
                       </p>
                     </div>
 
                     <!-- Card Footer Link -->
-                    <div class="pt-2 mt-1.5 border-t border-[#FAF6F5] flex items-center justify-between text-[9px] font-mono text-[#C9A876] group-hover:text-[#4A2C40] uppercase tracking-wider transition-colors">
+                    <div class="pt-2 mt-1.5 border-t border-[#FAF6F5] flex items-center justify-between text-[9px] font-mono text-[#4A2C40] group-hover:text-[#4A2C40] uppercase tracking-wider transition-colors font-medium">
                       <span>${isPrologue ? 'Kickoff' : `Entry #${item.week}`}</span>
                       <span class="font-medium group-hover:underline">${hasContent ? 'Read Journal →' : 'Edit Notes →'}</span>
                     </div>
@@ -1895,11 +1895,11 @@ Week 1 brought together industry understanding, design thinking, data, technolog
                         <span class="text-[10px] font-mono font-bold text-[#4A2C40] bg-[#FAF6F5] border border-[#C9A876]/60 px-2 py-0.5 rounded-md">
                           WEEK ${weekPadded}
                         </span>
-                        <span class="text-[9px] font-mono uppercase tracking-wider text-[#5C4E58]">
+                        <span class="text-[9px] font-mono uppercase tracking-wider text-[#4A2C40] font-semibold">
                           ${isPrologue ? 'Orientation' : `Phase 0${item.phase}`}
                         </span>
                       </div>
-                      <span class="text-[9px] font-mono uppercase tracking-widest ${hasContent ? 'text-[#4A2C40] font-semibold' : 'text-[#C9A876]'}">
+                      <span class="text-[9px] font-mono uppercase tracking-widest text-[#4A2C40] font-semibold">
                         ${hasContent ? '● Documented' : '○ Pending'}
                       </span>
                     </div>
@@ -1908,15 +1908,15 @@ Week 1 brought together industry understanding, design thinking, data, technolog
                     <div class="space-y-0.5 my-1">
                       <h5 class="font-serif text-base sm:text-lg text-[#241D22] group-hover:text-[#4A2C40] transition-colors flex items-center justify-between">
                         <span>${isPrologue ? 'Orientation & Foundation' : (item.title ? escapeHtml(item.title) : `Week ${weekPadded} Log`)}</span>
-                        <span class="text-xs text-[#C9A876] group-hover:text-[#4A2C40] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+                        <span class="text-xs text-[#4A2C40] group-hover:text-[#4A2C40] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
                       </h5>
-                      <p class="text-xs text-[#5C4E58] font-light line-clamp-2">
+                      <p class="text-xs text-[#241D22] font-light line-clamp-2">
                         ${item.description ? escapeHtml(item.description.substring(0, 105) + '...') : (isPrologue ? 'Cohort induction and roadmap kickoff.' : 'Field notes and documentation in progress.')}
                       </p>
                     </div>
 
                     <!-- Card Footer Link -->
-                    <div class="pt-2 mt-1.5 border-t border-[#FAF6F5] flex items-center justify-between text-[9px] font-mono text-[#C9A876] group-hover:text-[#4A2C40] uppercase tracking-wider transition-colors">
+                    <div class="pt-2 mt-1.5 border-t border-[#FAF6F5] flex items-center justify-between text-[9px] font-mono text-[#4A2C40] group-hover:text-[#4A2C40] uppercase tracking-wider transition-colors font-medium">
                       <span>${isPrologue ? 'Kickoff' : `Entry #${item.week}`}</span>
                       <span class="font-medium group-hover:underline">${hasContent ? 'Read Journal →' : 'Edit Notes →'}</span>
                     </div>
@@ -2118,7 +2118,7 @@ Week 1 brought together industry understanding, design thinking, data, technolog
           ? 'Orientation, programme onboarding, and cohort induction. Document initial briefings, frameworks, or problem statement allocations here.'
           : 'This chapter of the 20-week PRICE ProtoSem innovation log is being documented. Future stories, prototyping milestones, and detailed field notes will appear here once published.';
         statusPill.innerText = 'Field Notes in Progress';
-        statusPill.className = 'text-[10px] font-mono uppercase tracking-wider px-2.5 py-0.5 border hairline-border text-[#C9A876] bg-white rounded-md';
+        statusPill.className = 'text-[10px] font-mono uppercase tracking-wider px-2.5 py-0.5 border hairline-border text-[#4A2C40] bg-white font-medium rounded-md';
       }
 
       // Render Image Gallery
@@ -2278,6 +2278,7 @@ Week 1 brought together industry understanding, design thinking, data, technolog
 
     // On DOMContentLoaded: Init data, magnetic nav, road timeline & hero typewriter
     window.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.reveal-on-scroll').forEach(el => el.classList.add('is-visible'));
       loadProtoSemData();
       renderProtoSemTimelineNodes('all');
       initMagneticNav();
