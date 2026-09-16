@@ -1,0 +1,48 @@
+[
+  { 
+    "week": 0, 
+    "phase": 0, 
+    "slug": "week-00", 
+    "title": "Orientation & Foundation", 
+    "description": "Week 0 served as the orientation and foundation phase of PRICE ProtoSem, introducing participants to the programme structure and to one another before the 20-week retail problem-solving journey began.\n\nDay 1: The week opened with introductions - to fellow participants, the programme itself, and what would be expected over the coming weeks. This was followed by icebreaker activities designed to help everyone get comfortable with the group.\n\nDay 2: Sessions covered building a professional presence on LinkedIn, a self-understanding exercise through the 16Personalities assessment, and short story presentations that encouraged creativity and communication.\n\nDay 3: Story presentations continued, alongside an ITEC TechTalk. The day also included team-based activities - Imposter, Challenge, and Marshmello - aimed at building interaction, collaboration, and problem-solving skills.\n\nDay 4: Featured a TechTalk on the Art of Prompting, an orientation covering the programme roadmap and what lay ahead, an introduction to the leaderboard system, and the official inauguration of ProtoSem.\n\nBeta Teams: For Week 0, participants were grouped into temporary \"Beta Teams.\" Working with a different set of people gave everyone a chance to interact, collaborate, and experience teamwork before permanent team structures were set.\n\nFriday - Entrepreneurship Day: The morning featured a session led by an industry expert, followed by an afternoon reflection session where participants reviewed the week's activities and takeaways.\n\nOverall, Week 0 functioned as a foundation-building week - helping participants connect with each other, understand the programme, explore different skills, and prepare for the real-world retail challenges ahead.",
+    "images": [
+      { "src": "assets/protosem/week-00/photo-1.jpg", "caption": "Cohort Induction & Team Meet at Dr. Mahalingam Vigyan Bhavan" },
+      { "src": "assets/protosem/week-00/photo-2.jpg", "caption": "Story Presentation - Sylvia Plath: The Fig Tree (Bell Jar)" },
+      { "src": "assets/protosem/week-00/photo-3.jpg", "caption": "Self-Understanding - 16Personalities: Advocate (INFJ-A)" }
+    ],
+    "status": "documented" 
+  },
+  { 
+    "week": 1, 
+    "phase": 1, 
+    "slug": "week-01", 
+    "title": "From Understanding the Industry to Understanding How to Think About It", 
+    "description": "Day 1 - Looking at the industry differently:\nWe explored Instagram's recommendation algorithm and a Design Thinking activity that encouraged us to approach problems from different perspectives. We also studied the evolution of a retail sector, with our team choosing the mobile sector for further exploration.\n\nDay 2 - Understanding the sector:\nWe learned to create a Power BI dashboard and explored why our chosen sector matters. We then analysed the mobile retail sector through its value chain and SWOT analysis.\n\nDay 3 - A pause to process:\nA break from the structured sessions gave us time to reflect and build on what we had explored so far.\n\nDay 4 - Behaviour, technology and professional presence:\nWe were introduced to Prospect Theory and explored digital portfolios using Antigravity, GitHub, and Vercel, connecting technology with our professional identity.\n\nDay 5 - Exploring AI and new industries:\nWe explored Base44 as an AI app-building tool and discussed the importance of goals and vision. We also gained exposure to the agriculture and textile sectors, broadening our perspective beyond mobile retail.\n\nWeek 1 Takeaway:\nWeek 1 brought together industry understanding, design thinking, data, technology, and decision-making - helping us see that understanding the problem comes before building the solution.",
+    "images": [
+      { "src": "assets/protosem/week-01/photo-1.jpg", "caption": "Design Thinking in Action - Team Presentation" },
+      { "src": "assets/protosem/week-01/photo-2.jpg", "caption": "Evolution of Mobile Phones - Network Generations (1G to 5G)" },
+      { "src": "assets/protosem/week-01/photo-3.jpg", "caption": "Sector Exploration & Presentation - Mobile Retail" },
+      { "src": "assets/protosem/week-01/photo-4.jpg", "caption": "India's Mobile Sector - Value Chain & Key Players" }
+    ],
+    "status": "documented" 
+  },
+  { "week": 2, "phase": 1, "slug": "week-02", "title": "", "description": "", "status": "placeholder" },
+  { "week": 3, "phase": 1, "slug": "week-03", "title": "", "description": "", "status": "placeholder" },
+  { "week": 4, "phase": 1, "slug": "week-04", "title": "", "description": "", "status": "placeholder" },
+  { "week": 5, "phase": 1, "slug": "week-05", "title": "", "description": "", "status": "placeholder" },
+  { "week": 6, "phase": 2, "slug": "week-06", "title": "", "description": "", "status": "placeholder" },
+  { "week": 7, "phase": 2, "slug": "week-07", "title": "", "description": "", "status": "placeholder" },
+  { "week": 8, "phase": 2, "slug": "week-08", "title": "", "description": "", "status": "placeholder" },
+  { "week": 9, "phase": 2, "slug": "week-09", "title": "", "description": "", "status": "placeholder" },
+  { "week": 10, "phase": 2, "slug": "week-10", "title": "", "description": "", "status": "placeholder" },
+  { "week": 11, "phase": 3, "slug": "week-11", "title": "", "description": "", "status": "placeholder" },
+  { "week": 12, "phase": 3, "slug": "week-12", "title": "", "description": "", "status": "placeholder" },
+  { "week": 13, "phase": 3, "slug": "week-13", "title": "", "description": "", "status": "placeholder" },
+  { "week": 14, "phase": 3, "slug": "week-14", "title": "", "description": "", "status": "placeholder" },
+  { "week": 15, "phase": 3, "slug": "week-15", "title": "", "description": "", "status": "placeholder" },
+  { "week": 16, "phase": 4, "slug": "week-16", "title": "", "description": "", "status": "placeholder" },
+  { "week": 17, "phase": 4, "slug": "week-17", "title": "", "description": "", "status": "placeholder" },
+  { "week": 18, "phase": 4, "slug": "week-18", "title": "", "description": "", "status": "placeholder" },
+  { "week": 19, "phase": 4, "slug": "week-19", "title": "", "description": "", "status": "placeholder" },
+  { "week": 20, "phase": 4, "slug": "week-20", "title": "", "description": "", "status": "placeholder" }
+]
