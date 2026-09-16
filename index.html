@@ -1556,7 +1556,7 @@
         phaseWeeks.forEach((item, indexInPhase) => {
           const weekPadded = String(item.week).padStart(2, '0');
           const isPrologue = item.week === 0;
-          const hasContent = (item.title && item.title.trim().length > 0) || (item.description && item.description.trim().length > 0);
+          const hasContent = (item.title && item.title.trim().length > 0) || (item.detailed_text && item.detailed_text.trim().length > 0);
           const isLeft = item.week % 2 === 0;
 
           html += `
@@ -1591,12 +1591,9 @@
                     <!-- Center Note & Title -->
                     <div class="space-y-0.5 my-1">
                       <h5 class="font-serif text-base sm:text-lg text-ink group-hover:text-accent-lavender transition-colors flex items-center justify-between">
-                        <span>${isPrologue ? 'Orientation & Foundation' : (item.title ? escapeHtml(item.title) : `Week ${weekPadded} Log`)}</span>
+                        <span>${isPrologue ? 'Orientation & Foundation' : (item.title ? escapeHtml(item.title) : `Week ${weekPadded}`)}</span>
                         <span class="text-xs text-accent-lavender group-hover:text-accent-lavender transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
                       </h5>
-                      <p class="text-xs text-muted font-light line-clamp-2">
-                        ${item.description ? escapeHtml(item.description.substring(0, 105) + '...') : (isPrologue ? 'Cohort induction and roadmap kickoff.' : 'Field notes and documentation in progress.')}
-                      </p>
                     </div>
 
                     <!-- Card Footer Link -->
@@ -1647,12 +1644,9 @@
                     <!-- Center Note & Title -->
                     <div class="space-y-0.5 my-1">
                       <h5 class="font-serif text-base sm:text-lg text-ink group-hover:text-accent-lavender transition-colors flex items-center justify-between">
-                        <span>${isPrologue ? 'Orientation & Foundation' : (item.title ? escapeHtml(item.title) : `Week ${weekPadded} Log`)}</span>
+                        <span>${isPrologue ? 'Orientation & Foundation' : (item.title ? escapeHtml(item.title) : `Week ${weekPadded}`)}</span>
                         <span class="text-xs text-accent-lavender group-hover:text-accent-lavender transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
                       </h5>
-                      <p class="text-xs text-muted font-light line-clamp-2">
-                        ${item.description ? escapeHtml(item.description.substring(0, 105) + '...') : (isPrologue ? 'Cohort induction and roadmap kickoff.' : 'Field notes and documentation in progress.')}
-                      </p>
                     </div>
 
                     <!-- Card Footer Link -->
@@ -1837,20 +1831,58 @@
 
       const statusPill = document.getElementById('modal-status-pill');
       const descBox = document.getElementById('modal-description-text');
-      if (item.description && item.description.trim().length > 0) {
-        // Render structured paragraphs with subheadings
-        const paras = item.description.split('\n\n');
-        const formatted = paras.map(p => {
+      
+      let contentHtml = '';
+      let hasAnyContent = false;
+
+      // Helper function to format paragraphs
+      const formatText = (text) => {
+        if (!text) return '';
+        return text.split('\n\n').map(p => {
           const colonIdx = p.indexOf(':');
           if (colonIdx > 0 && colonIdx < 80) {
             const heading = p.substring(0, colonIdx);
             const content = p.substring(colonIdx + 1);
-            return `<div class="space-y-0.5"><strong class="font-serif italic font-semibold text-accent-lavender text-sm block">${heading}:</strong><span class="text-muted">${content}</span></div>`;
+            return `<div class="space-y-0.5"><strong class="font-serif italic font-semibold text-accent-lavender text-sm block">${escapeHtml(heading)}:</strong><span class="text-muted">${escapeHtml(content)}</span></div>`;
           }
-          return `<p class="text-muted">${p}</p>`;
+          return `<p class="text-muted">${escapeHtml(p)}</p>`;
         }).join('');
+      };
 
-        descBox.innerHTML = formatted;
+      if (item.detailed_text && item.detailed_text.trim().length > 0) {
+        contentHtml += `<div class="mb-4">${formatText(item.detailed_text)}</div>`;
+        hasAnyContent = true;
+      }
+      if (item.activities && item.activities.trim().length > 0) {
+        contentHtml += `<div class="mb-4 pt-4 border-t hairline-border"><h4 class="text-xs font-mono uppercase tracking-widest text-accent-lavender mb-2">Key Activities</h4>${formatText(item.activities)}</div>`;
+        hasAnyContent = true;
+      }
+      if (item.learning && item.learning.trim().length > 0) {
+        contentHtml += `<div class="mb-4 pt-4 border-t hairline-border"><h4 class="text-xs font-mono uppercase tracking-widest text-accent-lavender mb-2">Learnings</h4>${formatText(item.learning)}</div>`;
+        hasAnyContent = true;
+      }
+      if (item.reflections && item.reflections.trim().length > 0) {
+        contentHtml += `<div class="mb-4 pt-4 border-t hairline-border"><h4 class="text-xs font-mono uppercase tracking-widest text-accent-lavender mb-2">Reflections</h4>${formatText(item.reflections)}</div>`;
+        hasAnyContent = true;
+      }
+      
+      // Tags and Links
+      let metaHtml = '';
+      if (item.tags && item.tags.length > 0) {
+        metaHtml += `<div class="flex flex-wrap gap-2 mb-3">` + item.tags.map(tag => `<span class="px-2 py-1 bg-surface-elevated border hairline-border text-[10px] font-mono text-muted rounded-md">${escapeHtml(tag)}</span>`).join('') + `</div>`;
+        hasAnyContent = true;
+      }
+      if (item.links && item.links.length > 0) {
+        metaHtml += `<div class="flex flex-col gap-1.5">` + item.links.map(link => `<a href="${escapeHtml(link.url)}" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-accent-lavender hover:underline flex items-center gap-1"><i data-lucide="external-link" class="w-3 h-3"></i> ${escapeHtml(link.title)}</a>`).join('') + `</div>`;
+        hasAnyContent = true;
+      }
+      
+      if (metaHtml) {
+        contentHtml += `<div class="pt-4 border-t hairline-border">${metaHtml}</div>`;
+      }
+
+      if (hasAnyContent) {
+        descBox.innerHTML = contentHtml;
         statusPill.innerText = 'Documented';
         statusPill.className = 'text-[10px] font-mono uppercase tracking-wider px-2.5 py-0.5 border border-accent-lavender text-accent-lavender bg-surface-elevated font-semibold rounded-md';
       } else {

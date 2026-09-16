@@ -114,7 +114,12 @@ function selectWeek(weekNum) {
   
   document.getElementById('editor-header').textContent = `Editing Week ${String(currentWeek.week).padStart(2, '0')}`;
   document.getElementById('edit-title').value = currentWeek.title || '';
-  document.getElementById('edit-desc').value = currentWeek.description || '';
+  document.getElementById('edit-detailed-text').value = currentWeek.detailed_text || currentWeek.description || '';
+  document.getElementById('edit-reflections').value = currentWeek.reflections || '';
+  document.getElementById('edit-activities').value = currentWeek.activities || '';
+  document.getElementById('edit-learning').value = currentWeek.learning || '';
+  document.getElementById('edit-tags').value = (currentWeek.tags || []).join(', ');
+  document.getElementById('edit-links').value = (currentWeek.links || []).map(l => l.url || l).join(', ');
   
   renderImages();
 }
@@ -186,8 +191,13 @@ document.getElementById('save-btn').addEventListener('click', async () => {
   
   // Update JSON locally
   currentWeek.title = document.getElementById('edit-title').value.trim();
-  currentWeek.description = document.getElementById('edit-desc').value.trim();
-  currentWeek.status = (currentWeek.title || currentWeek.description) ? 'documented' : 'placeholder';
+  currentWeek.detailed_text = document.getElementById('edit-detailed-text').value.trim();
+  currentWeek.reflections = document.getElementById('edit-reflections').value.trim();
+  currentWeek.activities = document.getElementById('edit-activities').value.trim();
+  currentWeek.learning = document.getElementById('edit-learning').value.trim();
+  currentWeek.tags = document.getElementById('edit-tags').value.split(',').map(s => s.trim()).filter(s => s);
+  currentWeek.links = document.getElementById('edit-links').value.split(',').map(s => s.trim()).filter(s => s).map(url => ({ url, title: url }));
+  currentWeek.status = (currentWeek.title || currentWeek.detailed_text) ? 'documented' : 'placeholder';
   
   const saveBtn = document.getElementById('save-btn');
   const saveStatus = document.getElementById('save-status');
